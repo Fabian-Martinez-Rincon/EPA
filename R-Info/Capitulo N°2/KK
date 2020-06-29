@@ -1,0 +1,36 @@
+programa uwu
+procesos
+  proceso juntarFlores
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  proceso juntarPapeles
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+  proceso Avenida
+  comenzar
+    repetir 99
+      juntarFlores
+      juntarPapeles
+      mover
+    juntarFlores
+    juntarPapeles
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 50
+      Avenida
+      Pos(PosAv+1,1)
+  fin
+variables
+  waly:robot1
+comenzar
+  AsignarArea(waly,ciudad)
+  Iniciar(waly,1,1)
+fin

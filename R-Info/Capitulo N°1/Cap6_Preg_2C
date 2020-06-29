@@ -1,0 +1,28 @@
+programa  parametros
+procesos
+  proceso cuadrado(E lado:numero)
+  comenzar
+    repetir 4
+      repetir lado
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    ancho:numero
+  comenzar
+    ancho:=1
+    repetir 5
+      cuadrado(ancho)
+      Pos(PosAv+ancho,1)
+      ancho:=ancho+1  
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

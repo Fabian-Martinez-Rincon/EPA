@@ -1,0 +1,30 @@
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+  comenzar
+    Pos(1,2)
+    x:=0
+    derecha
+    mientras(PosAv<99)
+      si(x<10)
+        mientras(HayPapelEnLaEsquina)
+          tomarPapel
+          x:=x+1
+        mover
+    si(x<10)
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        x:=x+1
+    Informar(PosAv,PosCa)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

@@ -1,0 +1,47 @@
+programa prueba
+procesos
+  proceso SumarFlores(ES flores:numero)
+  variables
+    uwu:numero
+  comenzar
+    uwu:=0
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      uwu:= uwu + 1
+      flores:=flores+1
+    repetir uwu
+      depositarFlor
+  fin
+  proceso AvenidaFlores(ES Total:numero)
+  variables
+    cuantas:numero
+  comenzar
+    repetir 99
+      cuantas:=0
+      SumarFlores(cuantas)
+      Total:=Total + cuantas
+      mover
+    SumarFlores(cuantas)
+    Total:=Total+cuantas
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    TotalFlores:numero
+  comenzar
+    Pos(1,1)
+    TotalFlores:=0
+    repetir 99
+      AvenidaFlores(TotalFlores)
+      Pos(PosAv+1,1)
+    AvenidaFlores(TotalFlores)
+    Informar(TotalFlores)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

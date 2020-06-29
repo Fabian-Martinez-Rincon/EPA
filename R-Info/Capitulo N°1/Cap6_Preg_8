@@ -1,0 +1,36 @@
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso Avenida(E Numero:numero;E pasos:numero)
+  variables
+    noventa:numero
+  comenzar
+    Pos(Numero,1)
+    noventa:=99
+    si (pasos>99)
+      pasos:=noventa
+    repetir pasos
+      mover
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    NAvenida:numero
+    CantPasos:numero
+  comenzar
+    CantPasos:=200
+    NAvenida:=4
+    Avenida(NAvenida,CantPasos)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

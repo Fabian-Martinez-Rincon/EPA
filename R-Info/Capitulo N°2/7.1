@@ -1,0 +1,34 @@
+programa parametros
+procesos
+  proceso cantidadFlores(ES cantidad:numero)
+  variables
+    cuenta:numero
+  comenzar
+    cuenta:=0
+    mientras HayFlorEnLaEsquina
+      cuenta:=cuenta + 1
+      flores:=flores + 1
+      tomarFlor
+    repetir cantidad
+      depositarFlor
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)  
+robots
+  robot robot1
+  variables
+    totalFlores:numero
+  comenzar
+    totalFlores:=0
+    repetir 99
+      cantidadFlores(totalFlores)
+      mover
+    cantidadFlores(totalFlores)
+    Informar(totalFlores)
+  fin
+variables
+  R-info:robot1
+comenzar
+  AsignarArea(R-info,ciudad)
+  Iniciar(R-info,1,1)
+fin

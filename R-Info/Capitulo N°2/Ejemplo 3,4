@@ -1,0 +1,22 @@
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    VNumero: boolean
+    BNumero: boolean
+  comenzar
+    Pos(1,1)
+    VNumero:= HayFlorEnLaEsquina
+    BNumero:=(PosCa>1)
+    repetir 10
+      mover
+    Informar(VNumero,BNumero)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

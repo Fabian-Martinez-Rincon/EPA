@@ -1,0 +1,43 @@
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso trasladar(ES flores:numero)
+  variables
+    numer:numero
+  comenzar
+    numer:=-1
+    derecha
+    flores:=0
+    repetir 99
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        flores:=flores+1
+        Pos(PosAv,PosCa+1)
+        depositarFlor
+        Pos(PosAv,PosCa+numer)
+      mover
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    hola:numero
+  comenzar
+    hola:=0
+    repetir 99
+      trasladar(hola)
+      Pos(1,PosCa+2)
+      izquierda
+    Informar(hola)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

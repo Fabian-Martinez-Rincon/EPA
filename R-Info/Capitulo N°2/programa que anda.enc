@@ -1,0 +1,71 @@
+programa uwu 
+
+procesos
+  proceso cuadrado(E lado:numero; ES papeles: numero)
+  comenzar
+    papeles:= 0
+    repetir lado
+      mover
+      mientras(HayPapelEnLaEsquina) 
+        tomarPapel
+        papeles := papeles+1
+      
+    derecha
+    
+  fin
+  proceso calle70(ES papelesGeneral: numero)
+  variables
+    encontro: boolean
+    papelesCalle70: numero
+  comenzar
+    Pos(1,70)
+    derecha
+    mientras ~(encontro) 
+      mientras(HayPapelEnLaEsquina)     
+        tomarPapel
+        papelesCalle70:=papelesCalle70+1 
+      si  (papelesCalle70 = papelesGeneral)  
+        encontro := V  
+       
+      sino 
+        mover
+        papelesCalle70 := 0
+        
+      
+      
+      
+  fin
+    
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables 
+    papeles: numero
+    papelesGeneral: numero
+    
+  comenzar
+    papeles:= 0
+    repetir 4
+      cuadrado(18,papeles)
+    Informar(papeles)
+    papelesGeneral:=papelesGeneral + papeles
+    Pos(30,30)
+    repetir 4
+      cuadrado(20,papeles)
+    Informar(papeles)
+    papelesGeneral:=papelesGeneral + papeles
+    Informar(papelesGeneral)
+    calle70(papelesGeneral)
+    
+  fin
+variables
+  rob: robot1
+comenzar
+  AsignarArea(rob,ciudad)
+  Iniciar(rob,1,1)
+
+fin
+ 
+ 
+

@@ -1,0 +1,25 @@
+programa antoja
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      repetir 99
+        mover
+        si (PosCa=100)&(PosAv=1)
+           depositarFlor
+        si(PosAv=100)&(PosCa=100)
+          depositarFlor
+        si(PosAv=100)&(PosCa=1)
+          depositarFlor
+      derecha 
+    si(PosAv=1)&(PosCa=1)
+      depositarFlor
+  fin
+variables
+  R-Info: robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin

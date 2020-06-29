@@ -1,0 +1,44 @@
+programa ochocho
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso recorrerAvenida
+  comenzar
+    repetir 99
+      mover
+    Pos(1,1)
+  fin
+  proceso recorrerCalle
+  comenzar
+    repetir 99
+      mover
+    Pos(1,1)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    avenidas: numero
+    calles: numero
+  comenzar
+    avenidas:=0
+    calles:=0
+    repetir 99
+      recorrerAvenida
+      derecha 
+      recorrerCalle 
+      avenidas:=avenidas+1
+      calles:=calles+1
+      Pos(PosAv+avenidas,PosCa+calles)
+      izquierda
+  fin
+variables
+  R-info : robot1
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info,1,1)
+fin

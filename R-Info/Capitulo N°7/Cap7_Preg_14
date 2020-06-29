@@ -1,0 +1,70 @@
+programa Cap7Pregunta14
+procesos
+  proceso HastaEncontrar10Flores(ES FLORES:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)&(FLORES<=10)
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        FLORES:=FLORES+1
+      mover
+  fin
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso CallesImpares(ES NUMFLORES:numero)
+  comenzar
+    derecha
+    repetir 49
+      NUMFLORES:=0
+      HastaEncontrar10Flores(NUMFLORES)
+      Pos(1,PosCa+2)
+  fin
+  proceso JuntarPapeles(ES PAPELES:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      PAPELES:=PAPELES+1
+  fin
+  proceso N10(ES NUMPAPELES:numero)
+  variables
+    xavenida:numero
+    On:numero
+  comenzar
+    On:=0
+    xavenida:=10
+    Pos(xavenida,1)
+    {izquierda}
+    repetir 3
+      repetir 99
+        mientras(HayPapelEnLaEsquina)
+          tomarPapel
+          NUMPAPELES:=NUMPAPELES+1
+        mover
+      On:=On+1
+      Pos(xavenida+On,1)
+    Informar(NUMPAPELES)
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    flores:numero
+    calles:numero
+    papeles:numero
+  comenzar
+    Pos(1,1)
+    flores:=0
+    calles:=10
+    CallesImpares(flores)
+    izquierda
+    N10(papeles)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin

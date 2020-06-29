@@ -1,0 +1,45 @@
+programa Cap7Preg10
+procesos
+  proceso JuntarPapeles(ES PasosPapeles:numero;ES CantFlores:numero)
+  comenzar
+    CantFlores:=0
+    mientras(HayPapelEnLaEsquina)|(HayFlorEnLaEsquina)
+      si(HayPapelEnLaEsquina)
+        tomarPapel
+        PasosPapeles:=PasosPapeles+1
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        CantFlores:=CantFlores+1
+    si(CantFlores>=25)
+      Pos(1,75)
+      derecha
+      repetir PasosPapeles
+        mover   
+  fin
+  proceso avenida
+  comenzar
+    mover  
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    NPasos:numero
+    NFlores:numero
+  comenzar
+    NFlores:=0
+    mientras(PosAv<99)&(NFlores<=25)
+      NPasos:=0
+      mientras(PosCa<99)&(NFlores<=25)
+        JuntarPapeles(NPasos,NFlores)
+        mover
+      Pos(PosAv+1,1)
+    Informar(NPasos)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin

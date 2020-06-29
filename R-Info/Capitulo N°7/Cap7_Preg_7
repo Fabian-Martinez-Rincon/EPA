@@ -1,0 +1,39 @@
+programa Cap7Preg8
+procesos
+  proceso SinModificar(ES FLORES:numero)
+  variables
+    contar:numero
+  comenzar
+    contar:=0
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      FLORES:=FLORES+1
+      contar:=contar+1
+    repetir contar
+      depositarFlor
+  fin
+  proceso avenida(ES NFLORES:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)|(HayPapelEnLaEsquina)
+      SinModificar(NFLORES)
+      mover
+    si(NFLORES>=45)
+      Informar(NFLORES)
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    flores:numero
+  comenzar
+    repetir 99
+      avenida(flores)
+      Pos(PosAv+1,1)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin

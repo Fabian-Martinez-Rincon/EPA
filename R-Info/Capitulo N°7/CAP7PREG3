@@ -1,0 +1,74 @@
+programa Cap7Pregunta3
+procesos
+  proceso ContarF(ES FLORES:numero)
+  variables
+    ContFlores:numero
+  comenzar 
+    ContFlores:=0
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      FLORES:=FLORES+1
+      ContFlores:=ContFlores+1
+    repetir ContFlores
+      depositarFlor
+  fin
+  proceso ContarP(ES PAPELES:numero)
+  variables
+    ContP:numero
+  comenzar
+    ContP:=0
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      PAPELES:=PAPELES+1
+      ContP:=ContP+1
+    repetir ContP
+      depositarPapel
+  fin
+  proceso Esquina(ES seguir:boolean)
+  variables
+    flores,papeles:numero
+  comenzar 
+    ContarF(flores)
+    ContarP(papeles)
+    si(flores>papeles)
+      DepoP(flores-papeles-1,seguir)
+    sino
+      DepoP(papeles-flores+1,seguir)
+  fin
+  proceso DepoP(E cantP:numero;E seguir:boolean)
+  variables
+    depo:numero
+  comenzar
+    depo:=0
+    mientras(depo<cantP)&(HayFlorEnLaBolsa)
+      depositarPapel
+      depo:=depo+1
+    si (depo<cantP)
+      seguir:=F
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    seguir:boolean
+    CantEsq:numero
+  comenzar
+    CantEsq:=0
+    seguir:=V
+    Esquina(seguir)
+    mientras(seguir)&(PosCa<100)
+      mover
+      CantEsq:=CantEsq+1
+      Esquina(seguir)
+    si (seguir)
+      CantEsq:=CantEsq+1
+    sino
+      Pos(9,1)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin

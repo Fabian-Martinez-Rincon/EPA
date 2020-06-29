@@ -1,0 +1,25 @@
+programa robin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      repetir 18
+        mover
+      derecha
+    Pos(30,30)
+    repetir 4
+      repetir 18
+        mover
+        tomarFlor
+        tomarPapel
+      derecha
+  fin
+variables
+  pop:robot1
+comenzar
+  AsignarArea(pop,ciudad)
+  Iniciar(pop,1,1)
+fin
+

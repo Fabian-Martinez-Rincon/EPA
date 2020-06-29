@@ -1,0 +1,35 @@
+programa  parametros
+procesos
+  proceso rectangulo(E ancho:numero; E largo:numero)
+  comenzar
+    repetir 2
+      repetir largo
+        mover
+      derecha
+      repetir ancho
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    anchx:numero
+    largx:numero
+    numer:numero
+  comenzar
+    numer:=-2
+    anchx:=5
+    largx:=1
+    repetir 3
+      rectangulo(anchx,largx)
+      Pos(PosAv+1,PosCa+2)
+      anchx:=anchx+numer 
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

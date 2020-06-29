@@ -1,0 +1,28 @@
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    flores: numero
+    papeles: numero
+  comenzar
+    flores:=0
+    papeles:=0
+    repetir 4
+      mientras~(HayFlorEnLaEsquina)&(HayPapelEnLaEsquina)
+        mover
+      si(HayFlorEnLaEsquina)&(HayPapelEnLaEsquina)
+        mientras(HayFlorEnLaEsquina)
+          flores:=flores+1
+        mientras(HayPapelEnLaEsquina)
+          papeles:=papeles+1
+        si(papeles)
+    Informar(flores,papeles)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

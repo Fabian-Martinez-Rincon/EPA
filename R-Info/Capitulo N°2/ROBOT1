@@ -1,0 +1,19 @@
+programa uwu 
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      repetir 18
+        mover
+      derecha
+  fin
+variables
+  YOROBOT: robot1
+  papelesCalle70: numero
+  encontro:boolean
+comenzar
+  AsignarArea(YOROBOT,ciudad)
+  Iniciar(YOROBOT,10,10)
+fin

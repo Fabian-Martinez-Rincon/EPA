@@ -1,0 +1,40 @@
+programa prueba
+procesos
+  proceso Rectangulo(E base:numero;E altura:numero; ES cantidad:numero)
+  comenzar
+    repetir 2
+      si HayFlorEnLaEsquina
+        cantidad:=cantidad + 1
+      repetir altura
+        mover
+      derecha
+      si HayFlorEnLaEsquina
+        cantidad:=cantidad + 1
+        repetir base
+          mover
+        derecha
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    ancho,alto,CantVertices:numero
+  comenzar
+    CantVertices:=0
+    ancho:=19
+    alto:=5
+    repetir 5
+      Rectangulo(ancho,alto,CantVertices)
+      Pos(PosAv+2, PosCa+alto)
+      ancho:=ancho - 4
+      alto:= alto - 1
+    Informar(CantVertices)
+      
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

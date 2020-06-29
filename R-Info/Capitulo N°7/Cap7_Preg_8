@@ -1,0 +1,56 @@
+programa Cap7Pregunta8
+procesos
+  proceso Exacto20Flores(ES FLORES:numero)
+  variables
+    NumFlores:numero
+  comenzar
+    NumFlores:=0
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      NumFlores:=NumFlores+1
+    repetir NumFlores
+      depositarFlor
+    si(NumFlores>=20)
+      FLORES:=FLORES+1
+  fin
+  proceso menos60Papeles(ES PAPELES:numero)
+  variables
+    NumPapeles:numero
+  comenzar
+    NumPapeles:=0
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      NumPapeles:=NumPapeles+1
+    repetir NumPapeles
+      depositarPapel
+    si(NumPapeles<60)&(NumPapeles>0)
+      PAPELES:=PAPELES+1
+  fin
+  proceso avenida (ES FLOFLORES:numero;ES PAPAPELES:numero)
+  comenzar
+    repetir 99
+      Exacto20Flores(FLOFLORES)
+      menos60Papeles(PAPAPELES)
+      mover
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    flores:numero
+    papeles:numero
+  comenzar
+    flores:=0
+    repetir 99
+      avenida(flores,papeles)
+      Pos(PosAv+1,1)
+    avenida(flores,papeles)
+    Informar(flores,papeles)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin

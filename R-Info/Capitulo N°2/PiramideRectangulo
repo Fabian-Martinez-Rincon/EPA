@@ -1,0 +1,34 @@
+programa prueba
+procesos
+  proceso rectangulo(E base:numero;E altura:numero)
+  comenzar
+    repetir 2
+      repetir altura
+        mover
+      derecha
+      repetir base
+        mover
+      derecha
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    ancho:numero
+    largo:numero
+  comenzar
+    ancho:=19
+    largo:=5
+    repetir 5
+      rectangulo(ancho,largo)
+      Pos(PosAv+2,PosCa+largo)
+      ancho:=ancho - 4
+      largo:=largo - 1
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

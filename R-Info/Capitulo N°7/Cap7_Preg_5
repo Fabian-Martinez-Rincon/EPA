@@ -1,0 +1,34 @@
+programa Capitulo7Pregunta5
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso CallesImpares(ES contar:numero)
+  comenzar
+    derecha
+    mientras(~(HayFlorEnLaEsquina))&(~(HayPapelEnLaEsquina))
+      mover
+      contar:=contar+1
+    Informar(contar)
+    Pos(1,PosCa+2)
+    izquierda
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    contador:numero
+  comenzar
+    repetir 99
+      contador:=0
+      CallesImpares(contador)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin

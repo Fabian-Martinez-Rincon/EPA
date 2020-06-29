@@ -1,0 +1,62 @@
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+  proceso A
+  comenzar
+    repetir 3
+      cuadrado
+      Pos(PosAv+3,PosCa+3)
+  fin 
+  proceso B
+  comenzar
+    repetir 2
+      cuadrado
+      Pos(1,PosCa+5)
+  fin
+  proceso rectangulo
+  comenzar
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover
+    derecha
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover 
+    derecha {Si variamos la derecha podemos rotar el ractangulo}
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    repetir 2
+      rectangulo
+      izquierda
+      Pos(PosAv+10,1)
+      rectangulo
+      derecha
+      Pos(PosAv+2,1)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

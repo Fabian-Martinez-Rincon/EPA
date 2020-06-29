@@ -1,0 +1,58 @@
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    lado1: numero
+    lado2: numero
+    lado3: numero
+    lado4: numero
+  comenzar
+    lado1:=0
+    lado2:=0
+    lado3:=0
+    lado4:=0
+    repetir 99
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado1:=lado1+1
+      mover
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      lado1:=lado1+1
+    derecha
+    repetir 99
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado2:=lado2+1
+      mover
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      lado2:=lado2+1
+    derecha
+    repetir 99
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        lado3:=lado3+1
+      mover
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      lado3:=lado3+1
+    derecha
+    repetir 99
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado4:=lado4+1
+      mover
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      lado4:=lado4+1
+    Informar(lado1,lado2,lado3,lado4)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

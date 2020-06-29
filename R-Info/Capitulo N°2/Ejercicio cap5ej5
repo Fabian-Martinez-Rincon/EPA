@@ -1,0 +1,27 @@
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    vacias:=0
+    derecha
+    repetir 4
+      repetir 4
+        mover
+      izquierda
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

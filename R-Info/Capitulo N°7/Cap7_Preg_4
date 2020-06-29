@@ -1,0 +1,68 @@
+programa cap7Pregunta4
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso CantidadEsquina(ES NPAPELES:numero;ES NFLORES:numero)
+  comenzar
+    mientras((HayPapelEnLaEsquina)|(HayFlorEnLaEsquina))
+      si(HayPapelEnLaEsquina)
+        tomarPapel
+        NPAPELES:=NPAPELES+1
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        NFLORES:=NFLORES+1
+    repetir NPAPELES
+      depositarPapel
+    repetir NFLORES
+      depositarFlor
+  fin
+  proceso SinModificar(ES Papeles:numero;ES Flores:numero)
+  variables
+    menos:numero
+  comenzar
+    menos:=-1
+    CantidadEsquina(Papeles,Flores)
+    mientras((Papeles<Flores)|(Papeles>Flores))&((HayFlorEnLaBolsa)|(HayPapelEnLaBolsa))
+      si(Papeles>Flores)
+        si(HayFlorEnLaBolsa)
+          depositarFlor
+          Flores:=Flores+1
+      si(Papeles<Flores)
+        si(HayPapelEnLaBolsa)
+          depositarPapel
+          Papeles:=Papeles+1
+  fin
+  proceso calle(ES PAPAPELES:numero;ES FLOFLORES:numero)
+  comenzar
+    derecha
+    repetir 99
+      PAPAPELES:=0
+      FLOFLORES:=0
+      SinModificar(PAPAPELES,FLOFLORES)
+      mover
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    FLORES:numero
+    PAPELES:numero
+  comenzar
+    repetir 99
+      FLORES:=0
+      PAPELES:=0
+      calle(FLORES,PAPELES)
+      Informar(PAPELES,FLORES)
+      mover
+    Informar(PAPELES,FLORES)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

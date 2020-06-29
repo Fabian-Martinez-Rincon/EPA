@@ -1,0 +1,49 @@
+programa prueba
+procesos
+  proceso SumarFloresEsquina(ES flores:numero)
+  variables
+    aux:numero
+  comenzar
+    aux:=0
+    mientras HayFlorEnLaEsquina
+      aux:=aux + 1
+      tomarFlor
+      flores:=flores + 1
+    repetir aux
+      depositarFlor
+  fin
+  proceso RecorrerCalle(ES totalFlores:numero)
+  comenzar
+    totalFlores:=0
+    repetir 99
+      SumarFloresEsquina(totalFlores)
+      mover
+    SumarFloresEsquina(totalFlores)
+  fin
+  
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    floresCalle,totalCalle50Flores:numero
+  comenzar
+    derecha
+    totalCalle50Flores:=0
+    repetir 99
+      RecorrerCalle(floresCalle)
+      si floresCalle > 50
+        totalCalle50Flores:=totalCalle50Flores + 1
+      Pos(1,PosCa +1)
+      RecorrerCalle(floresCalle)
+      si floresCalle > 50 
+        totalCalle50Flores:= totalCalle50Flores + 1
+      Informar(totalCalle50Flores)
+      
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

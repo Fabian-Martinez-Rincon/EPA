@@ -1,0 +1,21 @@
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(10,1)
+    derecha
+    mientras (PosAv<100)
+      si HayFlorEnLaBolsa
+        depositarFlor
+        mover
+      sino
+        mover
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

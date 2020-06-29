@@ -1,0 +1,52 @@
+programa  parametros
+procesos
+  proceso CONTARFLORPAPEL(ES flor:numero;ES papel:numero)
+  comenzar
+    mientras((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
+      si(HayPapelEnLaEsquina)
+        tomarPapel
+        papel:=papel+1
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        flor:=flor+1
+  fin
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso Recorrer(ES NumFlores:numero;ES NumPapeles:numero;E calle:numero)
+  variables
+    CantFlores:numero
+    num:numero
+  comenzar
+    num:=0
+    Pos(1,calle)
+    repetir 99
+      repetir 99
+        CONTARFLORPAPEL(NumFlores,NumPapeles)
+        mover
+      Pos(1,PosCa+1)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    called:numero
+    NFlores:numero
+    NPapeles:numero
+  comenzar
+    NFlores:=0
+    NPapeles:=0
+    called:=1
+    derecha
+    Recorrer(NFlores,NPapeles,called)
+    Informar(NFlores,NPapeles)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin

@@ -1,0 +1,26 @@
+programa uwu
+procesos
+  proceso contar
+  variables
+    funcionar: boolean
+  comenzar
+    funcionar:= V
+    mientras(fucionar)
+    
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    derecha
+    mover
+    contar
+  fin
+variables
+  rob: robot1
+comenzar
+  AsignarArea(rob,ciudad)
+  Iniciar(rob,1,1)
+fin
+  

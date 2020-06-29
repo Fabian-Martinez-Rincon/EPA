@@ -1,0 +1,69 @@
+programa CapPreg4
+procesos
+  proceso ContFloresPapeles(ES FLORES:numero;ES PAPELES:numero)
+  variables
+    MandarFlores,MandarPapeles:numero
+  comenzar
+    MandarFlores:=0
+    MandarPapeles:=0
+    mientras(HayFlorEnLaEsquina)|(HayPapelEnLaEsquina)
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        FLORES:=FLORES+1
+        MandarFlores:=MandarFlores+1
+      sino
+        tomarPapel
+        PAPELES:=PAPELES+1
+        MandarPapeles:=MandarPapeles+1
+      repetir MandarFlores
+        depositarFlor
+      repetir MandarPapeles
+        depositarPapel
+  fin
+  proceso Comparar(ES NUMFLORES:numero;ES NUMPAPELES:numero;ES Incompletas:numero)
+  comenzar
+    calle(NUMFLORES,NUMPAPELES,Incompletas)
+    si(NUMFLORES<NUMPAPELES)
+      repetir 99
+        si (HayFlorEnLaBolsa)
+          depositarFlor
+        sino
+          Incompletas:=Incompletas+1
+    sino
+      repetir 99
+        si(HayPapelEnLaBolsa)
+          depositarPapel
+        sino
+          Incompletas:=Incompletas+1
+  fin
+  proceso calle(ES NFlores:numero;ES NPapeles:numero;ES INCOMPLETA:numero)
+  comenzar
+    NFlores:=0
+    NPapeles:=0
+    INCOMPLETA:=0
+    repetir 99
+      ContFloresPapeles(NFlores,NPapeles)
+      mover
+    Informar(NFlores,NPapeles)
+    Informar(INCOMPLETA)
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    flores,papeles,completas:numero
+  comenzar
+    flores:=0
+    papeles:=0
+    completas:=0
+    derecha
+    Comparar(flores,papeles,completas)
+    Informar(completas)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin

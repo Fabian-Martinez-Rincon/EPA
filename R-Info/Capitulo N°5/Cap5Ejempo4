@@ -1,0 +1,53 @@
+programa Cap5Ejemplo4 {Que recorra las primeras 50 avenidas, juntando flores de las avenidas Pares}
+procesos                  {Y papeles de las Inpares}
+  proceso JUNTARFLORES
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  proceso JUNTARPAPELES
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+  proceso DEPOSITARFLORES
+  comenzar
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+  fin
+  proceso DEPOSITARPAPELES
+  comenzar
+    mientras(HayPapelEnLaBolsa)
+      depositarPapel
+  fin
+  proceso AVENIDAPAR
+  comenzar
+    repetir 99
+      JUNTARPAPELES
+      mover
+    DEPOSITARPAPELES
+  fin
+  proceso AVENIDAINPAR
+  comenzar
+    repetir 99
+      JUNTARFLORES
+      mover
+    DEPOSITARFLORES
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 25
+      AVENIDAINPAR
+      Pos(PosAv+1,1)
+      AVENIDAPAR
+      Pos(PosAv+1,1)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
