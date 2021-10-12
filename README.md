@@ -1,5 +1,5 @@
 # Visual-DaVinci
-Entry course programs ._.
+
 
 ```Ruby
 programa Cap7Pregunta9
