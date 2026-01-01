@@ -21,11 +21,7 @@
 ## Capitulo 0 | Introducción
 
 <details><summary>¿Qué voy a aprender al leer este material?</summary></details>
-
-
 <details><summary>¿Cómo tengo que estudiar con este material?</summary></details>
-
-
 <details><summary>¿Qué otros recursos facilitarán la lectura de este material?</summary></details>
 
 
