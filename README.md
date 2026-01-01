@@ -38,8 +38,14 @@ Asimismo, **cada Capítulo** **se divide en Temas** que permiten administrar mej
 - Cada Capítulo tiene como objetivo la introducción de temas específicos y están acompañados con actividades de lectura, análisis, comprensión y ejercitación.
 - En los contenidos desarrollados encontrarás **toda** la información necesaria para alcanzar dichos objetivos.
 - Cada uno de los Capítulos/Temas tratados llevan asociados uno ó más ejercicios resueltos que te permitirán analizarlos con más detalle y de una forma guiada para la mejor comprensión del tema.
-- Al final de cada Capítulo encontrarás la ejercitación. Consiste de un conjunto de preguntas o planteo de problemas a los que deberás responder de acuerdo a la información estudiada. Es importante que resuelvas esta ejercitación.
+- Al final de cada Capítulo encontrarás la **ejercitación**. Consiste de un conjunto de preguntas o planteo de problemas a los que deberás responder de acuerdo a la información estudiada. Es importante que resuelvas esta ejercitación.
 - Este material utilizará una iconografía particular para destacar las secciones importantes del contenido, por ejemplo, distinguiendo las definiciones, los recordatorios, el momento de reflexión, la ejercitación, las evaluaciones, etc.
+
+Si bien contarás con todo el material necesario y las actividades propuestas hay otros aspectos a tener en cuenta. Estos aspectos se basan principalmente en tu **responsabilidad**.
+
+Es sabido que un proceso de aprendizaje es básicamente un **compromiso** que el alumno asume consigo mismo.
+
+Tené en cuenta que la dedicación puesta, la administración conveniente de los tiempos, la lectura cuidadosa, el espacio de consultas con el docente, el repaso toda vez que lo consideres necesario, colaborarán para que el resultado de este curso resulte exitoso
 
 </details>
 
