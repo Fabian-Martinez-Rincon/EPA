@@ -1,10 +1,3 @@
-<div align="center">
-
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Nomadiix/EPA)
-[![GitHub stars](https://img.shields.io/github/stars/Nomadiix/EPA)](https://github.com/FabianMartinez1234567/EPA/stargazers/)
-[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Nomadiix/EPA)](https://github.com/Nomadiix/EPA)
- </div>
-
 <h1 align="center"> 💻EPA  </h1>
 
 > [!IMPORTANT]  
@@ -14,6 +7,7 @@
 
 ### Indice
 
+- [Capitulo N°0 | Introducción](#capitulo-0--introducción)
 - [Capitulo N°1]()
 - [Capitulo N°2]()
 - [Capitulo N°3]()
@@ -22,9 +16,17 @@
 - [Capitulo N°6]()
 - [Capitulo N°7]()
 
-<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> 
+---
 
-## Capitulo 1
+## Capitulo 0 | Introducción
+
+<details><summary>¿Qué voy a aprender al leer este material?</summary></details>
 
 
+<details><summary>¿Cómo tengo que estudiar con este material?</summary></details>
 
+
+<details><summary>¿Qué otros recursos facilitarán la lectura de este material?</summary></details>
+
+
+---
