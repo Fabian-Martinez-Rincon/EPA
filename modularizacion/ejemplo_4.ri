@@ -1,0 +1,26 @@
+programa ejemplo_modularidad
+procesos
+  proceso juntar_mover
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+    repetir 10
+      mover
+    derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      juntar_mover
+    
+  fin
+
+variables
+  R-info:robot1
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin

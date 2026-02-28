@@ -1,0 +1,45 @@
+{Programe al robot para que recorra la calle 10 e informe la cantidad 
+total de esquinas que contienen exactamente 4 papeles.}
+
+programa Cap7Ejemplo4
+
+procesos
+  proceso ContarPapeles (ES papeles: numero)
+  comenzar
+    papeles := 0
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles := papeles + 1
+    repetir papeles
+      depositarPapel
+  fin
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    totalEsquina4Papeles, papelesEsquina: numero
+  comenzar
+    Pos(1,10)
+    derecha
+    totalEsquina4Papeles := 0
+    repetir 99
+      ContarPapeles(papelesEsquina)
+      si (papelesEsquina = 4)
+        totalEsquina4Papeles := totalEsquina4Papeles + 1
+      mover
+    {Falta esquina 100,10}
+    si papelesEsquina = 4
+      totalEsquina4Papeles := totalEsquina4Papeles + 1
+    Informar(totalEsquina4Papeles)
+  fin
+
+variables
+  R-info: robot1
+
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin

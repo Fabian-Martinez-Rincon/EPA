@@ -1,0 +1,57 @@
+{ Programe al robot para que recorra todas las avenidas de la ciudad e 
+informe la cantidad total de flores encontradas.}
+
+programa Cap7Ejemplo2
+
+procesos
+  proceso SumarFloresEsquina (ES flores: numero)
+  variables
+    aux: numero
+  comenzar
+    aux := 0
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      aux := aux + 1
+      flores := flores + 1
+    repetir aux
+      depositarFlor
+  fin
+
+  proceso AvenidaConFlores (ES Total: numero)
+  variables
+    cuantas: numero
+  comenzar
+    repetir 9
+      cuantas := 0
+      SumarFloresEsquina(cuantas)
+      Total := Total + cuantas
+      mover
+    {Esquina de la calle 100}
+    cuantas := 0
+    SumarFloresEsquina(cuantas)
+    Total := Total + cuantas
+  fin
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    totalFlores: numero
+  comenzar
+    totalFlores := 0
+    repetir 9
+      AvenidaConFlores(totalFlores)
+      Pos(PosAv + 1, 1)
+    AvenidaConFlores(totalFlores)
+    Informar(totalFlores)
+  fin
+
+variables
+  R-info: robot1
+
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin

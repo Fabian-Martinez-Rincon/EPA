@@ -1,0 +1,35 @@
+programa Cap6Ejemplo3
+
+procesos
+  proceso cuadrado (E lado: numero)
+  comenzar
+    {el lado tiene tantas cuadras como indica largo}
+    repetir 4
+      repetir lado
+        mover
+      derecha
+  fin
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    largo: numero
+  comenzar
+    {valor inicial, el primer cuadrado es de uno}
+    largo := 1
+    repetir 4
+      cuadrado(largo)
+      {se incrementa el valor que indica el largo del lado}
+      largo := largo + 1
+  fin
+
+variables
+  R-info: robot1
+
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin

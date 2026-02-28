@@ -1,0 +1,48 @@
+{Modifique la implementación del ejemplo 6.4 para que el robot 
+informe al finalizar su recorrido, la cantidad total de vértices que tienen flores (al menos 
+una).}
+
+programa Cap7Ejemplo3
+
+procesos
+  proceso Rectangulo (E base: numero; E altura: numero; ES cantidad: numero)
+  comenzar
+    repetir 2
+      si HayFlorEnLaEsquina
+        cantidad := cantidad + 1
+      repetir altura
+        mover
+      derecha
+      si HayFlorEnLaEsquina
+        cantidad := cantidad + 1
+      repetir base
+        mover
+      derecha
+  fin
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    ancho, alto, cantVertices: numero
+  comenzar
+    cantVertices := 0
+    ancho := 19
+    alto := 5
+    repetir 5
+      Rectangulo(ancho, alto, cantVertices)
+      Pos(PosAv + 2, PosCa + alto)
+      ancho := ancho - 4
+      alto := alto - 1
+    Informar(cantVertices)
+  fin
+
+variables
+  R-info: robot1
+
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin
