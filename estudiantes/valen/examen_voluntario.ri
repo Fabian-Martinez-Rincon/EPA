@@ -1,0 +1,79 @@
+{EPA 2026 – EXAMEN VOLUNTARIO 02/02/26
+
+Realice un programa que permita al robot recorrer todas las calles impares de la ciudad. En cada calle impar, se deberá avanzar hasta encontrar 3 esquinas que contengan más de 15 flores y exactamente 5 papeles. Al finalizar el recorrido completo, se deberá informar la cantidad total de esquinas vacías encontradas durante todo el trayecto.
+
+Modularice la solución.}
+
+programa EjercicioExamen
+
+procesos
+
+  proceso ContarSinMod (ES f: numero; ES p: numero)
+  comenzar
+    f := 0
+    p := 0
+
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      f := f + 1
+    repetir f
+      depositarFlor
+
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      p := p + 1
+  fin
+
+  proceso RecorrerCalle (ES VaciarCalle: numero)
+  variables
+    f, p, especiales: numero
+  comenzar
+    especiales := 0
+
+    mientras (especiales < 3)
+      ContarSinMod(f, p)
+
+      si (f = 0)
+        si (p = 0)
+          VaciarCalle := VaciarCalle + 1
+
+      si (f > 15)
+        si (p = 5)
+          especiales := especiales + 1
+
+      mover
+  fin
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    contEsqVacias: numero
+    avActual: numero
+    calleActual: numero
+    esquinas_vacias: numero
+    esquinas_cumplen:numero
+  comenzar
+    avActual :=PosAv
+    calleActual := PosCa
+    derecha
+    {Informar(calleActual)}
+    
+    repetir 49
+      repetir 99
+        mover
+        
+      calleActual := calleActual + 2
+      Pos(avActual, calleActual)
+      
+  fin
+
+variables
+  R-info: robot1
+
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin
