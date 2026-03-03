@@ -5,6 +5,7 @@
 
 ---
 
+- [Resumen de EPA VIDEO](https://www.youtube.com/watch?v=fDYjor2P-YQ)
 - [Ejercicios adicionales](/documentos/adicionales.md)
 
 ---
