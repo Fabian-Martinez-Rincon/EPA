@@ -16,7 +16,7 @@ robots
       mover
     derecha
     mientras HayFlorEnLaEsquina
-      tomarFlor
+    tomarFlor
     repetir 10
       mover
     derecha

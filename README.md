@@ -5,6 +5,10 @@
 
 ---
 
+- [Ejercicios adicionales](/documentos/adicionales.md)
+
+---
+
 ## Paso 1 Descargar el R-Info
 
 ![alt text](/imagenes/image.png)

@@ -8,18 +8,15 @@ procesos
         mover
       derecha
   fin
-
 areas
   ciudad: AreaC(1,1,100,100)
-
 robots
   robot robot1
-  variables
-    aux: numero
   comenzar
-    aux := 1
-    repetir 4
-      cuadrado(aux+1)
+    cuadrado(1)
+    cuadrado(2)
+    cuadrado(3)
+    cuadrado(4)
   fin
 
 variables
