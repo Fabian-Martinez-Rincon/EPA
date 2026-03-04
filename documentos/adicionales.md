@@ -10,6 +10,68 @@ Además, mientras recorre cada avenida, debe **informar si la misma tuvo a lo su
 
 **Nota:** Se debe usar **Modularización**.
 
+<details><summary>Codigo</summary>
+
+```
+programa Cap7Ejercicio1
+
+procesos
+  {Devuelve en totalFlores la cantidad de flores encontradas hasta esa esquina vacía.}
+  proceso RecorrerAvenidaHastaVacia (ES totalFlores: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina | HayPapelEnLaEsquina)
+      mientras HayFlorEnLaEsquina
+        tomarFlor
+        totalFlores := totalFlores + 1
+      mover
+  fin
+
+  {Informa 1 si la avenida tuvo a lo sumo 45 flores, sino informa 0}
+  proceso InformarAvenida (E floresAvenida: numero)
+  comenzar
+    si (floresAvenida <= 45)
+      Informar(1)
+    sino
+      Informar(0)
+  fin
+
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    floresAvenida: numero
+  comenzar
+    {Arranca mirando hacia el norte (de calle 1 hacia 100)}
+    
+    {Avenidas 1 a 99}
+    repetir 9
+      floresAvenida := 0
+      RecorrerAvenidaHastaVacia(floresAvenida)
+      InformarAvenida(floresAvenida)
+      Pos(PosAv + 1, 1)
+
+    {Avenida 100}
+    RecorrerAvenidaHastaVacia(floresAvenida)
+    InformarAvenida(floresAvenida)
+  fin
+
+variables
+  R-info: robot1
+
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin
+```
+</details>
+
+### Resultado
+
+![](../actividad_adicional/ejercicio1.gif)
+
 ---
 
 ## 2️⃣ Ejercicio
@@ -23,6 +85,8 @@ Al finalizar el recorrido debe informar:
 
 **Nota:**  
 Se debe usar **Modularización** y **no modificar la cantidad de papeles ni flores de las esquinas**.
+
+
 
 ---
 
