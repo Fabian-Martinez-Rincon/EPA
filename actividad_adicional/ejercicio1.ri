@@ -34,7 +34,7 @@ robots
   variables
     floresAvenida: numero
   comenzar
-    repetir 9
+    repetir 99
       floresAvenida := 0
       RecorrerAvenidaHastaVacia(floresAvenida)
       InformarAvenida(floresAvenida)
