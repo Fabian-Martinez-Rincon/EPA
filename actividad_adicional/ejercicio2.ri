@@ -1,0 +1,104 @@
+{Recorrer todas las avenidas.
+Al finalizar informar:
+1) Cantidad de esquinas con exactamente 20 flores.
+2) Cantidad de avenidas con menos de 60 papeles.
+Nota: Modularizar y NO modificar flores/papeles de las esquinas.}
+
+programa EjAdic2
+
+procesos
+
+  {Cuenta flores de la esquina SIN modificar (toma y repone)}
+  proceso ContarFloresEsquina (ES flores: numero)
+  variables
+    aux: numero
+  comenzar
+    aux := 0
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      aux := aux + 1
+    repetir aux
+      depositarFlor
+    flores := flores + aux
+  fin
+
+  {Cuenta papeles de la esquina SIN modificar (toma y repone)}
+  proceso ContarPapelesEsquina (ES papeles: numero)
+  variables
+    aux: numero
+  comenzar
+    aux := 0
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      aux := aux + 1
+    repetir aux
+      depositarPapel
+    papeles := papeles + aux
+  fin
+
+  {Procesa una avenida completa (desde calle 1 hasta 100)
+   - suma esquinas con 20 flores al contador global
+   - calcula papeles totales de la avenida y si <60 suma 1 a avenidasMenos60}
+  proceso ProcesarAvenida (ES esquinas20: numero; ES avenidasMenos60: numero)
+  variables
+    papelesAvenida, floresEsq, papelesEsq: numero
+  comenzar
+    papelesAvenida := 0
+
+    repetir 99
+      floresEsq := 0
+      ContarFloresEsquina(floresEsq)
+      si (floresEsq = 20)
+        esquinas20 := esquinas20 + 1
+
+      papelesEsq := 0
+      ContarPapelesEsquina(papelesEsq)
+      papelesAvenida := papelesAvenida + papelesEsq
+
+      mover
+
+    {Esquina de la calle 100 (la última, sin mover)}
+    floresEsq := 0
+    ContarFloresEsquina(floresEsq)
+    si (floresEsq = 20)
+      esquinas20 := esquinas20 + 1
+
+    papelesEsq := 0
+    ContarPapelesEsquina(papelesEsq)
+    papelesAvenida := papelesAvenida + papelesEsq
+
+    si (papelesAvenida < 60)
+      avenidasMenos60 := avenidasMenos60 + 1
+  fin
+
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    totalEsquinas20, totalAvenidasMenos60: numero
+  comenzar
+    totalEsquinas20 := 0
+    totalAvenidasMenos60 := 0
+
+    {Avenidas 1 a 99}
+    repetir 9
+      ProcesarAvenida(totalEsquinas20, totalAvenidasMenos60)
+      Pos(PosAv + 1, 1)
+
+    {Avenida 100}
+    ProcesarAvenida(totalEsquinas20, totalAvenidasMenos60)
+
+    Informar(totalEsquinas20)
+    Informar(totalAvenidasMenos60)
+  fin
+
+variables
+  R-info: robot1
+
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin

@@ -1,0 +1,77 @@
+{Ejercicio 3:
+Comenzando en (1,1), juntar todas las flores y papeles de cada esquina
+siguiendo el recorrido de la figura (tramos horizontales que vuelven a Av. 1).
+Al finalizar informar:
+- total de flores en la bolsa
+- total de papeles en la bolsa
+Nota: usar Modularización.}
+
+programa EjAdic3
+
+procesos
+
+  {Junta TODO lo de la esquina y acumula en contadores}
+  proceso JuntarEsquina (ES totalF: numero; ES totalP: numero)
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      totalF := totalF + 1
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      totalP := totalP + 1
+  fin
+
+  proceso Izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso RecorrerFila (E pasos: numero; ES totalF: numero; ES totalP: numero)
+  comenzar
+    JuntarEsquina(totalF, totalP)
+
+    repetir pasos
+      mover
+      JuntarEsquina(totalF, totalP)
+
+    Izquierda
+    mover
+    JuntarEsquina(totalF, totalP)
+    Izquierda
+    repetir pasos
+      mover
+      JuntarEsquina(totalF, totalP)
+    Izquierda
+    JuntarEsquina(totalF, totalP)
+    mover
+    Izquierda
+  fin
+
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    totalFlores, totalPapeles: numero
+    pasos: numero
+  comenzar
+    totalFlores := 0
+    totalPapeles := 0
+  
+    pasos := 18
+    derecha
+    repetir 9
+      RecorrerFila(pasos, totalFlores, totalPapeles)
+      pasos := pasos - 2
+      Pos(1, PosCa+ 2)
+  fin
+
+variables
+  R-info: robot1
+
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info, 1, 1)
+fin

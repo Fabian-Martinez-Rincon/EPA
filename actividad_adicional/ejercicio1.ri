@@ -8,8 +8,7 @@ Nota: Se debe usar Modularización.
 programa Cap7Ejercicio1
 
 procesos
-  {Devuelve en totalFlores la cantidad de flores encontradas hasta esa esquina vacía.}
-  proceso RecorrerAvenidaHastaVacia (ES totalFlores: numero)
+  proceso RecorrerAvenidaHastaVacia(ES totalFlores: numero)
   comenzar
     mientras (HayFlorEnLaEsquina | HayPapelEnLaEsquina)
       mientras HayFlorEnLaEsquina
@@ -18,7 +17,6 @@ procesos
       mover
   fin
 
-  {Informa 1 si la avenida tuvo a lo sumo 45 flores, sino informa 0}
   proceso InformarAvenida (E floresAvenida: numero)
   comenzar
     si (floresAvenida <= 45)
@@ -36,16 +34,12 @@ robots
   variables
     floresAvenida: numero
   comenzar
-    {Arranca mirando hacia el norte (de calle 1 hacia 100)}
-    
-    {Avenidas 1 a 99}
     repetir 9
       floresAvenida := 0
       RecorrerAvenidaHastaVacia(floresAvenida)
       InformarAvenida(floresAvenida)
       Pos(PosAv + 1, 1)
 
-    {Avenida 100}
     RecorrerAvenidaHastaVacia(floresAvenida)
     InformarAvenida(floresAvenida)
   fin
