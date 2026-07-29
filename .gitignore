@@ -1,0 +1,17 @@
+# Compilados
+*.class
+*.exe
+*.o
+
+# Entornos / IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+tempCodeRunnerFile.*
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
