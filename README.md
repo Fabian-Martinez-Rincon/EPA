@@ -4,25 +4,25 @@ Material de estudio, ejercicios y soluciones en R-info para el curso de ingreso 
 
 ## Empezar a estudiar
 
-La forma más simple de recorrer el repositorio es leer cada capítulo en Markdown y, al llegar a la ejercitación, abrir las soluciones enlazadas al final del mismo documento.
+La forma más simple de recorrer el repositorio es leer cada unidad en `conocimiento/` y, al llegar a la ejercitación, abrir las soluciones enlazadas al final del mismo documento.
 
 | Orden | Tema | Lectura | PDF original | Soluciones |
 |---:|---|---|---|---|
-| 0 | Introducción al curso | [Capítulo 0](<material/markdown/Capitulo 0-Introduccion.md>) | [PDF](<material/pdf/Capitulo 0-Introduccion.pdf>) | - |
-| 1 | Resolución de problemas | [Capítulo 1](<material/markdown/Capitulo 1-Resolucion de problemas.md>) | [PDF](<material/pdf/Capitulo 1-Resolucion de problemas.pdf>) | Ejercicios conceptuales |
-| 2 | Algoritmos, lógica y R-info | [Capítulo 2](<material/markdown/Capitulo 2-Algoritmos y Logica.md>) | [PDF](<material/pdf/Capitulo 2-Algoritmos y Logica.pdf>) | [Capítulo 2](soluciones/por-capitulo/capitulo-02) |
-| 3 | Datos y variables | [Capítulo 3](<material/markdown/Capitulo 3-Datos.md>) | [PDF](<material/pdf/Capitulo 3-Datos.pdf>) | [Capítulo 3](soluciones/por-capitulo/capitulo-03) |
-| 4 | Repaso integrador | [Capítulo 4](<material/markdown/Capitulo 4-Repaso.md>) | [PDF](<material/pdf/Capitulo 4-Repaso.pdf>) | [Capítulo 4](soluciones/por-capitulo/capitulo-04) |
-| 5 | Programación estructurada | [Capítulo 5](<material/markdown/Capitulo 5-Programacion Estructurada.md>) | [PDF](<material/pdf/Capitulo 5-Programacion Estructurada.pdf>) | [Capítulo 5](soluciones/por-capitulo/capitulo-05) |
-| 6 | Parámetros de entrada | [Capítulo 6](<material/markdown/Capitulo 6-Parametros de Entrada.md>) | [PDF](<material/pdf/Capitulo 6-Parametros de Entrada.pdf>) | [Capítulo 6](soluciones/por-capitulo/capitulo-06) |
-| 7 | Parámetros de entrada/salida | [Capítulo 7](<material/markdown/Capitulo 7-Parametros de Entrada-Salida.md>) | [PDF](<material/pdf/Capitulo 7-Parametros de Entrada-Salida.pdf>) | [Capítulo 7](soluciones/por-capitulo/capitulo-07) |
-| 8 | Práctica adicional | [Ejercicios adicionales](<material/markdown/Ejercicios Adicionales.md>) | [PDF](<material/pdf/Ejercicios Adicionales.pdf>) | [Actividad adicional](actividades/adicionales) |
+| 0 | Introducción al curso | [Unidad 0](<conocimiento/unidad-00-introduccion/capitulo-0-introduccion.md>) | [PDF](<conocimiento/unidad-00-introduccion/fuentes/Capitulo 0-Introduccion.pdf>) | - |
+| 1 | Resolución de problemas | [Unidad 1](<conocimiento/unidad-01-resolucion-de-problemas/capitulo-1-resolucion-de-problemas.md>) | [PDF](<conocimiento/unidad-01-resolucion-de-problemas/fuentes/Capitulo 1-Resolucion de problemas.pdf>) | Ejercicios conceptuales |
+| 2 | Algoritmos, lógica y R-info | [Unidad 2](<conocimiento/unidad-02-algoritmos-y-logica/capitulo-2-algoritmos-y-logica.md>) | [PDF](<conocimiento/unidad-02-algoritmos-y-logica/fuentes/Capitulo 2-Algoritmos y Logica.pdf>) | [Unidad 2](conocimiento/unidad-02-algoritmos-y-logica/codigo/soluciones/capitulo-02/) |
+| 3 | Datos y variables | [Unidad 3](<conocimiento/unidad-03-datos/capitulo-3-datos.md>) | [PDF](<conocimiento/unidad-03-datos/fuentes/Capitulo 3-Datos.pdf>) | [Unidad 3](conocimiento/unidad-03-datos/codigo/soluciones/capitulo-03/) |
+| 4 | Repaso integrador | [Unidad 4](<conocimiento/unidad-04-repaso/capitulo-4-repaso.md>) | [PDF](<conocimiento/unidad-04-repaso/fuentes/Capitulo 4-Repaso.pdf>) | [Unidad 4](conocimiento/unidad-04-repaso/codigo/soluciones/capitulo-04/) |
+| 5 | Programación estructurada | [Unidad 5](<conocimiento/unidad-05-programacion-estructurada/capitulo-5-programacion-estructurada.md>) | [PDF](<conocimiento/unidad-05-programacion-estructurada/fuentes/Capitulo 5-Programacion Estructurada.pdf>) | [Unidad 5](conocimiento/unidad-05-programacion-estructurada/codigo/soluciones/capitulo-05/) |
+| 6 | Parámetros de entrada | [Unidad 6](<conocimiento/unidad-06-parametros-de-entrada/capitulo-6-parametros-de-entrada.md>) | [PDF](<conocimiento/unidad-06-parametros-de-entrada/fuentes/Capitulo 6-Parametros de Entrada.pdf>) | [Unidad 6](conocimiento/unidad-06-parametros-de-entrada/codigo/soluciones/capitulo-06/) |
+| 7 | Parámetros de entrada/salida | [Unidad 7](<conocimiento/unidad-07-parametros-de-entrada-salida/capitulo-7-parametros-de-entrada-salida.md>) | [PDF](<conocimiento/unidad-07-parametros-de-entrada-salida/fuentes/Capitulo 7-Parametros de Entrada-Salida.pdf>) | [Unidad 7](conocimiento/unidad-07-parametros-de-entrada-salida/codigo/soluciones/capitulo-07/) |
+| 8 | Práctica adicional | [Ejercicios adicionales](<conocimiento/unidad-08-practica-adicional/ejercicios-adicionales.md>) | [PDF](<conocimiento/unidad-08-practica-adicional/fuentes/Ejercicios Adicionales.pdf>) | [Práctica guiada](conocimiento/unidad-08-practica-adicional/practica-guiada.md) |
 
-También podés entrar desde el [índice completo del material](material/markdown/README.md), que reúne todos los capítulos y sus PDF.
+También podés entrar desde el [índice completo de conocimiento](conocimiento/README.md), que reúne todas las unidades y sus PDF, o desde el [índice general para IA](conocimiento/INDICE_GENERAL.md) y el [glosario de términos](conocimiento/GLOSARIO.md).
 
 ## Método de estudio recomendado
 
-1. Leé el capítulo en Markdown y observá las figuras originales.
+1. Leé la unidad en Markdown y observá las figuras originales.
 2. Intentá resolver la ejercitación sin consultar el código.
 3. Compará tu propuesta con las soluciones enlazadas al final del capítulo.
 4. Abrí el archivo en R-info, compilalo y probalo con distintas configuraciones de ciudad.
@@ -34,19 +34,18 @@ Las soluciones representan alternativas de resolución; no necesariamente son la
 
 ```text
 EPA/
-├── material/
-│   ├── markdown/                 Libro convertido, imágenes e índice
-│   └── pdf/                      Documentos originales
-├── soluciones/
-│   ├── por-capitulo/             Ejercicios resueltos de los capítulos 2 a 7
-│   └── archivo-historico/        Copias antiguas conservadas como referencia
-├── ejemplos/
-│   ├── modularizacion/
-│   ├── parametros-entrada/
-│   └── parametros-entrada-salida/
-├── actividades/adicionales/      Enunciados, animaciones y soluciones extra
-├── entregas/estudiantes/         Trabajos de estudiantes
-├── assets/                       Imágenes generales del repositorio
+├── prompt-organizacion/          Instrucciones para mantener esta base de conocimiento
+├── conocimiento/                 Base de conocimiento educativa (capa principal)
+│   ├── README.md, INDICE_GENERAL.md, GLOSARIO.md
+│   └── unidad-00-introduccion/ … unidad-08-practica-adicional/
+│       ├── <capitulo>.md         Teoría convertida + ejercitación
+│       ├── fuentes/              PDF original de esa unidad
+│       ├── recursos/             Imágenes propias de esa unidad
+│       └── codigo/
+│           ├── ejemplos/         Programas breves por concepto
+│           └── soluciones/       Ejercicios resueltos
+├── Estudiantes/                  Trabajos de estudiantes (exámenes voluntarios)
+├── Recursos/                     Imágenes generales del repositorio (no ligadas a una unidad)
 ├── herramientas/                 Ejecutable de R-info
 └── LICENSE
 ```
@@ -65,12 +64,11 @@ Los archivos `.ri` y varios archivos históricos sin extensión contienen códig
 
 ## Recursos complementarios
 
-- [Ejemplos temáticos](ejemplos/README.md)
-- [Índice de soluciones](soluciones/README.md)
-- [Actividad adicional](actividades/adicionales/README.md)
+- [Base de conocimiento completa](conocimiento/README.md)
 - [Resumen de EPA en video](https://www.youtube.com/watch?v=fDYjor2P-YQ)
-- [Exámenes voluntarios](entregas/estudiantes)
+- [Exámenes voluntarios](Estudiantes/)
+- [Instrucciones de organización del repositorio](prompt-organizacion/)
 
 ## Nota sobre el material histórico
 
-Algunos archivos conservan nombres originales poco descriptivos porque forman parte del historial del repositorio. Están agrupados por capítulo para que no interfieran con el recorrido principal. La copia antigua de soluciones del capítulo 6 está separada en `soluciones/archivo-historico/duplicado-capitulo-06`.
+Algunos archivos conservan nombres originales poco descriptivos porque forman parte del historial del repositorio. Están agrupados por unidad, dentro de `codigo/soluciones/` de cada una, para que no interfieran con el recorrido principal. La copia antigua de soluciones del capítulo 6 está separada en [conocimiento/unidad-06-parametros-de-entrada/codigo/archivo-historico/duplicado-capitulo-06](conocimiento/unidad-06-parametros-de-entrada/codigo/archivo-historico/duplicado-capitulo-06/).

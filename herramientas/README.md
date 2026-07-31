@@ -10,4 +10,4 @@ Necesita una instalación de Java compatible. Luego puede abrirse el `.jar` desd
 java -jar r-info-2.9.jar
 ```
 
-Las capturas de instalación se conservan en [assets/imagenes-generales](../assets/imagenes-generales).
+Las capturas de instalación se conservan en [Recursos/imagenes-generales](../Recursos/imagenes-generales).
