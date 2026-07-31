@@ -70,7 +70,7 @@ fin
 
 ### Resultado
 
-![](../actividad_adicional/ejercicio1.gif)
+![Animación del ejercicio 1](assets/ejercicio-01.gif)
 
 ---
 
@@ -104,4 +104,4 @@ Al finalizar el recorrido debe informar:
 
 **Nota:** Se debe usar **Modularización**.
 
-![alt text](image.png)
+![Enunciado de actividad adicional](assets/enunciado.png)
