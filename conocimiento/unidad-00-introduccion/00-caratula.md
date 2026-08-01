@@ -152,13 +152,13 @@ Ante cualquier consulta enviá un mail a: **ingreso@info.unlp.edu.ar**
 
 | Archivo original (PDF) | Archivo Markdown |
 |---|---|
-| [00-Caratula.pdf](../pdf/00-Caratula.pdf) | `00-Caratula.md` (este archivo) |
-| [Capitulo 0-Introduccion.pdf](<../pdf/Capitulo 0-Introduccion.pdf>) | [Capitulo 0-Introduccion.md](<Capitulo 0-Introduccion.md>) |
-| [Capitulo 1-Resolucion de problemas.pdf](<../pdf/Capitulo 1-Resolucion de problemas.pdf>) | [Capitulo 1-Resolucion de problemas.md](<Capitulo 1-Resolucion de problemas.md>) |
-| [Capitulo 2-Algoritmos y Logica.pdf](<../pdf/Capitulo 2-Algoritmos y Logica.pdf>) | [Capitulo 2-Algoritmos y Logica.md](<Capitulo 2-Algoritmos y Logica.md>) |
-| [Capitulo 3-Datos.pdf](<../pdf/Capitulo 3-Datos.pdf>) | [Capitulo 3-Datos.md](<Capitulo 3-Datos.md>) |
-| [Capitulo 4-Repaso.pdf](<../pdf/Capitulo 4-Repaso.pdf>) | [Capitulo 4-Repaso.md](<Capitulo 4-Repaso.md>) |
-| [Capitulo 5-Programacion Estructurada.pdf](<../pdf/Capitulo 5-Programacion Estructurada.pdf>) | [Capitulo 5-Programacion Estructurada.md](<Capitulo 5-Programacion Estructurada.md>) |
-| [Capitulo 6-Parametros de Entrada.pdf](<../pdf/Capitulo 6-Parametros de Entrada.pdf>) | [Capitulo 6-Parametros de Entrada.md](<Capitulo 6-Parametros de Entrada.md>) |
-| [Capitulo 7-Parametros de Entrada-Salida.pdf](<../pdf/Capitulo 7-Parametros de Entrada-Salida.pdf>) | [Capitulo 7-Parametros de Entrada-Salida.md](<Capitulo 7-Parametros de Entrada-Salida.md>) |
-| [Ejercicios Adicionales.pdf](<../pdf/Ejercicios Adicionales.pdf>) | [Ejercicios Adicionales.md](<Ejercicios Adicionales.md>) |
+| [00-Caratula.pdf](fuentes/00-Caratula.pdf) | `00-caratula.md` (este archivo) |
+| [Capitulo 0-Introduccion.pdf](<fuentes/Capitulo 0-Introduccion.pdf>) | [capitulo-0-introduccion.md](capitulo-0-introduccion.md) |
+| [Capitulo 1-Resolucion de problemas.pdf](<../unidad-01-resolucion-de-problemas/fuentes/Capitulo 1-Resolucion de problemas.pdf>) | [capitulo-1-resolucion-de-problemas.md](<../unidad-01-resolucion-de-problemas/capitulo-1-resolucion-de-problemas.md>) |
+| [Capitulo 2-Algoritmos y Logica.pdf](<../unidad-02-algoritmos-y-logica/fuentes/Capitulo 2-Algoritmos y Logica.pdf>) | [capitulo-2-algoritmos-y-logica.md](<../unidad-02-algoritmos-y-logica/capitulo-2-algoritmos-y-logica.md>) |
+| [Capitulo 3-Datos.pdf](<../unidad-03-datos/fuentes/Capitulo 3-Datos.pdf>) | [capitulo-3-datos.md](../unidad-03-datos/capitulo-3-datos.md) |
+| [Capitulo 4-Repaso.pdf](<../unidad-04-repaso/fuentes/Capitulo 4-Repaso.pdf>) | [capitulo-4-repaso.md](../unidad-04-repaso/capitulo-4-repaso.md) |
+| [Capitulo 5-Programacion Estructurada.pdf](<../unidad-05-programacion-estructurada/fuentes/Capitulo 5-Programacion Estructurada.pdf>) | [capitulo-5-programacion-estructurada.md](<../unidad-05-programacion-estructurada/capitulo-5-programacion-estructurada.md>) |
+| [Capitulo 6-Parametros de Entrada.pdf](<../unidad-06-parametros-de-entrada/fuentes/Capitulo 6-Parametros de Entrada.pdf>) | [capitulo-6-parametros-de-entrada.md](<../unidad-06-parametros-de-entrada/capitulo-6-parametros-de-entrada.md>) |
+| [Capitulo 7-Parametros de Entrada-Salida.pdf](<../unidad-07-parametros-de-entrada-salida/fuentes/Capitulo 7-Parametros de Entrada-Salida.pdf>) | [capitulo-7-parametros-de-entrada-salida.md](<../unidad-07-parametros-de-entrada-salida/capitulo-7-parametros-de-entrada-salida.md>) |
+| [Ejercicios Adicionales.pdf](<../unidad-08-practica-adicional/fuentes/Ejercicios Adicionales.pdf>) | [ejercicios-adicionales.md](<../unidad-08-practica-adicional/ejercicios-adicionales.md>) |

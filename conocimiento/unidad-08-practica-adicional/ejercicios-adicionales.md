@@ -40,7 +40,7 @@ codigo_relacionado:
 
    **Nota:** Se debe usar Modularización.
 
-   ![Recorrido escalonado del ejercicio adicional 3](assets/adicional-ejercicio-3-recorrido.png)
+   ![Recorrido escalonado del ejercicio adicional 3](recursos/adicional-ejercicio-3-recorrido.png)
 
    **Descripción accesible:** grilla de esquinas con un recorrido rojo en forma de escalera que comienza en **(1,1)** y aumenta progresivamente su extensión.
 
@@ -54,7 +54,7 @@ codigo_relacionado:
 
    **Nota:** se debe usar Modularización.
 
-   ![Calles de longitud creciente del ejercicio adicional 5](assets/adicional-ejercicio-5-recorrido.png)
+   ![Calles de longitud creciente del ejercicio adicional 5](recursos/adicional-ejercicio-5-recorrido.png)
 
    **Descripción accesible:** simulador R-info con diez recorridos horizontales de longitud creciente, iniciados desde el margen izquierdo de la ciudad.
 
