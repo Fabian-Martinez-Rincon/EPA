@@ -28,7 +28,7 @@ relacionados:
   - "../unidad-01-resolucion-de-problemas/capitulo-1-resolucion-de-problemas.md"
   - "../unidad-03-datos/capitulo-3-datos.md"
 codigo_relacionado:
-  - "codigo/soluciones/capitulo-02"
+  - "codigo"
 ---
 
 # Capítulo 2 - Algoritmos y Lógica. Introducción al lenguaje del Robot
@@ -1164,18 +1164,18 @@ Lograr adquirir el conocimiento y la habilidad para desarrollar algoritmos utili
 
 ### Código relacionado con la ejercitación
 
-La carpeta histórica del capítulo 2 contiene soluciones guardadas sin extensión. Sólo se enlazan por número aquellas cuyo nombre permite asociarlas directamente con el ejercicio; los demás archivos se conservan en el [directorio completo](codigo/soluciones/capitulo-02) para revisión.
+Las soluciones viven en [codigo/](codigo/), un archivo `.ri` por ejercicio. Las que no se pudieron asociar a un ejercicio puntual sin evidencia suficiente quedaron con nombre genérico (`codigo-01.ri`…`codigo-10.ri`); quedan disponibles ahí mismo para revisión manual.
 
 | Ejercicio | Implementaciones identificables por nombre |
 |---|---|
-| 2 | [solución 2](codigo/soluciones/capitulo-02/2) |
-| 4 | [solución 4](codigo/soluciones/capitulo-02/4) |
-| 6 | [solución 6](codigo/soluciones/capitulo-02/6) |
-| 7 | [base](codigo/soluciones/capitulo-02/7), [7.1](codigo/soluciones/capitulo-02/7.1), [7.4](codigo/soluciones/capitulo-02/7_4), [7.5](codigo/soluciones/capitulo-02/7.5) |
-| 8 | [solución 8](codigo/soluciones/capitulo-02/8) |
-| 9 | [solución 9](codigo/soluciones/capitulo-02/9) |
-| 10 | [solución 10](codigo/soluciones/capitulo-02/10OHNO) |
-| 11 | [solución 11](codigo/soluciones/capitulo-02/11) |
-| 12 | [solución 12](codigo/soluciones/capitulo-02/12) |
+| 2 | [solución 2](codigo/ejercicio-02.ri) |
+| 4 | [solución 4](codigo/ejercicio-04.ri) |
+| 6 | [solución 6](codigo/ejercicio-06.ri) |
+| 7 | [base](codigo/ejercicio-07.ri), [7.1](codigo/ejercicio-07-1.ri), [7.4](codigo/ejercicio-07-4.ri), [7.5](codigo/ejercicio-07-5.ri) |
+| 8 | [solución 8](codigo/ejercicio-08.ri) |
+| 9 | [solución 9](codigo/ejercicio-09.ri) |
+| 10 | [solución 10](codigo/ejercicio-10.ri) |
+| 11 | [solución 11](codigo/ejercicio-11.ri) |
+| 12 | [solución 12](codigo/ejercicio-12.ri) |
 
-Otros ejemplos reconocibles: [cuadrado](codigo/soluciones/capitulo-02/Cuadrado), [escalón](codigo/soluciones/capitulo-02/Escalon), [recorrer todas las esquinas](codigo/soluciones/capitulo-02/RecorrerTodasLasEsquinas) y [todas las avenidas con flores](codigo/soluciones/capitulo-02/TodasLasAvenidasFlores).
+Otros ejemplos reconocibles: [cuadrado](codigo/cuadrado.ri), [escalón](codigo/escalon.ri), [recorrer todas las esquinas](codigo/recorrer-todas-las-esquinas.ri) y [todas las avenidas con flores](codigo/todas-las-avenidas-flores.ri).

@@ -4,7 +4,7 @@ Conceptos de control y datos, representación de la información, declaración d
 
 - [capitulo-3-datos.md](<capitulo-3-datos.md>) — teoría completa + ejercitación.
 - Fuente: [fuentes/](fuentes/).
-- Código: [codigo/soluciones/capitulo-03](codigo/soluciones/capitulo-03/).
+- Código: [codigo/](codigo/).
 
 **Prerrequisitos:** [unidad-02-algoritmos-y-logica](../unidad-02-algoritmos-y-logica/).
 

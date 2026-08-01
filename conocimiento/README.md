@@ -56,8 +56,8 @@ Introducción → Resolución de problemas → Algoritmos y R-info → Datos y v
 
 ## Cómo usar los enlaces al código
 
-Al final de las unidades 2 a 7 se incluye una tabla que relaciona cada ejercicio con los archivos de solución existentes, ubicados en `codigo/soluciones/` dentro de cada unidad. Los archivos sin extensión también contienen código R-info en texto plano y pueden abrirse directamente desde VS Code.
+Al final de las unidades 2 a 7 se incluye una tabla que relaciona cada ejercicio con los archivos de solución existentes. En las unidades 2 y 3 están directamente en `codigo/` (archivos `.ri`); en las unidades 4 a 7 siguen en `codigo/soluciones/` dentro de cada unidad, con archivos sin extensión que también contienen código R-info en texto plano y pueden abrirse directamente desde VS Code.
 
-Los nombres heredados ambiguos de la unidad 2 no se vincularon a ejercicios concretos sin evidencia suficiente. Permanecen disponibles en [unidad-02-algoritmos-y-logica/codigo/soluciones/capitulo-02](unidad-02-algoritmos-y-logica/codigo/soluciones/capitulo-02/) para revisión manual.
+Los nombres heredados ambiguos de la unidad 2 no se vincularon a ejercicios concretos sin evidencia suficiente; quedaron como `codigo-01.ri`…`codigo-10.ri` en [unidad-02-algoritmos-y-logica/codigo](unidad-02-algoritmos-y-logica/codigo/) para revisión manual.
 
 > Algunas soluciones son apuntes históricos y pueden contener variantes o intentos intermedios. Se recomienda compilarlas en R-info y compararlas con las precondiciones y postcondiciones del enunciado.

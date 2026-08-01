@@ -4,7 +4,7 @@ Introducción al ambiente de programación del robot R-info: sintaxis, estructur
 
 - [capitulo-2-algoritmos-y-logica.md](<capitulo-2-algoritmos-y-logica.md>) — teoría completa + ejercitación (12 ejercicios).
 - Fuente: [fuentes/](fuentes/).
-- Código: [codigo/soluciones/capitulo-02](codigo/soluciones/capitulo-02/) — soluciones agrupadas por capítulo; varias conservan nombres históricos sin extensión porque no pudieron asociarse a un ejercicio puntual sin evidencia suficiente (ver la nota de procedencia en el [índice general](../INDICE_GENERAL.md)).
+- Código: [codigo/](codigo/) — un archivo `.ri` por solución; los que no se pudieron asociar a un ejercicio puntual sin evidencia suficiente quedaron como `codigo-01.ri`…`codigo-10.ri` (ver la nota de procedencia en el [índice general](../INDICE_GENERAL.md)).
 
 **Prerrequisitos:** [unidad-01-resolucion-de-problemas](../unidad-01-resolucion-de-problemas/).
 

@@ -26,7 +26,7 @@ relacionados:
   - "../unidad-02-algoritmos-y-logica/capitulo-2-algoritmos-y-logica.md"
   - "../unidad-04-repaso/capitulo-4-repaso.md"
 codigo_relacionado:
-  - "codigo/soluciones/capitulo-03"
+  - "codigo"
 ---
 
 # Capítulo 3 - Datos
@@ -878,12 +878,12 @@ Hasta aquí se han presentado los elementos que componen un algoritmo: el contro
 
 | Ejercicio | Implementación disponible |
 |---|---|
-| 2 | [Capítulo 3, pregunta 2](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 2>) |
-| 3 | [Capítulo 3, pregunta 3](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 3>) |
-| 4 | [Capítulo 3, pregunta 4](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 4>) |
-| 5 | [Capítulo 3, pregunta 5](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 5>) |
-| 6 | [Capítulo 3, pregunta 6](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 6>) |
-| 7 | [Capítulo 3, pregunta 7](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 7>) |
-| 8 | [Capítulo 3, pregunta 8](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 8>) |
-| 9 | [Capítulo 3, pregunta 9](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 9>) |
-| 10 | [Capítulo 3, pregunta 10](<codigo/soluciones/capitulo-03/Capitulo 3 pregunta 10>) |
+| 2 | [Capítulo 3, pregunta 2](codigo/capitulo-3-pregunta-02.ri) |
+| 3 | [Capítulo 3, pregunta 3](codigo/capitulo-3-pregunta-03.ri) |
+| 4 | [Capítulo 3, pregunta 4](codigo/capitulo-3-pregunta-04.ri) |
+| 5 | [Capítulo 3, pregunta 5](codigo/capitulo-3-pregunta-05.ri) |
+| 6 | [Capítulo 3, pregunta 6](codigo/capitulo-3-pregunta-06.ri) |
+| 7 | [Capítulo 3, pregunta 7](codigo/capitulo-3-pregunta-07.ri) |
+| 8 | [Capítulo 3, pregunta 8](codigo/capitulo-3-pregunta-08.ri) |
+| 9 | [Capítulo 3, pregunta 9](codigo/capitulo-3-pregunta-09.ri) |
+| 10 | [Capítulo 3, pregunta 10](codigo/capitulo-3-pregunta-10.ri) |
