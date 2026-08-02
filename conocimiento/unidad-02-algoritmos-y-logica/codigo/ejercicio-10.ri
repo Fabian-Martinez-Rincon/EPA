@@ -1,3 +1,5 @@
+{Enunciado (Ejercicio 10, capítulo 2 - Algoritmos y Lógica): Programe al robot para que recorra las 5 primeras avenidas juntando en cada esquina todas las flores y papeles.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

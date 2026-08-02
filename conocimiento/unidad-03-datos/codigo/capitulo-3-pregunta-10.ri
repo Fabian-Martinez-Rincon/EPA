@@ -1,5 +1,7 @@
+{Programe al robot para que recorra el perímetro de la ciudad e informe la cantidad de papeles recogidos en cada lado.}
+
 programa prueba
-areas 
+areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1

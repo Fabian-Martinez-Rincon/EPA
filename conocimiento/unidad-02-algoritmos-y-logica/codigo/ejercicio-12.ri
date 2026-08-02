@@ -1,3 +1,5 @@
+{Enunciado (Ejercicio 12, capítulo 2 - Algoritmos y Lógica): Programe al robot para que recorra todas las calles depositando en cada esquina libre un papel. En caso de no tener más papeles debe terminar el recorrido.}
+
 programa antoja
 areas
   ciudad:AreaC(1,1,100,100)

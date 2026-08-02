@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. El robot se posiciona en (11,1), cuenta cuántas flores hay en esa esquina tomándolas una a una, luego las vuelve a depositar -dejando la esquina como estaba- e informa la cantidad contada. Aplica, en la esquina (11,1) en vez de la (1,1) usada en el capítulo 3, la misma técnica de "contar sin modificar" del Ejemplo 3.5.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

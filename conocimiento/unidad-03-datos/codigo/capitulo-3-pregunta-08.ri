@@ -1,5 +1,7 @@
+{Programe al robot para que recorra la calle 2 hasta encontrar al menos 10 papeles. Pueden no haber 10 papeles.}
+
 programa prueba
-areas 
+areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1

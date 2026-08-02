@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. El programa recorre una vez el perímetro completo de la ciudad (los cuatro lados de 99 cuadras, girando a la derecha en cada esquina) y, al llegar a cada uno de los cuatro vértices, deposita una flor si el robot tiene alguna en la bolsa.}
+
 programa antoja
 areas
   ciudad:AreaC(1,1,100,100)

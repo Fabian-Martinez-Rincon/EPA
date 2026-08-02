@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Recorre 15 cuadrados de lado creciente (1 a 15), informando por cada uno la cantidad de esquinas de su recorrido que tuvieron 20 flores o más; al final informa las flores y papeles recogidos en el último cuadrado recorrido.}
+
 programa Cap7Pregunta12
 procesos
   proceso RecogerTodo(ES FLORES:numero;ES PAPELES:numero;ES MASDE20FLORES:numero;ES ContFlores:numero)

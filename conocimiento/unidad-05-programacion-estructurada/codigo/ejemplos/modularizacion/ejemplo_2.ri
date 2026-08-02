@@ -1,3 +1,5 @@
+{Ejemplo ilustrativo de modularización (sin un enunciado numerado propio en el capítulo): igual que ejemplo_1.ri, pero recorre dos cuadrados (uno de lado 10 y uno de lado 5) juntando flores en cada vértice, repitiendo ocho veces el mismo bloque de código sin usar procesos. Muestra cómo crece la duplicación de código al agregar más figuras al recorrido.}
+
 programa ejemplo_modularidad
 areas
   ciudad: AreaC(1,1,100,100)

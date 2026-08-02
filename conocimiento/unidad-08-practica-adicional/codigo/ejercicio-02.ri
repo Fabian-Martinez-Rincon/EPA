@@ -1,8 +1,6 @@
-{Recorrer todas las avenidas.
-Al finalizar informar:
-1) Cantidad de esquinas con exactamente 20 flores.
-2) Cantidad de avenidas con menos de 60 papeles.
-Nota: Modularizar y NO modificar flores/papeles de las esquinas.}
+{Escriba un programa que le permita al robot recorrer todas las avenidas de la ciudad. Al finalizar el recorrido debe informar la cantidad de esquinas con exactamente 20 flores y la cantidad avenidas con menos de 60 papeles.
+
+Nota: Se debe usar Modularización y no modificar la cantidad de papeles/flores de las esquinas.}
 
 programa EjAdic2
 

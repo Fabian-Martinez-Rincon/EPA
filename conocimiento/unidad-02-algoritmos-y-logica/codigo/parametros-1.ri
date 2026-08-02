@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Define un proceso cuadrado parametrizado por el lado, y en el cuerpo principal lo usa para dibujar tres cuadrados de lados decrecientes (5, 3 y 1), reposicionando al robot antes de cada uno.}
+
 programa prueba
 procesos
   proceso cuadrado(E lado:numero)

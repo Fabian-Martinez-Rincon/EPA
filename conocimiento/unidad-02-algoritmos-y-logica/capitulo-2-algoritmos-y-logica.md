@@ -1151,16 +1151,492 @@ Lograr adquirir el conocimiento y la habilidad para desarrollar algoritmos utili
 
 1. Escriba un programa que le permita al robot recoger una flor de la esquina (2,84) si existe.
 2. Escriba un programa que le permita al robot recorrer la calle 50 desde la avenida 65 hasta la avenida 23 depositando un papel en cada esquina. Debe avanzar hasta el final aunque durante el recorrido se quede sin papeles.
+
+<details><summary>Código</summary>
+
+```
+{Enunciado (Ejercicio 2, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la calle 50 desde la avenida 65 hasta la avenida 23 depositando un papel en cada esquina. Debe avanzar hasta el final aunque durante el recorrido se quede sin papeles.}
+
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(65,50)
+    repetir 3
+      derecha
+    mientras(PosAv>23)
+      si  (HayFlorEnLaBolsa)
+        depositarFlor
+        mover
+      sino
+        mover
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 3. Escriba un programa que le permita al robot recorrer el perímetro del cuadrado determinado por (1,1) y (2,2).
 4. Modificar el ejercicio 3. para que además recoja, de ser posible, un papel en cada esquina.
+
+<details><summary>Código</summary>
+
+```
+{Enunciado (Ejercicio 4, capítulo 2 - Algoritmos y Lógica): Modificar el ejercicio 3. para que además recoja, de ser posible, un papel en cada esquina.}
+
+programa robin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      repetir 18
+        mover
+      derecha
+    Pos(30,30)
+    repetir 4
+      repetir 18
+        mover
+        tomarFlor
+        tomarPapel
+      derecha
+  fin
+variables
+  pop:robot1
+comenzar
+  AsignarArea(pop,ciudad)
+  Iniciar(pop,1,1)
+fin
+```
+</details>
+
 5. Escriba un programa que le permita al robot dejar todas las flores que lleva en su bolsa en la esquina (50,50).
 6. Escriba un programa que le permita al robot recorrer la avenida 75 desde la calle 45 hasta la calle 15 recogiendo todas las flores que encuentre.
+
+<details><summary>Código</summary>
+
+```
+{Enunciado (Ejercicio 6, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 75 desde la calle 45 hasta la calle 15 recogiendo todas las flores que encuentre.}
+
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(75,45)
+    repetir 2
+      derecha
+    mientras (PosCa>15)
+      si HayFlorEnLaEsquina
+        tomarFlor
+        mover
+      sino
+        mover
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 7. Escriba un programa que le permita al robot recorrer la avenida 10, depositando una flor en cada esquina. Si en algún momento del recorrido se queda sin flores en la bolsa, debe seguir caminando (sin depositar) hasta terminar la avenida.
+
+<details><summary>Código — variante base</summary>
+
+```
+{Enunciado (Ejercicio 7, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 10, depositando una flor en cada esquina. Si en algún momento del recorrido se queda sin flores en la bolsa, debe seguir caminando (sin depositar) hasta terminar la avenida.}
+
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(10,1)
+    derecha
+    mientras (PosAv<100)
+      si HayFlorEnLaBolsa
+        depositarFlor
+        mover
+      sino
+        mover
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código — variante 7.1</summary>
+
+```
+{Enunciado (Ejercicio 7, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 10, depositando una flor en cada esquina. Si en algún momento del recorrido se queda sin flores en la bolsa, debe seguir caminando (sin depositar) hasta terminar la avenida.}
+
+programa parametros
+procesos
+  proceso cantidadFlores(ES cantidad:numero)
+  variables
+    cuenta:numero
+  comenzar
+    cuenta:=0
+    mientras HayFlorEnLaEsquina
+      cuenta:=cuenta + 1
+      flores:=flores + 1
+      tomarFlor
+    repetir cantidad
+      depositarFlor
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)  
+robots
+  robot robot1
+  variables
+    totalFlores:numero
+  comenzar
+    totalFlores:=0
+    repetir 99
+      cantidadFlores(totalFlores)
+      mover
+    cantidadFlores(totalFlores)
+    Informar(totalFlores)
+  fin
+variables
+  R-info:robot1
+comenzar
+  AsignarArea(R-info,ciudad)
+  Iniciar(R-info,1,1)
+fin
+```
+</details>
+
+<details><summary>Código — variante 7.4</summary>
+
+```
+{Enunciado (Ejercicio 7, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 10, depositando una flor en cada esquina. Si en algún momento del recorrido se queda sin flores en la bolsa, debe seguir caminando (sin depositar) hasta terminar la avenida.}
+
+programa CapPreg4
+procesos
+  proceso ContFloresPapeles(ES FLORES:numero;ES PAPELES:numero)
+  variables
+    MandarFlores,MandarPapeles:numero
+  comenzar
+    MandarFlores:=0
+    MandarPapeles:=0
+    mientras(HayFlorEnLaEsquina)|(HayPapelEnLaEsquina)
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        FLORES:=FLORES+1
+        MandarFlores:=MandarFlores+1
+      sino
+        tomarPapel
+        PAPELES:=PAPELES+1
+        MandarPapeles:=MandarPapeles+1
+      repetir MandarFlores
+        depositarFlor
+      repetir MandarPapeles
+        depositarPapel
+  fin
+  proceso Comparar(ES NUMFLORES:numero;ES NUMPAPELES:numero;ES Incompletas:numero)
+  comenzar
+    calle(NUMFLORES,NUMPAPELES,Incompletas)
+    si(NUMFLORES<NUMPAPELES)
+      repetir 99
+        si (HayFlorEnLaBolsa)
+          depositarFlor
+        sino
+          Incompletas:=Incompletas+1
+    sino
+      repetir 99
+        si(HayPapelEnLaBolsa)
+          depositarPapel
+        sino
+          Incompletas:=Incompletas+1
+  fin
+  proceso calle(ES NFlores:numero;ES NPapeles:numero;ES INCOMPLETA:numero)
+  comenzar
+    NFlores:=0
+    NPapeles:=0
+    INCOMPLETA:=0
+    repetir 99
+      ContFloresPapeles(NFlores,NPapeles)
+      mover
+    Informar(NFlores,NPapeles)
+    Informar(INCOMPLETA)
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    flores,papeles,completas:numero
+  comenzar
+    flores:=0
+    papeles:=0
+    completas:=0
+    derecha
+    Comparar(flores,papeles,completas)
+    Informar(completas)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin
+```
+</details>
+
+<details><summary>Código — variante 7.5</summary>
+
+```
+{Enunciado (Ejercicio 7, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 10, depositando una flor en cada esquina. Si en algún momento del recorrido se queda sin flores en la bolsa, debe seguir caminando (sin depositar) hasta terminar la avenida.}
+
+programa prueba
+procesos
+  proceso SumarFloresEsquina(ES flores:numero)
+  variables
+    aux:numero
+  comenzar
+    aux:=0
+    mientras HayFlorEnLaEsquina
+      aux:=aux + 1
+      tomarFlor
+      flores:=flores + 1
+    repetir aux
+      depositarFlor
+  fin
+  proceso RecorrerCalle(ES totalFlores:numero)
+  comenzar
+    totalFlores:=0
+    repetir 99
+      SumarFloresEsquina(totalFlores)
+      mover
+    SumarFloresEsquina(totalFlores)
+  fin
+  
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    floresCalle,totalCalle50Flores:numero
+  comenzar
+    derecha
+    totalCalle50Flores:=0
+    repetir 99
+      RecorrerCalle(floresCalle)
+      si floresCalle > 50
+        totalCalle50Flores:=totalCalle50Flores + 1
+      Pos(1,PosCa +1)
+      RecorrerCalle(floresCalle)
+      si floresCalle > 50 
+        totalCalle50Flores:= totalCalle50Flores + 1
+      Informar(totalCalle50Flores)
+      
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 8. Escriba un programa que le permita al robot recorrer la avenida 23 buscando una esquina sin papeles que seguro existe. Al encontrarla debe depositar, en esa esquina, todos los papeles que lleva en su bolsa. Informar en que calle dejó los papeles.
+
+<details><summary>Código</summary>
+
+```
+{Enunciado (Ejercicio 8, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 23 buscando una esquina sin papeles que seguro existe. Al encontrarla debe depositar, en esa esquina, todos los papeles que lleva en su bolsa. Informar en que calle dejó los papeles.}
+
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(23,1)
+    derecha
+    mientras ~(HayFlorEnLaEsquina)
+      mover
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 9. Escriba un programa que le permita al robot recorrer la calle 17 depositando un papel en las avenidas impares. El recorrido termina cuando el robot llega a la esquina (100,17).
+
+<details><summary>Código</summary>
+
+```
+{Enunciado (Ejercicio 9, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la calle 17 depositando un papel en las avenidas impares. El recorrido termina cuando el robot llega a la esquina (100,17).}
+
+programa antoja
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(1,17)
+    derecha
+    repetir 49
+      Pos(PosAv+2,17)
+      si HayFlorEnLaBolsa
+        depositarFlor
+  fin
+variables
+  R-Info: robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin
+```
+</details>
+
 10. Programe al robot para que recorra las 5 primeras avenidas juntando en cada esquina todas las flores y papeles.
+
+<details><summary>Código</summary>
+
+```
+{Enunciado (Ejercicio 10, capítulo 2 - Algoritmos y Lógica): Programe al robot para que recorra las 5 primeras avenidas juntando en cada esquina todas las flores y papeles.}
+
+programa prueba
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    lado1: numero
+    lado2: numero
+    lado3: numero
+    lado4: numero
+  comenzar
+    lado1:=0
+    lado2:=0
+    lado3:=0
+    lado4:=0
+    mientras ((PosCa<100)&(PosAv=1))
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado1:=lado1+1
+      mover
+    derecha
+    mientras(PosCa=100)&(PosAv<100)
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado2:=lado2+1
+      mover
+    derecha
+    mientras(PosCa>1)&(PosAv=100)
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        lado3:=lado3+1
+      mover
+    derecha
+    mientras(PosCa=1)&(PosAv>100)
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado4:=lado4+1
+      mover
+    Informar(lado1,lado2,lado3,lado4)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 11. Programe al robot para que recorra el perímetro de la ciudad recogiendo todas las flores y papeles que encuentre y dejando en cada vértice solo un papel. Puede ocurrir que algún vértice quede vacío si el robot no tiene papeles en su bolsa para depositar.
+
+<details><summary>Código</summary>
+
+```
+{Enunciado (Ejercicio 11, capítulo 2 - Algoritmos y Lógica): Programe al robot para que recorra el perímetro de la ciudad recogiendo todas las flores y papeles que encuentre y dejando en cada vértice solo un papel. Puede ocurrir que algún vértice quede vacío si el robot no tiene papeles en su bolsa para depositar.}
+
+programa antoja
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      repetir 99
+        mover
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+        mientras(HayPapelEnLaEsquina)
+          tomarPapel
+        si ((PosCa>=100)&(PosAv=1))|((PosAv=100)&(PosCa=100))|((PosAv=100)&(PosCa=1))
+          si(HayPapelEnLaBolsa)
+            depositarPapel
+      derecha 
+    si(HayPapelEnLaBolsa)
+      depositarPapel
+  fin
+variables
+  R-Info: robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin
+```
+</details>
+
 12. Programe al robot para que recorra todas las calles depositando en cada esquina libre un papel. En caso de no tener más papeles debe terminar el recorrido.
+
+<details><summary>Código</summary>
+
+```
+{Enunciado (Ejercicio 12, capítulo 2 - Algoritmos y Lógica): Programe al robot para que recorra todas las calles depositando en cada esquina libre un papel. En caso de no tener más papeles debe terminar el recorrido.}
+
+programa antoja
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    derecha
+    repetir 100
+      si (HayPapelEnLaEsquina & HayFlorEnLaEsquina & HayPapelEnLaBolsa)
+        depositarPapel
+      mover
+    si (HayPapelEnLaEsquina & HayFlorEnLaEsquina & HayPapelEnLaBolsa)
+      depositarPapel
+      mover
+    si(PosCa<99)
+      Pos(1,PosCa+1)
+  fin
+variables
+  R-Info: robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin
+```
+</details>
 
 ### Código relacionado con la ejercitación
 

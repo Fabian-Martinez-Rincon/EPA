@@ -1,3 +1,5 @@
+{Ejercitación, ejercicio 4: Utilice el proceso realizado en 3. para que el Robot efectúe los recorridos de la figura 6.6 a partir de (1,1). (variante B)}
+
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero; E largo:numero)

@@ -1,5 +1,5 @@
-{Programe al robot para que informe la cantidad total de flores que 
-hay en la avenida 4. No se debe modificar la cantidad de flores de cada esquina.}
+{Demo personal fuera del libro (no es un enunciado del capítulo): reutiliza el proceso SumarFloresEsquina del Ejemplo 7.1 pero, a diferencia de aquel, arranca en (1,1) y solo recorre 9 esquinas ("Numero random para probar"), informando el total de flores sumadas en ese tramo corto, a modo de prueba rápida del parámetro de entrada/salida.}
+
 programa Cap7Ejemplo1
 
 procesos

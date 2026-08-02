@@ -4,7 +4,7 @@ Esta carpeta es la capa de conocimiento educativo del repositorio: contiene los 
 
 - **Índice completo:** [INDICE_GENERAL.md](INDICE_GENERAL.md) — catálogo por unidad, tema, nivel, lenguaje, tipo y prerrequisitos.
 - **Glosario:** [GLOSARIO.md](GLOSARIO.md) — términos centrales del curso con enlace a su explicación.
-- **Instrucciones de organización:** [../prompt-organizacion/](../prompt-organizacion/).
+- **Instrucciones de organización:** `../prompt-organizacion/` (requiere_revision — la carpeta no existe en este repositorio ni en su historial de Git).
 
 ## Estructura de cada unidad
 

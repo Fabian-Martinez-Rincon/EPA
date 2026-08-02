@@ -1,3 +1,5 @@
+{Ejercitación, ejercicio 7: Programe al robot para que realice un módulo CalleFlor que recorra una calle cuyo número se ingresa como parámetro, hasta juntar tantas flores como lo indica otro parámetro de entrada que este módulo recibe. La cantidad de flores seguro existe.}
+
 programa  parametros
 procesos
   proceso izquierda

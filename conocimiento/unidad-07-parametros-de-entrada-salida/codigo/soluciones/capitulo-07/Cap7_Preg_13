@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Recorre la avenida 8 recogiendo todas las flores y papeles que encuentra e informa esos totales; luego, desde (1,1), traza un rectángulo cuyo ancho es la cantidad de flores y cuyo alto es la cantidad de papeles recolectados.}
+
 programa Cap7Pregunta13
 procesos
   proceso rectangulo(ES NUMFLORES:numero; ES NUMPAPELES:numero)

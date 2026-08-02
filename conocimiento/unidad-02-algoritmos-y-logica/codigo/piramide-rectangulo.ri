@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Define un proceso rectangulo parametrizado por base y altura, y en el cuerpo principal lo usa para dibujar cinco rectángulos de tamaño decreciente (empezando en base 19 y altura 5, reduciendo 4 y 1 respectivamente en cada paso), desplazando al robot en diagonal entre cada uno y formando una figura escalonada en forma de pirámide.}
+
 programa prueba
 procesos
   proceso rectangulo(E base:numero;E altura:numero)

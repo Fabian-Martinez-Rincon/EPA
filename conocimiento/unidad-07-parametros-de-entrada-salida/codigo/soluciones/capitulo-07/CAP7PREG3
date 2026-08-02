@@ -1,3 +1,5 @@
+{Variante de la Pregunta 3: escriba un programa para que el robot recorra la avenida 9 depositando en cada esquina lo que haga falta para que la cantidad de flores supere en 1 a la cantidad de papeles. Si no tiene en su bolsa lo necesario para hacerlo debe detener recorrido. Al finalizar debe informar la cantidad de esquinas que pudo completar adecuadamente. Si el recorrido quedo incompleto debe retornar a (9,1).}
+
 programa Cap7Pregunta3
 procesos
   proceso ContarF(ES FLORES:numero)

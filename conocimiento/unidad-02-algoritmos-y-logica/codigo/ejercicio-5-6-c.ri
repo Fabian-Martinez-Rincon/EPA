@@ -1,3 +1,5 @@
+{Enunciado (Ejemplo 5.6, capítulo 5 - Programación Estructurada): Dados los recorridos de la figura 5.6 ¿Cuál es el módulo que sería conveniente tener definido? Recorrido c): cuadrados de lado 2 superpuestos formando una figura compacta en forma de cruz/rombo, con varios cuadrados que comparten lados en el centro de la grilla.}
+
 programa prueba
 procesos
   proceso izquierda

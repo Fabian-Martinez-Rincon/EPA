@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Programa mínimo de prueba: el robot solo avanza 10 cuadras en línea recta desde la esquina inicial (1,1), sin ninguna otra acción.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

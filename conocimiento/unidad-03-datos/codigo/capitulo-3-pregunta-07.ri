@@ -1,5 +1,7 @@
+{El robot debe limpiar de papeles la calle 34. Al terminar el recorrido debe informar cuantas esquinas tenían originalmente exactamente 6 papeles.}
+
 programa prueba
-areas 
+areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1

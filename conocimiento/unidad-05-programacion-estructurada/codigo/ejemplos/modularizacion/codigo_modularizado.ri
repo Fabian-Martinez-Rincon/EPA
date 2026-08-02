@@ -1,3 +1,5 @@
+{Ejemplo 5.1 del capítulo (solución modularizada): se desea programar al robot para que recoja todas las flores de la esquina (1,1) y de la esquina (1,2), usando un proceso JuntarFlores en lugar de repetir el mismo código dos veces.}
+
 programa ejemplo_modularidad
 procesos
   proceso JuntarFlores

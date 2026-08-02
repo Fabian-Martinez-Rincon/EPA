@@ -1,3 +1,5 @@
+{Enunciado (Ejemplo 5.6, capítulo 5 - Programación Estructurada): Dados los recorridos de la figura 5.6 ¿Cuál es el módulo que sería conveniente tener definido? Recorrido b): una sucesión de cuadrados de lado 2 dispuestos en forma de escalera, cada uno desplazado hacia arriba y a la derecha respecto del anterior (patrón diagonal ascendente).}
+
 programa prueba
 procesos
   proceso izquierda

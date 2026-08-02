@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Define los procesos rectangulo y escalon (este último avanza entrada1 cuadras, gira a la derecha, avanza entrada2 cuadras y gira tres veces más a la derecha) y en el cuerpo principal construye cinco escalones consecutivos de ancho creciente (2, 3, 4, 5 y 6 cuadras), formando un recorrido en forma de escalera ascendente. El nombre y la técnica recuerdan al recorrido en escalera del ejercicio 11 del capítulo 5, aunque con cinco escalones en vez de tres.}
+
 programa prueba
 procesos
   proceso rectangulo(E base:numero;E altura:numero)

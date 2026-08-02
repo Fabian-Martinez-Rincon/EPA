@@ -504,13 +504,287 @@ fin
 
 2. Programar al robot para que recorra la calle 3 desde la avenida 5 hasta la avenida 20 depositando un papel en cada esquina. Si durante el recorrido se queda sin papeles para depositar, debe detenerse.
 
+   <details><summary>Código</summary>
+
+   ```
+   {Capítulo 4, ejercicio 2: Programar al robot para que recorra la calle 3 desde la avenida 5 hasta la avenida 20 depositando un papel en cada esquina. Si durante el recorrido se queda sin papeles para depositar, debe detenerse.}
+
+   programa prueba
+   areas
+     ciudad: AreaC(1,1,100,100)
+   robots
+     robot robot1
+     variables
+       x: numero
+       y: numero
+     comenzar
+       x:=0
+       Pos(5,3)
+       mientras(PosAv<20)
+         mientra(HayPapelEnLaBolsa)
+           depositarPapel
+           mover
+           x:=x+1
+       Informar(x)
+     fin
+   variables
+     robin:robot1
+   comenzar
+     AsignarArea(robin,ciudad)
+     Iniciar(robin,1,1)
+   fin
+   ```
+   </details>
+
 3. Suponiendo que el robot cuenta con suficiente cantidad de flores y papeles en su bolsa, escribir un programa que le permita recorrer la calle 45 dejando en las avenidas pares solo una flor y en las impares solo un papel.
+
+   <details><summary>Código</summary>
+
+   ```
+   {Capítulo 4, ejercicio 3: Suponiendo que el robot cuenta con suficiente cantidad de flores y papeles en su bolsa, escribir un programa que le permita recorrer la calle 45 dejando en las avenidas pares solo una flor y en las impares solo un papel.
+
+   Nota: el código de este archivo reutiliza la calle 3 / avenida 5-20 del ejercicio 2 (Pos(5,3), depósito de papeles) en lugar de implementar la calle 45 con flores en avenidas pares y papeles en impares descripta en el enunciado; parece un borrador o una copia de la solución del ejercicio 2 archivada bajo el nombre "pregunta 3".}
+
+   programa prueba
+   areas
+     ciudad: AreaC(1,1,100,100)
+   robots
+     robot robot1
+     variables
+       x: numero
+       y: numero
+     comenzar
+       x:=0
+       Pos(5,3)
+       mientras(HayPapelEnLaEsquina)
+         tomarPapel
+       mientras(PosAv<20)
+         si(HayPapelEnLaBolsa)
+           depositarPapel
+           mover
+           x:=x+1
+       Informar(x)
+     fin
+   variables
+     robin:robot1
+   comenzar
+     AsignarArea(robin,ciudad)
+     Iniciar(robin,1,1)
+   fin
+   ```
+   </details>
 
 4. Programar al robot para que recorra la calle 20 e informe cuántas esquinas tienen sólo papeles. No debe modificarse la cantidad de flores y papeles de cada esquina.
 
+   <details><summary>Código</summary>
+
+   ```
+   {Capítulo 4, ejercicio 4: Programar al robot para que recorra la calle 20 e informe cuántas esquinas tienen sólo papeles. No debe modificarse la cantidad de flores y papeles de cada esquina.}
+
+   programa prueba
+   areas
+     ciudad: AreaC(1,1,100,100)
+   robots
+     robot robot1
+     variables
+       flores: numero
+       papeles: numero
+     comenzar
+       flores:=0
+       papeles:=0
+       Pos(1,20)
+       derecha
+       repetir 99
+         si ((HayFlorEnLaEsquina)& ~(HayPapelEnLaEsquina))
+           flores:=flores+1
+         si ((HayPapelEnLaEsquina)&~(HayFlorEnLaEsquina))
+           papeles:=papeles+1
+         mover
+       si((HayFlorEnLaEsquina)&~(HayPapelEnLaEsquina))
+         flores:=flores+1
+       si((HayPapelEnLaEsquina)&~(HayFlorEnLaEsquina))
+         papeles:=papeles+1
+       Informar(flores,papeles)
+     fin
+   variables
+     robin:robot1
+   comenzar
+     AsignarArea(robin,ciudad)
+     Iniciar(robin,1,1)
+   fin
+   ```
+   </details>
+
 5. Programar al robot para que recorra el perímetro de la ciudad dejando un papel en aquellas esquinas que sólo tienen papel y una flor en las esquinas que tienen sólo flores. El recorrido debe finalizar al terminar de recorrer el perímetro.
 
+   <details><summary>Código</summary>
+
+   ```
+   {Capítulo 4, ejercicio 5: Programar al robot para que recorra el perímetro de la ciudad dejando un papel en aquellas esquinas que sólo tienen papel y una flor en las esquinas que tienen sólo flores. El recorrido debe finalizar al terminar de recorrer el perímetro.}
+
+   programa prueba
+   areas
+     ciudad: AreaC(1,1,100,100)
+   robots
+     robot robot1
+     variables
+       flores: numero
+       papeles: numero
+     comenzar
+       flores:=0
+       papeles:=0
+       repetir 4
+         repetir 99
+           si ((HayFlorEnLaEsquina)& ~(HayPapelEnLaEsquina))
+             flores:=flores+1
+             depositarFlor
+           si ((HayPapelEnLaEsquina)&~(HayFlorEnLaEsquina))
+             papeles:=papeles+1
+             depositarPapel
+           mover
+         derecha
+         si((HayFlorEnLaEsquina)&~(HayPapelEnLaEsquina))
+           flores:=flores+1
+           depositarFlor
+         si((HayPapelEnLaEsquina)&~(HayFlorEnLaEsquina))
+           papeles:=papeles+1
+           depositarPapel
+       Informar(flores,papeles)
+     fin
+   variables
+     robin:robot1
+   comenzar
+     AsignarArea(robin,ciudad)
+     Iniciar(robin,1,1)
+   fin
+   ```
+   </details>
+
 6. Programar al robot para que recorra el perímetro de la ciudad buscando una esquina con exactamente 3 flores y 3 papeles, suponiendo que esta esquina existe. Debe informar cual es la esquina encontrada.
+
+   <details><summary>Código — versión inicial</summary>
+
+   ```
+   {Capítulo 4, ejercicio 6: Programar al robot para que recorra el perímetro de la ciudad buscando una esquina con exactamente 3 flores y 3 papeles, suponiendo que esta esquina existe. Debe informar cual es la esquina encontrada.
+
+   Nota: versión inicial/borrador, incompleta — recorre con "repetir 4" pero nunca gira ("derecha") en las esquinas del perímetro, por lo que el robot no llega a recorrerlo completo; la condición "si(papeles)" al final también quedó incompleta. Ver también "capitulo 4 pregunta 6 (terminada)" y "capitulo 4 pregunta 6 terminar(creo)".}
+
+   programa prueba
+   areas
+     ciudad: AreaC(1,1,100,100)
+   robots
+     robot robot1
+     variables
+       flores: numero
+       papeles: numero
+     comenzar
+       flores:=0
+       papeles:=0
+       repetir 4
+         mientras~(HayFlorEnLaEsquina)&(HayPapelEnLaEsquina)
+           mover
+         si(HayFlorEnLaEsquina)&(HayPapelEnLaEsquina)
+           mientras(HayFlorEnLaEsquina)
+             flores:=flores+1
+           mientras(HayPapelEnLaEsquina)
+             papeles:=papeles+1
+           si(papeles)
+       Informar(flores,papeles)
+     fin
+   variables
+     robin:robot1
+   comenzar
+     AsignarArea(robin,ciudad)
+     Iniciar(robin,1,1)
+   fin
+   ```
+   </details>
+
+   <details><summary>Código — versión "terminada"</summary>
+
+   ```
+   {Capítulo 4, ejercicio 6: Programar al robot para que recorra el perímetro de la ciudad buscando una esquina con exactamente 3 flores y 3 papeles, suponiendo que esta esquina existe. Debe informar cual es la esquina encontrada.
+
+   Nota: versión terminada del ejercicio 6 (recoge las flores y papeles de cada esquina y gira en las cuatro esquinas del perímetro con un único condicional combinado). Ver también las otras variantes "Capitulo 4 pregunta 6" y "capitulo 4 pregunta 6 terminar(creo)".}
+
+   programa prueba
+   areas
+     ciudad: AreaC(1,1,100,100)
+   robots
+     robot robot1
+     variables
+       flores: numero
+       papeles: numero
+       perimetro: numero
+     comenzar
+       flores:=0
+       papeles:=0
+       perimetro:=0
+       mientras (flores<3)|(papeles<3)
+         mover
+         si(HayFlorEnLaEsquina)&(HayPapelEnLaEsquina)
+           mientras(HayFlorEnLaEsquina)
+             tomarFlor
+             flores:=flores+1
+           mientras(HayPapelEnLaEsquina)
+             tomarPapel
+             papeles:=papeles+1
+         si((PosAv=1)&(PosCa=100))|((PosAv=100)&(PosCa=100))|((PosAv=100)&(PosCa=1))
+           derecha
+       Informar(PosAv,PosCa)
+     fin
+   variables
+     robin:robot1
+   comenzar
+     AsignarArea(robin,ciudad)
+     Iniciar(robin,1,1)
+   fin
+   ```
+   </details>
+
+   <details><summary>Código — versión "terminar(creo)"</summary>
+
+   ```
+   {Capítulo 4, ejercicio 6: Programar al robot para que recorra el perímetro de la ciudad buscando una esquina con exactamente 3 flores y 3 papeles, suponiendo que esta esquina existe. Debe informar cual es la esquina encontrada.
+
+   Nota: variante/borrador de la versión terminada (el nombre del archivo sugiere que no se estaba seguro de haberla terminado): resuelve los giros en las cuatro esquinas del perímetro con tres condicionales "si" separados en lugar de uno combinado, y usa (flores<=3)|(papeles<=3) como condición de corte. Ver también "Capitulo 4 pregunta 6" y "capitulo 4 pregunta 6 (terminada)".}
+
+   programa prueba
+   areas
+     ciudad: AreaC(1,1,100,100)
+   robots
+     robot robot1
+     variables
+       flores: numero
+       papeles: numero
+       perimetro: numero
+     comenzar
+       flores:=0
+       papeles:=0
+       perimetro:=0
+       mientras (flores<=3)|(papeles<=3)
+         mover
+         si(HayFlorEnLaEsquina)&(HayPapelEnLaEsquina)
+           mientras(HayFlorEnLaEsquina)
+             flores:=flores+1
+           mientras(HayPapelEnLaEsquina)
+             papeles:=papeles+1
+         si(PosAv=1)&(PosCa=100)
+           derecha
+         si(PosAv=100)&(PosCa=100)
+           derecha
+         si(PosAv=100)&(PosCa=1)
+           derecha
+       Informar(PosAv,PosCa)
+     fin
+   variables
+     robin:robot1
+   comenzar
+     AsignarArea(robin,ciudad)
+     Iniciar(robin,1,1)
+   fin
+   ```
+   </details>
 
 7. Idem 6. pero no se puede asegurar que tal esquina existe. En caso de encontrarla, informar cual es esa esquina.
 

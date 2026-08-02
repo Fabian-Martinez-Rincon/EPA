@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Define un proceso Rectangulo parametrizado por base y altura que, además de dibujarlo, verifica en dos de sus vértices si hay flor y cuenta cuántos de ellos la tienen. En el cuerpo principal arma cinco rectángulos de tamaño decreciente (empezando en base 19 y altura 5, reduciendo 4 y 1 respectivamente en cada paso) desplazando al robot en diagonal entre cada uno, formando una figura escalonada en forma de pirámide, e informa al final la cantidad total de vértices con flor encontrados. Es una versión ampliada de piramide-rectangulo.ri, con el agregado de esta verificación.}
+
 programa prueba
 procesos
   proceso Rectangulo(E base:numero;E altura:numero; ES cantidad:numero)

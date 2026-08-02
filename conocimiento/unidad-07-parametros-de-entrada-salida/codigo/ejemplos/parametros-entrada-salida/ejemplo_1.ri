@@ -1,5 +1,6 @@
-{Programe al robot para que informe la cantidad total de flores que 
+{Programe al robot para que informe la cantidad total de flores que
 hay en la avenida 4. No se debe modificar la cantidad de flores de cada esquina.}
+
 programa Cap7Ejemplo1
 
 procesos

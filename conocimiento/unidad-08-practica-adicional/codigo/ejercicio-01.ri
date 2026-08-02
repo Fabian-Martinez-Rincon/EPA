@@ -5,6 +5,7 @@ informar si la misma tuvo a lo sumo 45 flores (hasta que encontró la esquina).
 Nota: Se debe usar Modularización. 
 >Sí: “a lo sumo” = “como mucho” = “como máximo” = “máximo”.
 }
+
 programa Cap7Ejercicio1
 
 procesos

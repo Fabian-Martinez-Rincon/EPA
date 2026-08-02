@@ -1,3 +1,5 @@
+{Enunciado (Ejercicio 6, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 75 desde la calle 45 hasta la calle 15 recogiendo todas las flores que encuentre.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

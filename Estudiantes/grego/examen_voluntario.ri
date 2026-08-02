@@ -1,3 +1,9 @@
+{EPA 2026 – EXAMEN VOLUNTARIO 02/02/26
+
+Realice un programa que permita al robot recorrer todas las calles impares de la ciudad. En cada calle impar, se deberá avanzar hasta encontrar 3 esquinas que contengan más de 15 flores y exactamente 5 papeles. Al finalizar el recorrido completo, se deberá informar la cantidad total de esquinas vacías encontradas durante todo el trayecto.
+
+Modularice la solución.}
+
 programa Simulado
 
 procesos

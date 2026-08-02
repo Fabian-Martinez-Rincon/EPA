@@ -1,3 +1,5 @@
+{Enunciado (Ejemplo 5.5, capítulo 5 - Programación Estructurada): Programe al robot para que recorra el perímetro del cuadrado determinado por (1,1) y (2,2). Al terminar debe informar cuántos de los vértices estaban vacíos.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

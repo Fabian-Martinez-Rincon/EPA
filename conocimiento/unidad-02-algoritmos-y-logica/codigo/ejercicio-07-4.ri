@@ -1,3 +1,5 @@
+{Enunciado (Ejercicio 7, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 10, depositando una flor en cada esquina. Si en algún momento del recorrido se queda sin flores en la bolsa, debe seguir caminando (sin depositar) hasta terminar la avenida.}
+
 programa CapPreg4
 procesos
   proceso ContFloresPapeles(ES FLORES:numero;ES PAPELES:numero)

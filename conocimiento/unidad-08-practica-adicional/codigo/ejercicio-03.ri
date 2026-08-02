@@ -1,10 +1,6 @@
-{Ejercicio 3:
-Comenzando en (1,1), juntar todas las flores y papeles de cada esquina
-siguiendo el recorrido de la figura (tramos horizontales que vuelven a Av. 1).
-Al finalizar informar:
-- total de flores en la bolsa
-- total de papeles en la bolsa
-Nota: usar Modularización.}
+{Escriba un programa que le permita al robot realizar el siguiente recorrido, comenzando en la esquina (1,1) juntando todas las flores y papeles de cada esquina. Al finalizar el recorrido debe informar la cantidad total de flores y de papeles que tiene en la bolsa.
+
+Nota: Se debe usar Modularización.}
 
 programa EjAdic3
 

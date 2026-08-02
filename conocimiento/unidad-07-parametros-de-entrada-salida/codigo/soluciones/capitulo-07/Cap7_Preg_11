@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Recorre 10 avenidas con un recorrido cada vez más largo (8, 10, 12... pasos), contando en cada una cuántas esquinas tienen al menos el doble de flores que de papeles e informando ese conteo por avenida; al finalizar informa el total de flores y de papeles recolectados en todo el trayecto.}
+
 programa Cap7Preg11
 procesos
   proceso JuntarTodo(ES FLORES:numero;ES PAPELES:numero;ES DOBLE:numero)

@@ -1,3 +1,5 @@
+{Escriba un programa que le permita al robot recorrer cuadrados hasta encontrar un cuadrado con exactamente 3 flores y 2 papeles (seguro existe). El primer cuadrado es de lado 99 y los siguientes van decrementando en uno el tamaño del lado (98, 97 y así sucesivamente).}
+
 programa Captitulo7Pregunta6
 procesos
   proceso cuadrado(E Lado:numero;ES FLORES:numero;ES PAPELES:numero)

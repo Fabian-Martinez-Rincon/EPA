@@ -1,3 +1,5 @@
+{Enunciado (Ejercicio 2, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la calle 50 desde la avenida 65 hasta la avenida 23 depositando un papel en cada esquina. Debe avanzar hasta el final aunque durante el recorrido se quede sin papeles.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

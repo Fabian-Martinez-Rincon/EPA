@@ -1,5 +1,7 @@
+{Capítulo 4, ejercicio 5: Programar al robot para que recorra el perímetro de la ciudad dejando un papel en aquellas esquinas que sólo tienen papel y una flor en las esquinas que tienen sólo flores. El recorrido debe finalizar al terminar de recorrer el perímetro.}
+
 programa prueba
-areas 
+areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1

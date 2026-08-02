@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Define un proceso izquierda (tres giros a la derecha) y, en el cuerpo principal, lo usa para trazar un único cuadrado de lado 4 partiendo de la esquina inicial. Declara una variable vacias que nunca se utiliza. Recuerda al proceso izquierda que el Ejemplo 5.5 del capítulo 5 deja como actividad para el lector, aplicado aquí a un cuadrado genérico de lado 4 en vez del cuadrado (1,1)-(2,2) del enunciado original, y sin la lógica de contar vértices vacíos.}
+
 programa prueba
 procesos
   proceso izquierda

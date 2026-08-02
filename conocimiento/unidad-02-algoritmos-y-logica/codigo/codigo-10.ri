@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Define los procesos auxiliares izquierda, cuadrado (de lado 2) y torre (cinco cuadrados apilados verticalmente). El cuerpo principal posiciona al robot en la esquina (2,3) y arma cinco torres, separando cada una de la siguiente 7 avenidas.}
+
 programa prueba
 procesos
   proceso izquierda

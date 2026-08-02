@@ -1,3 +1,5 @@
+{Ejemplo ilustrativo de modularización (sin un enunciado numerado propio en el capítulo): primer paso de refactorización de ejemplo_1.ri/ejemplo_2.ri/ejemplo_3.ri. Agrupa "juntar flores + avanzar 10 + girar a la derecha" en un único proceso juntar_mover, que se invoca cuatro veces para recorrer un cuadrado de lado 10.}
+
 programa ejemplo_modularidad
 procesos
   proceso juntar_mover

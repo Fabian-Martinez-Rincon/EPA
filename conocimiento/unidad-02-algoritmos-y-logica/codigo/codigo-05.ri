@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Programa incompleto y con errores: declara un proceso "contar" que fija en verdadero una variable booleana "funcionar", pero la condición del mientras hace referencia a un identificador mal escrito ("fucionar" en vez de "funcionar") y el bucle queda sin cuerpo de instrucciones. En el cuerpo principal el robot gira a la derecha, avanza una cuadra e invoca ese proceso incompleto.}
+
 programa uwu
 procesos
   proceso contar

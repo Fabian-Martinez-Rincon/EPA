@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Define procesos reutilizables para dibujar cuadrados de lado 2 y agruparlos en "torres" de cinco cuadrados apilados verticalmente (ninguno de los dos se usa en el cuerpo principal), además de un proceso Evaluar que cuenta las flores y los papeles de la esquina actual -partiendo de los valores iniciales 5 y 8, no de cero- y decide qué depositar según cuál cantidad resulta mayor. El cuerpo principal solo posiciona al robot en la esquina (2,3) e invoca Evaluar una única vez.}
+
 programa prueba
 procesos
   proceso izquierda

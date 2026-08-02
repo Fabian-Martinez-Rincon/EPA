@@ -390,15 +390,448 @@ En este apunte se ha buscado introducir algunas ideas útiles a lo largo de la c
 
 1. Escriba un programa que le permita al robot informar la cantidad total de flores y la cantidad total de papeles que hay en toda la ciudad. Para hacerlo, utilice un proceso que recorra una calle cuyo número recibe como parámetro y devuelva la información correspondiente.
 
+<details><summary>Código</summary>
+
+```
+{Escriba un programa que le permita al robot informar la cantidad total de flores y la cantidad total de papeles que hay en toda la ciudad. Para hacerlo, utilice un proceso que recorra una calle cuyo número recibe como parámetro y devuelva la información correspondiente.}
+
+programa  parametros
+procesos
+  proceso CONTARFLORPAPEL(ES flor:numero;ES papel:numero)
+  comenzar
+    mientras((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
+      si(HayPapelEnLaEsquina)
+        tomarPapel
+        papel:=papel+1
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        flor:=flor+1
+  fin
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso Recorrer(ES NumFlores:numero;ES NumPapeles:numero;E calle:numero)
+  variables
+    CantFlores:numero
+    num:numero
+  comenzar
+    num:=0
+    Pos(1,calle)
+    repetir 99
+      repetir 99
+        CONTARFLORPAPEL(NumFlores,NumPapeles)
+        mover
+      Pos(1,PosCa+1)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    called:numero
+    NFlores:numero
+    NPapeles:numero
+  comenzar
+    NFlores:=0
+    NPapeles:=0
+    called:=1
+    derecha
+    Recorrer(NFlores,NPapeles,called)
+    Informar(NFlores,NPapeles)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 2. El robot debe limpiar de flores las calles impares de la siguiente forma: toda flor que se encuentre en una calle impar debe ser trasladada a la calle par siguiente sobre la misma avenida. Por ejemplo si en (4,1) hay una flor, debe llevarse a (4,2). Al terminar el recorrido debe informar la cantidad total de flores que trasladó.
+
+<details><summary>Código</summary>
+
+```
+{El robot debe limpiar de flores las calles impares de la siguiente forma: toda flor que se encuentre en una calle impar debe ser trasladada a la calle par siguiente sobre la misma avenida. Por ejemplo si en (4,1) hay una flor, debe llevarse a (4,2). Al terminar el recorrido debe informar la cantidad total de flores que trasladó.}
+
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso trasladar(ES flores:numero)
+  variables
+    numer:numero
+  comenzar
+    numer:=-1
+    derecha
+    flores:=0
+    repetir 99
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        flores:=flores+1
+        Pos(PosAv,PosCa+1)
+        depositarFlor
+        Pos(PosAv,PosCa+numer)
+      mover
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    hola:numero
+  comenzar
+    hola:=0
+    repetir 99
+      trasladar(hola)
+      Pos(1,PosCa+2)
+      izquierda
+    Informar(hola)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
 3. Escriba un programa para que el robot recorra la avenida 9 depositando en cada esquina lo que haga falta para que la cantidad de flores supere en 1 a la cantidad de papeles. Si no tiene en su bolsa lo necesario para hacerlo debe detener recorrido. Al finalizar debe informar la cantidad de esquinas que pudo completar adecuadamente. Si el recorrido quedo incompleto debe retornar a (9,1).
 
+<details><summary>Código</summary>
+
+```
+{Escriba un programa para que el robot recorra la avenida 9 depositando en cada esquina lo que haga falta para que la cantidad de flores supere en 1 a la cantidad de papeles. Si no tiene en su bolsa lo necesario para hacerlo debe detener recorrido. Al finalizar debe informar la cantidad de esquinas que pudo completar adecuadamente. Si el recorrido quedo incompleto debe retornar a (9,1).}
+
+programa Cap7Preg3
+procesos
+  proceso JuntarTodo(ES FLORES:numero;ES PAPELES:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)|(HayPapelEnLaEsquina)
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        FLORES:=FLORES+1
+      si(HayPapelEnLaEsquina)
+        tomarPapel
+        PAPELES:=PAPELES+1
+  fin
+  proceso avenida(E NAvenida:numero;ES CantFlores:numero;ES CantPapeles:numero;ES CONTAR:numero)
+  variables
+    cero:numero
+  comenzar
+    cero:=-1
+    Pos(NAvenida,1)
+    mientras(CantPapeles>=CantFlores)&(HayPapelEnLaBolsa)
+      depositarPapel
+      CantPapeles:=CantPapeles+cero
+    mientras(PosCa<100)&((HayPapelEnLaBolsa)&(HayFlorEnLaBolsa))
+      depositarPapel
+      depositarFlor
+      CantFlores:=CantFlores+cero
+      CantPapeles:=CantPapeles+cero
+      mover
+      CONTAR:=CONTAR+1
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    AVENIDA:numero
+    flores:numero
+    papeles:numero
+    contar:numero
+  comenzar
+    contar:=0
+    AVENIDA:=9
+    flores:=0
+    papeles:=0
+    JuntarTodo(flores,papeles)
+    Informar(flores,papeles)
+    avenida(AVENIDA,flores,papeles,contar)
+    Informar(AVENIDA,flores,papeles)
+    Informar(contar)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante CAP7PREG3)</summary>
+
+```
+{Variante de la Pregunta 3: escriba un programa para que el robot recorra la avenida 9 depositando en cada esquina lo que haga falta para que la cantidad de flores supere en 1 a la cantidad de papeles. Si no tiene en su bolsa lo necesario para hacerlo debe detener recorrido. Al finalizar debe informar la cantidad de esquinas que pudo completar adecuadamente. Si el recorrido quedo incompleto debe retornar a (9,1).}
+
+programa Cap7Pregunta3
+procesos
+  proceso ContarF(ES FLORES:numero)
+  variables
+    ContFlores:numero
+  comenzar 
+    ContFlores:=0
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      FLORES:=FLORES+1
+      ContFlores:=ContFlores+1
+    repetir ContFlores
+      depositarFlor
+  fin
+  proceso ContarP(ES PAPELES:numero)
+  variables
+    ContP:numero
+  comenzar
+    ContP:=0
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      PAPELES:=PAPELES+1
+      ContP:=ContP+1
+    repetir ContP
+      depositarPapel
+  fin
+  proceso Esquina(ES seguir:boolean)
+  variables
+    flores,papeles:numero
+  comenzar 
+    ContarF(flores)
+    ContarP(papeles)
+    si(flores>papeles)
+      DepoP(flores-papeles-1,seguir)
+    sino
+      DepoP(papeles-flores+1,seguir)
+  fin
+  proceso DepoP(E cantP:numero;E seguir:boolean)
+  variables
+    depo:numero
+  comenzar
+    depo:=0
+    mientras(depo<cantP)&(HayFlorEnLaBolsa)
+      depositarPapel
+      depo:=depo+1
+    si (depo<cantP)
+      seguir:=F
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    seguir:boolean
+    CantEsq:numero
+  comenzar
+    CantEsq:=0
+    seguir:=V
+    Esquina(seguir)
+    mientras(seguir)&(PosCa<100)
+      mover
+      CantEsq:=CantEsq+1
+      Esquina(seguir)
+    si (seguir)
+      CantEsq:=CantEsq+1
+    sino
+      Pos(9,1)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin
+```
+</details>
+
 4. Programe al robot para que recorra las calles de la ciudad. Por cada calle determine si debe depositar una flor ó un papel en cada esquina dependiendo si el total de flores de la calle es mayor o igual que el total de papeles (deposita una flor por cada esquina) o un papel en caso contrario. Al terminar el recorrido de todas las calles debe informar cuantas de las calles fueron completadas con flores.
+
+<details><summary>Código</summary>
+
+```
+{Programe al robot para que recorra las calles de la ciudad. Por cada calle determine si debe depositar una flor ó un papel en cada esquina dependiendo si el total de flores de la calle es mayor o igual que el total de papeles (deposita una flor por cada esquina) o un papel en caso contrario. Al terminar el recorrido de todas las calles debe informar cuantas de las calles fueron completadas con flores.}
+
+programa cap7Pregunta4
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso CantidadEsquina(ES NPAPELES:numero;ES NFLORES:numero)
+  comenzar
+    mientras((HayPapelEnLaEsquina)|(HayFlorEnLaEsquina))
+      si(HayPapelEnLaEsquina)
+        tomarPapel
+        NPAPELES:=NPAPELES+1
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        NFLORES:=NFLORES+1
+    repetir NPAPELES
+      depositarPapel
+    repetir NFLORES
+      depositarFlor
+  fin
+  proceso SinModificar(ES Papeles:numero;ES Flores:numero)
+  variables
+    menos:numero
+  comenzar
+    menos:=-1
+    CantidadEsquina(Papeles,Flores)
+    mientras((Papeles<Flores)|(Papeles>Flores))&((HayFlorEnLaBolsa)|(HayPapelEnLaBolsa))
+      si(Papeles>Flores)
+        si(HayFlorEnLaBolsa)
+          depositarFlor
+          Flores:=Flores+1
+      si(Papeles<Flores)
+        si(HayPapelEnLaBolsa)
+          depositarPapel
+          Papeles:=Papeles+1
+  fin
+  proceso calle(ES PAPAPELES:numero;ES FLOFLORES:numero)
+  comenzar
+    derecha
+    repetir 99
+      PAPAPELES:=0
+      FLOFLORES:=0
+      SinModificar(PAPAPELES,FLOFLORES)
+      mover
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    FLORES:numero
+    PAPELES:numero
+  comenzar
+    repetir 99
+      FLORES:=0
+      PAPELES:=0
+      calle(FLORES,PAPELES)
+      Informar(PAPELES,FLORES)
+      mover
+    Informar(PAPELES,FLORES)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
 5. Escriba un programa que le permita al robot recorrer las calles impares de la ciudad. Cada calle debe recorrerse sólo hasta encontrar una esquina con alguna flor o algún papel o ambos, que seguro existe. Al finalizar cada calle debe informarse cuantos pasos se ha dado hasta encontrar la esquina.
 
+<details><summary>Código</summary>
+
+```
+{Escriba un programa que le permita al robot recorrer las calles impares de la ciudad. Cada calle debe recorrerse sólo hasta encontrar una esquina con alguna flor o algún papel o ambos, que seguro existe. Al finalizar cada calle debe informarse cuantos pasos se ha dado hasta encontrar la esquina.}
+
+programa Capitulo7Pregunta5
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso CallesImpares(ES contar:numero)
+  comenzar
+    derecha
+    mientras(~(HayFlorEnLaEsquina))&(~(HayPapelEnLaEsquina))
+      mover
+      contar:=contar+1
+    Informar(contar)
+    Pos(1,PosCa+2)
+    izquierda
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    contador:numero
+  comenzar
+    repetir 99
+      contador:=0
+      CallesImpares(contador)
+  fin
+variables
+  R-Info:robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin
+```
+</details>
+
 6. Escriba un programa que le permita al robot recorrer cuadrados hasta encontrar un cuadrado con exactamente 3 flores y 2 papeles (seguro existe). El primer cuadrado es de lado 99 y los siguientes van decrementando en uno el tamaño del lado (98, 97 y así sucesivamente).
+
+<details><summary>Código</summary>
+
+```
+{Escriba un programa que le permita al robot recorrer cuadrados hasta encontrar un cuadrado con exactamente 3 flores y 2 papeles (seguro existe). El primer cuadrado es de lado 99 y los siguientes van decrementando en uno el tamaño del lado (98, 97 y así sucesivamente).}
+
+programa Captitulo7Pregunta6
+procesos
+  proceso cuadrado(E Lado:numero;ES FLORES:numero;ES PAPELES:numero)
+  variables
+    CantPapeles:numero
+    CantFlores:numero
+  comenzar
+    repetir 4
+      repetir Lado
+        CantFlores:=0
+        CantPapeles:=0
+        mientras(HayFlorEnLaEsquina)|(HayPapelEnLaEsquina)
+          si(HayFlorEnLaEsquina)
+            tomarFlor
+            FLORES:=FLORES+1
+            CantFlores:=CantFlores+1
+          si(HayPapelEnLaEsquina)
+            tomarPapel
+            PAPELES:=PAPELES+1
+            CantPapeles:=CantPapeles+1
+        repetir CantFlores
+          depositarFlor
+        repetir CantPapeles
+          depositarPapel
+        mover
+      derecha
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    lado,flores:numero
+    papeles:numero
+    menos:numero
+  comenzar
+    menos:=-1
+    lado:=14
+    mientras(~(flores=3)&~(papeles=2))
+      flores:=0
+      papeles:=0
+      cuadrado(lado,flores,papeles)
+      lado:=lado+menos
+      Informar(lado,flores,papeles)
+  fin
+variables
+  R-Info: robot1
+comenzar
+  AsignarArea(R-Info,ciudad)
+  Iniciar(R-Info,1,1)
+fin
+```
+</details>
 
 ### Código relacionado con la ejercitación
 

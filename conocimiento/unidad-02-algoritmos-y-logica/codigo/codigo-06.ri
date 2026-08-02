@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Define un proceso "cuadrado" que recorre el perímetro de un cuadrado del lado indicado, recogiendo y contando los papeles que encuentra, y un proceso "calle70" que recorre la calle 70 buscando un tramo entre esquinas cuya cantidad acumulada de papeles coincida con un total dado. En el cuerpo principal arma dos cuadrados (de lado 18 y de lado 20) en distintas posiciones, informa y acumula la cantidad de papeles recogidos en cada uno, y finalmente invoca calle70 con el total acumulado.}
+
 programa uwu 
 
 procesos

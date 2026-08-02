@@ -1,3 +1,4 @@
+{Ejemplo introductorio (no forma parte de los Ejemplos 7.1-7.5 del capítulo y no usa parámetros de entrada/salida): el robot informa el valor inicial de una variable booleana y avanza mientras ésta sea verdadera, deteniéndose al llegar a la calle 10.}
 
 programa EjemploBasico
 areas

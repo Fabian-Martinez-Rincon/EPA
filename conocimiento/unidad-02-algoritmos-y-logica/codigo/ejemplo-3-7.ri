@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. El robot se posiciona en (1,1) y recorre la avenida 1 completa (99 cuadras más la última esquina) contando todas las flores que encuentra en cada esquina, e informa el total. Aplica la misma técnica de recorrido de avenida contando elementos del Ejemplo 3.7 del capítulo 3, pero con flores en lugar de papeles.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

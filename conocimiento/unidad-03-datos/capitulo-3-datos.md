@@ -858,21 +858,391 @@ Hasta aquí se han presentado los elementos que componen un algoritmo: el contro
    1. Recogiendo todas las flores.
    2. Sin modificar el contenido de cada esquina.
 
+<details><summary>Código</summary>
+
+```
+{Programe al robot para que informe la cantidad de flores que hay en la calle 44.
+1. Recogiendo todas las flores.
+2. Sin modificar el contenido de cada esquina.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+  comenzar
+    Pos(1,44)
+    x:=0
+    derecha
+    repetir 99
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        x:=x+1
+      mientras (HayFlorEnLaBolsa)
+        depositarFlor
+      mover
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      x:=x+1
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+    Informar(x)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 3. Programe al robot para que informe la cantidad de esquinas vacías que hay en la ciudad.
+
+<details><summary>Código</summary>
+
+```
+{Programe al robot para que informe la cantidad de esquinas vacías que hay en la ciudad.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+  comenzar
+    x:=0
+    derecha
+    repetir 99
+      repetir 99
+        si ~((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
+          x:=x+1
+        mover
+      si~((HayFlorEnLaEsquina)(HayPapelEnLaEsquina))
+        x:=x+1
+      Pos(1,PosCa+1)
+    si~((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
+      x:=x+1
+    Informar(x)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
 4. Escriba un programa que le permita al robot caminar por la calle 7 hasta encontrar 20 flores. Hay como máximo una flor por esquina. Seguro existen 20 flores.
 
+<details><summary>Código</summary>
+
+```
+{Escriba un programa que le permita al robot caminar por la calle 7 hasta encontrar 20 flores. Hay como máximo una flor por esquina. Seguro existen 20 flores.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+  comenzar
+    Pos(1,7)
+    x:=0
+    derecha
+    mientras(x<20)
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        x:=x+1
+      mover
+    Informar(x)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 5. Escriba un programa que le permita al robot caminar por la calle 7 hasta encontrar 20 flores. Hay como máximo una flor por esquina. Pueden no haber 20 flores.
+
+<details><summary>Código</summary>
+
+```
+{Escriba un programa que le permita al robot caminar por la calle 7 hasta encontrar 20 flores. Hay como máximo una flor por esquina. Pueden no haber 20 flores.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+  comenzar
+    Pos(1,7)
+    x:=0
+    derecha
+    mientras(PosAv<100)
+      si(x<20)
+        si(HayFlorEnLaEsquina)
+          tomarFlor
+          x:=x+1
+        mover
+    Informar(x)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
 6. Escriba un programa que le permita al robot caminar por la calle 7 hasta encontrar 20 flores. Puede haber más de una flor por esquina. Seguro existen 20 flores.
 
+<details><summary>Código</summary>
+
+```
+{Escriba un programa que le permita al robot caminar por la calle 7 hasta encontrar 20 flores. Puede haber más de una flor por esquina. Seguro existen 20 flores.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+  comenzar
+    Pos(1,7)
+    x:=0
+    derecha
+    mientras(x<20)
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        x:=x+1
+      mover
+    Informar(PosAv,PosCa)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 7. El robot debe limpiar de papeles la calle 34. Al terminar el recorrido debe informar cuantas esquinas tenían originalmente exactamente 6 papeles.
+
+<details><summary>Código</summary>
+
+```
+{El robot debe limpiar de papeles la calle 34. Al terminar el recorrido debe informar cuantas esquinas tenían originalmente exactamente 6 papeles.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+    z: numero
+  comenzar
+    Pos(1,34)
+    x:=0
+    y:=0
+    derecha
+    repetir 99
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        y:=y+1
+        si (y>=6)
+          x:=x+1
+      mover
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      z:=z+1
+      si (z>=6)
+        x:=x+1
+    Informar(x)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
 8. Programe al robot para que recorra la calle 2 hasta encontrar al menos 10 papeles. Pueden no haber 10 papeles.
 
+<details><summary>Código</summary>
+
+```
+{Programe al robot para que recorra la calle 2 hasta encontrar al menos 10 papeles. Pueden no haber 10 papeles.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+  comenzar
+    Pos(1,2)
+    x:=0
+    derecha
+    mientras(PosAv<99)
+      si(x<10)
+        mientras(HayPapelEnLaEsquina)
+          tomarPapel
+          x:=x+1
+        mover
+    si(x<10)
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        x:=x+1
+    Informar(PosAv,PosCa)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 9. Programe al robot para que recorra la calle 2 hasta encontrar 10 papeles y 4 flores. Seguro existen dichas cantidades.
 
+<details><summary>Código</summary>
+
+```
+{Programe al robot para que recorra la calle 2 hasta encontrar 10 papeles y 4 flores. Seguro existen dichas cantidades.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    x: numero
+    y: numero
+    z:numero
+  comenzar
+    Pos(1,2)
+    x:=0
+    y:=0
+    derecha
+    mientras(x<10)|(y<4)
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        x:=x+1
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        y:=y+1
+      mover
+    mientras(x<10)|(y<4)
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        x:=x+1
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        y:=y+1
+    Informar((PosAv),PosCa)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 10. Programe al robot para que recorra el perímetro de la ciudad e informe la cantidad de papeles recogidos en cada lado.
+
+<details><summary>Código</summary>
+
+```
+{Programe al robot para que recorra el perímetro de la ciudad e informe la cantidad de papeles recogidos en cada lado.}
+
+programa prueba
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    lado1: numero
+    lado2: numero
+    lado3: numero
+    lado4: numero
+  comenzar
+    lado1:=0
+    lado2:=0
+    lado3:=0
+    lado4:=0
+    repetir 99
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado1:=lado1+1
+      mover
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      lado1:=lado1+1
+    derecha
+    repetir 99
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado2:=lado2+1
+      mover
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      lado2:=lado2+1
+    derecha
+    repetir 99
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        lado3:=lado3+1
+      mover
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      lado3:=lado3+1
+    derecha
+    repetir 99
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        lado4:=lado4+1
+      mover
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      lado4:=lado4+1
+    Informar(lado1,lado2,lado3,lado4)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
 ### Código relacionado con la ejercitación
 

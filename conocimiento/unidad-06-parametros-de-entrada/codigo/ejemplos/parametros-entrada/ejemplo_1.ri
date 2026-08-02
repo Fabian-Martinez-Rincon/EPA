@@ -1,3 +1,7 @@
+{Ejemplo 6.2: Se desea programar al robot para que realice el recorrido c) de la figura 6.1 (torre de cuadrados apilados de lado decreciente).
+
+Variante que generaliza la solución para realizar una torre de 9 cuadrados: parte de long := 18 y lo decrementa en 2 en cada una de las 9 iteraciones.}
+
 programa Cap6Ejemplo2v4
 
 procesos

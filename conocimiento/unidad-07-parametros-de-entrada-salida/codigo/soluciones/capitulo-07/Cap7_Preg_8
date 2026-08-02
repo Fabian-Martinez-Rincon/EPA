@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Recorre todas las avenidas de la ciudad sin modificar flores ni papeles, contando en toda la ciudad la cantidad de esquinas con 20 flores o más y la cantidad de esquinas con menos de 60 papeles (habiendo al menos uno), e informa ambos totales al finalizar.}
+
 programa Cap7Pregunta8
 procesos
   proceso Exacto20Flores(ES FLORES:numero)

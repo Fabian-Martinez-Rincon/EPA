@@ -1,3 +1,5 @@
+{Ejemplo ilustrativo de modularización (sin un enunciado numerado propio en el capítulo): recorre el perímetro de un cuadrado de lado 10 juntando las flores de cada vértice antes de avanzar, escribiendo el mismo bloque de código cuatro veces sin usar procesos. Sirve como punto de partida "sin modularizar" para contrastar con ejemplo_4.ri y ejemplo_5.ri, que resuelven un recorrido equivalente usando procesos.}
+
 programa ejemplo_modularidad
 areas
   ciudad: AreaC(1,1,100,100)

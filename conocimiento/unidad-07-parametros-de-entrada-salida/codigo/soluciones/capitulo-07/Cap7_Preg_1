@@ -1,3 +1,5 @@
+{Escriba un programa que le permita al robot informar la cantidad total de flores y la cantidad total de papeles que hay en toda la ciudad. Para hacerlo, utilice un proceso que recorra una calle cuyo número recibe como parámetro y devuelva la información correspondiente.}
+
 programa  parametros
 procesos
   proceso CONTARFLORPAPEL(ES flor:numero;ES papel:numero)

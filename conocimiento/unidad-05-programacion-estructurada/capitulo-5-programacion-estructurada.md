@@ -812,4 +812,531 @@ Los enlaces apuntan a soluciones existentes en el repositorio. Conviene analizar
 | 4 | [variante A](codigo/soluciones/capitulo-05/Cap5_4A), [variante B](codigo/soluciones/capitulo-05/Cap5_4B), [variante C](codigo/soluciones/capitulo-05/Cap5_4C), [variante C alternativa](<codigo/soluciones/capitulo-05/Cap5_4C otro>) |
 | 8 | [Cap 5_8](<codigo/soluciones/capitulo-05/Cap 5_8>) |
 
+**Ejercicio 1**
+
+<details><summary>Código</summary>
+
+```
+{Ejercicio 1 del Capítulo 5: Escriba un proceso que le permita al robot realizar un cuadrado de lado 2 girando en la dirección de las agujas del reloj.}
+
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    vacias:=0
+    cuadrado
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+**Ejercicio 2**
+
+<details><summary>Código (variante A)</summary>
+
+```
+{Ejercicio 2 del Capítulo 5 (variante A): Utilice el proceso desarrollado en el ejercicio 1 para realizar un programa para cada uno de los recorridos de la figura 5.9.}
+
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+  proceso A
+  comenzar
+    repetir 3
+      cuadrado
+      Pos(PosAv+3,PosCa+3)
+  fin 
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    vacias:=0
+    A
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante B)</summary>
+
+```
+{Ejercicio 2 del Capítulo 5 (variante B): Utilice el proceso desarrollado en el ejercicio 1 para realizar un programa para cada uno de los recorridos de la figura 5.9.}
+
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+  proceso A
+  comenzar
+    repetir 3
+      cuadrado
+      Pos(PosAv+3,PosCa+3)
+  fin 
+  proceso B
+  comenzar
+    repetir 2
+      cuadrado
+      Pos(1,PosCa+5)
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    vacias:=0
+    B
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+**Ejercicio 3**
+
+<details><summary>Código</summary>
+
+```
+{Ejercicio 3 del Capítulo 5: Escriba un proceso que le permita al robot realizar un rectángulo de base 5 y altura 3 girando en la dirección de las agujas del reloj a partir de la posición (1,1).}
+
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+  proceso A
+  comenzar
+    repetir 3
+      cuadrado
+      Pos(PosAv+3,PosCa+3)
+  fin 
+  proceso B
+  comenzar
+    repetir 2
+      cuadrado
+      Pos(1,PosCa+5)
+  fin
+  proceso rectangulo
+  comenzar
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover
+    derecha
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    rectangulo
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+**Ejercicio 4**
+
+<details><summary>Código (variante A)</summary>
+
+```
+{Ejercicio 4 del Capítulo 5 (variante A): Programe al Robot para que realice los recorridos de la figura 5.10 utilizando el proceso desarrollado en el ejercicio 3. Esta variante resuelve el recorrido a) (rectángulos de 5x3 apilados verticalmente).}
+
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+  proceso A
+  comenzar
+    repetir 3
+      cuadrado
+      Pos(PosAv+3,PosCa+3)
+  fin 
+  proceso B
+  comenzar
+    repetir 2
+      cuadrado
+      Pos(1,PosCa+5)
+  fin
+  proceso rectangulo
+  comenzar
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover
+    derecha
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover
+    derecha
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    repetir 3
+      rectangulo
+      Pos(1,PosCa+5)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante B)</summary>
+
+```
+{Ejercicio 4 del Capítulo 5 (variante B): Programe al Robot para que realice los recorridos de la figura 5.10 utilizando el proceso desarrollado en el ejercicio 3. Esta variante resuelve el recorrido b) (rectángulos de 5x3 entrelazados en diagonal).}
+
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+  proceso A
+  comenzar
+    repetir 3
+      cuadrado
+      Pos(PosAv+3,PosCa+3)
+  fin 
+  proceso B
+  comenzar
+    repetir 2
+      cuadrado
+      Pos(1,PosCa+5)
+  fin
+  proceso rectangulo
+  comenzar
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover
+    derecha
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover
+    derecha
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    repetir 3
+      rectangulo
+      Pos(PosAv+1,PosCa+1)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante C)</summary>
+
+```
+{Ejercicio 4 del Capítulo 5 (variante C): Programe al Robot para que realice los recorridos de la figura 5.10 utilizando el proceso desarrollado en el ejercicio 3. Esta variante resuelve el recorrido c) (fila horizontal de rectángulos de 5x3).}
+
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+  proceso A
+  comenzar
+    repetir 3
+      cuadrado
+      Pos(PosAv+3,PosCa+3)
+  fin 
+  proceso B
+  comenzar
+    repetir 2
+      cuadrado
+      Pos(1,PosCa+5)
+  fin
+  proceso rectangulo
+  comenzar
+    repetir 2
+      repetir 3
+        mover
+      derecha
+      repetir 5
+        mover
+      derecha
+ {Si variamos la derecha podemos rotar el ractangulo}
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    repetir 2
+      rectangulo
+      izquierda
+      Pos(PosAv+9,1)
+      rectangulo
+      derecha
+      Pos(PosAv+1,1)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante C alternativa)</summary>
+
+```
+{Ejercicio 4 del Capítulo 5 (variante C alternativa): Programe al Robot para que realice los recorridos de la figura 5.10 utilizando el proceso desarrollado en el ejercicio 3. Solución alternativa para el recorrido c) (fila horizontal de rectángulos de 5x3), con otra implementación del proceso rectángulo.}
+
+programa prueba
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso cuadrado
+  comenzar
+    repetir 4
+      repetir 3
+        mover
+      derecha
+  fin
+  proceso A
+  comenzar
+    repetir 3
+      cuadrado
+      Pos(PosAv+3,PosCa+3)
+  fin 
+  proceso B
+  comenzar
+    repetir 2
+      cuadrado
+      Pos(1,PosCa+5)
+  fin
+  proceso rectangulo
+  comenzar
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover
+    derecha
+    repetir 3
+      mover
+    derecha
+    repetir 5
+      mover 
+    derecha {Si variamos la derecha podemos rotar el ractangulo}
+  fin
+areas 
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    vacias: numero
+  comenzar
+    repetir 2
+      rectangulo
+      izquierda
+      Pos(PosAv+10,1)
+      rectangulo
+      derecha
+      Pos(PosAv+2,1)
+  fin
+variables
+  robin:robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+**Ejercicio 8**
+
+<details><summary>Código</summary>
+
+```
+{Ejercicio 8 del Capítulo 5: Programe al robot para que recorra la ciudad de la siguiente manera: primero debe recorrer la avenida 1 juntando todas las flores que encuentre, luego debe recorrer la calle 1 juntando todos los papeles que encuentre. Luego recorre la avenida 2 y la calle 2 de la misma manera y así siguiendo. Implemente un módulo para recorrer la avenida y otro módulo para recorrer la calle.}
+
+programa ochocho
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso recorrerAvenida
+  comenzar
+    repetir 99
+      mover
+    Pos(1,1)
+  fin
+  proceso recorrerCalle
+  comenzar
+    repetir 99
+      mover
+    Pos(1,1)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    avenidas: numero
+    calles: numero
+  comenzar
+    avenidas:=0
+    calles:=0
+    repetir 99
+      recorrerAvenida
+      derecha 
+      recorrerCalle 
+      avenidas:=avenidas+1
+      calles:=calles+1
+      Pos(PosAv+avenidas,PosCa+calles)
+      izquierda
+  fin
+variables
+  R-info : robot1
+comenzar
+  AsignarArea(R-info, ciudad)
+  Iniciar(R-info,1,1)
+fin
+```
+</details>
+
 También hay ejemplos modernos de modularización: [código modularizado](codigo/ejemplos/modularizacion/codigo_modularizado.ri), [ejemplo 1](codigo/ejemplos/modularizacion/ejemplo_1.ri), [ejemplo 2](codigo/ejemplos/modularizacion/ejemplo_2.ri), [ejemplo 3](codigo/ejemplos/modularizacion/ejemplo_3.ri), [ejemplo 4](codigo/ejemplos/modularizacion/ejemplo_4.ri) y [ejemplo 5](codigo/ejemplos/modularizacion/ejemplo_5.ri).
+
+> `requiere_revision`: [codigo/soluciones/capitulo-05/Cap5Ejempo4](<codigo/soluciones/capitulo-05/Cap5Ejempo4>) existe en el repositorio pero no se vinculó a ningún ejercicio de esta lista por falta de evidencia suficiente (el programa interno se llama `Cap5Ejemplo4`, no coincide en nombre con ninguno de los 11 enunciados numerados). Su comentario de enunciado identifica que su código reproduce el Ejemplo 5.4 de la teoría. Queda disponible para revisión manual.

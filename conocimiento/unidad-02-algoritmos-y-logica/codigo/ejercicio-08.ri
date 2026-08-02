@@ -1,3 +1,5 @@
+{Enunciado (Ejercicio 8, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la avenida 23 buscando una esquina sin papeles que seguro existe. Al encontrarla debe depositar, en esa esquina, todos los papeles que lleva en su bolsa. Informar en que calle dejó los papeles.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

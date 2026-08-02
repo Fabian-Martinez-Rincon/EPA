@@ -1,3 +1,7 @@
+{Ejemplo 6.1: Programe al robot para que realice el recorrido a) de la figura 6.1 (cuatro cuadrados escalonados de lado 1, 2, 3 y 4, cada uno comenzando donde terminó el anterior).
+
+Solución con parámetros: un único proceso cuadrado que recibe la longitud del lado como parámetro de entrada, invocado con los valores 1, 2, 3 y 4.}
+
 programa MuchosCuadradosV3
 
 procesos

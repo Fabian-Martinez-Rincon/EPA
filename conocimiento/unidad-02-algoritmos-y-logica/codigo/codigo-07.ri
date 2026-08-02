@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Programa incompleto de tipo examen ("ExamenVoluntario"): declara procesos para juntar flores y papeles (juntarFlor, juntarPapel) y un proceso "cuadrado" que los usa para recorrer el perímetro de un cuadrado contando ambos elementos e informando el total al terminar. El cuerpo principal arma dos cuadrados (de lado 18 y 20) en distintas posiciones y acumula la cantidad de papeles de cada uno, pero luego invoca un proceso "recorridoCalle70" que nunca fue definido, por lo que el programa no compilaría tal como está escrito.}
+
 programa ExamenVoluntario
 procesos
   variables

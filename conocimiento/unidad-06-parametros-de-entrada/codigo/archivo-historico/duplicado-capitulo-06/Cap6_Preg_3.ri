@@ -1,3 +1,5 @@
+{Ejercitación, ejercicio 3: Escriba un proceso que le permita al Robot realizar un rectángulo a partir de la esquina donde está parado cuyas dimensiones, alto y ancho, se reciben.}
+
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero; E largo:numero)

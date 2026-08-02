@@ -1,5 +1,9 @@
+{Capítulo 4, ejercicio 6: Programar al robot para que recorra el perímetro de la ciudad buscando una esquina con exactamente 3 flores y 3 papeles, suponiendo que esta esquina existe. Debe informar cual es la esquina encontrada.
+
+Nota: versión terminada del ejercicio 6 (recoge las flores y papeles de cada esquina y gira en las cuatro esquinas del perímetro con un único condicional combinado). Ver también las otras variantes "Capitulo 4 pregunta 6" y "capitulo 4 pregunta 6 terminar(creo)".}
+
 programa prueba
-areas 
+areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1

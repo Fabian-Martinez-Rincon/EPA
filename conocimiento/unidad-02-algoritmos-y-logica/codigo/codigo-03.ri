@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Prácticamente idéntico a codigo-01.ri: recorre una vez el perímetro completo de la ciudad y deposita una flor en cada uno de los cuatro vértices, si el robot tiene flores en la bolsa.}
+
 programa antoja
 areas
   ciudad:AreaC(1,1,100,100)

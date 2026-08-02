@@ -1,3 +1,5 @@
+{Ejemplo ilustrativo de modularización (sin un enunciado numerado propio en el capítulo): segundo paso de refactorización sobre ejemplo_4.ri. Separa juntar_flores como proceso propio, lo reutiliza dentro de juntar_mover, y agrega un proceso cuadrado que invoca juntar_mover cuatro veces, mostrando una descomposición Top-Down en capas (cuadrado -> juntar_mover -> juntar_flores).}
+
 programa ejemplo_modularidad
 procesos
   proceso juntar_flores

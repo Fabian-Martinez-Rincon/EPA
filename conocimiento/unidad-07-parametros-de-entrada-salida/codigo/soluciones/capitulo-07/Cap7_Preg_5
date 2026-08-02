@@ -1,3 +1,5 @@
+{Escriba un programa que le permita al robot recorrer las calles impares de la ciudad. Cada calle debe recorrerse sólo hasta encontrar una esquina con alguna flor o algún papel o ambos, que seguro existe. Al finalizar cada calle debe informarse cuantos pasos se ha dado hasta encontrar la esquina.}
+
 programa Capitulo7Pregunta5
 procesos
   proceso izquierda

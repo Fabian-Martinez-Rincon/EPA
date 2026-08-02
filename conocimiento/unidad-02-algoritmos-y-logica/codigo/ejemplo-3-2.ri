@@ -1,3 +1,5 @@
+{Enunciado (Ejemplo 3.2, capítulo 3 - Datos): Recoger todas las flores de la esquina (11,1). Si logra recoger al menos una flor, ir a (10,10) y vaciar de flores la bolsa; sino informar que no se ha recogido ninguna flor en (11,1).}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

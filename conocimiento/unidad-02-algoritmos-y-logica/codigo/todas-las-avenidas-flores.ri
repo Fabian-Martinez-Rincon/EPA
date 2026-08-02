@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. El robot recorre las 100 avenidas de la ciudad contando, en cada esquina, la cantidad de flores presentes -tomándolas y devolviéndolas de inmediato mediante el proceso SumarFlores, de modo que la esquina no queda alterada- y acumula el total general, que informa al finalizar el recorrido.}
+
 programa prueba
 procesos
   proceso SumarFlores(ES flores:numero)

@@ -1,3 +1,5 @@
+{Ejercitación, ejercicio 1: Escriba un proceso que le permita al robot realizar un cuadrado a partir de la esquina donde está parado, girando en la dirección de las agujas del reloj y recibiendo como dato la longitud del lado.}
+
 programa  parametros
 procesos
   proceso cuadrado(E lado:numero)

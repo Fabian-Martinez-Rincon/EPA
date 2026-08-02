@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Recorre cada avenida de la ciudad hasta encontrar una esquina vacía, contando (sin modificar) las flores halladas en el camino, e informa ese total únicamente cuando la avenida acumuló 45 flores o más.}
+
 programa Cap7Preg8
 procesos
   proceso SinModificar(ES FLORES:numero)

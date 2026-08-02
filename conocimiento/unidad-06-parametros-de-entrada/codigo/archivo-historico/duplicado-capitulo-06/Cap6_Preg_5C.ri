@@ -1,3 +1,5 @@
+{Ejercitación, ejercicio 5: Programe al robot para que realice cada uno de los cuatro recorridos de la figura 6.7. (variante C)}
+
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero;E largo:numero)
@@ -25,7 +27,7 @@ robots
   comenzar
     numer:=-1
     anchx:=3
-    largx:=2 
+    largx:=2
     repetir 3
       rectangulo(anchx,largx)
       izquierda

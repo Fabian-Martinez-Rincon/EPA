@@ -1,5 +1,7 @@
+{Capítulo 4, ejercicio 4: Programar al robot para que recorra la calle 20 e informe cuántas esquinas tienen sólo papeles. No debe modificarse la cantidad de flores y papeles de cada esquina.}
+
 programa prueba
-areas 
+areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1

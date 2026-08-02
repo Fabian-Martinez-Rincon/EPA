@@ -1,3 +1,5 @@
+{Ejercitación, ejercicio 2: Utilice el proceso de 1. para realizar los recorridos de la figura 6.5 a partir de (1,1). (variante B)}
+
 programa  parametros
 procesos
   proceso cuadrado(E lado:numero)

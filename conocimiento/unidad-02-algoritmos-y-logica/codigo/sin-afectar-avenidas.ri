@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. El robot se posiciona en (4,1) y recorre los primeros 10 casilleros de esa avenida (repitiendo 9 veces y procesando la última esquina aparte), contando en cada una la cantidad de flores mediante el proceso SumarFlores -que las toma y las vuelve a depositar de inmediato, sin alterar la esquina- e informa al final el total acumulado.}
+
 programa prueba
 procesos
   proceso SumarFlores(ES flores:numero)

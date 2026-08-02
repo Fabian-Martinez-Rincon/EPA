@@ -1,3 +1,5 @@
+{Enunciado (Ejercicio 9, capítulo 2 - Algoritmos y Lógica): Escriba un programa que le permita al robot recorrer la calle 17 depositando un papel en las avenidas impares. El recorrido termina cuando el robot llega a la esquina (100,17).}
+
 programa antoja
 areas
   ciudad:AreaC(1,1,100,100)

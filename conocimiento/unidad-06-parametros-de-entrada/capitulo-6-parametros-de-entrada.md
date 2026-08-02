@@ -808,7 +808,105 @@ Utilizando parámetros de entrada, la información viaja en un único sentido, d
 
 1. Escriba un proceso que le permita al robot realizar un cuadrado a partir de la esquina donde está parado, girando en la dirección de las agujas del reloj y recibiendo como dato la longitud del lado.
 
+<details><summary>Código</summary>
+
+```
+programa  parametros
+procesos
+  proceso cuadrado(E lado:numero)
+  comenzar
+    repetir 4
+      repetir lado
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    ancho:numero
+  comenzar
+    ancho:=10
+    cuadrado(ancho)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 2. Utilice el proceso de 1. para realizar los recorridos de la figura 6.5 a partir de (1,1).
+
+<details><summary>Código (variante B)</summary>
+
+```
+programa  parametros
+procesos
+  proceso cuadrado(E lado:numero)
+  comenzar
+    repetir 4
+      repetir lado
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    ancho:numero
+  comenzar
+    ancho:=1
+    repetir 4
+      cuadrado(ancho)
+      ancho:=ancho+1
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante C)</summary>
+
+```
+programa  parametros
+procesos
+  proceso cuadrado(E lado:numero)
+  comenzar
+    repetir 4
+      repetir lado
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    ancho:numero
+  comenzar
+    ancho:=1
+    repetir 5
+      cuadrado(ancho)
+      Pos(PosAv+ancho,1)
+      ancho:=ancho+1  
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
    **Figura 6.5: Recorridos con cuadrados**
 
@@ -818,7 +916,125 @@ Utilizando parámetros de entrada, la información viaja en un único sentido, d
 
 3. Escriba un proceso que le permita al Robot realizar un rectángulo a partir de la esquina donde está parado cuyas dimensiones, alto y ancho, se reciben.
 
+<details><summary>Código</summary>
+
+```
+programa  parametros
+procesos
+  proceso rectangulo(E ancho:numero; E largo:numero)
+  comenzar
+    repetir 2
+      repetir largo
+        mover
+      derecha
+      repetir ancho
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    anchx:numero
+    largx:numero
+  comenzar
+    anchx:=4
+    largx:=10
+    rectangulo(anchx,largx)  
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 4. Utilice el proceso realizado en 3. para que el Robot efectúe los recorridos de la figura 6.6 a partir de (1,1).
+
+<details><summary>Código (variante A)</summary>
+
+```
+programa  parametros
+procesos
+  proceso rectangulo(E ancho:numero; E largo:numero)
+  comenzar
+    repetir 2
+      repetir largo
+        mover
+      derecha
+      repetir ancho
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    anchx:numero
+    largx:numero
+    numer:numero
+  comenzar
+    numer:=-2
+    anchx:=5
+    largx:=1
+    repetir 3
+      rectangulo(anchx,largx)
+      Pos(PosAv+1,PosCa+2)
+      anchx:=anchx+numer 
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante B)</summary>
+
+```
+programa  parametros
+procesos
+  proceso rectangulo(E ancho:numero; E largo:numero)
+  comenzar
+    repetir 2
+      repetir largo
+        mover
+      derecha
+      repetir ancho
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    anchx:numero
+    largx:numero
+    numer:numero
+  comenzar
+    numer:=-4
+    anchx:=1
+    largx:=15
+    repetir 4
+      rectangulo(anchx,largx)
+      Pos(PosAv+1,PosCa+2)
+      largx:=largx+numer 
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
    **Figura 6.6: Recorridos con rectángulos**
 
@@ -828,13 +1044,366 @@ Utilizando parámetros de entrada, la información viaja en un único sentido, d
 
 5. Programe al robot para que realice cada uno de los cuatro recorridos de la figura 6.7.
 
+<details><summary>Código (variante A)</summary>
+
+```
+programa  parametros
+procesos
+  proceso rectangulo(E ancho:numero)
+  comenzar
+    repetir 2
+      repetir ancho
+        mover
+      derecha
+    izquierda
+  fin
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    anchx:numero
+    largx:numero
+    numer:numero
+  comenzar
+    numer:=-1
+    anchx:=5
+    largx:=5 
+    repetir 3
+      rectangulo(anchx)
+      anchx:=anchx+numer
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante B)</summary>
+
+```
+programa  parametros
+procesos
+  proceso rectangulo(E ancho:numero;E largo:numero)
+  comenzar
+    repetir ancho
+      mover
+    derecha
+    repetir largo
+      mover
+    derecha
+  fin
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    anchx:numero
+    largx:numero
+    numer:numero
+  comenzar
+    numer:=-1
+    anchx:=3
+    largx:=2
+    repetir 3
+      rectangulo(anchx,largx)
+      izquierda
+      anchx:=anchx+numer
+      largx:=largx+1
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante C)</summary>
+
+```
+programa  parametros
+procesos
+  proceso rectangulo(E ancho:numero;E largo:numero)
+  comenzar
+    repetir ancho
+      mover
+    derecha
+    repetir largo
+      mover
+    derecha
+  fin
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    anchx:numero
+    largx:numero
+    numer:numero
+  comenzar
+    numer:=-1
+    anchx:=3
+    largx:=2
+    repetir 3
+      rectangulo(anchx,largx)
+      izquierda
+      anchx:=anchx+numer
+      largx:=largx+1
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
+<details><summary>Código (variante D)</summary>
+
+```
+programa  parametros
+procesos
+  proceso rectangulo(E ancho:numero;E largo:numero)
+  comenzar
+    repetir ancho
+      mover
+    derecha
+    repetir largo
+      mover
+    derecha
+  fin
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    anchx:numero
+    largx:numero
+    numer:numero
+  comenzar
+    Pos(1,5)
+    numer:=-1
+    anchx:=2
+    largx:=4 
+    repetir 2
+      rectangulo(anchx,largx)
+      izquierda
+    derecha
+    repetir 2
+      rectangulo(anchx,largx)
+      izquierda
+      
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 6. a) Escriba un proceso que le permita al robot recorrer una avenida cuyo número se ingresa como parámetro de entrada.
+
+<details><summary>Código</summary>
+
+```
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
+  variables
+    CantFlores:numero
+  comenzar
+    Pos(avenida,PosCa)
+    repetir 99
+      mover
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    avenidad:numero
+    NFlores:numero
+  comenzar
+    NFlores:=4
+    avenidad:=19
+    JuntarFlor(avenidad,NFlores)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
    b) Utilice el proceso de 6.a) para recorrer todas las avenidas de la ciudad.
 
+<details><summary>Código</summary>
+
+```
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
+  variables
+    CantFlores:numero
+    num:numero
+  comenzar
+    num:=0
+    Pos(avenida,1)
+    repetir 99
+      repetir 99
+        mover
+      Pos(PosAv+1,1)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    avenidad:numero
+    NFlores:numero
+  comenzar
+    NFlores:=4
+    avenidad:=1
+    JuntarFlor(avenidad,NFlores)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
    c) Utilice el proceso de 6.a) para recorrer las avenidas 5, 6, 7 … 15.
 
+<details><summary>Código</summary>
+
+```
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
+  variables
+    CantFlores:numero
+    num:numero
+  comenzar
+    num:=0
+    Pos(avenida,1)
+    repetir 10
+      repetir 99
+        mover
+      Pos(PosAv+1,1)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    avenidad:numero
+    NFlores:numero
+  comenzar
+    NFlores:=4
+    avenidad:=5
+    JuntarFlor(avenidad,NFlores)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
    d) Utilice el proceso de 6.a) para recorrer las avenidas pares de la ciudad.
+
+<details><summary>Código</summary>
+
+```
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
+  variables
+    CantFlores:numero
+    num:numero
+  comenzar
+    num:=0
+    Pos(avenida,1)
+    repetir 49
+      repetir 99
+        mover
+      Pos(PosAv+2,1)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    avenidad:numero
+    NFlores:numero
+  comenzar
+    NFlores:=4
+    avenidad:=2
+    JuntarFlor(avenidad,NFlores)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
    **Figura 6.7: Recorrido con escalones.**
 
@@ -844,7 +1413,92 @@ Utilizando parámetros de entrada, la información viaja en un único sentido, d
 
 7. Programe al robot para que realice un módulo CalleFlor que recorra una calle cuyo número se ingresa como parámetro, hasta juntar tantas flores como lo indica otro parámetro de entrada que este módulo recibe. La cantidad de flores seguro existe.
 
+<details><summary>Código</summary>
+
+```
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso JuntarFlor(E calle:numero;E NumFlores:numero)
+  variables
+    CantFlores:numero
+  comenzar
+    Pos(PosAv,calle)
+    derecha
+    mientras(PosAv<100)&(CantFlores<NumFlores)
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        CantFlores:=CantFlores+1
+      mover
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    callejon:numero
+    NFlores:numero
+  comenzar
+    NFlores:=4
+    callejon:=19
+    JuntarFlor(callejon,NFlores)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
+
 8. Programe al robot para que realice un módulo Avenida que recorra una avenida, cuyo número se ingresa como parámetro, hasta dar tantos pasos como los indicados por otro parámetro de entrada que este módulo recibe. Es decir, si recibe los valores 3 y 1, debe dar 1 paso en la avenida 3; si recibe 12 y 5 debe dar 5 pasos en la avenida 12; y así sucesivamente. En cambio, si recibe algún valor negativo no debe dar pasos. Considere que la cantidad máxima de pasos que podrá dar es 99, cualquier valor que reciba mayor que 99, implicará realizar sólo hasta 99 pasos. Los números de avenida seguro son entre 1 y 100.
+
+<details><summary>Código</summary>
+
+```
+programa  parametros
+procesos
+  proceso izquierda
+  comenzar
+    repetir 2
+      derecha
+  fin
+  proceso Avenida(E Numero:numero;E pasos:numero)
+  variables
+    noventa:numero
+  comenzar
+    Pos(Numero,1)
+    noventa:=99
+    si (pasos>99)
+      pasos:=noventa
+    repetir pasos
+      mover
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    NAvenida:numero
+    CantPasos:numero
+  comenzar
+    CantPasos:=200
+    NAvenida:=4
+    Avenida(NAvenida,CantPasos)
+  fin
+variables
+  robin: robot1
+comenzar
+  AsignarArea(robin,ciudad)
+  Iniciar(robin,1,1)
+fin
+```
+</details>
 
 ### Código relacionado con la ejercitación
 

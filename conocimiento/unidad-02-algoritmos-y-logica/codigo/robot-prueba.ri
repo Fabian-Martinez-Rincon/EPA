@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Programa mínimo de prueba: el robot avanza 4 cuadras, gira a la derecha y avanza 2 cuadras más, sin ninguna otra acción.}
+
 programa uwu 
 areas
   ciudad: AreaC(1,1,100,100)

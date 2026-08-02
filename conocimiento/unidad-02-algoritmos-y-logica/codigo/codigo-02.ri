@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. El programa recorre las primeras 50 avenidas de la ciudad. En cada esquina de cada avenida recoge, sin volver a depositar, todas las flores y todos los papeles que encuentra, usando los procesos juntarFlores, juntarPapeles y Avenida.}
+
 programa uwu
 procesos
   proceso juntarFlores

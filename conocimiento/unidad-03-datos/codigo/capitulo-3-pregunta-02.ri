@@ -1,5 +1,9 @@
+{Programe al robot para que informe la cantidad de flores que hay en la calle 44.
+1. Recogiendo todas las flores.
+2. Sin modificar el contenido de cada esquina.}
+
 programa prueba
-areas 
+areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1

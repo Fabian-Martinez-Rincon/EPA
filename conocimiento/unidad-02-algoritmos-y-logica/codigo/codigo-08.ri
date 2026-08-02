@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Dibuja un cuadrado de lado 18 (avanzando y girando a la derecha en cada vértice) y luego inicia al robot en la esquina (10,10) en lugar de la esquina (1,1) habitual del curso. Declara además las variables papelesCalle70 y encontro, que no llegan a utilizarse.}
+
 programa uwu 
 areas
   ciudad: AreaC(1,1,100,100)

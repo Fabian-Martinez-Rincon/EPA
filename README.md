@@ -10,8 +10,8 @@ La forma más simple de recorrer el repositorio es leer cada unidad en `conocimi
 |---:|---|---|---|---|
 | 0 | Introducción al curso | [Unidad 0](<conocimiento/unidad-00-introduccion/capitulo-0-introduccion.md>) | [PDF](<conocimiento/unidad-00-introduccion/fuentes/Capitulo 0-Introduccion.pdf>) | - |
 | 1 | Resolución de problemas | [Unidad 1](<conocimiento/unidad-01-resolucion-de-problemas/capitulo-1-resolucion-de-problemas.md>) | [PDF](<conocimiento/unidad-01-resolucion-de-problemas/fuentes/Capitulo 1-Resolucion de problemas.pdf>) | Ejercicios conceptuales |
-| 2 | Algoritmos, lógica y R-info | [Unidad 2](<conocimiento/unidad-02-algoritmos-y-logica/capitulo-2-algoritmos-y-logica.md>) | [PDF](<conocimiento/unidad-02-algoritmos-y-logica/fuentes/Capitulo 2-Algoritmos y Logica.pdf>) | [Unidad 2](conocimiento/unidad-02-algoritmos-y-logica/codigo/soluciones/capitulo-02/) |
-| 3 | Datos y variables | [Unidad 3](<conocimiento/unidad-03-datos/capitulo-3-datos.md>) | [PDF](<conocimiento/unidad-03-datos/fuentes/Capitulo 3-Datos.pdf>) | [Unidad 3](conocimiento/unidad-03-datos/codigo/soluciones/capitulo-03/) |
+| 2 | Algoritmos, lógica y R-info | [Unidad 2](<conocimiento/unidad-02-algoritmos-y-logica/capitulo-2-algoritmos-y-logica.md>) | [PDF](<conocimiento/unidad-02-algoritmos-y-logica/fuentes/Capitulo 2-Algoritmos y Logica.pdf>) | [Unidad 2](conocimiento/unidad-02-algoritmos-y-logica/codigo/) |
+| 3 | Datos y variables | [Unidad 3](<conocimiento/unidad-03-datos/capitulo-3-datos.md>) | [PDF](<conocimiento/unidad-03-datos/fuentes/Capitulo 3-Datos.pdf>) | [Unidad 3](conocimiento/unidad-03-datos/codigo/) |
 | 4 | Repaso integrador | [Unidad 4](<conocimiento/unidad-04-repaso/capitulo-4-repaso.md>) | [PDF](<conocimiento/unidad-04-repaso/fuentes/Capitulo 4-Repaso.pdf>) | [Unidad 4](conocimiento/unidad-04-repaso/codigo/soluciones/capitulo-04/) |
 | 5 | Programación estructurada | [Unidad 5](<conocimiento/unidad-05-programacion-estructurada/capitulo-5-programacion-estructurada.md>) | [PDF](<conocimiento/unidad-05-programacion-estructurada/fuentes/Capitulo 5-Programacion Estructurada.pdf>) | [Unidad 5](conocimiento/unidad-05-programacion-estructurada/codigo/soluciones/capitulo-05/) |
 | 6 | Parámetros de entrada | [Unidad 6](<conocimiento/unidad-06-parametros-de-entrada/capitulo-6-parametros-de-entrada.md>) | [PDF](<conocimiento/unidad-06-parametros-de-entrada/fuentes/Capitulo 6-Parametros de Entrada.pdf>) | [Unidad 6](conocimiento/unidad-06-parametros-de-entrada/codigo/soluciones/capitulo-06/) |
@@ -34,7 +34,7 @@ Las soluciones representan alternativas de resolución; no necesariamente son la
 
 ```text
 EPA/
-├── prompt-organizacion/          Instrucciones para mantener esta base de conocimiento
+├── prompt-organizacion/          Instrucciones para mantener esta base de conocimiento (requiere_revision: carpeta no encontrada en este repositorio)
 ├── conocimiento/                 Base de conocimiento educativa (capa principal)
 │   ├── README.md, INDICE_GENERAL.md, GLOSARIO.md
 │   └── unidad-00-introduccion/ … unidad-08-practica-adicional/
@@ -67,7 +67,7 @@ Los archivos `.ri` y varios archivos históricos sin extensión contienen códig
 - [Base de conocimiento completa](conocimiento/README.md)
 - [Resumen de EPA en video](https://www.youtube.com/watch?v=fDYjor2P-YQ)
 - [Exámenes voluntarios](Estudiantes/)
-- [Instrucciones de organización del repositorio](prompt-organizacion/)
+- Instrucciones de organización del repositorio: `prompt-organizacion/` (requiere_revision — la carpeta no existe en este repositorio ni en su historial de Git; si el contenido vive en otra ubicación, falta enlazarlo o copiarlo aquí)
 
 ## Nota sobre el material histórico
 

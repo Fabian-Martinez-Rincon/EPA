@@ -1,3 +1,5 @@
+{Ejercicio 4 del Capítulo 5 (variante B): Programe al Robot para que realice los recorridos de la figura 5.10 utilizando el proceso desarrollado en el ejercicio 3. Esta variante resuelve el recorrido b) (rectángulos de 5x3 entrelazados en diagonal).}
+
 programa prueba
 procesos
   proceso izquierda

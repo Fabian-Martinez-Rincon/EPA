@@ -1,3 +1,5 @@
+{Enunciado (Ejemplo 3.6, capítulo 3 - Datos): Recoger todos los papeles de la esquina (1,1) e informar la cantidad de papeles recogidos sólo si se han recogido al menos 5 papeles.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

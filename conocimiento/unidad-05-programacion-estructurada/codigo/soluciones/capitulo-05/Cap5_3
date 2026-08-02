@@ -1,3 +1,5 @@
+{Ejercicio 3 del Capítulo 5: Escriba un proceso que le permita al robot realizar un rectángulo de base 5 y altura 3 girando en la dirección de las agujas del reloj a partir de la posición (1,1).}
+
 programa prueba
 procesos
   proceso izquierda

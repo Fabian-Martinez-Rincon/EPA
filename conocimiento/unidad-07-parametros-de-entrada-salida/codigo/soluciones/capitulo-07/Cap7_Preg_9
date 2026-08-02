@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Recorre el perímetro de 7 rectángulos de ancho fijo y alto decreciente, recogiendo todas las flores y papeles que encuentra en el camino, e informa el total acumulado de papeles y flores al finalizar.}
+
 programa Cap7Pregunta9
 procesos
   proceso recoger(ES PAPELES:numero;ES FLORES:numero)

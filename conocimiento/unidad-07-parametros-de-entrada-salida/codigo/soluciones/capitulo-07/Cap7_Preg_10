@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Recorre la ciudad esquina por esquina juntando flores y papeles hasta hallar una esquina con 25 flores o más; al encontrarla se traslada a la esquina (1,75) y avanza tantos pasos como papeles había juntado en el trayecto, informando esa cantidad de pasos.}
+
 programa Cap7Preg10
 procesos
   proceso JuntarPapeles(ES PasosPapeles:numero;ES CantFlores:numero)

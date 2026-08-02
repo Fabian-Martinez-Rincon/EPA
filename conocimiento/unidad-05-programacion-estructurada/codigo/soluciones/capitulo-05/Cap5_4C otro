@@ -1,3 +1,5 @@
+{Ejercicio 4 del Capítulo 5 (variante C alternativa): Programe al Robot para que realice los recorridos de la figura 5.10 utilizando el proceso desarrollado en el ejercicio 3. Solución alternativa para el recorrido c) (fila horizontal de rectángulos de 5x3), con otra implementación del proceso rectángulo.}
+
 programa prueba
 procesos
   proceso izquierda

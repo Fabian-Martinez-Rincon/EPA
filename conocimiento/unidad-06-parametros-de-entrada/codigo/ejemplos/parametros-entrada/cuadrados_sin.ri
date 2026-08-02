@@ -1,3 +1,7 @@
+{Ejemplo 6.1: Programe al robot para que realice el recorrido a) de la figura 6.1 (cuatro cuadrados escalonados de lado 1, 2, 3 y 4, cada uno comenzando donde terminó el anterior).
+
+Solución sin parámetros: un proceso distinto para cada tamaño de cuadrado (cuadrado1, cuadrado2, cuadrado3, cuadrado4), sin usar parámetros de entrada.}
+
 programa muchosCuadradosV2
 
 procesos

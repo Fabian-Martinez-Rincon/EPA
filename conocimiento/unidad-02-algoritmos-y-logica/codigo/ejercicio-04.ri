@@ -1,3 +1,5 @@
+{Enunciado (Ejercicio 4, capítulo 2 - Algoritmos y Lógica): Modificar el ejercicio 3. para que además recoja, de ser posible, un papel en cada esquina.}
+
 programa robin
 areas
   ciudad: AreaC(1,1,100,100)

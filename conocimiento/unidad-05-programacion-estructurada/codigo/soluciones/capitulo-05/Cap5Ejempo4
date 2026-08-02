@@ -1,3 +1,7 @@
+{Variante del Ejemplo 5.4 de la teoría del capítulo: se desea programar al robot para que recorra las primeras 50 avenidas juntando las flores de las avenidas pares y los papeles de las avenidas impares, depositando todo lo recogido al finalizar cada avenida (la bolsa comienza vacía).
+
+Nota: el nombre interno del programa es "Cap5Ejemplo4"; no está vinculado en la tabla de ejercitación del capítulo por no corresponder a ninguno de los 11 enunciados numerados, pero su código reproduce (con nombres propios de variables y procesos) el ejemplo 5.4 desarrollado en la teoría.}
+
 programa Cap5Ejemplo4 {Que recorra las primeras 50 avenidas, juntando flores de las avenidas Pares}
 procesos                  {Y papeles de las Inpares}
   proceso JUNTARFLORES

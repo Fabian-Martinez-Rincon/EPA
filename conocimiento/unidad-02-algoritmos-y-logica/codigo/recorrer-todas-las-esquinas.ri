@@ -1,3 +1,5 @@
+{Enunciado (Ejemplo 5.9, capítulo 5 - Programación Estructurada): Programe al robot para que aplique el proceso Evaluar a cada una de las esquinas de la ciudad. (El proceso Evaluar, definido en el Ejemplo 5.8, cuenta las flores y los papeles de la esquina y decide qué depositar según cuál cantidad es mayor.)}
+
 programa prueba
 procesos
   proceso izquierda

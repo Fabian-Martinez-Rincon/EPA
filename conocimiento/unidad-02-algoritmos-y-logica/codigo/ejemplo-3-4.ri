@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. El robot se posiciona en (1,1), guarda en una variable booleana si hay flor en esa esquina y en otra si la calle actual es mayor que 1, avanza 10 cuadras y finalmente informa ambos valores. Combina, a modo de práctica, dos técnicas de variables lógicas mostradas en el capítulo 3 (guardar el resultado de HayFlorEnLaEsquina y el de una comparación como PosCa>1), sin reproducir exactamente ninguno de los enunciados numerados de ese capítulo.}
+
 programa prueba
 areas 
   ciudad: AreaC(1,1,100,100)

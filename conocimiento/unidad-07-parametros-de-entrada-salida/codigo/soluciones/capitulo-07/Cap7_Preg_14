@@ -1,3 +1,5 @@
+{Nota: enunciado original no identificado; descripción inferida del código. Combina dos recorridos independientes: uno pasa por las calles impares tomando como máximo 10 flores en cada una, y el otro recorre 3 avenidas a partir de la avenida 10 contando el total de papeles hallados, que informa al finalizar.}
+
 programa Cap7Pregunta14
 procesos
   proceso HastaEncontrar10Flores(ES FLORES:numero)

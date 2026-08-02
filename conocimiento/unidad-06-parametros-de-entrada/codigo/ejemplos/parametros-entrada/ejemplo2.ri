@@ -1,3 +1,5 @@
+{Ejemplo 6.3: Programar al robot para que realice el recorrido a) de la figura 6.1 utilizando una variable para indicar la longitud del lado de cada cuadrado.}
+
 programa Cap6Ejemplo3
 
 procesos
