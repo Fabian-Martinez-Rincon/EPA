@@ -21,12 +21,6 @@ robots
           depositarPapel
         mover
       derecha
-      si((HayFlorEnLaEsquina)&~(HayPapelEnLaEsquina))
-        flores:=flores+1
-        depositarFlor
-      si((HayPapelEnLaEsquina)&~(HayFlorEnLaEsquina))
-        papeles:=papeles+1
-        depositarPapel
     Informar(flores,papeles)
   fin
 variables

@@ -19,6 +19,10 @@ robots
       si~((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
         x:=x+1
       Pos(1,PosCa+1)
+    repetir 99
+      si ~((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
+        x:=x+1
+      mover
     si~((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
       x:=x+1
     Informar(x)

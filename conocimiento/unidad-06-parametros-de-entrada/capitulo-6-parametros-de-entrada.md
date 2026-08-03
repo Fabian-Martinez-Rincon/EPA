@@ -1289,10 +1289,11 @@ procesos
   comenzar
     num:=0
     Pos(avenida,1)
-    repetir 99
+    repetir 100
       repetir 99
         mover
-      Pos(PosAv+1,1)
+      si(PosAv<100)
+        Pos(PosAv+1,1)
   fin
 areas
   ciudad: AreaC(1,1,100,100)
@@ -1334,7 +1335,7 @@ procesos
   comenzar
     num:=0
     Pos(avenida,1)
-    repetir 10
+    repetir 11
       repetir 99
         mover
       Pos(PosAv+1,1)
@@ -1379,10 +1380,11 @@ procesos
   comenzar
     num:=0
     Pos(avenida,1)
-    repetir 49
+    repetir 50
       repetir 99
         mover
-      Pos(PosAv+2,1)
+      si(PosAv<100)
+        Pos(PosAv+2,1)
   fin
 areas
   ciudad: AreaC(1,1,100,100)
@@ -1471,12 +1473,14 @@ procesos
   proceso Avenida(E Numero:numero;E pasos:numero)
   variables
     noventa:numero
+    pasosReales:numero
   comenzar
     Pos(Numero,1)
     noventa:=99
-    si (pasos>99)
-      pasos:=noventa
-    repetir pasos
+    pasosReales:=pasos
+    si (pasosReales>99)
+      pasosReales:=noventa
+    repetir pasosReales
       mover
   fin
 areas

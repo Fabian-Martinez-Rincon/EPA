@@ -42,7 +42,7 @@ Los cuatro archivos reutilizan el proceso `rectangulo` del ejercicio 3 (con el c
 
 ## Estrategia
 
-1. Reutilizar el proceso `rectangulo` del ejercicio 3 (con su giro final agregado, a diferencia del archivo original del ejercicio 3).
+1. Reutilizar el proceso `rectangulo` del ejercicio 3, incluido su cuarto giro final (que cierra la orientación igual que al empezar).
 2. Para el recorrido a): repetir "rectángulo + `Pos(1,PosCa+5)`" tres veces.
 3. Para el recorrido b): repetir "rectángulo + `Pos(PosAv+1,PosCa+1)`" tres veces.
 4. Para el recorrido c): alternar la orientación del rectángulo (con `izquierda`/`derecha`) entre invocaciones sucesivas y saltar con `Pos` a lo largo de la avenida.
@@ -93,9 +93,9 @@ Código completo: [`../codigo/soluciones/capitulo-05/Cap5_4C`](<../codigo/soluci
 
 Los cuatro archivos conservan, sin usar, una copia completa de los procesos `cuadrado`, `A` y `B` de los ejercicios 1 y 2 (heredada de copiar el mismo bloque de `procesos` de archivo en archivo). El `cuadrado` de esas copias tenía el mismo `repetir 3` incorrecto descripto en la solución del ejercicio 1; se corrigió a `repetir 2` en los cuatro archivos por consistencia con el resto del capítulo, aunque al ser código muerto (nunca invocado desde estos programas) no cambia el comportamiento de ninguno de los cuatro — se verificó con el intérprete que la cantidad de eventos generados es idéntica antes y después del cambio.
 
-## Fidelidad respecto al ejercicio 3: el rectángulo usado acá sí cierra el giro
+## Consistencia con el ejercicio 3: el rectángulo cierra el giro en toda la familia
 
-A diferencia del archivo del ejercicio 3 (`Cap5_3`), al que le falta el cuarto `derecha` final (ver la nota en su solución), los cuatro archivos de este ejercicio **sí** incluyen ese cuarto giro. Esto importa acá porque el recorrido c) depende de que el proceso `rectangulo` termine orientado igual que empezó para que el `izquierda`/`derecha` posterior tenga el efecto esperado sobre la orientación del segundo rectángulo del par.
+Los cuatro archivos de este ejercicio reutilizan el proceso `rectangulo` con su cuarto `derecha` final incluido. Originalmente esto era una diferencia con el archivo histórico del ejercicio 3 (`Cap5_3`), al que le faltaba ese giro; se agregó a `Cap5_3` por consistencia con esta familia (ver la sección "Corrección aplicada" en su solución), así que ahora los cinco archivos (3, 4A, 4B, 4C y "4C otro") comparten exactamente el mismo proceso `rectangulo` de 4 giros. Esto importa en particular para el recorrido c), que depende de que `rectangulo` termine orientado igual que empezó para que el `izquierda`/`derecha` posterior tenga el efecto esperado sobre la orientación del segundo rectángulo del par.
 
 ## Escenario de prueba
 

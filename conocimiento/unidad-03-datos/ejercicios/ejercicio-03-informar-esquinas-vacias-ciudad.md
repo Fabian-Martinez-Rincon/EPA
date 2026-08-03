@@ -34,7 +34,7 @@ Programe al robot para que informe la cantidad de esquinas vacías que hay en la
 
 - **Entradas:** ninguna leída en tiempo de ejecución.
 - **Salidas:** la cantidad de esquinas de toda la ciudad (100×100) que no tienen flor ni papel, informada con `Informar`.
-- **Restricciones:** debe recorrerse la ciudad completa (10000 esquinas). Ver la nota de alcance en la solución: el código disponible, aun corregido, no llega a revisar la totalidad de la última calle.
+- **Restricciones:** debe recorrerse la ciudad completa (10000 esquinas).
 
 ## Referencias
 

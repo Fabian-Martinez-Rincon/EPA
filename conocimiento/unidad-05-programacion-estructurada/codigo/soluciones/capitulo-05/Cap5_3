@@ -39,6 +39,7 @@ procesos
     derecha
     repetir 5
       mover
+    derecha
   fin
 areas 
   ciudad: AreaC(1,1,100,100)

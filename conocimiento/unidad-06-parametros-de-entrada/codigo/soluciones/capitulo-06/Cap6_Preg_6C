@@ -14,7 +14,7 @@ procesos
   comenzar
     num:=0
     Pos(avenida,1)
-    repetir 10
+    repetir 11
       repetir 99
         mover
       Pos(PosAv+1,1)

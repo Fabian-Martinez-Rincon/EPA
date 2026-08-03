@@ -11,7 +11,7 @@ subtemas:
 nivel: "inicial"
 lenguajes:
   - "R-info"
-estado: "parcial"
+estado: "completo"
 origen: "convertido"
 fuentes:
   - archivo: "../fuentes/Capitulo 3-Datos.pdf"
@@ -62,7 +62,8 @@ A diferencia del ejercicio 4, acá no se garantiza que existan 20 flores, así q
 
 1. Posicionar el robot en (1,7) y girar a la derecha.
 2. Mientras `PosAv<100`: si `x<20` y hay flor en la esquina, tomarla y contarla; avanzar (siempre, haya o no encontrado flor).
-3. Informar `x`.
+3. Procesar la esquina final (avenida 100) con el mismo chequeo, sin avanzar más, ya que el `mientras` deja de ejecutarse justo antes de revisarla.
+4. Informar `x`.
 
 ## Código relacionado
 
@@ -85,6 +86,10 @@ robots
           tomarFlor
           x:=x+1
       mover
+    si(x<20)
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        x:=x+1
     Informar(x)
   fin
 variables
@@ -97,27 +102,27 @@ fin
 
 Código completo: [`../codigo/capitulo-3-pregunta-05.ri`](../codigo/capitulo-3-pregunta-05.ri)
 
-## Corrección aplicada durante esta organización
+## Correcciones aplicadas durante esta organización
 
-En el archivo histórico, `mover` estaba anidado **dentro** del `si(x<20)`, en vez de ser una instrucción del cuerpo del `mientras(PosAv<100)` que se ejecuta siempre. El efecto: en cuanto `x` llegaba a 20 antes de que `PosAv` llegara a 100, `mover` dejaba de ejecutarse (porque `x<20` ya era falso), con lo cual `PosAv` quedaba congelado y el `mientras(PosAv<100)` exterior nunca terminaba — un loop infinito. Se verificó con el intérprete de R-info: cargando 20 flores en las avenidas 1 a 20 de la calle 7, el archivo original se cuelga (supera el límite de pasos del intérprete, señal de loop infinito); con `mover` desanidado (al mismo nivel que `si(x<20)`, ejecutándose en cada vuelta del `mientras` exterior) el programa informa correctamente `x=20` y termina. También se probó sin flores (informa `x=0`) y con sólo 8 flores disponibles (informa `x=8`); en los tres casos el programa corregido termina normalmente.
+Se aplicaron dos correcciones, ambas verificadas con el intérprete de R-info:
 
-## Alcance no corregido: la avenida 100 no se chequea
-
-Tal como queda el archivo (antes y después de la corrección de arriba), el `mientras(PosAv<100)` deja de procesar esquinas apenas `PosAv` llega a 100 — la esquina (100,7) nunca se chequea. Si la flor número 20 (o alguna de las últimas necesarias) estuviera justo ahí, el programa terminaría informando un valor menor a 20 aun cuando sí hubiera 20 flores en la calle. Arreglar esto implicaría agregar un bloque nuevo después del `mientras` para procesar esa última esquina (como hace el ejemplo 3.7 de la teoría) — se documenta la limitación en vez de agregarlo, en la misma línea que la nota sobre la avenida 100 en `ejercicio-09` de la unidad 2.
+1. **`mover` mal anidado (loop infinito):** en el archivo histórico, `mover` estaba anidado **dentro** del `si(x<20)`, en vez de ser una instrucción del cuerpo del `mientras(PosAv<100)` que se ejecuta siempre. El efecto: en cuanto `x` llegaba a 20 antes de que `PosAv` llegara a 100, `mover` dejaba de ejecutarse (porque `x<20` ya era falso), con lo cual `PosAv` quedaba congelado y el `mientras(PosAv<100)` exterior nunca terminaba — un loop infinito. Se verificó con el intérprete: cargando 20 flores en las avenidas 1 a 20 de la calle 7, el archivo original se cuelga (supera el límite de pasos del intérprete, señal de loop infinito); con `mover` desanidado (al mismo nivel que `si(x<20)`) el programa informa correctamente `x=20` y termina.
+2. **Avenida 100 sin chequear (bug de alcance, corregido en esta pasada):** aun con `mover` desanidado, el `mientras(PosAv<100)` dejaba de procesar esquinas apenas `PosAv` llegaba a 100 — la esquina (100,7) nunca se chequeaba, así que si la flor número 20 estuviera justo ahí, el programa informaba un valor menor a 20 pese a que sí había 20 flores en la calle. Se corrigió agregando, después del `mientras`, el mismo chequeo `si(x<20) si(HayFlorEnLaEsquina) tomarFlor x:=x+1` que ya usa el cuerpo del bucle, para procesar esa última esquina sin volver a mover. Verificado con el intérprete: con 19 flores en las avenidas 1-19 y la flor número 20 puesta exactamente en la avenida 100, el archivo (sólo con el fix de `mover`) informaba `x=19`; con esta segunda corrección informa `x=20`. También se re-probó sin flores (informa `x=0`, sin colgarse) y con las 20 flores en avenidas 1-20 (informa `x=20`, sin overshoot ni error), confirmando que ninguna de las dos correcciones introdujo una regresión.
 
 ## Escenario de prueba
 
-Cargar menos de 20 flores en la calle 7 (por ejemplo, 8, en avenidas dispersas) para observar que el robot recorre toda la calle y termina informando la cantidad real encontrada, sin colgarse. También se puede cargar exactamente 20 para confirmar que corta apenas las junta.
+Cargar menos de 20 flores en la calle 7 (por ejemplo, 8, en avenidas dispersas) para observar que el robot recorre toda la calle y termina informando la cantidad real encontrada, sin colgarse. Probado con el intérprete: con el escenario del front matter (flores en avenidas 5,10,15,20,25,30,35,40), informa `x=8`.
 
 ## Casos límite
 
 - Sin flores en la calle: `x` termina en 0.
 - Menos de 20 flores: `x` informa la cantidad real encontrada al llegar al final de la calle.
-- 20 flores, la última en la avenida 100: no se contaría (ver nota de alcance).
+- 20 flores, la última en la avenida 100: ahora sí se cuenta, gracias al chequeo agregado después del `mientras`.
 
 ## Errores frecuentes
 
-- Anidar una instrucción de avance dentro de una condición que puede volverse falsa antes de cumplirse la condición de corte del bucle exterior — el bug real que tenía este archivo, y una fuente común de loops infinitos en este lenguaje (no hay `break`, así que todo el control de corte depende de las condiciones de los `mientras`).
+- Anidar una instrucción de avance dentro de una condición que puede volverse falsa antes de cumplirse la condición de corte del bucle exterior — el primer bug real que tenía este archivo, y una fuente común de loops infinitos en este lenguaje (no hay `break`, así que todo el control de corte depende de las condiciones de los `mientras`).
+- Olvidar que un `mientras(PosAv<100)` nunca procesa la esquina donde `PosAv` llega a 100 — hace falta un chequeo explícito después del bucle para esa última esquina; el segundo bug real que tenía este archivo.
 
 ## Complejidad
 

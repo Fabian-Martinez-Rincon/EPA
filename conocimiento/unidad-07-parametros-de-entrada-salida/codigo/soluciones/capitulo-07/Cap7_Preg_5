@@ -14,7 +14,8 @@ procesos
       mover
       contar:=contar+1
     Informar(contar)
-    Pos(1,PosCa+2)
+    si(PosCa<99)
+      Pos(1,PosCa+2)
     izquierda
   fin
 areas
@@ -24,7 +25,7 @@ robots
   variables
     contador:numero
   comenzar
-    repetir 99
+    repetir 50
       contador:=0
       CallesImpares(contador)
   fin

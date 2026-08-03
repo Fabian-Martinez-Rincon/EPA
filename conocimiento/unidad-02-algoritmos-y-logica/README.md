@@ -10,11 +10,11 @@ Introducción al ambiente de programación del robot R-info: sintaxis, estructur
 
 Igual que en `AYP1-FABOSISTEMAS`, 7 de los 12 ejercicios de este capítulo ya están atomizados uno por archivo, con front matter YAML y solución explicada (análisis, estrategia, casos límite, errores frecuentes) en [ejercicios/](ejercicios/) y [soluciones/](soluciones/): ejercicios **2, 4, 6, 7, 9, 11 y 12**. Es la base que usa [Academia-Fabo](https://github.com/Fabian-Martinez-Rincon/Academia-Fabo) para mostrarlos con un runner de R-info en el navegador.
 
-Durante esta atomización se revisó el código `.ri` de cada uno contra su propio enunciado (mismo estándar que en AYP1) y se encontraron y corrigieron 3 bugs puntuales heredados del material histórico — código que usaba flor donde el enunciado pedía papel, o una condición de "esquina libre" invertida:
+Durante esta atomización se revisó el código `.ri` de cada uno contra su propio enunciado (mismo estándar que en AYP1) y se encontraron y corrigieron varios bugs heredados del material histórico — código que usaba flor donde el enunciado pedía papel, una condición de "esquina libre" invertida, y (en una revisión posterior) un recorrido que se salía del área y solo cubría una calle:
 
 - `codigo/ejercicio-02.ri`: usaba `HayFlorEnLaBolsa`/`depositarFlor`, corregido a `HayPapelEnLaBolsa`/`depositarPapel`.
 - `codigo/ejercicio-09.ri`: mismo tipo de corrección (flor → papel).
-- `codigo/ejercicio-12.ri`: la condición de "esquina libre" estaba invertida (depositaba donde YA había flor y papel); se negó correctamente. Ver la nota de alcance en su solución — el archivo solo recorre una calle, no todas como pide el enunciado; no se reescribió esa parte porque implica una estructura nueva, no un fix de una palabra.
+- `codigo/ejercicio-12.ri`: la condición de "esquina libre" estaba invertida (depositaba donde YA había flor y papel), se salía del área válida por un `repetir 100` donde correspondía `repetir 99`, y solo recorría la calle 1 en vez de las 100 que pide el enunciado. Los tres problemas se corrigieron: condición negada, límite del `repetir` ajustado, y todo el recorrido de una calle envuelto en un `repetir 100` adicional (una vuelta por calle). Ver el detalle en su solución.
 
 Cada corrección está documentada en detalle en la solución correspondiente, bajo "Corrección aplicada durante esta organización".
 

@@ -34,8 +34,8 @@ Ver [`../ejercicios/ejercicio-04-recorridos-de-rectangulos-con-proceso-parametri
 
 Igual que en el ejercicio 2, cada rectángulo devuelve al robot a su esquina de partida y orientación original al cerrar (dos pares de lados con cuatro giros de 90° suman 360°). Eso permite encadenar varios rectángulos con `Pos(PosAv+1,PosCa+2)` entre cada uno, desplazando siempre una avenida a la derecha y dos calles hacia arriba, mientras se ajustan las dimensiones para el siguiente:
 
-- **Variante A (recorrido a):** el ancho decrece de 5 en 5-2=3-1 (`numer:=-2`) mientras el largo queda fijo en 1, produciendo rectángulos anchos y bajos, cada vez más angostos a medida que se sube — coincide con el recorrido a) de la figura 6.6 (ancho decreciente hacia arriba).
-- **Variante B (recorrido b):** el ancho queda fijo en 1 (una columna angosta) mientras el largo decrece de 15 en 15-4=11-4=7-4=3 (`numer:=-4`), produciendo una columna delgada de rectángulos cada vez menos altos — coincide con el recorrido b) (columna angosta).
+- **Variante A (recorrido a):** el ancho decrece de a 2 en cada rectángulo (`numer:=-2`): 5, 3, 1; el largo queda fijo en 1. Esto produce rectángulos anchos y bajos, cada vez más angostos a medida que se sube — coincide con el recorrido a) de la figura 6.6 (ancho decreciente hacia arriba).
+- **Variante B (recorrido b):** el ancho queda fijo en 1 (una columna angosta) mientras el largo decrece de a 4 en cada rectángulo (`numer:=-4`): 15, 11, 7, 3. Esto produce una columna delgada de rectángulos cada vez menos altos — coincide con el recorrido b) (columna angosta).
 
 ## Estrategia
 
@@ -158,4 +158,4 @@ Cada variante dibuja una cantidad fija de rectángulos (3 en A, 4 en B): O(n) en
 - Enunciado: [`../ejercicios/ejercicio-04-recorridos-de-rectangulos-con-proceso-parametrizado.md`](../ejercicios/ejercicio-04-recorridos-de-rectangulos-con-proceso-parametrizado.md)
 - Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_4A`](../codigo/soluciones/capitulo-06/Cap6_Preg_4A), [`../codigo/soluciones/capitulo-06/Cap6_Preg_4B`](../codigo/soluciones/capitulo-06/Cap6_Preg_4B)
-- Proceso base: [ejercicio 3](../soluciones/ejercicio-03-rectangulo-con-ancho-y-largo-parametrizados.md)
+- Proceso base: [ejercicio 3](../ejercicios/ejercicio-03-rectangulo-con-ancho-y-largo-parametrizados.md)

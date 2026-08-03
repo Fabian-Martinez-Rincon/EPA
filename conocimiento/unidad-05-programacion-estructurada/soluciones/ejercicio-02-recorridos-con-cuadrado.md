@@ -11,7 +11,7 @@ subtemas:
 nivel: "inicial"
 lenguajes:
   - "R-info"
-estado: "parcial"
+estado: "completo"
 origen: "convertido"
 fuentes:
   - archivo: "../fuentes/Capitulo 5-Programacion Estructurada.pdf"
@@ -34,8 +34,8 @@ Ver [`../ejercicios/ejercicio-02-recorridos-con-cuadrado.md`](../ejercicios/ejer
 
 Ambas variantes reutilizan el proceso `cuadrado` del ejercicio 1 (ya corregido a lado 2) e implementan un segundo proceso que invoca `cuadrado` varias veces, reposicionando al robot con `Pos` entre una invocación y la siguiente. Como `cuadrado` es una "caja negra" que siempre deja al robot en la misma esquina y orientación en que fue invocado (propiedad explicada en el Ejemplo 5.6 de la teoría), el proceso que arma el recorrido completo no necesita preocuparse por cómo se dibuja cada cuadrado individual: solo por dónde ubicarlo.
 
-- **Variante A** (proceso `A`): `repetir 3: cuadrado; Pos(PosAv+3,PosCa+3)`. Traza tres cuadrados de lado 2 en diagonal ascendente, cada uno separado del anterior por una esquina de margen (con lado 2, un cuadrado que arranca en (1,1) ocupa hasta (3,3); el siguiente arranca recién en (4,4)). Este mismo patrón —módulo de figura + `Pos` que avanza exactamente lado+1— es el que usa la propia teoría del capítulo en la "solución 2" del Ejemplo 5.6 para separar tres cuadrados sin que se toquen, generalizado acá de un desplazamiento horizontal a uno diagonal.
-- **Variante B** (proceso `B`, en el mismo archivo que también conserva sin usar el proceso `A`): `repetir 2: cuadrado; Pos(1,PosCa+5)`. Traza dos cuadrados, ambos arrancando en la avenida 1, con las calles de partida separadas por 5.
+- **Variante A** (proceso `A`), corresponde al recorrido **a)** de la figura 5.9: `repetir 3: cuadrado; Pos(PosAv+3,PosCa+3)`. Traza tres cuadrados de lado 2 en diagonal ascendente, cada uno separado del anterior por una esquina de margen (con lado 2, un cuadrado que arranca en (1,1) ocupa hasta (3,3); el siguiente arranca recién en (4,4), tocando al anterior por una única esquina). Este mismo patrón —módulo de figura + `Pos` que avanza exactamente lado+1— es el que usa la propia teoría del capítulo en la "solución 2" del Ejemplo 5.6 para separar tres cuadrados sin que se toquen, generalizado acá de un desplazamiento horizontal a uno diagonal.
+- **Variante B** (proceso `B`, en el mismo archivo que también conserva sin usar el proceso `A`), corresponde al recorrido **b)** de la figura 5.9: `repetir 2: cuadrado; Pos(1,PosCa+5)`. Traza dos cuadrados, ambos arrancando en la avenida 1 (`PosAv` no cambia entre invocaciones), con las calles de partida separadas por 5 — un apilamiento vertical en la misma columna, no un desplazamiento diagonal.
 
 ## Estrategia
 
@@ -78,15 +78,20 @@ fin
 
 Código completo: [`../codigo/soluciones/capitulo-05/Cap5_2B`](<../codigo/soluciones/capitulo-05/Cap5_2B>)
 
-## Corrección aplicada durante esta organización
+## Corrección aplicada: bug de `cuadrado` heredado del ejercicio 1
 
 Igual que en el ejercicio 1 (del que ambos archivos heredan una copia del proceso `cuadrado`): el `repetir 3` interno de `cuadrado` se corrigió a `repetir 2` en los dos archivos, por la misma evidencia (enunciado, comentario del archivo y Ejemplo 5.6 de la teoría). Ver el detalle en la solución del [ejercicio 1](ejercicio-01-cuadrado-lado-2-horario.md).
 
-## Nota de fidelidad: correspondencia con las figuras a) y b)
+## Corrección aplicada: correspondencia con las figuras a) y b) confirmada
 
 El archivo `Cap5_2B` conserva, sin usar, una copia completa del proceso `A` (además de `B`, que es el que efectivamente se invoca) — es decir, ambas variantes de recorrido conviven en el mismo archivo histórico, y solo una se ejecuta en cada uno. Esto es consistente con que el enunciado pide "un programa para cada uno" de los dos recorridos de la figura 5.9, resueltos acá como dos programas (A y B) que comparten el mismo módulo base `cuadrado`.
 
-No se pudo verificar con certeza pixel a pixel, a partir de la figura escaneada del material original, cuál de las dos variantes (A o B) corresponde exactamente al recorrido a) y cuál al b) de la figura 5.9 — la figura muestra los cuadrados dibujados a mano sobre una grilla, y una correspondencia exacta requeriría contar esquina por esquina sobre una imagen de baja resolución. Se documentan ambas variantes tal como están, identificadas por su propio nombre de proceso (A y B) en lugar de afirmar una correspondencia a)/b) que no se pudo confirmar con evidencia sólida, siguiendo el criterio de "ante la duda, documentar en vez de adivinar".
+Originalmente no se había podido confirmar, a simple vista sobre la figura escaneada de baja resolución, cuál de las dos variantes correspondía a cada recorrido. Se resolvió recortando y ampliando (4x, interpolación por vecino más cercano) cada mitad de `figura-5-9-recorridos-cuadrados.png` y comparándola contra la traza real del intérprete (eventos `pos` — los saltos `Pos(...)` entre cuadrados):
+
+- **Recorrido a)**: la figura muestra tres cuadrados en una escalera diagonal, cada uno tocando al siguiente por una sola esquina. La variante A, corrida contra el intérprete, invoca `cuadrado` en (1,1), (4,4) y (7,7) — un desplazamiento diagonal de 3 en 3 (esquina de margen entre cuadrados de lado 2), que reproduce exactamente esa escalera. **A = a)**.
+- **Recorrido b)**: la figura muestra dos cuadrados apilados **en la misma columna** (misma avenida), uno arriba del otro con un hueco entre ambos — no en diagonal, a diferencia de lo que sugería una lectura apresurada de la imagen original. La variante B, corrida contra el intérprete, invoca `cuadrado` en (1,1) y (1,6): misma avenida (1), calle desplazada en 5. **B = b)**.
+
+Con esta verificación, la correspondencia queda confirmada con evidencia directa (imagen ampliada + traza del intérprete) en lugar de asumida; ver también la corrección de redacción aplicada en el propio enunciado del ejercicio 2, que originalmente describía b) como "en diagonal" por error.
 
 ## Escenario de prueba
 

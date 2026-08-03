@@ -33,8 +33,8 @@ Utilice el proceso desarrollado en el ejercicio 1 (un cuadrado de lado 2 en sent
 
 **Figura 5.9: Recorridos usando cuadrados de lado 2** ([recursos/figura-5-9-recorridos-cuadrados.png](../recursos/figura-5-9-recorridos-cuadrados.png)) — dos recorridos marcados a) y b), ambos partiendo de la esquina (1,1):
 
-- a) una serie de cuadrados de lado 2 dispuestos formando una figura compacta en diagonal ascendente desde (1,1).
-- b) dos cuadrados de lado 2 dispuestos en diagonal (uno arriba a la derecha del otro), sobre una grilla más pequeña que el recorrido a).
+- a) tres cuadrados de lado 2 dispuestos en diagonal ascendente desde (1,1), cada uno tocando al siguiente por una única esquina (cada cuadrado arranca 3 esquinas más allá que el anterior, tanto en avenida como en calle).
+- b) dos cuadrados de lado 2 apilados verticalmente, uno arriba del otro, alineados en la misma avenida (no en diagonal) y con un hueco entre ambos, sobre una grilla más pequeña que el recorrido a).
 
 ## Datos
 

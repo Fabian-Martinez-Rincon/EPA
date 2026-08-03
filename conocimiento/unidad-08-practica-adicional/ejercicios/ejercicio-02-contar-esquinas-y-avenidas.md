@@ -28,7 +28,7 @@ codigo_relacionado:
 
 ## Enunciado
 
-Escriba un programa que le permita al robot recorrer todas las avenidas de la ciudad. Al finalizar el recorrido debe informar la cantidad de esquinas con exactamente 20 flores y la cantidad avenidas con menos de 60 papeles.
+Escriba un programa que le permita al robot recorrer todas las avenidas de la ciudad. Al finalizar el recorrido debe informar la cantidad de esquinas con exactamente 20 flores y la cantidad de avenidas con menos de 60 papeles.
 
 **Nota:** Se debe usar Modularización y no modificar la cantidad de papeles/flores de las esquinas.
 

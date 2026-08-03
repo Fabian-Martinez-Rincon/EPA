@@ -36,7 +36,7 @@ Escriba un programa que le permita al robot realizar el siguiente recorrido, com
 
 ![Recorrido escalonado del ejercicio adicional 3](../recursos/adicional-ejercicio-3-recorrido.png)
 
-**Descripción accesible:** grilla de esquinas con un recorrido rojo en forma de escalera que comienza en (1,1) y aumenta progresivamente su extensión.
+**Descripción accesible:** grilla de esquinas con un recorrido rojo en forma de escalera: la fila que arranca en (1,1) es la más larga (18 esquinas de avance) y las filas siguientes, cada una dos calles más arriba, se angostan de a dos esquinas hasta terminar en una única esquina.
 
 ## Datos
 

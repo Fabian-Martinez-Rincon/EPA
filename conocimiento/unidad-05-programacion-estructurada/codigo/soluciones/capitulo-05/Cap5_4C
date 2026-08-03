@@ -35,7 +35,7 @@ procesos
       repetir 5
         mover
       derecha
- {Si variamos la derecha podemos rotar el ractangulo}
+ {Si variamos la derecha podemos rotar el rectangulo}
   fin
 areas 
   ciudad: AreaC(1,1,100,100)

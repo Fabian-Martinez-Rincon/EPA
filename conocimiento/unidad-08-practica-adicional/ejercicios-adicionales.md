@@ -183,7 +183,7 @@ robots
     totalAvenidasMenos60 := 0
 
     {Avenidas 1 a 99}
-    repetir 9
+    repetir 99
       ProcesarAvenida(totalEsquinas20, totalAvenidasMenos60)
       Pos(PosAv + 1, 1)
 
@@ -275,6 +275,9 @@ robots
       RecorrerFila(pasos, totalFlores, totalPapeles)
       pasos := pasos - 2
       Pos(1, PosCa+ 2)
+
+    Informar(totalFlores)
+    Informar(totalPapeles)
   fin
 
 variables
@@ -289,7 +292,7 @@ fin
 
    ![Recorrido escalonado del ejercicio adicional 3](recursos/adicional-ejercicio-3-recorrido.png)
 
-   **Descripción accesible:** grilla de esquinas con un recorrido rojo en forma de escalera que comienza en **(1,1)** y aumenta progresivamente su extensión.
+   **Descripción accesible:** grilla de esquinas con un recorrido rojo en forma de escalera: la fila que arranca en **(1,1)** es la más larga (18 esquinas de avance) y las filas siguientes, cada una dos calles más arriba, se angostan de a dos esquinas hasta terminar en una única esquina.
 
 4. Programe al robot para que recorra la ciudad por avenidas, juntando papeles, hasta encontrar una avenida con exactamente 25 flores. Cuando encuentra la avenida con exactamente 25 flores debe recorrer toda la calle 75 (desde la avenida 1) y dar tantos pasos como papeles juntó en todas las avenidas recorridas.
 

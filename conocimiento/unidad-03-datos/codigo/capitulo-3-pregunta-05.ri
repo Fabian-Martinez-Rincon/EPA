@@ -18,6 +18,10 @@ robots
           tomarFlor
           x:=x+1
       mover
+    si(x<20)
+      si(HayFlorEnLaEsquina)
+        tomarFlor
+        x:=x+1
     Informar(x)
   fin
 variables

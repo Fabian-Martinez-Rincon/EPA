@@ -11,7 +11,7 @@ subtemas:
 nivel: "inicial"
 lenguajes:
   - "R-info"
-estado: "parcial"
+estado: "completo"
 origen: "convertido"
 fuentes:
   - archivo: "../fuentes/Capitulo 3-Datos.pdf"
@@ -35,7 +35,7 @@ Escriba un programa que le permita al robot caminar por la calle 7 hasta encontr
 
 - **Entradas:** ninguna leída en tiempo de ejecución; recorrido sobre la calle 7 (avenida variable, de 1 a 100).
 - **Salidas:** la cantidad de flores encontradas (20 si se alcanzaron, o menos si la calle se acabó antes), informada con `Informar`.
-- **Restricciones:** a lo sumo una flor por esquina; a diferencia del ejercicio 4, no se garantiza que existan 20 flores, así que el recorrido debe poder terminar igual al llegar al final de la calle. Ver la nota de alcance en la solución sobre la avenida 100.
+- **Restricciones:** a lo sumo una flor por esquina; a diferencia del ejercicio 4, no se garantiza que existan 20 flores, así que el recorrido debe poder terminar igual al llegar al final de la calle (avenida 100 incluida).
 
 ## Referencias
 

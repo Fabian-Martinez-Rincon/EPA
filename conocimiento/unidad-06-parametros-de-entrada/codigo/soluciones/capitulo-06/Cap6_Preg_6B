@@ -14,10 +14,11 @@ procesos
   comenzar
     num:=0
     Pos(avenida,1)
-    repetir 99
+    repetir 100
       repetir 99
         mover
-      Pos(PosAv+1,1)
+      si(PosAv<100)
+        Pos(PosAv+1,1)
   fin
 areas
   ciudad: AreaC(1,1,100,100)

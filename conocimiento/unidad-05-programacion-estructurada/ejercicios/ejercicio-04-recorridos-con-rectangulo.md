@@ -35,9 +35,9 @@ Programe al Robot para que realice los recorridos de la figura 5.10 utilizando e
 
 **Figura 5.10: Recorridos usando rectángulos de 5x3** ([recursos/figura-5-10-recorridos-rectangulos.png](../recursos/figura-5-10-recorridos-rectangulos.png)) — tres recorridos marcados a), b) y c), todos partiendo de la esquina (1,1):
 
-- a) cuatro rectángulos de 5x3 apilados verticalmente uno sobre otro, formando una columna.
-- b) varios rectángulos de 5x3 entrelazados en diagonal, formando una figura escalonada compacta.
-- c) una fila de varios rectángulos de 5x3 alineados horizontalmente uno junto a otro.
+- a) tres rectángulos de 5x3 apilados verticalmente uno sobre otro, formando una columna.
+- b) tres rectángulos de 5x3 entrelazados en diagonal (cada uno desplazado 1 esquina del anterior), formando una figura escalonada compacta.
+- c) una fila de cuatro rectángulos de 5x3 alineados horizontalmente uno junto a otro, alternando la orientación (base 5 a lo largo de la avenida, luego base 5 a lo largo de la calle, y así sucesivamente).
 
 ## Datos
 

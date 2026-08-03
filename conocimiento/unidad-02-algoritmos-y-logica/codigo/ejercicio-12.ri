@@ -8,14 +8,14 @@ robots
   comenzar
     derecha
     repetir 100
+      repetir 99
+        si (~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina & HayPapelEnLaBolsa)
+          depositarPapel
+        mover
       si (~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina & HayPapelEnLaBolsa)
         depositarPapel
-      mover
-    si (~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina & HayPapelEnLaBolsa)
-      depositarPapel
-      mover
-    si(PosCa<99)
-      Pos(1,PosCa+1)
+      si(PosCa<100)
+        Pos(1,PosCa+1)
   fin
 variables
   R-Info: robot1

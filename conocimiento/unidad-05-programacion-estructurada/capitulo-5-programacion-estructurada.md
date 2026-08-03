@@ -996,6 +996,7 @@ procesos
     derecha
     repetir 5
       mover
+    derecha
   fin
 areas 
   ciudad: AreaC(1,1,100,100)
@@ -1014,6 +1015,8 @@ comenzar
 fin
 ```
 </details>
+
+> Nota: al proceso `rectangulo` del archivo histórico original le faltaba el cuarto `derecha` final (tras el último `repetir 5: mover`), a diferencia de los procesos `cuadrado` de los ejercicios 1 y 2 y de las cuatro variantes del ejercicio 4 que reutilizan este mismo proceso, todos los cuales sí cierran el giro y devuelven al robot a su orientación inicial. El enunciado propio de este ejercicio no exige una orientación final particular, pero se agregó el cuarto giro por consistencia con el resto de la familia; ver la nota de corrección en la solución atomizada del ejercicio 3.
 
 **Ejercicio 4**
 
@@ -1189,7 +1192,7 @@ procesos
       repetir 5
         mover
       derecha
- {Si variamos la derecha podemos rotar el ractangulo}
+ {Si variamos la derecha podemos rotar el rectangulo}
   fin
 areas 
   ciudad: AreaC(1,1,100,100)
@@ -1259,7 +1262,7 @@ procesos
     derecha
     repetir 5
       mover 
-    derecha {Si variamos la derecha podemos rotar el ractangulo}
+    derecha {Si variamos la derecha podemos rotar el rectangulo}
   fin
 areas 
   ciudad: AreaC(1,1,100,100)

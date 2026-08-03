@@ -10,7 +10,7 @@ subtemas:
 nivel: "inicial"
 lenguajes:
   - "R-info"
-estado: "parcial"
+estado: "completo"
 origen: "convertido"
 fuentes:
   - archivo: "../fuentes/Capitulo 2-Algoritmos y Logica.pdf"
@@ -41,13 +41,15 @@ Ver [`../ejercicios/ejercicio-12-esquina-libre-depositar-papel.md`](../ejercicio
 
 ## Análisis
 
-Una esquina "libre" es una esquina sin flor y sin papel. El robot gira para orientarse a lo largo de una calle y avanza 100 veces, depositando un papel en cada esquina libre que encuentra, siempre que le queden papeles en la bolsa.
+Una esquina "libre" es una esquina sin flor y sin papel. El robot gira para orientarse a lo largo de las avenidas (recorre una calle completa, avenida 1 a 100) y, al llegar al final, salta a la próxima calle y repite — cubriendo así las 100 calles de la ciudad, no solo la primera. En cada esquina deposita un papel si está libre y todavía le queda alguno en la bolsa.
 
 ## Estrategia
 
-1. Girar a la derecha para orientarse a lo largo de la calle.
-2. Repetir 100 veces: si la esquina actual está libre (sin flor y sin papel) y el robot tiene papel en la bolsa, depositarlo; avanzar.
-3. Repetir el mismo chequeo una vez más al llegar al final de la calle.
+1. Girar a la derecha para orientarse a lo largo de las avenidas.
+2. Repetir 100 veces (una vez por calle):
+   1. Repetir 99 veces: si la esquina actual está libre (sin flor y sin papel) y el robot tiene papel en la bolsa, depositarlo; avanzar.
+   2. Repetir el mismo chequeo una vez más al llegar a la avenida 100 (sin avanzar: ya no hay a dónde ir en esta calle).
+   3. Si no es la última calle, saltar al inicio de la siguiente con `Pos(1,PosCa+1)`.
 
 ## Código relacionado
 
@@ -60,14 +62,14 @@ robots
   comenzar
     derecha
     repetir 100
+      repetir 99
+        si (~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina & HayPapelEnLaBolsa)
+          depositarPapel
+        mover
       si (~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina & HayPapelEnLaBolsa)
         depositarPapel
-      mover
-    si (~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina & HayPapelEnLaBolsa)
-      depositarPapel
-      mover
-    si(PosCa<99)
-      Pos(1,PosCa+1)
+      si(PosCa<100)
+        Pos(1,PosCa+1)
   fin
 variables
   R-Info: robot1
@@ -81,31 +83,33 @@ Código completo: [`../codigo/ejercicio-12.ri`](../codigo/ejercicio-12.ri)
 
 ## Corrección aplicada durante esta organización
 
-La condición original era `HayPapelEnLaEsquina & HayFlorEnLaEsquina & HayPapelEnLaBolsa` — es decir, depositaba papel solo en esquinas que **ya tenían** flor y papel, justo lo opuesto de "esquina libre". Se negaron las dos primeras condiciones (`~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina`) para que el depósito ocurra donde el enunciado pide: esquinas sin flor y sin papel.
+El archivo histórico tenía tres problemas encadenados, los tres verificados con el intérprete de R-info de Academia-Fabo:
 
-## Alcance no corregido: solo recorre una calle, y se pasa de largo
+1. **Condición invertida:** la condición original era `HayPapelEnLaEsquina & HayFlorEnLaEsquina & HayPapelEnLaBolsa` — depositaba papel solo en esquinas que **ya tenían** flor y papel, justo lo opuesto de "esquina libre". Se negaron las dos primeras condiciones (`~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina`).
+2. **Se salía del área:** tras el único `derecha`, `mover` avanza en avenida creciente; con `repetir 100` el robot intentaba llegar a la avenida 101 (fuera de `AreaC(1,1,100,100)`), cortando la ejecución antes de terminar siquiera la calle 1. Se cambió a `repetir 99` (más el chequeo final sin `mover`, que ya estaba) para llegar exactamente a la avenida 100.
+3. **Solo cubría una calle:** el `Pos(1,PosCa+1)` saltaba al inicio de la siguiente calle, pero nada volvía a ejecutar el recorrido para ella — el programa terminaba ahí. Se envolvió todo el bloque (recorrido de una calle + salto) en un `repetir 100` adicional (una vuelta por calle) y se corrigió la condición del salto a `PosCa<100` para que no intente saltar después de la última calle. También se quitó el `mover` final sobreviviente en el chequeo posterior al `repetir 99`, que habría vuelto a empujar al robot a la avenida 101 en cada calle una vez arreglado el punto 2.
 
-Después del `repetir 100` el código hace `Pos(1,PosCa+1)` para saltar al inicio de la siguiente calle, pero el programa termina ahí (`fin`) sin repetir el recorrido para esa nueva calle — es decir, tal como está el archivo histórico, solo cubre la calle 1, no "todas las calles" como pide el enunciado. A diferencia del bug de la condición (un cambio de una línea, ya corregido arriba), esto requeriría envolver todo el bloque en un `repetir 99` adicional, un cambio de estructura mayor — se documenta acá en vez de reescribirlo, siguiendo el mismo criterio que con `ejercicio-08.ri`/`ejercicio-10.ri` (no inventar una solución nueva sobre contenido `origen: convertido`).
-
-Además, probando este archivo contra el intérprete de R-info construido para Academia-Fabo apareció un segundo problema, independiente del anterior: el robot gira una vez (queda orientado hacia avenidas crecientes, partiendo de la avenida 1) y el `repetir 100` lo hace intentar moverse 100 veces, lo que lo lleva a la avenida 101 — fuera del área válida (1 a 100) — y corta la ejecución antes de terminar siquiera la calle 1. Tendría que ser `repetir 99` para llegar exactamente a la avenida 100. No se corrigió por el mismo motivo que el punto anterior (es parte del mismo problema de alcance/estructura, no un fix de una palabra suelta) — se deja documentado porque es información nueva que no se había detectado en la revisión manual del enunciado, solo se hizo evidente al ejecutar el código.
+Se verificó con el intérprete que, con distintos escenarios (ciudad vacía, esquinas ocupadas salteadas en varias calles, y una bolsa que se agota a mitad de camino), el robot recorre las 100 calles sin salirse del área y deposita únicamente en esquinas libres.
 
 ## Escenario de prueba
 
-Para ver el efecto conviene iniciar la simulación con la calle 1 mezclando esquinas libres y esquinas con flor/papel ya puestos, y con papeles en la bolsa del robot: se debería ver depósito solo en las esquinas libres de esa calle.
+El escenario por defecto de este visor tiene esquinas ocupadas en (5,1) y (10,1) y una bolsa con 10 papeles: se puede observar que el robot las saltea y deposita en las esquinas libres de la calle 1 hasta agotar la bolsa. Para ver el recorrido completar varias calles, aumentar la bolsa (con 250 papeles alcanza para recorrer más de dos calles completas).
 
 ## Casos límite
 
 - Esquina con flor pero sin papel (o viceversa): no se considera libre, no recibe depósito.
-- Bolsa sin papeles: ninguna esquina recibe depósito, aunque esté libre.
+- Bolsa sin papeles: ninguna esquina recibe depósito de ahí en más, pero el robot sigue recorriendo el resto de la ciudad igual (el enunciado no pide detener el movimiento, solo el depósito).
+- Última calle (100): el `si(PosCa<100)` evita el salto final, así que el robot no intenta salirse del área después de terminarla.
 
 ## Errores frecuentes
 
 - Escribir la condición de "esquina libre" sin negar ambos `Hay...EnLaEsquina`, quedando invertida (el bug real que tenía este archivo).
-- Asumir que el `Pos(1,PosCa+1)` final implica que el recorrido continúa para todas las calles — como se explica arriba, no es así en este archivo.
+- Usar `repetir 100` en vez de `repetir 99` para el eje que ya arrancó en la posición 1: al haber avanzado desde la esquina 1, alcanza con 99 movimientos más para llegar a la 100 — un `repetir 100` completo se pasa de largo.
+- Saltar a la siguiente calle sin envolver el recorrido en un loop externo que lo repita: el salto por sí solo no hace que el recorrido "para todas las calles" vuelva a ejecutarse.
 
 ## Complejidad
 
-Un recorrido de 100 esquinas (una calle completa): O(1) respecto al tamaño de la ciudad para esa única calle; no aplica a "todas las calles" porque el archivo no las recorre.
+Tiempo O(n) con n=10.000 esquinas (100 calles × 100 avenidas): recorre la ciudad completa una sola vez. Espacio O(1).
 
 ## Fuentes y archivos relacionados
 

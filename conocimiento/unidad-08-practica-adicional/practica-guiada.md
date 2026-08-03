@@ -71,7 +71,7 @@ robots
     {Arranca mirando hacia el norte (de calle 1 hacia 100)}
     
     {Avenidas 1 a 99}
-    repetir 9
+    repetir 99
       floresAvenida := 0
       RecorrerAvenidaHastaVacia(floresAvenida)
       InformarAvenida(floresAvenida)
@@ -197,7 +197,7 @@ robots
     totalAvenidasMenos60 := 0
 
     {Avenidas 1 a 99}
-    repetir 9
+    repetir 99
       ProcesarAvenida(totalEsquinas20, totalAvenidasMenos60)
       Pos(PosAv + 1, 1)
 
@@ -301,6 +301,9 @@ robots
       RecorrerFila(pasos, totalFlores, totalPapeles)
       pasos := pasos - 2
       Pos(1, PosCa+ 2)
+
+    Informar(totalFlores)
+    Informar(totalPapeles)
   fin
 
 variables

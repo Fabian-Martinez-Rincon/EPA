@@ -375,8 +375,7 @@ Notemos que en (1) y (2), los parámetros son de entrada/salida. En (1) el módu
 
 En resumen, un proceso que utiliza parámetros de entrada/salida como únicamente de salida es totalmente independiente del módulo que lo invoca. Cuando se usa el parámetro en este sentido, se trata de información generada dentro del proceso que se desea dar a conocer al módulo que lo llamó. En este caso no se busca un intercambio de información en ambos sentidos, solo el proceso es quien exporta datos.
 
-> Haciendo clic en el siguiente link podés acceder a una animación con un ejemplo de análisis y resolución de un *Ejercicio con Parámetros*:
-> Animación Ejercicio con Parámetros
+> *Haciendo clic en el siguiente link podés acceder a una animación con un ejemplo de análisis y resolución de un Ejercicio con Parámetros: Animación Ejercicio con Parámetros (recurso multimedia del material original).*
 
 ## 7.4 Conclusiones
 
