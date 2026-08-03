@@ -60,4 +60,8 @@ Al final de las unidades 2 a 7 se incluye una tabla que relaciona cada ejercicio
 
 Los nombres heredados ambiguos de la unidad 2 no se vincularon a ejercicios concretos sin evidencia suficiente; quedaron como `codigo-01.ri`…`codigo-10.ri` en [unidad-02-algoritmos-y-logica/codigo](unidad-02-algoritmos-y-logica/codigo/) para revisión manual.
 
+## Ejercicios atomizados por archivo (convención de `AYP1-FABOSISTEMAS`)
+
+`unidad-02-algoritmos-y-logica` es la primera unidad de EPA en adoptar la misma atomización que ya usa `AYP1-FABOSISTEMAS`: además del capítulo completo, cada ejercicio con código identificado tiene su propio archivo en `ejercicios/` (enunciado + front matter) y `soluciones/` (análisis, estrategia, código, casos límite, errores frecuentes), enlazados entre sí y con `codigo_relacionado` apuntando al `.ri`. Por ahora cubre los ejercicios 2, 4, 6, 7, 9, 11 y 12 de esa unidad; el resto de las unidades sigue con enunciado y solución embebidos en el capítulo, como antes. Es la estructura que lee [Academia-Fabo](https://github.com/Fabian-Martinez-Rincon/Academia-Fabo) para mostrar cada ejercicio con un runner de R-info en el navegador.
+
 > Algunas soluciones son apuntes históricos y pueden contener variantes o intentos intermedios. Se recomienda compilarlas en R-info y compararlas con las precondiciones y postcondiciones del enunciado.

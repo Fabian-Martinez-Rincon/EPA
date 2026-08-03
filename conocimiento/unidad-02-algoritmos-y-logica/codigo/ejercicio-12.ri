@@ -8,10 +8,10 @@ robots
   comenzar
     derecha
     repetir 100
-      si (HayPapelEnLaEsquina & HayFlorEnLaEsquina & HayPapelEnLaBolsa)
+      si (~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina & HayPapelEnLaBolsa)
         depositarPapel
       mover
-    si (HayPapelEnLaEsquina & HayFlorEnLaEsquina & HayPapelEnLaBolsa)
+    si (~HayPapelEnLaEsquina & ~HayFlorEnLaEsquina & HayPapelEnLaBolsa)
       depositarPapel
       mover
     si(PosCa<99)

@@ -10,8 +10,8 @@ robots
     repetir 3
       derecha
     mientras(PosAv>23)
-      si  (HayFlorEnLaBolsa)
-        depositarFlor
+      si  (HayPapelEnLaBolsa)
+        depositarPapel
         mover
       sino
         mover
