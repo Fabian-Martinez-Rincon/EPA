@@ -10,12 +10,14 @@ procesos
   proceso Avenida(E Numero:numero;E pasos:numero)
   variables
     noventa:numero
+    pasosReales:numero
   comenzar
     Pos(Numero,1)
     noventa:=99
-    si (pasos>99)
-      pasos:=noventa
-    repetir pasos
+    pasosReales:=pasos
+    si (pasosReales>99)
+      pasosReales:=noventa
+    repetir pasosReales
       mover
   fin
 areas

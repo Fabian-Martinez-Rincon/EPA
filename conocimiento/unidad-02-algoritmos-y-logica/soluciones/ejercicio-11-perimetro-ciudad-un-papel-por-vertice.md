@@ -19,6 +19,23 @@ relacionados:
   - "../ejercicios/ejercicio-11-perimetro-ciudad-un-papel-por-vertice.md"
 codigo_relacionado:
   - "../codigo/ejercicio-11.ri"
+escenario_ciudad:
+  - av: 1
+    ca: 50
+    flores: 1
+    papeles: 1
+  - av: 50
+    ca: 100
+    flores: 0
+    papeles: 1
+  - av: 100
+    ca: 50
+    flores: 0
+    papeles: 1
+  - av: 50
+    ca: 1
+    flores: 0
+    papeles: 1
 ---
 
 # Solución: recorrer el perímetro de la ciudad dejando un papel por vértice

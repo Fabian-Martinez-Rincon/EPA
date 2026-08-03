@@ -16,7 +16,7 @@ robots
         si ~((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
           x:=x+1
         mover
-      si~((HayFlorEnLaEsquina)(HayPapelEnLaEsquina))
+      si~((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))
         x:=x+1
       Pos(1,PosCa+1)
     si~((HayFlorEnLaEsquina)|(HayPapelEnLaEsquina))

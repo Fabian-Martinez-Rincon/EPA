@@ -19,6 +19,9 @@ relacionados:
   - "../ejercicios/ejercicio-09-depositar-papel-avenidas-impares.md"
 codigo_relacionado:
   - "../codigo/ejercicio-09.ri"
+escenario_bolsa:
+  flores: 0
+  papeles: 5
 ---
 
 # Solución: depositar papel en las avenidas impares de la calle 17

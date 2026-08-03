@@ -19,6 +19,19 @@ relacionados:
   - "../ejercicios/ejercicio-06-recorrer-avenida-recogiendo-flores.md"
 codigo_relacionado:
   - "../codigo/ejercicio-06.ri"
+escenario_ciudad:
+  - av: 75
+    ca: 45
+    flores: 1
+    papeles: 0
+  - av: 75
+    ca: 30
+    flores: 1
+    papeles: 0
+  - av: 75
+    ca: 16
+    flores: 1
+    papeles: 0
 ---
 
 # Solución: recorrer la avenida 75 recogiendo flores

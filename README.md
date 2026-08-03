@@ -39,8 +39,9 @@ EPA/
 │   ├── README.md, INDICE_GENERAL.md, GLOSARIO.md
 │   └── unidad-00-introduccion/ … unidad-08-practica-adicional/
 │       ├── <capitulo>.md         Teoría convertida + ejercitación
-│       ├── ejercicios/, soluciones/  Solo unidad-02 por ahora: 7 ejercicios
-│       │                             atomizados uno por archivo (convención de AYP1-FABOSISTEMAS)
+│       ├── ejercicios/, soluciones/  Unidades 02-08: parte de la ejercitación
+│       │                             atomizada uno por archivo (convención de AYP1-FABOSISTEMAS);
+│       │                             cobertura parcial y distinta por unidad, ver INDICE_GENERAL.md
 │       ├── fuentes/              PDF original de esa unidad
 │       ├── recursos/             Imágenes propias de esa unidad
 │       └── codigo/

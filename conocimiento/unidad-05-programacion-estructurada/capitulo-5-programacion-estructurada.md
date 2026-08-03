@@ -829,7 +829,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin
@@ -852,6 +852,8 @@ fin
 ```
 </details>
 
+> Nota: el archivo histórico original tenía `repetir 3` en el cuerpo de `cuadrado` (un cuadrado de lado 3), en contradicción con el propio enunciado ("cuadrado de lado 2") y con el módulo `cuadrado` de lado 2 presentado en el Ejemplo 5.6 de este mismo capítulo. Se corrigió a `repetir 2` durante la organización de este contenido; ver la nota de corrección en la solución atomizada del ejercicio 1.
+
 **Ejercicio 2**
 
 <details><summary>Código (variante A)</summary>
@@ -869,7 +871,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin
@@ -913,7 +915,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin
@@ -965,7 +967,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin
@@ -1030,7 +1032,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin
@@ -1096,7 +1098,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin
@@ -1162,7 +1164,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin
@@ -1228,7 +1230,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin

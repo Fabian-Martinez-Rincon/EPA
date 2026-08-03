@@ -19,6 +19,23 @@ relacionados:
   - "../ejercicios/ejercicio-04-perimetro-cuadrado-con-papel.md"
 codigo_relacionado:
   - "../codigo/ejercicio-04.ri"
+escenario_ciudad:
+  - av: 30
+    ca: 30
+    flores: 1
+    papeles: 1
+  - av: 30
+    ca: 48
+    flores: 2
+    papeles: 0
+  - av: 48
+    ca: 48
+    flores: 0
+    papeles: 2
+  - av: 48
+    ca: 30
+    flores: 1
+    papeles: 1
 ---
 
 # Solución: modificar el perímetro del cuadrado para recoger papel

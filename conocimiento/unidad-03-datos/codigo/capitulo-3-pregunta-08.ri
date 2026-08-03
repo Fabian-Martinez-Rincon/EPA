@@ -12,12 +12,12 @@ robots
     Pos(1,2)
     x:=0
     derecha
-    mientras(PosAv<99)
+    mientras(PosAv<100)
       si(x<10)
         mientras(HayPapelEnLaEsquina)
           tomarPapel
           x:=x+1
-        mover
+      mover
     si(x<10)
       mientras(HayPapelEnLaEsquina)
         tomarPapel

@@ -19,6 +19,9 @@ relacionados:
   - "../ejercicios/ejercicio-02-recorrer-calle-depositando-papeles.md"
 codigo_relacionado:
   - "../codigo/ejercicio-02.ri"
+escenario_bolsa:
+  flores: 0
+  papeles: 5
 ---
 
 # Solución: recorrer la calle 50 depositando papeles

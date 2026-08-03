@@ -10,7 +10,7 @@ procesos
   proceso cuadrado
   comenzar
     repetir 4
-      repetir 3
+      repetir 2
         mover
       derecha
   fin

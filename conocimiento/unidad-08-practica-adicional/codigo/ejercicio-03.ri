@@ -62,6 +62,9 @@ robots
       RecorrerFila(pasos, totalFlores, totalPapeles)
       pasos := pasos - 2
       Pos(1, PosCa+ 2)
+
+    Informar(totalFlores)
+    Informar(totalPapeles)
   fin
 
 variables

@@ -17,7 +17,7 @@ robots
         si(HayFlorEnLaEsquina)
           tomarFlor
           x:=x+1
-        mover
+      mover
     Informar(x)
   fin
 variables

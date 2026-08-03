@@ -19,6 +19,9 @@ relacionados:
   - "../ejercicios/ejercicio-07-depositar-flores-hasta-agotar.md"
 codigo_relacionado:
   - "../codigo/ejercicio-07.ri"
+escenario_bolsa:
+  flores: 5
+  papeles: 0
 ---
 
 # Solución: depositar flores en la avenida 10 hasta agotarlas

@@ -19,6 +19,18 @@ relacionados:
   - "../ejercicios/ejercicio-12-esquina-libre-depositar-papel.md"
 codigo_relacionado:
   - "../codigo/ejercicio-12.ri"
+escenario_ciudad:
+  - av: 5
+    ca: 1
+    flores: 0
+    papeles: 1
+  - av: 10
+    ca: 1
+    flores: 1
+    papeles: 0
+escenario_bolsa:
+  flores: 0
+  papeles: 10
 ---
 
 # Solución: depositar papel en las esquinas libres

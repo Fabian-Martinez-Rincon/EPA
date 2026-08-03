@@ -37,8 +37,8 @@ robots
     menos:numero
   comenzar
     menos:=-1
-    lado:=14
-    mientras(~(flores=3)&~(papeles=2))
+    lado:=99
+    mientras(~(flores=3)|~(papeles=2))
       flores:=0
       papeles:=0
       cuadrado(lado,flores,papeles)
