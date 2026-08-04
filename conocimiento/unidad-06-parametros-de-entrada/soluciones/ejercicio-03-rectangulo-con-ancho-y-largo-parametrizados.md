@@ -97,5 +97,4 @@ El recorrido tiene `2 × (ancho + largo)` pasos: O(ancho + largo) respecto de lo
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-03-rectangulo-con-ancho-y-largo-parametrizados.md`](../ejercicios/ejercicio-03-rectangulo-con-ancho-y-largo-parametrizados.md)
-- Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_3`](../codigo/soluciones/capitulo-06/Cap6_Preg_3)

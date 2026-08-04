@@ -89,5 +89,4 @@ Recorrido lineal de 90 esquinas (avenida 10 a 100): O(n) en el largo del tramo r
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-07-depositar-flores-hasta-agotar.md`](../ejercicios/ejercicio-07-depositar-flores-hasta-agotar.md)
-- Fuente original: [`../fuentes/Capitulo 2-Algoritmos y Logica.pdf`](<../fuentes/Capitulo 2-Algoritmos y Logica.pdf>)
 - Código: [`../codigo/ejercicio-07.ri`](../codigo/ejercicio-07.ri)

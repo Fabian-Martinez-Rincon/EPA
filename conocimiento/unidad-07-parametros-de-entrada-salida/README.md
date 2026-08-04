@@ -3,7 +3,6 @@
 Procesos que reciben y devuelven información modificada mediante parámetros de entrada/salida (`ES`).
 
 - [capitulo-7-parametros-de-entrada-salida.md](<capitulo-7-parametros-de-entrada-salida.md>) — teoría completa + ejercitación (6 ejercicios).
-- Fuente: [fuentes/](fuentes/).
 - Figuras: [recursos/](recursos/).
 - Código:
   - [codigo/ejemplos/parametros-entrada-salida](codigo/ejemplos/parametros-entrada-salida/) — ejemplos de apoyo (Ejemplos 7.1-7.5 del capítulo, más dos demos sueltas), ya identificados en el comentario de cada archivo; no son ejercicios numerados y no se atomizan.

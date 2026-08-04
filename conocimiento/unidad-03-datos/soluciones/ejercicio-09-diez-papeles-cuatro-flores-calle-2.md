@@ -110,5 +110,4 @@ Recorrido de hasta 100 esquinas (una calle completa): O(1) respecto al tamaño d
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-09-diez-papeles-cuatro-flores-calle-2.md`](../ejercicios/ejercicio-09-diez-papeles-cuatro-flores-calle-2.md)
-- Fuente original: [`../fuentes/Capitulo 3-Datos.pdf`](<../fuentes/Capitulo 3-Datos.pdf>)
 - Código: [`../codigo/capitulo-3-pregunta-09.ri`](../codigo/capitulo-3-pregunta-09.ri)

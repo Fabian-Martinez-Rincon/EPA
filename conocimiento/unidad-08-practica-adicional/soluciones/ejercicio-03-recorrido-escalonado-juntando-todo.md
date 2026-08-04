@@ -150,6 +150,5 @@ O(1) respecto al tamaño de la ciudad: el recorrido tiene una longitud fija (sum
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-03-recorrido-escalonado-juntando-todo.md`](../ejercicios/ejercicio-03-recorrido-escalonado-juntando-todo.md)
-- Fuente original: [`../fuentes/Ejercicios Adicionales.pdf`](<../fuentes/Ejercicios Adicionales.pdf>)
 - Código: [`../codigo/ejercicio-03.ri`](../codigo/ejercicio-03.ri)
 - Versión guiada: [`../practica-guiada.md`](../practica-guiada.md)

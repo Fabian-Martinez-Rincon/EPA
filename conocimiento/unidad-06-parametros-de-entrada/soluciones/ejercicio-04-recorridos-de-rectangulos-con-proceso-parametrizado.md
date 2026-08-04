@@ -156,6 +156,5 @@ Cada variante dibuja una cantidad fija de rectángulos (3 en A, 4 en B): O(n) en
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-04-recorridos-de-rectangulos-con-proceso-parametrizado.md`](../ejercicios/ejercicio-04-recorridos-de-rectangulos-con-proceso-parametrizado.md)
-- Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_4A`](../codigo/soluciones/capitulo-06/Cap6_Preg_4A), [`../codigo/soluciones/capitulo-06/Cap6_Preg_4B`](../codigo/soluciones/capitulo-06/Cap6_Preg_4B)
 - Proceso base: [ejercicio 3](../ejercicios/ejercicio-03-rectangulo-con-ancho-y-largo-parametrizados.md)

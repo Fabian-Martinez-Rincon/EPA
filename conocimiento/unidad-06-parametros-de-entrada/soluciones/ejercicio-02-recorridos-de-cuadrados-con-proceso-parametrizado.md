@@ -147,6 +147,5 @@ Cada variante dibuja una cantidad fija de cuadrados (4 en B, 5 en C) de lados 1.
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-02-recorridos-de-cuadrados-con-proceso-parametrizado.md`](../ejercicios/ejercicio-02-recorridos-de-cuadrados-con-proceso-parametrizado.md)
-- Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_2B`](../codigo/soluciones/capitulo-06/Cap6_Preg_2B), [`../codigo/soluciones/capitulo-06/Cap6_Preg_2C`](../codigo/soluciones/capitulo-06/Cap6_Preg_2C)
 - Proceso base: [ejercicio 1](../ejercicios/ejercicio-01-cuadrado-con-lado-como-parametro.md)

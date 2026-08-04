@@ -270,5 +270,4 @@ Cada calle impar se recorre en O(distancia hasta la primera esquina con flor o p
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-05-pasos-hasta-flor-o-papel-calles-impares.md`](../ejercicios/ejercicio-05-pasos-hasta-flor-o-papel-calles-impares.md)
-- Fuente original: [`../fuentes/Capitulo 7-Parametros de Entrada-Salida.pdf`](<../fuentes/Capitulo 7-Parametros de Entrada-Salida.pdf>)
 - Código: [`../codigo/soluciones/capitulo-07/Cap7_Preg_5`](../codigo/soluciones/capitulo-07/Cap7_Preg_5)

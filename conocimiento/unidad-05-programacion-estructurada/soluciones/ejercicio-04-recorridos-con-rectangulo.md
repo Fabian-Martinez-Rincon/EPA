@@ -118,7 +118,6 @@ Cada recorrido traza una cantidad fija de rectángulos (3 en a y b, 4 en c): O(1
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-04-recorridos-con-rectangulo.md`](../ejercicios/ejercicio-04-recorridos-con-rectangulo.md)
-- Fuente original: [`../fuentes/Capitulo 5-Programacion Estructurada.pdf`](<../fuentes/Capitulo 5-Programacion Estructurada.pdf>)
 - Figura: [`../recursos/figura-5-10-recorridos-rectangulos.png`](<../recursos/figura-5-10-recorridos-rectangulos.png>)
 - Código: [`../codigo/soluciones/capitulo-05/Cap5_4A`](<../codigo/soluciones/capitulo-05/Cap5_4A>), [`../codigo/soluciones/capitulo-05/Cap5_4B`](<../codigo/soluciones/capitulo-05/Cap5_4B>), [`../codigo/soluciones/capitulo-05/Cap5_4C`](<../codigo/soluciones/capitulo-05/Cap5_4C>), [`../codigo/soluciones/capitulo-05/Cap5_4C otro`](<../codigo/soluciones/capitulo-05/Cap5_4C otro>)
 - Prerrequisito: [ejercicio 3](ejercicio-03-rectangulo-5x3-horario.md)

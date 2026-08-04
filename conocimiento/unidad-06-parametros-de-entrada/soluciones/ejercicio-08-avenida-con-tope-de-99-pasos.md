@@ -111,5 +111,4 @@ El recorrido tiene como máximo 99 pasos, sin importar el valor recibido: O(1) r
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-08-avenida-con-tope-de-99-pasos.md`](../ejercicios/ejercicio-08-avenida-con-tope-de-99-pasos.md)
-- Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_8`](../codigo/soluciones/capitulo-06/Cap6_Preg_8)

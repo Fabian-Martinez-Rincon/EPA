@@ -132,5 +132,4 @@ Perímetro fijo de 4×99 esquinas: O(1) respecto al tamaño de la ciudad (perím
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-05-perimetro-reforzar-esquinas-un-tipo.md`](../ejercicios/ejercicio-05-perimetro-reforzar-esquinas-un-tipo.md)
-- Fuente original: [`../fuentes/Capitulo 4-Repaso.pdf`](<../fuentes/Capitulo 4-Repaso.pdf>)
 - Código: [`../codigo/soluciones/capitulo-04/Capitulo 4 pregunta 5`](<../codigo/soluciones/capitulo-04/Capitulo 4 pregunta 5>)

@@ -4,7 +4,6 @@ Ejercitación integradora que combina todos los temas del curso (modularización
 
 - [ejercicios-adicionales.md](<ejercicios-adicionales.md>) — los 8 enunciados tal como aparecen en el PDF original.
 - [practica-guiada.md](practica-guiada.md) — presentación alternativa de los ejercicios 1 a 3, con código resuelto y animación del recorrido.
-- Fuente: [fuentes/](fuentes/).
 - Figuras y animaciones: [recursos/](recursos/) (`sabado.gif` queda sin referenciar desde ningún `.md` de la unidad; no se elimina ni se inventa un uso para no tocar contenido fuera de alcance).
 - Código: [codigo/](codigo/) — soluciones de los ejercicios 1 a 3 (los ejercicios 4 a 8 no tienen solución en este repositorio).
 

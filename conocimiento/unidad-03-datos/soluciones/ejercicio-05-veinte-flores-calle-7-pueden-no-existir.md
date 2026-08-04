@@ -131,5 +131,4 @@ Recorrido de hasta 100 esquinas (una calle completa): O(1) respecto al tamaño d
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-05-veinte-flores-calle-7-pueden-no-existir.md`](../ejercicios/ejercicio-05-veinte-flores-calle-7-pueden-no-existir.md)
-- Fuente original: [`../fuentes/Capitulo 3-Datos.pdf`](<../fuentes/Capitulo 3-Datos.pdf>)
 - Código: [`../codigo/capitulo-3-pregunta-05.ri`](../codigo/capitulo-3-pregunta-05.ri)

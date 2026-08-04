@@ -133,5 +133,4 @@ Cada cuadrado de lado L se recorre en O(L) (4×L esquinas). En el peor caso se r
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-06-cuadrados-decrecientes-3-flores-2-papeles.md`](../ejercicios/ejercicio-06-cuadrados-decrecientes-3-flores-2-papeles.md)
-- Fuente original: [`../fuentes/Capitulo 7-Parametros de Entrada-Salida.pdf`](<../fuentes/Capitulo 7-Parametros de Entrada-Salida.pdf>)
 - Código: [`../codigo/soluciones/capitulo-07/Cap7_Preg_6`](../codigo/soluciones/capitulo-07/Cap7_Preg_6)

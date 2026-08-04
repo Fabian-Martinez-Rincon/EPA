@@ -120,6 +120,5 @@ O(n) en el tamaño de la ciudad: cada esquina de las 100 avenidas se visita una 
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-01-recorrer-avenidas-hasta-esquina-vacia.md`](../ejercicios/ejercicio-01-recorrer-avenidas-hasta-esquina-vacia.md)
-- Fuente original: [`../fuentes/Ejercicios Adicionales.pdf`](<../fuentes/Ejercicios Adicionales.pdf>)
 - Código: [`../codigo/ejercicio-01.ri`](../codigo/ejercicio-01.ri)
 - Versión guiada con animación: [`../practica-guiada.md`](../practica-guiada.md)

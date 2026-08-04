@@ -110,5 +110,4 @@ Recorrido fijo de 100 esquinas (una calle completa): O(1) respecto al tamaño de
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-02-informar-flores-calle-44-sin-modificar.md`](../ejercicios/ejercicio-02-informar-flores-calle-44-sin-modificar.md)
-- Fuente original: [`../fuentes/Capitulo 3-Datos.pdf`](<../fuentes/Capitulo 3-Datos.pdf>)
 - Código: [`../codigo/capitulo-3-pregunta-02.ri`](../codigo/capitulo-3-pregunta-02.ri)

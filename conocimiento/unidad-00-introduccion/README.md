@@ -4,7 +4,6 @@ Portada del libro y guía de estudio: qué se va a aprender, cómo usar el mater
 
 - [00-caratula.md](00-caratula.md) — índice general del libro y bienvenida.
 - [capitulo-0-introduccion.md](capitulo-0-introduccion.md) — cómo estudiar, recursos complementarios, contenidos del curso.
-- Fuente: [fuentes/](fuentes/) (PDF original de cada documento).
 
 **Prerrequisitos:** ninguno — es el punto de entrada del curso.
 

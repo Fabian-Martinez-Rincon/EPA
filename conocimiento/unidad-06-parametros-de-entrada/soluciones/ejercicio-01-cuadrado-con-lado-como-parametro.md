@@ -90,5 +90,4 @@ El recorrido tiene `4 × lado` pasos: O(lado) respecto del parámetro recibido.
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-01-cuadrado-con-lado-como-parametro.md`](../ejercicios/ejercicio-01-cuadrado-con-lado-como-parametro.md)
-- Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_1`](../codigo/soluciones/capitulo-06/Cap6_Preg_1)

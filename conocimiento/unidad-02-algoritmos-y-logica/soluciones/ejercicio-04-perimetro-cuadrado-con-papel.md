@@ -105,5 +105,4 @@ Dos recorridos de perímetro de longitud fija (4×18 pasos cada uno): O(1) respe
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-04-perimetro-cuadrado-con-papel.md`](../ejercicios/ejercicio-04-perimetro-cuadrado-con-papel.md)
-- Fuente original: [`../fuentes/Capitulo 2-Algoritmos y Logica.pdf`](<../fuentes/Capitulo 2-Algoritmos y Logica.pdf>)
 - Código: [`../codigo/ejercicio-04.ri`](../codigo/ejercicio-04.ri)

@@ -170,6 +170,5 @@ O(n) en el tamaño de la ciudad: cada esquina se visita una vez, con trabajo con
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-02-contar-esquinas-y-avenidas.md`](../ejercicios/ejercicio-02-contar-esquinas-y-avenidas.md)
-- Fuente original: [`../fuentes/Ejercicios Adicionales.pdf`](<../fuentes/Ejercicios Adicionales.pdf>)
 - Código: [`../codigo/ejercicio-02.ri`](../codigo/ejercicio-02.ri)
 - Versión guiada: [`../practica-guiada.md`](../practica-guiada.md)

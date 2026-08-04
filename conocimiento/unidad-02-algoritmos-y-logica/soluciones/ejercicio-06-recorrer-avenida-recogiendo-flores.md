@@ -100,5 +100,4 @@ Recorrido lineal de 30 esquinas (calle 45 a calle 15): O(n) en la distancia entr
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-06-recorrer-avenida-recogiendo-flores.md`](../ejercicios/ejercicio-06-recorrer-avenida-recogiendo-flores.md)
-- Fuente original: [`../fuentes/Capitulo 2-Algoritmos y Logica.pdf`](<../fuentes/Capitulo 2-Algoritmos y Logica.pdf>)
 - Código: [`../codigo/ejercicio-06.ri`](../codigo/ejercicio-06.ri)

@@ -90,5 +90,4 @@ Conviene iniciar la simulación con algunos papeles en la bolsa del robot para v
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-09-depositar-papel-avenidas-impares.md`](../ejercicios/ejercicio-09-depositar-papel-avenidas-impares.md)
-- Fuente original: [`../fuentes/Capitulo 2-Algoritmos y Logica.pdf`](<../fuentes/Capitulo 2-Algoritmos y Logica.pdf>)
 - Código: [`../codigo/ejercicio-09.ri`](../codigo/ejercicio-09.ri)

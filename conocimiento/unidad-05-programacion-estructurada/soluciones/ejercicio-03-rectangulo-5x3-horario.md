@@ -91,6 +91,5 @@ Un recorrido fijo de 16 movimientos y 4 giros por invocación: O(1) respecto al 
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-03-rectangulo-5x3-horario.md`](../ejercicios/ejercicio-03-rectangulo-5x3-horario.md)
-- Fuente original: [`../fuentes/Capitulo 5-Programacion Estructurada.pdf`](<../fuentes/Capitulo 5-Programacion Estructurada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-05/Cap5_3`](<../codigo/soluciones/capitulo-05/Cap5_3>)
 - Comparar con: [`../codigo/soluciones/capitulo-05/Cap5_4A`](<../codigo/soluciones/capitulo-05/Cap5_4A>), que reutiliza este proceso (ya con el cuarto giro).

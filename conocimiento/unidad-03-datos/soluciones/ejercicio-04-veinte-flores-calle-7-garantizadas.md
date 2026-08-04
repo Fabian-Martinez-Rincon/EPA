@@ -153,5 +153,4 @@ En el peor caso recorre toda la calle (100 esquinas): O(1) respecto al tamaño d
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-04-veinte-flores-calle-7-garantizadas.md`](../ejercicios/ejercicio-04-veinte-flores-calle-7-garantizadas.md)
-- Fuente original: [`../fuentes/Capitulo 3-Datos.pdf`](<../fuentes/Capitulo 3-Datos.pdf>)
 - Código: [`../codigo/capitulo-3-pregunta-04.ri`](../codigo/capitulo-3-pregunta-04.ri)

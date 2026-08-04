@@ -276,5 +276,4 @@ Cada variante traza una cantidad fija de escalones (3 en A/B/C, 4 en D): O(n) en
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-05-recorridos-en-escalones-con-parametros.md`](../ejercicios/ejercicio-05-recorridos-en-escalones-con-parametros.md)
-- Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_5A`](../codigo/soluciones/capitulo-06/Cap6_Preg_5A), [`../codigo/soluciones/capitulo-06/Cap6_Preg_5B`](../codigo/soluciones/capitulo-06/Cap6_Preg_5B), [`../codigo/soluciones/capitulo-06/Cap6_Preg_5C`](../codigo/soluciones/capitulo-06/Cap6_Preg_5C), [`../codigo/soluciones/capitulo-06/Cap6_Preg_5D`](../codigo/soluciones/capitulo-06/Cap6_Preg_5D)

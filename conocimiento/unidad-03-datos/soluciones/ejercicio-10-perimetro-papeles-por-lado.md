@@ -138,5 +138,4 @@ Perímetro fijo de 4×99 esquinas: O(1) respecto al tamaño de la ciudad (perím
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-10-perimetro-papeles-por-lado.md`](../ejercicios/ejercicio-10-perimetro-papeles-por-lado.md)
-- Fuente original: [`../fuentes/Capitulo 3-Datos.pdf`](<../fuentes/Capitulo 3-Datos.pdf>)
 - Código: [`../codigo/capitulo-3-pregunta-10.ri`](../codigo/capitulo-3-pregunta-10.ri)

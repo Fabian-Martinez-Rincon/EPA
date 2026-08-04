@@ -275,5 +275,4 @@ Cada parte recorre O(k) avenidas de 99 pasos cada una: 6.a) es O(1) (una sola av
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-06-recorrer-avenidas-con-numero-parametrizado.md`](../ejercicios/ejercicio-06-recorrer-avenidas-con-numero-parametrizado.md)
-- Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_6A`](../codigo/soluciones/capitulo-06/Cap6_Preg_6A), [`../codigo/soluciones/capitulo-06/Cap6_Preg_6B`](../codigo/soluciones/capitulo-06/Cap6_Preg_6B), [`../codigo/soluciones/capitulo-06/Cap6_Preg_6C`](../codigo/soluciones/capitulo-06/Cap6_Preg_6C), [`../codigo/soluciones/capitulo-06/Cap6_Preg_6D`](../codigo/soluciones/capitulo-06/Cap6_Preg_6D)

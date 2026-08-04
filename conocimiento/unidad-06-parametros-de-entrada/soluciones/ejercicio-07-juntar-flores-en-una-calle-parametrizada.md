@@ -113,5 +113,4 @@ En el peor caso recorre hasta 99 esquinas de la calle indicada (todo el ancho de
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-07-juntar-flores-en-una-calle-parametrizada.md`](../ejercicios/ejercicio-07-juntar-flores-en-una-calle-parametrizada.md)
-- Fuente original: [`../fuentes/Capitulo 6-Parametros de Entrada.pdf`](<../fuentes/Capitulo 6-Parametros de Entrada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-06/Cap6_Preg_7`](../codigo/soluciones/capitulo-06/Cap6_Preg_7)

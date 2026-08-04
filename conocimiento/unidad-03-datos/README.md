@@ -3,7 +3,6 @@
 Conceptos de control y datos, representación de la información, declaración de variables y los tipos de datos numérico y lógico (boolean).
 
 - [capitulo-3-datos.md](<capitulo-3-datos.md>) — teoría completa + ejercitación (ejercicios 1 a 10).
-- Fuente: [fuentes/](fuentes/).
 - Código: [codigo/](codigo/) — un archivo `.ri` por ejercicio, nombrados `capitulo-3-pregunta-02.ri` a `capitulo-3-pregunta-10.ri` (el ejercicio 1 no tiene archivo propio, ver más abajo).
 
 ## Ejercicios atomizados (`ejercicios/` + `soluciones/`)

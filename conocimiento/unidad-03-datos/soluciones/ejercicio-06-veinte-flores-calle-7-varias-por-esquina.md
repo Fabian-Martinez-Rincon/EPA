@@ -100,5 +100,4 @@ Recorrido de hasta 100 esquinas (una calle completa), con una cantidad de tomas 
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-06-veinte-flores-calle-7-varias-por-esquina.md`](../ejercicios/ejercicio-06-veinte-flores-calle-7-varias-por-esquina.md)
-- Fuente original: [`../fuentes/Capitulo 3-Datos.pdf`](<../fuentes/Capitulo 3-Datos.pdf>)
 - Código: [`../codigo/capitulo-3-pregunta-06.ri`](../codigo/capitulo-3-pregunta-06.ri)

@@ -107,6 +107,5 @@ Un recorrido fijo de 8 movimientos y 4 giros por invocación: O(1) respecto al t
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-01-cuadrado-lado-2-horario.md`](../ejercicios/ejercicio-01-cuadrado-lado-2-horario.md)
-- Fuente original: [`../fuentes/Capitulo 5-Programacion Estructurada.pdf`](<../fuentes/Capitulo 5-Programacion Estructurada.pdf>)
 - Código: [`../codigo/soluciones/capitulo-05/Cap5_1`](<../codigo/soluciones/capitulo-05/Cap5_1>)
 - Teoría de referencia: Ejemplo 5.6 en [`../capitulo-5-programacion-estructurada.md`](<../capitulo-5-programacion-estructurada.md>), que define el mismo módulo `cuadrado` de lado 2.

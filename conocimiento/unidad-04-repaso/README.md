@@ -3,7 +3,6 @@
 Repaso de variables y expresiones lógicas con ejemplos integradores, antes de avanzar a programación estructurada.
 
 - [capitulo-4-repaso.md](<capitulo-4-repaso.md>) — teoría completa + ejercitación (ejercicios 1 a 8; sólo 2 a 6 tienen código de solución).
-- Fuente: [fuentes/](fuentes/).
 - Código: [codigo/soluciones/capitulo-04](codigo/soluciones/capitulo-04/) — archivos de texto plano R-info sin extensión, nombrados "Capítulo 4 pregunta N" (uno por ejercicio; el ejercicio 6 tiene tres variantes históricas).
 
 ## Ejercicios atomizados (`ejercicios/` + `soluciones/`)

@@ -3,7 +3,6 @@
 Comunicación entre módulos mediante parámetros de entrada (`E`): declaración, uso y restricciones.
 
 - [capitulo-6-parametros-de-entrada.md](<capitulo-6-parametros-de-entrada.md>) — teoría completa + ejercitación.
-- Fuente: [fuentes/](fuentes/).
 - Figuras: [recursos/](recursos/) (Top-Down, recorridos de cuadrados/rectángulos/escalones).
 - Código:
   - [codigo/ejemplos/parametros-entrada](codigo/ejemplos/parametros-entrada/) — comparar procesos sin parámetros con sus versiones parametrizadas; corresponden a los Ejemplos 6.1-6.3 del capítulo (no a la ejercitación numerada), por eso no están atomizados como ejercicios.

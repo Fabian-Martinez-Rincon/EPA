@@ -121,5 +121,4 @@ Recorrido completo de las 10000 esquinas de la ciudad: O(n²) en el tamaño de l
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-03-informar-esquinas-vacias-ciudad.md`](../ejercicios/ejercicio-03-informar-esquinas-vacias-ciudad.md)
-- Fuente original: [`../fuentes/Capitulo 3-Datos.pdf`](<../fuentes/Capitulo 3-Datos.pdf>)
 - Código: [`../codigo/capitulo-3-pregunta-03.ri`](../codigo/capitulo-3-pregunta-03.ri)

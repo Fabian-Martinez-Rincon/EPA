@@ -113,5 +113,4 @@ Recorrido fijo de 100 esquinas (una calle completa): O(1) respecto al tamaño de
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-04-esquinas-solo-papeles-calle-20.md`](../ejercicios/ejercicio-04-esquinas-solo-papeles-calle-20.md)
-- Fuente original: [`../fuentes/Capitulo 4-Repaso.pdf`](<../fuentes/Capitulo 4-Repaso.pdf>)
 - Código: [`../codigo/soluciones/capitulo-04/Capitulo 4 pregunta 4`](<../codigo/soluciones/capitulo-04/Capitulo 4 pregunta 4>)

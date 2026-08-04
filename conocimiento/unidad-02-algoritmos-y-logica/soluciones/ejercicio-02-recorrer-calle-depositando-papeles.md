@@ -94,5 +94,4 @@ Un solo recorrido lineal de a lo sumo 42 esquinas (de avenida 65 a 23): O(n) en 
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-02-recorrer-calle-depositando-papeles.md`](../ejercicios/ejercicio-02-recorrer-calle-depositando-papeles.md)
-- Fuente original: [`../fuentes/Capitulo 2-Algoritmos y Logica.pdf`](<../fuentes/Capitulo 2-Algoritmos y Logica.pdf>)
 - Código: [`../codigo/ejercicio-02.ri`](../codigo/ejercicio-02.ri)

@@ -114,6 +114,5 @@ Cada variante traza una cantidad fija de cuadrados (3 en A, 2 en B): O(1) respec
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-02-recorridos-con-cuadrado.md`](../ejercicios/ejercicio-02-recorridos-con-cuadrado.md)
-- Fuente original: [`../fuentes/Capitulo 5-Programacion Estructurada.pdf`](<../fuentes/Capitulo 5-Programacion Estructurada.pdf>)
 - Figura: [`../recursos/figura-5-9-recorridos-cuadrados.png`](<../recursos/figura-5-9-recorridos-cuadrados.png>)
 - Código: [`../codigo/soluciones/capitulo-05/Cap5_2A`](<../codigo/soluciones/capitulo-05/Cap5_2A>), [`../codigo/soluciones/capitulo-05/Cap5_2B`](<../codigo/soluciones/capitulo-05/Cap5_2B>)

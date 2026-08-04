@@ -114,5 +114,4 @@ Tiempo O(n) con n=10.000 esquinas (100 calles × 100 avenidas): recorre la ciuda
 ## Fuentes y archivos relacionados
 
 - Enunciado: [`../ejercicios/ejercicio-12-esquina-libre-depositar-papel.md`](../ejercicios/ejercicio-12-esquina-libre-depositar-papel.md)
-- Fuente original: [`../fuentes/Capitulo 2-Algoritmos y Logica.pdf`](<../fuentes/Capitulo 2-Algoritmos y Logica.pdf>)
 - Código: [`../codigo/ejercicio-12.ri`](../codigo/ejercicio-12.ri)
