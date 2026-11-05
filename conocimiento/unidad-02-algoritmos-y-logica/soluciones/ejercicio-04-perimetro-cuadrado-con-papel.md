@@ -55,7 +55,7 @@ Recorrer un perímetro cuadrado en R-info es "avanzar N pasos, girar a la derech
 
 ## Código relacionado
 
-```
+```rinfo
 programa robin
 areas
   ciudad: AreaC(1,1,100,100)
@@ -70,8 +70,10 @@ robots
     repetir 4
       repetir 18
         mover
-        tomarFlor
-        tomarPapel
+        si HayFlorEnLaEsquina
+          tomarFlor
+        si HayPapelEnLaEsquina
+          tomarPapel
       derecha
   fin
 variables
@@ -84,19 +86,19 @@ fin
 
 Código completo: [`../codigo/ejercicio-04.ri`](../codigo/ejercicio-04.ri)
 
-## Nota de fidelidad con el enunciado
+## El cuadrado del código es más grande que el del enunciado
 
-Este archivo histórico no implementa literalmente "el cuadrado (1,1)-(2,2)" del ejercicio 3 (lado 1), sino un cuadrado de lado 18 ubicado en otra posición, y recoge flor **y** papel en vez de solo papel como pide el enunciado. La técnica (perímetro cuadrado + recolección en cada esquina) es la correcta y generaliza bien a cualquier lado, pero no es una transcripción exacta del tamaño/posición pedidos. Se dejó el código sin modificar (no es un bug de una palabra como en otros ejercicios de esta unidad, sino una generalización del propio material histórico) — se documenta acá para que quede claro al leerlo junto al enunciado.
+El enunciado pide el cuadrado de lado 1 que va de (1,1) a (2,2). El código traza dos cuadrados de lado 18: el primero arranca en (1,1) y no recoge nada, el segundo va de (30,30) a (48,48) levantando flor y papel en cada esquina, cuando el enunciado solo pide papel. La técnica es la misma. Si cambiás los dos `repetir 18` por `repetir 1`, tenés el cuadrado del enunciado.
 
 ## Casos límite
 
-- Esquina sin papel ni flor: `tomarFlor`/`tomarPapel` no tienen efecto (no hay nada que levantar).
-- El segundo cuadrado se traza desde (30,30), no desde (1,1): si esa zona de la ciudad no tiene objetos cargados, el robot completa el recorrido sin recoger nada.
+- Esquina sin nada: por eso van los `si`. En R-Info, `tomarFlor` o `tomarPapel` en una esquina vacía corta el programa con un error.
+- Poné los objetos entre (30,30) y (48,48). El primer cuadrado no recoge nada, es solo el patrón base.
 
 ## Errores frecuentes
 
-- Olvidar reposicionar (`Pos`) antes del segundo cuadrado y terminar dibujando un cuadrado superpuesto con el primero.
-- Confundir el orden `mover` → `tomarFlor`/`tomarPapel` con levantar el objeto antes de entrar a la esquina.
+- Olvidar el `Pos(30,30)`. Los dos cuadrados se superponen y el segundo recorre las mismas esquinas que el primero.
+- Levantar antes de mover. Si ponés `tomarFlor` arriba del `mover`, buscás en la esquina de la que ya estás saliendo y te salteás la última de cada lado.
 
 ## Complejidad
 

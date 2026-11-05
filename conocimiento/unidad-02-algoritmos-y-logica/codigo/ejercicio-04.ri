@@ -14,8 +14,10 @@ robots
     repetir 4
       repetir 18
         mover
-        tomarFlor
-        tomarPapel
+        si HayFlorEnLaEsquina
+          tomarFlor
+        si HayPapelEnLaEsquina
+          tomarPapel
       derecha
   fin
 variables
