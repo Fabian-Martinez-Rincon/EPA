@@ -43,7 +43,7 @@ Este es el patrón de descomposición Top-Down más simple del capítulo: un ún
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 procesos
   proceso izquierda
@@ -88,17 +88,19 @@ Las variables `vacias: numero` y la asignación `vacias:=0` en el archivo histó
 
 ## Escenario de prueba
 
-Alcanza con correr el programa sobre una ciudad vacía (sin flores ni papeles) — el proceso `cuadrado` no depende del contenido de las esquinas, solo del movimiento y el giro. Para verificarlo visualmente conviene observar la posición final del robot: debe volver a (1,1), la misma esquina de partida, orientado igual que al inicio.
+Corré el programa sobre una ciudad vacía. `cuadrado` no mira flores ni papeles: sólo mueve y gira.
+
+Fijate dónde termina el robot. Sale de (1,1), recorre el borde del bloque que llega hasta (3,3) y vuelve a (1,1) mirando para el mismo lado que al arrancar.
 
 ## Casos límite
 
-- Si se invoca `cuadrado` cerca del borde superior del área (`AreaC(1,1,100,100)`, por ejemplo con el robot en avenida o calle 99 o 100), el recorrido de lado 2 puede salirse del área válida y el intérprete corta la ejecución con un error de "se salió de la ciudad".
-- El proceso no altera el contenido de las esquinas (no junta ni deja flores/papeles): solo mueve al robot y lo gira.
+- `cuadrado` necesita 2 esquinas de lugar en avenida y en calle. Desde la avenida 98 entra; desde la 99 el robot se sale de la ciudad y el programa corta.
+- El robot vuelve a la esquina de partida con la misma orientación. Por eso podés invocarlo una y otra vez sin llevar la cuenta de los giros.
 
 ## Errores frecuentes
 
-- Confundir "lado 2" con "2 giros" o con "repetir 2" en el bucle exterior (que en realidad debe ser `repetir 4`, uno por cada lado del cuadrado); el 2 corresponde a la cantidad de `mover` por lado, no a la cantidad de lados.
-- Girar en sentido antihorario (usar el proceso `izquierda` en vez de `derecha` directamente) cuando el enunciado pide explícitamente sentido horario.
+- Dar vuelta los dos `repetir`. El `repetir 4` son los cuatro lados; el `repetir 2` de adentro, los dos `mover` de cada lado. Al revés el robot dibuja una L de dos tramos de 4 y queda en (5,5).
+- Usar `izquierda` en vez de `derecha`. El enunciado pide sentido horario. Y desde (1,1) el robot sube a (1,3), dobla hacia las avenidas decrecientes y se sale de la ciudad.
 
 ## Complejidad
 

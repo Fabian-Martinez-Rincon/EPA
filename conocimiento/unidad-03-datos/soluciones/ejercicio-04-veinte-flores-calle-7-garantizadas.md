@@ -102,7 +102,7 @@ Como a lo sumo hay una flor por esquina y se garantiza que existen 20, alcanza c
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -134,17 +134,17 @@ Código completo: [`../codigo/capitulo-3-pregunta-04.ri`](../codigo/capitulo-3-p
 
 ## Escenario de prueba
 
-Cargar 20 esquinas de la calle 7 con 1 flor cada una (por ejemplo, avenidas 1 a 20). Probado con el intérprete de R-info: con flores en las avenidas 1 a 20 (ca=7), el programa informa `x = 20`.
+Poné una flor en cada una de las avenidas 1 a 20 de la calle 7. El robot informa `20` y queda parado en la avenida 21. El `mover` es la última instrucción del cuerpo, así que se ejecuta una vez más antes de que el `mientras` vuelva a mirar la condición.
 
 ## Casos límite
 
-- Como todo `mientras` en R-info recién vuelve a evaluar su condición al terminar el cuerpo, si la flor número 20 está justo en la avenida 100 (la última de la calle), el `mover` final del cuerpo todavía se ejecuta antes de volver a chequear `x<20`, empujando al robot un paso más allá del límite de la ciudad. Este comportamiento es el mismo que usan los ejemplos de la propia teoría (2.9, 3.3) y no es un error introducido por este archivo en particular.
-- La variable `y` está declarada pero no se usa; no afecta la ejecución.
+- Si la calle no tiene las 20 flores, este programa no termina bien. `x<20` nunca se vuelve falso, el robot sigue avanzando y al querer pasar la avenida 100 se sale de la ciudad: error de ejecución, sin informar nada. El enunciado garantiza las 20 justamente para que eso no pase. El ejercicio 5 es la versión que aguanta el otro caso.
+- Lo mismo pasa si la flor número 20 está justo en la avenida 100. El robot la toma, `x` llega a 20, pero el `mover` que viene después ya no tiene a dónde ir.
 
 ## Errores frecuentes
 
-- Olvidar que el enunciado garantiza la existencia de las 20 flores: sin esa garantía, este mismo patrón necesitaría además una condición de corte por `PosAv` (ver ejercicio 5).
-- Tomar la flor sin contarla, o contarla sin tomarla primero.
+- Tomar la flor sin contarla. `x` se queda en 0 y el robot camina hasta salirse de la ciudad.
+- Poner el `mover` adentro del `si(HayFlorEnLaEsquina)`. El robot sólo avanza cuando encuentra flor, así que en la primera esquina vacía se queda clavado para siempre.
 
 ## Complejidad
 

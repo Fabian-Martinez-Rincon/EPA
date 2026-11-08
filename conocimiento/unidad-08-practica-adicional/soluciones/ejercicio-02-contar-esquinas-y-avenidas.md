@@ -46,7 +46,7 @@ Como no se puede alterar el contenido de las esquinas, "mirar sin modificar" se 
 
 ## Código relacionado
 
-```
+```rinfo
 programa EjAdic2
 
 procesos
@@ -149,19 +149,21 @@ El driver tenía `repetir 9` para el bloque comentado como "Avenidas 1 a 99", cu
 
 ## Escenario de prueba
 
-Probado con el intérprete de R-info de Academia-Fabo con una esquina cargada con 20 flores y otra con 1 papel: terminó en 10045 eventos e informó `1` esquina con 20 flores y `100` avenidas con menos de 60 papeles (esperable, dado que casi ninguna avenida llega a 60 papeles en un escenario de prueba con tan pocos objetos cargados).
+El escenario carga 20 flores en (1,1) y 1 papel en (1,2). Salen dos `Informar`: `1` esquina con exactamente 20 flores y `100` avenidas con menos de 60 papeles. La avenida 1 junta 1 papel y las otras 99 ninguno, así que las 100 pasan el corte.
+
+El recorrido visita las 10.000 esquinas de la ciudad, no se corta antes: acá no hay esquina vacía que haga de freno como en el ejercicio 1.
 
 ## Casos límite
 
-- Una esquina con exactamente 20 flores cuenta; con 19 o 21 no.
-- Una avenida con exactamente 60 papeles NO cuenta como "menos de 60" (`<`, no `<=`).
-- El proceso de conteo debe reponer exactamente la misma cantidad que tomó, para no alterar la esquina — por eso `repetir aux: depositarFlor/depositarPapel` en vez de un valor fijo.
+- Con 19 o 21 flores la esquina no cuenta. La comparación es `=`, exacta.
+- Una avenida con exactamente 60 papeles tampoco cuenta. "Menos de 60" es `<`, no `<=`.
+- `repetir aux` repone justo lo que el proceso levantó. Con un número fijo la esquina quedaría distinta de como estaba.
 
 ## Errores frecuentes
 
-- Repetir 9 en vez de 99 en el driver (el bug real corregido en esta organización).
+- Contar las flores levantándolas y no devolverlas. El robot termina con la ciudad vacía y la bolsa llena, y el enunciado prohíbe justamente eso.
+- Poner `repetir 9` en el ciclo de avenidas. Solo se procesarían 10 de las 100.
 - Usar `<=` en vez de `<` para "menos de 60 papeles".
-- Olvidar reponer lo tomado en `ContarFloresEsquina`/`ContarPapelesEsquina`, violando la restricción de "no modificar" las esquinas.
 
 ## Complejidad
 

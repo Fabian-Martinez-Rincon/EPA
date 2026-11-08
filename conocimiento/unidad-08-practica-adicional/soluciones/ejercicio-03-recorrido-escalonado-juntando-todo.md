@@ -48,7 +48,7 @@ Ver [`../ejercicios/ejercicio-03-recorrido-escalonado-juntando-todo.md`](../ejer
 
 ## Código relacionado
 
-```
+```rinfo
 programa EjAdic3
 
 procesos
@@ -131,17 +131,19 @@ El código acumulaba `totalFlores`/`totalPapeles` correctamente vía parámetros
 
 ## Escenario de prueba
 
-Probado con el intérprete de R-info de Academia-Fabo con la esquina (1,1) cargada con 1 flor y 1 papel, y la esquina (5,3) con 2 flores más: terminó en 324 eventos e informó `3` flores y `1` papel — coherente con lo cargado, si el recorrido escalonado efectivamente pasa por esas esquinas.
+El escenario carga 1 flor y 1 papel en (1,1), más 2 flores en (5,3). El programa informa `3` flores y `1` papel. Las dos esquinas caen adentro del escalón: (1,1) en la primera fila y (5,3) en la segunda.
 
 ## Casos límite
 
-- `pasos` llega a 2 en la última fila (18 - 2×8): el recorrido nunca pisa fuera de la ciudad si el punto de partida (1,1) y el ancho de 18 caben en el área de 100×100, lo cual siempre se cumple.
-- Esquinas sin flor ni papel: `JuntarEsquina` no tiene efecto, ambos `mientras` terminan de inmediato.
+- El recorrido cubre un rincón del mapa, no la ciudad entera. La primera fila va de la avenida 1 a la 19 sobre las calles 1 y 2. Cada fila siguiente sube dos calles y se acorta dos avenidas. La novena y última va de la avenida 1 a la 3, sobre las calles 17 y 18. Lo que esté fuera de ese escalón no se junta nunca.
+- El escalón no termina en una sola esquina: `pasos` baja de 18 a 2 en nueve filas y nunca llega a 0. Para cerrar en punta harían falta diez filas.
+- La vuelta de cada fila no repite la calle de ida, pasa por la de arriba. Por eso cada fila se come dos calles y el `Pos(1,PosCa+2)` salta de a dos.
 
 ## Errores frecuentes
 
-- Calcular mal los giros de `RecorrerFila` (270° vs. 90°) y terminar recorriendo la fila en la dirección equivocada.
-- Olvidar el `Informar` final (el bug real corregido en esta organización) — el enunciado lo pide explícitamente, no alcanza con dejar el dato acumulado en una variable.
+- Usar `derecha` donde va `Izquierda`. Los tres `derecha` del proceso equivalen a un giro a la izquierda, que es el que manda al robot hacia la calle de arriba. Con un solo `derecha` gira para el lado contrario, busca la calle 0 y se sale de la ciudad en el primer `mover` de la vuelta.
+- Restar 1 a `pasos` en vez de 2. No da error, pero el escalón se angosta de a una avenida por fila y deja de coincidir con la figura del enunciado.
+- Terminar sin los dos `Informar`. Los totales quedan acumulados en `totalFlores` y `totalPapeles`, pero el enunciado pide mostrarlos y nadie los ve.
 
 ## Complejidad
 

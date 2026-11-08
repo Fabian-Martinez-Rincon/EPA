@@ -47,7 +47,7 @@ Ambas variantes reutilizan el proceso `cuadrado` del ejercicio 1 (ya corregido a
 
 **Variante A:**
 
-```
+```rinfo
 proceso cuadrado
 comenzar
   repetir 4
@@ -67,7 +67,7 @@ Código completo: [`../codigo/soluciones/capitulo-05/Cap5_2A`](<../codigo/soluci
 
 **Variante B:**
 
-```
+```rinfo
 proceso B
 comenzar
   repetir 2
@@ -95,17 +95,20 @@ Con esta verificación, la correspondencia queda confirmada con evidencia direct
 
 ## Escenario de prueba
 
-Ninguna de las dos variantes depende del contenido de las esquinas (no juntan ni depositan flores/papeles); alcanza con correr el programa sobre una ciudad vacía y observar las posiciones donde se trazan los distintos cuadrados de lado 2.
+Ciudad vacía en las dos variantes: ninguna junta ni deposita nada.
+
+Mirá dónde arranca cada cuadrado. En la variante A el robot los dibuja en (1,1), (4,4) y (7,7). En la B, en (1,1) y (1,6). Es lo único que cambia entre una y otra.
 
 ## Casos límite
 
-- Ambas variantes usan `Pos` (reposicionamiento absoluto) entre cuadrados, no `mover`, por lo que la orientación del robot al finalizar cada `cuadrado` no afecta dónde se traza el siguiente.
-- Si se corriera cualquiera de los dos procesos con más repeticiones de las que caben en el área `AreaC(1,1,100,100)`, el `Pos` hacia una coordenada fuera de rango cortaría la ejecución con un error; con las repeticiones tal como están (3 y 2 respectivamente) el recorrido queda cómodamente dentro del área.
+- Los saltos van con `Pos`, que recibe avenida y calle absolutas. No importa hacia dónde quedó mirando el robot al cerrar un cuadrado: el siguiente arranca donde diga el `Pos`.
+- Las dos variantes hacen un `Pos` de más al final, después del último cuadrado. En la A el robot termina parado en (10,10) sin dibujar nada ahí.
+- Si subís el `repetir 3` de la variante A, entra hasta 33. Con 34 el último cuadrado arranca en (100,100) y el `mover` se sale de la ciudad.
 
 ## Errores frecuentes
 
-- Reimplementar el cuadrado dentro del proceso que arma el recorrido en vez de reutilizar el proceso `cuadrado` ya probado — contradice el propósito del ejercicio (reuso de módulos).
-- Usar `mover` en lugar de `Pos` para reposicionar entre cuadrados, lo que obligaría a llevar la cuenta de la orientación actual del robot en cada momento.
+- Copiar el cuerpo del cuadrado adentro de `A` o `B` en vez de invocar `cuadrado`. El ejercicio es justamente reusar el proceso del ejercicio 1.
+- Reposicionar con `mover` en vez de `Pos`. Te obliga a llevar la cuenta de hacia dónde mira el robot en cada momento, que es lo que `Pos` te ahorra.
 
 ## Complejidad
 

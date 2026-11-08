@@ -50,7 +50,7 @@ Como ahora una esquina puede tener varias flores, no alcanza con `si(HayFlorEnLa
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -82,16 +82,16 @@ Código completo: [`../codigo/capitulo-3-pregunta-06.ri`](../codigo/capitulo-3-p
 
 ## Escenario de prueba
 
-Cargar flores repartidas en esquinas con cantidades variables que sumen 20 (por ejemplo, 5 en la avenida 3, 5 en la avenida 6 y 10 en la avenida 9, todas en calle 7). Probado con el intérprete: con esa distribución, el programa informa la posición `(10,7)` — un paso más allá de la avenida 9, donde se recogió la última tanda de flores, consistente con que `mover` se ejecuta una vez más antes de que el `mientras` exterior vuelva a chequear la condición.
+Repartí las 20 flores en pocas esquinas, con cantidades distintas: 5 en la avenida 3, 5 en la 6 y 10 en la 9, todas en la calle 7. El robot informa la posición `(10,7)`. Levantó la última tanda en la avenida 9 y el `mover` del final del cuerpo lo dejó una esquina más adelante.
 
 ## Casos límite
 
-- Una sola esquina con las 20 flores: el `mientras` interno las toma todas de una vez y el robot avanza sólo una esquina.
-- El enunciado no exige informar `x`; el código informa la posición final en su lugar, una elección razonable ya que el enunciado no especifica qué informar.
+- Las 20 flores en una sola esquina: el `mientras` interno las levanta todas de un saque. Con las 20 en la avenida 1, el robot informa `(2,7)`.
+- Si en total hubiera menos de 20, el programa no terminaría bien: el robot camina hasta salirse de la ciudad, igual que en el ejercicio 4. Por eso el enunciado las garantiza.
 
 ## Errores frecuentes
 
-- Usar `si` en vez de `mientras` para tomar las flores de la esquina, lo que dejaría flores sin recoger si hay más de una por esquina.
+- Usar `si(HayFlorEnLaEsquina)` en vez de `mientras`. Con 5 flores en la esquina te llevás una sola y el robot sigue de largo dejando cuatro atrás.
 
 ## Complejidad
 

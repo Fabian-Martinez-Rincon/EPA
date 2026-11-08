@@ -28,7 +28,7 @@ codigo_relacionado:
 
 ## Enunciado
 
-Escriba un programa que le permita al robot recorrer el perímetro del cuadrado determinado por (1,1) y (2,2) [ejercicio 3]. Modificar el ejercicio 3 para que además recoja, de ser posible, un papel en cada esquina.
+Escriba un programa que le permita al robot recorrer el perímetro del cuadrado determinado por las esquinas (1,1) y (2,2) y que, además, recoja un papel en cada esquina, si hay alguno.
 
 ## Datos
 

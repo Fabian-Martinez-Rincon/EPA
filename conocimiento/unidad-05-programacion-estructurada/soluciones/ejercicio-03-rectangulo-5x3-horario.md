@@ -42,7 +42,7 @@ Un rectángulo tiene 4 lados, mueve el mismo esquema que un cuadrado pero altern
 
 ## Código relacionado
 
-```
+```rinfo
 proceso rectangulo
 comenzar
   repetir 3
@@ -72,17 +72,19 @@ Se corrió el archivo actualizado contra el intérprete de R-info (ciudad vacía
 
 ## Escenario de prueba
 
-El proceso no depende del contenido de las esquinas; alcanza con correr el programa sobre una ciudad vacía y observar que el robot recorre un rectángulo de 5 (base, a lo largo de la avenida) por 3 (altura, a lo largo de la calle) y vuelve a (1,1).
+Ciudad vacía: el proceso no mira el contenido de las esquinas.
+
+Seguí el recorrido. El robot sale de (1,1), sube a (1,4), cruza a (6,4), baja a (6,1) y vuelve a (1,1). La base de 5 queda sobre la avenida y la altura de 3 sobre la calle.
 
 ## Casos límite
 
-- El robot vuelve exactamente a la esquina de partida (1,1) y, con el giro final agregado, también a la misma orientación con la que empezó — igual que el `cuadrado` de los ejercicios 1 y 2. Esto importa si este proceso se reutiliza encadenado con `mover` en vez de con `Pos` (que no depende de la orientación).
-- Si se invocara este proceso desde una esquina cercana al borde del área, el rectángulo podría salirse de la ciudad; desde (1,1) con `AreaC(1,1,100,100)` no hay riesgo.
+- El robot vuelve a (1,1) y, con el cuarto giro, también a la orientación de arranque. Eso es lo que te deja encadenar `rectangulo` con `mover` sin ir contando giros.
+- El rectángulo llega hasta la avenida de partida más 5 y la calle más 3. Desde la avenida 95 todavía entra. Desde la 96 el robot se sale de la ciudad a mitad del segundo lado.
 
 ## Errores frecuentes
 
-- Confundir cuál de las dos longitudes (5 o 3) corresponde a la "base" y cuál a la "altura": acá la base (5) queda a lo largo de la avenida y la altura (3) a lo largo de la calle, dado el punto de partida y la orientación inicial del robot.
-- Olvidar el cuarto giro final tras el último tramo — no afecta la posición donde termina el robot (los giros no mueven), pero sí su orientación, lo que importa para cualquier reuso posterior del proceso que dependa de `mover` en vez de `Pos`.
+- Empezar por el lado de 5. Los tres `mover` van primero, así que la altura de 3 sale sobre la calle y la base de 5 sobre la avenida. Al revés el rectángulo queda acostado.
+- Dejar afuera el cuarto `derecha`. La posición final no cambia, porque girar no mueve al robot, pero termina mirando para otro lado. Eso rompe cualquier programa que después lo encadene con `mover`.
 
 ## Complejidad
 

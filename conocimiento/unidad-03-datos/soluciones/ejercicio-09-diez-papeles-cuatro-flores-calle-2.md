@@ -48,7 +48,7 @@ Se usan dos contadores, `x` (papeles) e `y` (flores), y una única condición de
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -92,16 +92,18 @@ Código completo: [`../codigo/capitulo-3-pregunta-09.ri`](../codigo/capitulo-3-p
 
 ## Escenario de prueba
 
-Cargar 10 papeles en una esquina y 4 flores en otra, ambas dentro de la calle 2 (por ejemplo, 10 papeles en avenida 3 y 4 flores en avenida 5). Probado con el intérprete: con esa distribución el programa termina en la posición `(6,2)`, un paso después de recoger las flores en la avenida 5, consistente con el patrón de "un paso de más" propio de `mientras` en R-info.
+Poné los papeles y las flores en esquinas distintas de la calle 2: 10 papeles en la avenida 3 y 4 flores en la avenida 5. El robot informa `(6,2)`. Completó las flores en la avenida 5 y el `mover` del final del cuerpo lo corrió una esquina más.
 
 ## Casos límite
 
-- El segundo `mientras(x<10)|(y<4)` (sin `mover`, pensado para procesar "la última esquina") en la práctica sólo importa si el primer bucle deja de moverse justo al satisfacer la condición en la última esquina de la calle; en el resto de los casos no hace nada (la condición ya es falsa y su cuerpo ni se ejecuta), verificado con el intérprete.
-- Al igual que en el ejercicio 4, si las cantidades garantizadas sólo se completan en la avenida 100 exacta, el `mover` incondicional del primer bucle podría llevar al robot a la avenida 101 (fuera de la ciudad); es el mismo riesgo inherente a este estilo de recorrido con `mientras`, ya presente en los ejemplos de la teoría, y no es un error propio de este archivo.
+- El corte es `(x<10)|(y<4)`: mientras falte cualquiera de las dos cantidades, el robot sigue. Con `&` en lugar de `|` frenaría apenas completa una sola de las dos.
+- El segundo `mientras(x<10)|(y<4)`, el que va sin `mover`, no se ejecuta nunca. El primero sale justo cuando esa condición se vuelve falsa, y entre uno y otro no hay nada que cambie `x` ni `y`.
+- Si las cantidades recién se completan en la avenida 100, el `mover` del final del cuerpo deja al robot fuera de la ciudad y el programa corta con error, sin informar nada.
 
 ## Errores frecuentes
 
-- Usar una condición de corte para cada tipo de objeto por separado (dos `mientras` anidados) en vez de una sola condición combinada con `|`, lo que complicaría innecesariamente el control del recorrido.
+- Usar un solo contador para las dos cosas. Con `x` sumando papeles y flores juntos, 14 papeles y ninguna flor te darían por cumplido el pedido.
+- Resolverlo con dos recorridos seguidos, primero los papeles y después las flores. El segundo arranca donde terminó el primero, así que las flores que quedaron atrás no las ve nunca.
 
 ## Complejidad
 

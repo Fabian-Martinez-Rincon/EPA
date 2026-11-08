@@ -49,7 +49,7 @@ Los dos parámetros de entrada (`calle`, `NumFlores`) se usan exactamente como e
 
 ## Código relacionado
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso izquierda
@@ -93,18 +93,18 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_7`](../codigo/sol
 
 ## Escenario de prueba
 
-Para observar el efecto conviene precargar algunas flores en la calle 19 (la que usa el programa principal), en avenidas alcanzables desde donde arranca el robot (avenida 1, ya que nunca se movió antes de invocar `JuntarFlor`) — por ejemplo, una o más flores en las primeras esquinas de esa calle, hasta sumar al menos las 4 que pide `NFlores`.
+Sembrá flores en la calle 19, sobre la avenida 1 y las que siguen: ahí es donde camina el robot. El programa arranca en (1,1), salta a (1,19) y avanza hacia el este. Con 4 flores repartidas en esas esquinas el proceso completa la cuenta y se frena.
 
 ## Casos límite
 
-- Una esquina con varias flores: la `mientras(HayFlorEnLaEsquina)` interna las levanta todas antes de avanzar, así que una sola esquina puede aportar más de una unidad al conteo.
-- Llegar a `PosAv=100` sin haber juntado las flores pedidas: la condición `PosAv<100` corta el `mientras` externo como salvaguarda, aunque el enunciado garantiza que esto no debería ocurrir con los datos que el módulo recibe.
-- El proceso auxiliar `izquierda` queda declarado pero no se usa en este archivo (parece un remanente compartido con otros ejercicios de la ejercitación que sí lo invocan); no afecta el resultado.
+- Una esquina puede tener varias flores. El `mientras(HayFlorEnLaEsquina)` las levanta todas antes de avanzar, así que la cuenta puede saltar de 1 a 4 en una sola esquina.
+- El `mover` de la última vuelta se ejecuta igual después de levantar la cuarta flor. El robot queda una avenida más adelante de donde la juntó.
+- En la avenida 100 ya no levanta nada. La condición `PosAv<100` corta el `mientras` antes de revisar esa esquina.
 
 ## Errores frecuentes
 
-- Levantar solo una flor por esquina (`si` en vez de `mientras HayFlorEnLaEsquina`), perdiendo flores adicionales en esquinas con más de una.
-- Omitir el `derecha` inicial, lo que dejaría al robot recorriendo la avenida de partida en vez de la calle pedida.
+- Usar `si(HayFlorEnLaEsquina)` en vez de `mientras`. El robot levanta una sola flor por esquina y puede terminar la calle sin completar la cuenta.
+- Olvidar el `derecha` inicial. El robot sube por la avenida 1 en vez de recorrer la calle 19 hacia la derecha.
 
 ## Complejidad
 

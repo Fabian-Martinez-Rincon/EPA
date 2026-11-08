@@ -39,7 +39,7 @@ Un cuadrado se traza avanzando `lado` cuadras y girando 90° (`derecha`), repeti
 
 ## Código relacionado
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso cuadrado(E lado:numero)
@@ -71,17 +71,17 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_1`](../codigo/sol
 
 ## Escenario de prueba
 
-No requiere flores ni papeles precargados: el ejercicio solo pide trazar el recorrido. Con la ciudad vacía alcanza para verificar que el robot dibuja un cuadrado de lado 10 a partir de (1,1) y vuelve a su esquina de origen.
+Ciudad vacía, sin flores ni papeles. El robot arranca en (1,1) mirando al norte. Con `ancho:=10` sube hasta la calle 11, dobla, y cierra el cuadrado pasando por (11,11) y (11,1) antes de volver a (1,1).
 
 ## Casos límite
 
-- `lado = 1`: el proceso sigue funcionando igual, dibujando el cuadrado mínimo (4 cuadras en total).
-- Si `ancho` fuera lo bastante grande como para sacar al robot del área declarada (`AreaC(1,1,100,100)`), el intérprete cortaría la ejecución con un error de límites; con `ancho:=10` partiendo de (1,1) el cuadrado llega como máximo a la esquina (11,11), dentro del área.
+- La esquina más lejana que toca es (11,11), holgada dentro de `AreaC(1,1,100,100)`. Si le pasás un lado mayor que 99 el robot se sale de la ciudad y el intérprete corta la ejecución.
+- Con `ancho:=1` el proceso dibuja el cuadrado más chico posible: 4 cuadras en total.
 
 ## Errores frecuentes
 
-- Declarar `lado` como variable local en vez de parámetro de entrada, lo que obligaría a tener un proceso distinto por cada tamaño de cuadrado (el problema que este mismo ejercicio busca evitar, ver sección 6.3 del capítulo).
-- Usar `izquierda` en vez de `derecha`, invirtiendo el sentido de giro pedido por el enunciado.
+- Escribir `izquierda` para girar al revés. En R-info no existe esa primitiva, y acá tampoco está declarada como proceso: el intérprete corta con «Proceso desconocido». Para girar en sentido antihorario hacen falta tres `derecha`.
+- Declarar `lado` como variable local del proceso en vez de recibirlo como parámetro. Ahí necesitás un proceso distinto por cada tamaño de cuadrado, que es justo lo que el parámetro viene a evitar.
 
 ## Complejidad
 

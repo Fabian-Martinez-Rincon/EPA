@@ -62,7 +62,7 @@ Un "escalón" es una figura abierta (no un rectángulo cerrado): se avanza por u
 
 ### Variante A
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero)
@@ -106,7 +106,7 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_5A`](../codigo/so
 
 ### Variante B
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero;E largo:numero)
@@ -155,7 +155,7 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_5B`](../codigo/so
 
 Este archivo es, cuadra por cuadra, el mismo código que la variante B (ver nota más abajo).
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero;E largo:numero)
@@ -202,7 +202,7 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_5C`](../codigo/so
 
 ### Variante D
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero;E largo:numero)
@@ -251,23 +251,23 @@ fin
 
 Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_5D`](../codigo/soluciones/capitulo-06/Cap6_Preg_5D)
 
-## Nota: las variantes B y C son idénticas en el material histórico
+## Nota: las variantes B y C tienen el mismo código
 
-Los archivos `Cap6_Preg_5B` y `Cap6_Preg_5C` solo difieren en el comentario `{...}` del encabezado ("(variante B)" vs. "(variante C)"); el resto del código —proceso, parámetros, valores iniciales y estructura del programa principal— es exactamente el mismo. La figura 6.7 muestra cuatro paneles (a, b, c, d) con aspecto distinto entre sí, así que es probable que en el material original la variante C debiera producir un recorrido distinto al de B y el archivo haya quedado duplicado por error de copiado. No se intentó reconstruir cuál sería el recorrido "correcto" de C, porque hacerlo implicaría inventar contenido nuevo sin evidencia (no hay ningún archivo fuente adicional ni referencia que indique qué cambio faltó); se documenta la duplicación acá para que quede claro al comparar el código con la figura.
+`Cap6_Preg_5B` y `Cap6_Preg_5C` son el mismo programa: mismo proceso, mismos valores iniciales, misma escalera. La figura 6.7 muestra cuatro recorridos distintos, así que una de las dos tendría que dibujar otra cosa. Tomalas como un solo recorrido.
 
 ## Escenario de prueba
 
-Ninguna de las cuatro variantes requiere flores ni papeles precargados: alcanza con observar el recorrido en forma de escalera que traza cada una a partir de (1,1) (o de (1,5) en la variante D).
+Ciudad vacía, sin flores ni papeles. A, B y C arrancan en (1,1); la D arranca en (1,5) por su `Pos` inicial. En la A los escalones miden 5, 4 y 3 cuadras de lado y la escalera sube hasta (13,13). En B y C los pares de lados son 3-2, 2-3 y 1-4, hasta (10,7). La D sube dos escalones hasta (9,9) y, tras el `derecha` suelto, baja otros dos hasta (13,1).
 
 ## Casos límite
 
-- Variante A: `largx` se declara y se inicializa pero nunca se usa (el único parámetro del proceso es `ancho`); es una variable muerta, no afecta el resultado.
-- Variante D: `numer` se declara y se inicializa en -1 pero tampoco se usa — `anchx` y `largx` quedan constantes durante las cuatro invocaciones a `rectangulo`, a diferencia de A/B/C donde sí cambian en cada paso.
+- En la variante A, `largx:=5` se asigna y nunca se usa: ese proceso `rectangulo` recibe un solo parámetro.
+- En la D, `numer:=-1` tampoco se usa. `anchx` y `largx` valen 2 y 4 en las cuatro invocaciones, por eso los cuatro escalones salen iguales.
 
 ## Errores frecuentes
 
-- Olvidar el `izquierda` (o el giro final incluido dentro del proceso, en la variante A) entre escalón y escalón: sin restaurar la orientación, el siguiente escalón saldría en un ángulo equivocado en vez de continuar la escalera.
-- Confundir el `derecha` suelto de la variante D (que cambia el rumbo general de la escalera) con el `izquierda` que reorienta después de cada escalón individual: cumplen roles distintos y no son intercambiables.
+- Olvidar el `izquierda` entre escalón y escalón. El robot termina cada escalón mirando al sur, así que el siguiente baja en vez de subir y la escalera se vuelve sobre sí misma.
+- Confundir el `derecha` suelto de la variante D con ese `izquierda`. El `derecha` cambia el rumbo de toda la escalera; el `izquierda` solo devuelve al robot a la orientación con la que empezó el escalón.
 
 ## Complejidad
 

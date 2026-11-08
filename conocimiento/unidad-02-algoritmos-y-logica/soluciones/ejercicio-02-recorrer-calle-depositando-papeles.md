@@ -42,7 +42,7 @@ El robot arranca en (1,1) y se reposiciona con `Pos(65,50)` al punto de partida 
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -75,17 +75,17 @@ El archivo histórico usaba `HayFlorEnLaBolsa`/`depositarFlor` en vez de `HayPap
 
 ## Escenario de prueba
 
-Para observar el efecto hace falta que algunas esquinas entre (65,50) y (23,50) tengan papel en la bolsa del robot al iniciar la simulación (la bolsa arranca vacía salvo que el visor la precargue) — con la bolsa vacía el programa igual termina, solo que sin depositar nada, porque la rama `sino: mover` cubre ese caso explícitamente.
+Arrancá la simulación con papeles en la bolsa. El robot los va dejando desde la avenida 65 hacia abajo, sobre la calle 50.
 
 ## Casos límite
 
-- Bolsa vacía desde el inicio: el robot igual completa el recorrido hasta la avenida 23 (rama `sino`), sin depositar nada.
-- El robot nunca se pasa de la avenida 23: la condición de corte es `PosAv > 23`, así que la esquina (23,50) queda fuera del recorrido de depósito.
+- Con la bolsa vacía el robot igual camina hasta la avenida 23: de eso se ocupa la rama `sino`.
+- En la esquina (23,50) no deposita. El `mientras` corta cuando `PosAv` llega a 23, así que el último depósito es en la 24.
 
 ## Errores frecuentes
 
-- Confundir flor y papel al escribir la condición/la primitiva (el bug real que tenía este archivo antes de esta organización).
-- Usar `mientras` sin la rama `sino` para el caso "sin papeles", lo que dejaría al robot detenido apenas se vacía la bolsa en vez de seguir hasta el final.
+- Escribir `HayFlorEnLaBolsa` y `depositarFlor`. Acá se piden papeles, y las primitivas de flor no dan error: el robot recorre la calle sin dejar nada.
+- Sacar la rama `sino`. Apenas se vacía la bolsa el robot deja de moverse y nunca llega al final.
 
 ## Complejidad
 

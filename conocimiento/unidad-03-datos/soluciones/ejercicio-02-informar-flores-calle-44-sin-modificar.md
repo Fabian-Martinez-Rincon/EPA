@@ -46,7 +46,7 @@ Ver [`../ejercicios/ejercicio-02-informar-flores-calle-44-sin-modificar.md`](../
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -83,25 +83,28 @@ fin
 
 Código completo: [`../codigo/capitulo-3-pregunta-02.ri`](../codigo/capitulo-3-pregunta-02.ri)
 
-## Nota de alcance: sólo cubre la variante "sin modificar"
+## Este código resuelve la variante 2
 
-El enunciado plantea dos variantes: (1) recogiendo definitivamente las flores, o (2) sin modificar el contenido de cada esquina. El código disponible implementa únicamente la variante 2: tras contar las flores de una esquina las vuelve a depositar. La variante 1 no está implementada por separado, pero se obtiene trivialmente a partir de este mismo código quitando las dos líneas `mientras (HayFlorEnLaBolsa) depositarFlor` — no se agregó esa segunda versión para no inventar contenido no presente en el material histórico.
+El enunciado pide dos cosas: contar las flores llevándoselas, y contarlas sin tocar el contenido de cada esquina. Acá está resuelta la segunda. Después de contar las flores de una esquina, el robot se las devuelve con `mientras(HayFlorEnLaBolsa) depositarFlor`.
 
-La variable `y` está declarada pero nunca se usa; no afecta la ejecución (se verificó con el intérprete de R-info) y se dejó tal cual porque no es un error, sólo una declaración de sobra.
+Si querés la variante 1, borrá los dos `mientras(HayFlorEnLaBolsa) depositarFlor`. El robot cuenta igual y se queda con todo en la bolsa.
+
+La variable `y` se declara y nunca se usa. No rompe nada, pero tampoco hace falta.
 
 ## Escenario de prueba
 
-Cargar algunas esquinas de la calle 44 con flores antes de correr la simulación (por ejemplo, 3 flores en la avenida 50) para comprobar que `x` informa el total correcto y que, al finalizar, esas esquinas conservan la misma cantidad de flores que tenían al empezar. Probado con el intérprete: con 3 flores en (50,44) y el resto de la calle vacía, informa `x = 3`.
+Cargá flores en algunas esquinas de la calle 44 antes de arrancar. Con 3 flores en la avenida 50 y el resto de la calle vacía, el robot informa `3` y deja esa esquina con las mismas 3 flores que tenía.
 
 ## Casos límite
 
-- Calle 44 completamente sin flores: `x` termina en 0, sin depositar nada.
-- Una esquina con varias flores: se toman y se depositan todas juntas, sin perder la cuenta.
+- Calle 44 sin ninguna flor: informa `0` y no deposita nada.
+- Si arrancás la simulación con flores en la bolsa, el robot las suelta todas en la avenida 1, la primera esquina que pisa. La cuenta sigue bien, pero la calle queda modificada. Para probar este ejercicio la bolsa va vacía.
 
 ## Errores frecuentes
 
-- Olvidarse de volver a depositar las flores tomadas, lo que convertiría esta solución en la variante 1 (recogiendo) en vez de la 2 (sin modificar).
-- Confundir avenida y calle al invocar `Pos`, dejando fija la avenida en lugar de la calle.
+- Contar con `si(HayFlorEnLaEsquina)` en vez de `mientras`. Si la esquina tiene 3 flores, te llevás una sola y contás una sola.
+- Devolver las flores después del `mover`. Van a parar a la esquina siguiente, así que la calle termina distinta de como estaba.
+- Invertir los argumentos de `Pos`. `Pos(44,1)` deja al robot en la avenida 44 de la calle 1, y el `derecha` lo manda a recorrer la calle 1 hasta salirse de la ciudad.
 
 ## Complejidad
 

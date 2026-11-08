@@ -67,7 +67,7 @@ A diferencia del ejercicio 4, acá no se garantiza que existan 20 flores, así q
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -111,18 +111,18 @@ Se aplicaron dos correcciones, ambas verificadas con el intérprete de R-info:
 
 ## Escenario de prueba
 
-Cargar menos de 20 flores en la calle 7 (por ejemplo, 8, en avenidas dispersas) para observar que el robot recorre toda la calle y termina informando la cantidad real encontrada, sin colgarse. Probado con el intérprete: con el escenario del front matter (flores en avenidas 5,10,15,20,25,30,35,40), informa `x=8`.
+Cargá menos de 20 flores en la calle 7, salteadas. Con 8 flores, en las avenidas 5, 10, 15, 20, 25, 30, 35 y 40, el robot recorre la calle entera, informa `8` y termina en la avenida 100.
 
 ## Casos límite
 
-- Sin flores en la calle: `x` termina en 0.
-- Menos de 20 flores: `x` informa la cantidad real encontrada al llegar al final de la calle.
-- 20 flores, la última en la avenida 100: ahora sí se cuenta, gracias al chequeo agregado después del `mientras`.
+- Calle sin ninguna flor: informa `0` y termina igual.
+- Si la flor número 20 está justo en la avenida 100, se cuenta: de eso se ocupa el `si(x<20)` suelto que va después del `mientras`. Informa `20`.
+- Cuando `x` llega a 20 el robot deja de recoger, pero sigue caminando hasta el final de la calle. El enunciado no le pide frenar ahí.
 
 ## Errores frecuentes
 
-- Anidar una instrucción de avance dentro de una condición que puede volverse falsa antes de cumplirse la condición de corte del bucle exterior — el primer bug real que tenía este archivo, y una fuente común de loops infinitos en este lenguaje (no hay `break`, así que todo el control de corte depende de las condiciones de los `mientras`).
-- Olvidar que un `mientras(PosAv<100)` nunca procesa la esquina donde `PosAv` llega a 100 — hace falta un chequeo explícito después del bucle para esa última esquina; el segundo bug real que tenía este archivo.
+- Meter el `mover` adentro del `si(x<20)`. Apenas juntás las 20 flores el robot deja de avanzar, `PosAv` se congela y el `mientras(PosAv<100)` no termina nunca. En R-info no hay `break`: si la instrucción que empuja la condición de corte queda tapada por un `si`, el bucle se cuelga.
+- Quedarse sólo con el `mientras(PosAv<100)`. Ese bucle frena cuando `PosAv` vale 100, así que nunca llega a mirar esa esquina. Por eso va el chequeo suelto de después.
 
 ## Complejidad
 

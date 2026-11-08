@@ -54,7 +54,7 @@ Para cubrir las 10000 esquinas de la ciudad se anida un `repetir 99` (una vez po
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -101,18 +101,20 @@ Se aplicaron dos correcciones, ambas verificadas con el intérprete de R-info:
 
 ## Escenario de prueba
 
-Conviene iniciar la simulación con la ciudad casi vacía salvo algunas esquinas sueltas con flor o papel, para comprobar que `x` cuenta correctamente las esquinas vacías de toda la ciudad, incluida la calle 100. Probado con el intérprete: con el escenario del front matter (flor en (10,10), papel en (50,50), flor+papel en (90,20)), informa `x = 9997`.
+Dejá la ciudad casi vacía y ocupá unas pocas esquinas sueltas. Con una flor en (10,10), un papel en (50,50) y flor más papel en (90,20), el robot informa `9997`: las 10000 esquinas menos esas 3.
+
+Este recorrido es largo. El robot pisa las 10000 esquinas, así que la simulación tarda.
 
 ## Casos límite
 
-- Ciudad completamente vacía: `x` informa 10000.
-- Esquina con flor pero sin papel, o viceversa: no cuenta como vacía (la condición exige ausencia de ambos).
-- Esquina ocupada en la calle 100 (la última en recorrerse): se descuenta correctamente, confirmando que esa calle ya no queda fuera del recorrido.
+- Ciudad vacía: informa `10000`.
+- Una esquina con flor pero sin papel no cuenta como vacía. La condición pide que no haya ninguna de las dos cosas.
+- La calle 100 también se revisa entera: con una sola flor en (55,100) informa `9999`.
 
 ## Errores frecuentes
 
-- Olvidar el operador entre dos proposiciones atómicas al escribir una conjunción o disyunción negada (el primer bug real que tenía este archivo).
-- Asumir que el `Pos(1,PosCa+1)` al final de cada calle implica que la última calle también se recorre por completo — el segundo bug real que tenía este archivo; hace falta un bloque de recorrido explícito después del `repetir` exterior para cubrir esa última calle.
+- Escribir `si ~((HayFlorEnLaEsquina)(HayPapelEnLaEsquina))`, sin el `|` entre las dos condiciones. El programa ni siquiera arranca: el intérprete corta con un error de sintaxis.
+- Creer que el `Pos(1,PosCa+1)` del final de cada vuelta ya se ocupa de la calle 100. Sólo deja al robot parado en (1,100). Recorrer esa última calle es el `repetir 99` que va después del bucle grande, y sin él la cuenta da 9901 en una ciudad vacía en vez de 10000.
 
 ## Complejidad
 

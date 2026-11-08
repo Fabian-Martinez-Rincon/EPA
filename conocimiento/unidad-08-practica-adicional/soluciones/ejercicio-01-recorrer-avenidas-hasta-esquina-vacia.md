@@ -46,7 +46,7 @@ Se modulariza en dos procesos: uno que recorre una avenida completa contando flo
 
 ## Código relacionado
 
-```
+```rinfo
 programa Cap7Ejercicio1
 
 procesos
@@ -99,19 +99,19 @@ Código completo: [`../codigo/ejercicio-01.ri`](../codigo/ejercicio-01.ri)
 
 ## Escenario de prueba
 
-Probado con el intérprete de R-info de Academia-Fabo cargando flores/papeles en algunas esquinas puntuales (por ejemplo, esquina (1,1) con 2 flores y esquina (2,5) con 1 papel): terminó en 204 eventos e informó `1` (a lo sumo 45 flores) en las 100 avenidas, como es esperable si ninguna avenida individual llega a acumular más de 45 flores antes de su esquina vacía.
+El escenario carga 2 flores en (1,1) y 1 papel en (2,5). Salen 100 `Informar`, todos con el valor `1`: la avenida 1 junta 2 flores antes de llegar a su esquina vacía y las otras 99 no juntan ninguna. Dos y cero están los dos por debajo de 45.
 
 ## Casos límite
 
-- Una avenida sin ninguna flor ni papel desde el inicio: el `mientras` externo no entra nunca, `totalFlores` queda en 0, se informa `1`.
-- Una avenida con más de 45 flores antes de la esquina vacía: se informa `0`.
-- La nota del propio enunciado aclara la equivalencia "a lo sumo" = "máximo" = `<=`, no `<`.
+- Una avenida vacía desde la calle 1: el `mientras` externo no entra nunca, `totalFlores` queda en 0 y se informa `1`.
+- Con exactamente 45 flores se informa `1`. Con 46 se informa `0`. "A lo sumo 45" incluye al 45, por eso la comparación es `<=`.
+- Si una avenida no tuviera ninguna esquina vacía, el robot llegaría a la calle 100 y el `mover` siguiente lo sacaría de la ciudad. El enunciado garantiza que siempre hay una.
 
 ## Errores frecuentes
 
-- Usar `<` en vez de `<=` en `InformarAvenida`, excluyendo el caso borde de exactamente 45 flores.
-- Tomar también los papeles dentro de `RecorrerAvenidaHastaVacia` (el enunciado solo pide contar flores; los papeles se usan nada más para decidir si la esquina está vacía).
-- Repetir 100 veces en vez de 99+1: reposicionar con `Pos(PosAv+1,1)` en la avenida 100 llevaría al robot fuera del área (avenida 101).
+- Usar `<` en vez de `<=` y dejar afuera el caso de exactamente 45 flores.
+- Sumar los papeles a `totalFlores`. Se cuentan solo flores; los papeles están únicamente para decidir dónde termina la avenida.
+- Meter el `Pos(PosAv+1,1)` en un `repetir 100`. Al terminar la avenida 100 el salto apunta a la 101 y el programa corta con `Pos(101,1) está fuera del área`. Por eso el ciclo repite 99 veces y la última avenida se recorre aparte, sin salto.
 
 ## Complejidad
 

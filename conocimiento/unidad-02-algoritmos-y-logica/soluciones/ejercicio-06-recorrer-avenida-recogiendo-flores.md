@@ -52,7 +52,7 @@ Es el mismo patrón que el ejercicio 2 pero en el eje de calles: reposicionarse 
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -81,17 +81,17 @@ Código completo: [`../codigo/ejercicio-06.ri`](../codigo/ejercicio-06.ri)
 
 ## Escenario de prueba
 
-Para ver el efecto conviene que alguna esquina entre (75,45) y (75,15) tenga flor al iniciar la simulación; sin flores cargadas el robot igual completa el recorrido, solo que no levanta nada.
+Poné flores en algunas esquinas de la avenida 75, entre la calle 45 y la calle 16. El robot va bajando y las levanta hasta llegar a la calle 15.
 
 ## Casos límite
 
-- Ninguna esquina con flor en el camino: el robot llega igual a la calle 15, sin levantar nada.
-- La esquina (75,15) queda fuera del recorrido: la condición de corte es `PosCa > 15`.
+- La flor que haya en (75,15) se queda ahí. El `mientras` corta al llegar a la calle 15, antes de mirar esa esquina.
+- Si una esquina tiene dos flores, el robot se lleva una sola. El `si` ejecuta `tomarFlor` una vez por esquina; con `mientras (HayFlorEnLaEsquina)` las levantaría todas, que es lo que pide el enunciado.
 
 ## Errores frecuentes
 
-- Girar una sola vez en vez de dos, lo que orientaría al robot hacia el eje de avenidas en vez del eje de calles.
-- Olvidar la rama `sino` y quedar sin avanzar en las esquinas sin flor.
+- Girar una sola vez. Con un `derecha` el robot queda mirando al este y termina recorriendo la calle 45, no la avenida 75.
+- Sacar la rama `sino`. En la primera esquina sin flor el robot deja de moverse y el `mientras` no termina más.
 
 ## Complejidad
 

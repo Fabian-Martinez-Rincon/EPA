@@ -55,7 +55,7 @@ El perímetro se recorre con el patrón clásico `repetir 4 { repetir 99 mover; 
 
 ## Código relacionado
 
-```
+```rinfo
 programa antoja
 areas
   ciudad:AreaC(1,1,100,100)
@@ -88,17 +88,19 @@ Código completo: [`../codigo/ejercicio-11.ri`](../codigo/ejercicio-11.ri)
 
 ## Escenario de prueba
 
-Para ver el efecto completo conviene iniciar la simulación con flores/papeles en algunas esquinas del perímetro (los cuatro lados de la ciudad) y con la bolsa del robot vacía, para observar cómo va acumulando objetos y depositando papel en cada vértice a medida que los tiene disponibles.
+Poné flores y papeles en varias esquinas del borde, y algunos papeles en la bolsa. El robot da la vuelta completa levantando todo y deja un papel en cada uno de los cuatro vértices: (1,100), (100,100), (100,1) y (1,1).
 
 ## Casos límite
 
-- Bolsa sin papeles al llegar a un vértice: ese vértice queda vacío (el `si(HayPapelEnLaBolsa)` evita el error de intentar depositar sin tener).
-- Vértice (1,1): no se detecta con la condición dentro del bucle, se resuelve aparte al final porque el robot completa ahí su recorrido.
+- Si la bolsa está vacía al llegar a un vértice, ese vértice queda sin papel. El `si(HayPapelEnLaBolsa)` evita el error de depositar sin tener.
+- En un vértice que ya tenía papeles queda exactamente uno. El robot primero se los lleva todos con el `mientras`, y recién después deja el suyo.
+- El vértice de partida (1,1) se resuelve fuera del bucle. El robot lo limpia al cerrar el cuarto lado y deposita ahí su último papel.
 
 ## Errores frecuentes
 
-- Chequear el vértice de partida (1,1) dentro del bucle en vez de después: como el robot arranca ahí antes de moverse, ese chequeo temprano depositaría antes de haber recogido nada del resto del perímetro.
-- Usar `mover` sin recoger flor/papel antes de evaluar si la esquina es vértice, dejando objetos sin levantar.
+- Sumar (1,1) a la condición de adentro del bucle. El robot pasa por ahí al cerrar el cuarto lado, así que dejaría un papel adentro del bucle y otro en el `si` final: dos papeles en el mismo vértice.
+- Depositar antes de levantar. Si el `mientras(HayPapelEnLaEsquina)` queda después del depósito, el robot se lleva su propio papel y el vértice termina vacío.
+- Usar `si` en vez de `mientras` para levantar. Una esquina con dos flores se queda con una.
 
 ## Complejidad
 

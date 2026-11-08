@@ -52,7 +52,7 @@ Como no se puede modificar el contenido de las esquinas, la única forma de "con
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -88,23 +88,27 @@ fin
 
 Código completo: [`../codigo/soluciones/capitulo-04/Capitulo 4 pregunta 4`](<../codigo/soluciones/capitulo-04/Capitulo 4 pregunta 4>)
 
-## Nota de alcance: informa un dato de más
+## El programa informa dos números, no uno
 
-El enunciado sólo pide la cantidad de esquinas con sólo papeles; el código además calcula e informa la cantidad de esquinas con sólo flores (`flores`). Ese dato extra no contradice lo pedido —el número de "sólo papeles" sigue estando ahí y es correcto— así que no se lo considera un error, sólo información adicional no solicitada. No se quitó del código para no alterar la estructura de la solución histórica.
+`Informar(flores,papeles)` muestra primero las esquinas con sólo flor y después las de sólo papel. El enunciado pide el segundo número.
+
+El contador de flores es el mismo chequeo con la condición dada vuelta. Está de más, pero no molesta: el dato que te piden sigue ahí.
 
 ## Escenario de prueba
 
-Cargar en la calle 20 una esquina con sólo papel (por ejemplo, 2 papeles en avenida 5), una con sólo flor (1 flor en avenida 8) y una mixta (1 flor y 1 papel en avenida 10). Probado con el intérprete: informa `(flores=1, papeles=1)` — la esquina mixta no cuenta para ninguno de los dos contadores, como corresponde.
+Cargá tres esquinas de la calle 20: 2 papeles en la avenida 5, 1 flor en la avenida 8, y 1 flor más 1 papel en la avenida 10.
+
+El programa informa `1` y `1`. La esquina mixta de la avenida 10 no suma en ningún lado.
 
 ## Casos límite
 
-- Esquina con flor y papel a la vez: no cuenta ni como "sólo flor" ni como "sólo papel".
-- Esquina vacía: tampoco cuenta para ninguno de los dos.
+- El `repetir 99` revisa de la avenida 1 a la 99 y deja al robot parado en la 100. Esa última esquina la cubren los dos `si` sueltos de abajo. Si los borrás, la avenida 100 no se cuenta nunca.
+- Una esquina vacía no suma a ningún contador. Las dos condiciones piden que haya algo.
 
 ## Errores frecuentes
 
-- Usar `tomarFlor`/`tomarPapel` para "revisar" el contenido de la esquina, lo que violaría la restricción de no modificar nada.
-- Escribir la condición de "sólo X" sin negar la presencia del otro tipo, contando también las esquinas mixtas.
+- Usar `tomarPapel` para ver qué hay en la esquina. Tomar el papel la modifica, y el enunciado lo prohíbe. Para mirar sin tocar están `HayPapelEnLaEsquina` y `HayFlorEnLaEsquina`.
+- Escribir `si (HayPapelEnLaEsquina)` a secas. Así la avenida 10 del escenario, que tiene flor y papel, también suma. Hace falta el `& ~(HayFlorEnLaEsquina)`.
 
 ## Complejidad
 

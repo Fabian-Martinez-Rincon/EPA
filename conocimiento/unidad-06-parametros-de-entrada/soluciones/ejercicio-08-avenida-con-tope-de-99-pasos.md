@@ -41,7 +41,7 @@ El proceso `Avenida(E Numero:numero; E pasos:numero)` se reposiciona en `(Numero
 
 ## Código relacionado
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso izquierda
@@ -90,19 +90,17 @@ El archivo histórico hacía `pasos:=noventa` **dentro** del proceso, asignando 
 
 ## Escenario de prueba
 
-No requiere flores ni papeles precargados: alcanza con observar que, con `NAvenida:=4` y `CantPasos:=200`, el robot avanza exactamente 99 cuadras en la avenida 4 (200 se acota a 99).
+Ciudad vacía, sin flores ni papeles. El programa invoca `Avenida(4,200)`: el tope baja los 200 a 99, así que el robot sale de (4,1) y sube hasta (4,100), justo el borde de la ciudad.
 
 ## Casos límite
 
-- `pasos` negativo (por ejemplo, -5): `pasosReales` queda en -5, no es mayor que 99, y `repetir -5 mover` no ejecuta ningún paso — el robot se reposiciona en la avenida pedida pero no avanza, tal como exige el enunciado.
-- `pasos` mayor que 99 (como en el ejemplo del archivo, 200): se acota a 99.
-- `pasos` entre 0 y 99 (por ejemplo, 5): se usa tal cual, sin acotar.
-- El proceso auxiliar `izquierda` queda declarado pero no se usa en este archivo; no afecta el resultado.
+- Con un `pasos` negativo, `pasosReales` queda negativo y no entra en el `si`. Un `repetir` con un número negativo no ejecuta el cuerpo: el robot se reposiciona en la avenida pedida y no avanza, que es lo que pide el enunciado.
+- El `si` recorta recién a partir de 100. Un `pasos` de 99 pasa tal cual y da los 99 pasos.
 
 ## Errores frecuentes
 
-- Asignar directamente sobre el parámetro de entrada en vez de usar una variable local auxiliar (el bug real que tenía este archivo antes de esta organización).
-- Agregar una comparación explícita para el caso negativo (`si (pasosReales<0) pasosReales:=0`): es innecesaria, porque `repetir` con un valor negativo ya no ejecuta el cuerpo ninguna vez; agregarla no sería incorrecto, pero tampoco es lo que hace el material original.
+- Escribir `pasos:=99` adentro del proceso. `pasos` es un parámetro de entrada: solo se puede leer. Por eso el tope se calcula sobre `pasosReales`, una variable local.
+- Agregar un `si (pasosReales<0) pasosReales:=0`. No hace falta: `repetir` con un negativo ya no da ningún paso.
 
 ## Complejidad
 

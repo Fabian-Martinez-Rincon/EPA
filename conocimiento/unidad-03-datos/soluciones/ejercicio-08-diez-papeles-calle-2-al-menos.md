@@ -72,7 +72,7 @@ Igual que en el ejercicio 5, como no se garantiza que existan 10 papeles, el cor
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -118,17 +118,18 @@ Con ambas correcciones aplicadas, se probó con 10 papeles en avenidas 3-12 (ter
 
 ## Escenario de prueba
 
-Cargar entre 1 y 15 papeles repartidos en la calle 2 para observar cómo el robot se detiene de contar apenas llega a 10 pero sigue caminando hasta el final de la calle. Probar también con cero papeles para confirmar que el recorrido termina igual.
+Poné 10 papeles en la calle 2, uno por esquina, en las avenidas 3 a 12. El robot junta los 10 antes de la avenida 13 y sigue caminando igual hasta el final: informa la posición `(100,2)`. Probá después sin ningún papel y vas a ver que termina en el mismo lugar.
 
 ## Casos límite
 
-- Sin papeles en la calle: el robot recorre igual toda la calle 2 y termina en (100,2).
-- Exactamente 10 papeles en la última esquina (avenida 100): se cuentan gracias al bloque final que procesa esa esquina por separado.
+- Sin papeles en la calle: el robot la recorre entera y `x` se queda en 0.
+- Con los 10 papeles en la avenida 100 los junta igual, en el bloque que va después del `mientras`. Ese bloque está justamente para eso: el `mientras(PosAv<100)` frena antes de mirar esa esquina.
+- Apenas `x` llega a 10 el robot deja de juntar, pero no frena. El enunciado pide encontrar al menos 10 papeles, no detenerse en el décimo.
 
 ## Errores frecuentes
 
-- El mismo problema de anidar `mover` dentro de una condición que puede volverse falsa antes de que el bucle exterior termine (ver `ejercicio-05`).
-- Usar un límite de bucle "off by one" (99 en vez de 100) al querer cubrir una calle completa con el patrón `mientras(PosAv<N) + bloque final`.
+- Meter el `mover` adentro del `si(x<10)`. Cuando juntás el décimo papel el robot deja de avanzar, `PosAv` no cambia más y el `mientras(PosAv<100)` se cuelga.
+- Escribir `mientras(PosAv<99)` creyendo que cubrís la calle completa. Con ese límite el bucle llega hasta la avenida 98, el bloque final revisa la 99 y la avenida 100 queda sin revisar.
 
 ## Complejidad
 

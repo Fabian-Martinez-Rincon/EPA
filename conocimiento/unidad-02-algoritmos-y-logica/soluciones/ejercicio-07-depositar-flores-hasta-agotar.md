@@ -41,7 +41,7 @@ Es el mismo patrón condicional que el ejercicio 2 (avanzar depositando mientras
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -67,20 +67,23 @@ fin
 
 Código completo: [`../codigo/ejercicio-07.ri`](../codigo/ejercicio-07.ri)
 
+## El recorrido va por la calle 1
+
+El enunciado dice "avenida 10", pero el código arranca en (10,1), gira una vez a la derecha y avanza aumentando la avenida. O sea que recorre la calle 1, desde la avenida 10 hasta la 100. Para recorrer la avenida 10 de verdad, sacá el `derecha` (el robot ya arranca mirando al norte) y cambiá la condición a `mientras (PosCa<100)`.
+
 ## Escenario de prueba
 
-Conviene iniciar la simulación con algunas flores en la bolsa del robot para ver el depósito en acción; con menos flores que esquinas en la avenida 10, se puede observar cómo el robot sigue caminando sin depositar una vez que se queda sin flores, en vez de detenerse.
+Arrancá con flores en la bolsa, menos de 90. Vas a ver al robot dejando una por esquina hasta quedarse sin nada, y seguir caminando igual hasta el final.
 
 ## Casos límite
 
-- Bolsa vacía desde el inicio: el robot recorre toda la avenida sin depositar nada (rama `sino`).
-- Más flores que esquinas: sobran flores en la bolsa al llegar a la avenida 100, lo cual es válido, el enunciado no pide vaciar la bolsa por completo.
-- La esquina (10,100) sí recibe flor si hay disponible: la condición de corte es `PosAv < 100`, así que la última iteración deposita en la esquina 99 y el `mover` final la deja en 100 sin evaluar el depósito ahí — vale la pena confirmarlo al ejecutar, es un límite exacto fácil de errar.
+- La última esquina, (100,1), nunca recibe flor. El `mientras` corta cuando `PosAv` llega a 100, así que el último depósito cae en la avenida 99.
+- Si te sobran flores al terminar no pasa nada. El enunciado no pide vaciar la bolsa.
 
 ## Errores frecuentes
 
-- Cortar el `mientras` con `<=100` en vez de `<100`, lo que haría que el robot intente moverse una vez de más y quede fuera del área válida.
-- Olvidar la rama `sino`, dejando al robot detenido en la primera esquina sin flores.
+- Escribir `mientras (PosAv<=100)`. Parado en la avenida 100 el robot intenta un `mover` más, se va de la ciudad y el programa corta con error.
+- Sacar la rama `sino`. Apenas se vacía la bolsa el robot se queda clavado y nunca llega al final, que es justo lo que el enunciado pide evitar.
 
 ## Complejidad
 

@@ -54,7 +54,7 @@ Se repite cuatro veces (una por lado) el mismo patrón usado para recorrer una a
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -119,17 +119,19 @@ Código completo: [`../codigo/capitulo-3-pregunta-10.ri`](../codigo/capitulo-3-p
 
 ## Escenario de prueba
 
-Cargar papeles en una esquina de cada uno de los cuatro lados del perímetro (por ejemplo, (1,30) con 2 papeles para el lado 1, (60,100) con 3 para el lado 2, (100,40) con 5 para el lado 3 y (20,1) con 1 para el lado 4). Probado con el intérprete: el programa informa exactamente `(2,3,5,1)`, cada cantidad atribuida al lado correcto.
+El robot arranca en (1,1) mirando al norte, así que los lados salen en este orden: el 1 sube por la avenida 1, el 2 va por la calle 100, el 3 baja por la avenida 100 y el 4 vuelve por la calle 1.
+
+Cargá papeles en un lado cada uno: 2 en (1,30), 3 en (60,100), 5 en (100,40) y 1 en (20,1). El robot informa `(2,3,5,1)`, cada cantidad en el contador que le toca.
 
 ## Casos límite
 
-- Un vértice compartido entre dos lados sólo se cuenta una vez, del lado que termina en él: el lado siguiente vuelve a chequear ese mismo vértice, pero ya está vacío (mismo comportamiento verificado en `ejercicio-11` de la unidad 2).
-- Perímetro completamente vacío: los cuatro contadores terminan en 0.
+- Perímetro vacío: informa `(0,0,0,0)`.
+- Cada vértice lo cuenta un solo lado, el primero que pasa por ahí: se lleva los papeles y el siguiente encuentra la esquina vacía. Con un papel en cada uno de los cuatro vértices el robot informa `(2,1,1,0)`. El lado 1 se lleva dos, el de arranque (1,1) y el (1,100) donde termina, y al lado 4 no le queda ninguno.
 
 ## Errores frecuentes
 
-- Olvidar el `derecha` entre lado y lado, lo que haría que el robot siguiera de largo en la misma dirección en vez de girar en el vértice.
-- Reutilizar la misma variable para los cuatro lados en vez de una por lado, perdiendo la separación de las cuentas.
+- Olvidar un `derecha` en un vértice. El robot intenta seguir derecho, se sale de la ciudad y el programa corta con error.
+- Usar un solo contador para los cuatro lados. El total de papeles del perímetro te va a dar bien, pero el enunciado pide el desglose lado por lado.
 
 ## Complejidad
 

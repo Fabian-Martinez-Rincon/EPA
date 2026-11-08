@@ -180,7 +180,7 @@ Ver [`../ejercicios/ejercicio-05-pasos-hasta-flor-o-papel-calles-impares.md`](..
 
 ## Análisis
 
-El proceso `CallesImpares` recibe `contar` como parámetro de entrada/salida usado únicamente como salida (patrón de la sección 7.3 del capítulo: el proceso no necesita el valor de entrada, solo lo usa para devolver un resultado calculado internamente). Cada llamada es autocontenida en cuanto a orientación: entra con la orientación por defecto (`mover` incrementa `PosCa`), hace un `derecha` para quedar orientado a lo largo de la calle (`mover` incrementa `PosAv`, calle fija — "recorre una calle" según la regla de orientación del robot), recorre hasta encontrar flor o papel, informa, y antes de salir hace `izquierda` (tres `derecha`), con lo que la orientación neta dentro de la llamada es `derecha` + `izquierda` = 4 giros = 360°, volviendo exactamente a la orientación por defecto para la siguiente llamada. Por eso el llamador (`repetir 50: contador:=0; CallesImpares(contador)`) puede invocar el proceso repetidamente sin preocuparse por la orientación acumulada.
+El proceso `CallesImpares` recibe `contar` como parámetro de entrada/salida y lo usa en los dos sentidos: nunca lo reinicia, solo hace `contar:=contar+1` por cada paso, así que el valor con el que entra queda sumado al que devuelve. Por eso el llamador tiene que hacer `contador:=0` antes de cada invocación. Cada llamada es autocontenida en cuanto a orientación: entra con la orientación por defecto (`mover` incrementa `PosCa`), hace un `derecha` para quedar orientado a lo largo de la calle (`mover` incrementa `PosAv`, calle fija — "recorre una calle" según la regla de orientación del robot), recorre hasta encontrar flor o papel, informa, y antes de salir hace `izquierda` (tres `derecha`), con lo que la orientación neta dentro de la llamada es `derecha` + `izquierda` = 4 giros = 360°, volviendo exactamente a la orientación por defecto para la siguiente llamada. Por eso el llamador (`repetir 50: contador:=0; CallesImpares(contador)`) puede invocar el proceso repetidamente sin preocuparse por la orientación acumulada.
 
 La condición de corte `mientras(~(HayFlorEnLaEsquina))&(~(HayPapelEnLaEsquina))` es la negación correcta (por De Morgan) de "hay flor o papel": el recorrido continúa exactamente mientras NO hay flor Y NO hay papel, y se detiene en cuanto aparece cualquiera de los dos.
 
@@ -206,7 +206,7 @@ En los tres casos el programa produce exactamente 50 `Informar`, uno por calle i
 
 ## Código relacionado
 
-```
+```rinfo
 programa Capitulo7Pregunta5
 procesos
   proceso izquierda
@@ -248,20 +248,20 @@ Código completo: [`../codigo/soluciones/capitulo-07/Cap7_Preg_5`](../codigo/sol
 
 ## Escenario de prueba
 
-El escenario del front matter siembra una flor o un papel en cada una de las 50 calles impares, siempre en la avenida 5 — se observan las 50 llamadas informando 4 pasos cada una y el robot termina el recorrido sin salirse del área.
+El escenario ya trae una flor o un papel en la avenida 5 de cada calle impar. Vas a ver 50 `Informar`, uno por calle, todos con el valor 4. El robot arranca cada calle en la avenida 1, da cuatro pasos y se planta en la 5.
 
 ## Casos límite
 
-- Flor o papel exactamente en la avenida 1 de una calle impar: el `mientras` no ejecuta ninguna vuelta (la condición ya es falsa en la primera esquina), se informa 0 pasos. Verificado contra el intérprete.
-- Calle impar sin flor ni papel (violación de la garantía del enunciado): el robot llega hasta la avenida 100 y el siguiente `mover` falla por salirse de la ciudad.
-- Calle 99 (la última impar procesada): se informa correctamente su conteo de pasos y, gracias al chequeo `si(PosCa<99)`, no se intenta reposicionar a la calle 101 — el programa termina limpio después de esa última llamada.
+- Si la flor o el papel están en la avenida 1, el `mientras` no da ni una vuelta y se informa 0.
+- En la calle 99 no hay una calle impar siguiente. Por eso el salto `Pos(1,PosCa+2)` va adentro de un `si(PosCa<99)`. Sin esa guarda el robot apuntaría a la calle 101 y el programa cortaría con error.
+- Si una calle impar quedara sin flor ni papel, el robot camina hasta la avenida 100 y el `mover` siguiente lo saca de la ciudad. El enunciado garantiza que eso no pasa.
 
 ## Errores frecuentes
 
-- Escribir la condición de corte con `|` en vez de `&` (o sin negar ambos términos), lo que detendría el recorrido en la esquina equivocada.
-- Asumir que "recorrer todas las calles impares" necesita `repetir 99` en vez de `repetir 50` — uno de los dos bugs reales que tenía este archivo, corregido arriba.
-- Reposicionar incondicionalmente a la siguiente calle impar sin comprobar si es la última — el otro bug real de este archivo: aunque se corrija la cantidad de repeticiones del llamador, el `Pos` sin guardia sigue intentando saltar a la calle 101 al terminar la calle 99.
-- Olvidar el `izquierda` final dentro de `CallesImpares`, lo que dejaría al robot mal orientado para la llamada siguiente.
+- Sacar el `contador:=0` del llamador. `CallesImpares` no reinicia `contar`, le suma. Sin ese cero la calle 1 informa 4, la 3 informa 8, la 5 informa 12 y así.
+- Escribir la condición con `|` en vez de `&`. Hay que seguir mientras no haya flor **y** no haya papel. Con `|` el robot solo frena en una esquina que tenga las dos cosas juntas, y se pasa de largo las que tienen una sola.
+- Poner `repetir 99` en el programa principal. Entre 1 y 100 hay 50 calles impares, no 99.
+- Olvidar el `izquierda` del final. `derecha` al entrar más `izquierda` al salir son cuatro giros, o sea una vuelta completa: la llamada devuelve al robot como lo encontró. Sin ese cierre la segunda calle se recorre en la dirección equivocada y el robot se sale de la ciudad.
 
 ## Complejidad
 

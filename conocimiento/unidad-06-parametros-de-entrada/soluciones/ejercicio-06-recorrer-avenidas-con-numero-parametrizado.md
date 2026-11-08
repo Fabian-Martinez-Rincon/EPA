@@ -58,7 +58,7 @@ Las partes b, c y d reutilizan ese mismo proceso envolviéndolo en un `repetir` 
 
 ### 6.a) — proceso base
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso izquierda
@@ -98,7 +98,7 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_6A`](../codigo/so
 
 ### 6.b) — todas las avenidas
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso izquierda
@@ -143,7 +143,7 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_6B`](../codigo/so
 
 ### 6.c) — avenidas 5 a 15
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso izquierda
@@ -187,7 +187,7 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_6C`](../codigo/so
 
 ### 6.d) — avenidas pares
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso izquierda
@@ -248,25 +248,23 @@ Las tres partes que encadenan avenidas (6.b, 6.c, 6.d) seguían el mismo patrón
 
 En los tres casos se comparó además contra la versión sin corregir: con los contadores originales (99/10/49) el patrón se repetía sin errores de ejecución, pero la última avenida pedida (100/15/100 según el caso) nunca aparecía en la lista de avenidas con 99 movers completos — quedaba solo con el evento de reposicionamiento inicial. Después del fix, las tres variantes cubren exactamente las avenidas que pide cada enunciado, sin errores de ejecución.
 
-## Nota: el proceso `JuntarFlor` no junta flores en ninguna de las cuatro variantes
+## Nota: `JuntarFlor` no junta flores
 
-A pesar de su nombre y de recibir un parámetro `NumFlores`, el proceso de las cuatro partes solo mueve al robot; nunca consulta `HayFlorEnLaEsquina` ni llama a `tomarFlor`. Las variables `NumFlores`, `CantFlores` y `num` quedan declaradas pero sin usar. Esto no contradice el enunciado del ejercicio 6 (que en sus cuatro partes solo pide "recorrer" avenidas, sin mencionar flores), pero es evidencia de que el proceso fue copiado de otro ejercicio de la ejercitación (probablemente el 7, centrado en juntar flores) sin terminar de adaptarlo. No se quitaron los parámetros/variables sin uso ni se agregó lógica de recolección, porque el enunciado de este ejercicio no la pide y hacerlo sería agregar comportamiento nuevo no solicitado.
+El proceso se llama `JuntarFlor` y recibe `NumFlores`, pero solo camina: nunca consulta `HayFlorEnLaEsquina` ni llama a `tomarFlor`. `NumFlores`, `CantFlores` y `num` quedan sin usar. El ejercicio 6 solo pide recorrer avenidas, así que cumple igual. El que junta flores es el 7.
 
 ## Escenario de prueba
 
-No requiere flores ni papeles precargados: los cuatro programas solo mueven al robot (ver nota anterior). Alcanza con observar, para cada variante, qué avenidas efectivamente recorre según el análisis de esta solución.
+Ciudad vacía, sin flores ni papeles: estos cuatro programas solo caminan. Fijate qué avenidas recorre cada uno. La 6.a hace solo la 19; la 6.b, las 100 de la ciudad; la 6.c, de la 5 a la 15; la 6.d, las 50 pares.
 
 ## Casos límite
 
-- 6.a) invocado con la avenida 1 mientras el robot está parado en cualquier calle: conserva esa calle (`Pos(avenida,PosCa)`) y recorre desde ahí hasta la calle 100, no necesariamente las 99 cuadras completas si no arranca en la calle 1.
-- 6.b/6.d) cuando la cadena de avenidas llega justo hasta la avenida 100 (el borde de la ciudad de 100×100), el `Pos(PosAv±k,1)` que salta a la "próxima" avenida no debe ejecutarse en la última vuelta del `repetir`, o el intérprete corta la ejecución con un error de área fuera de rango (`Pos(101,1)`/`Pos(102,1)` está fuera del área). Por eso ese salto está protegido con `si(PosAv<100)`. 6.c) no llega al borde (termina en la avenida 15), así que no necesita ese guard.
-- Calcular la cantidad de vueltas del `repetir` como "diferencia entre avenida final e inicial" en vez de "diferencia más uno" deja la última avenida pedida sin recorrer — ver "Corrección aplicada" arriba para el detalle de este bug y su fix.
+- La 6.a se invoca con el robot en (1,1), así que `Pos(19,PosCa)` lo deja en (19,1) y los 99 `mover` lo dejan justo en la calle 100. Llamada desde una calle más alta, esos 99 pasos lo sacan de la ciudad: el `repetir 99` no mira dónde está parado.
+- En la 6.c el último `Pos(PosAv+1,1)` corre igual. El robot termina parado en (16,1) sin recorrer esa avenida.
 
 ## Errores frecuentes
 
-- Usar `derecha` antes de recorrer la avenida en 6.a): no hace falta, porque la orientación inicial del robot ya avanza a lo largo de las calles cuando la avenida está fija.
-- Calcular la cantidad de repeticiones del `repetir` exterior en 6.b/6.c/6.d como "diferencia entre avenida final e inicial" en vez de "diferencia más uno": deja la última avenida pedida sin recorrer (era precisamente el bug corregido en esta solución).
-- Al corregir ese conteo, olvidar proteger el salto final a la "próxima avenida" cuando la cadena llega hasta el borde de la ciudad (avenida 100): sin el guard `si(PosAv<100)`, el intento de `Pos` fuera del área corta la ejecución con error.
+- Girar con `derecha` antes de recorrer la avenida en la 6.a. El robot ya arranca mirando al norte, que es el eje de las avenidas. Con el giro terminaría recorriendo una calle.
+- Contar los saltos entre avenidas en vez de las avenidas. Para recorrer de la 5 a la 15 hacen falta 11 vueltas, no 10: con 10 la avenida 15 queda solo alcanzada, nunca recorrida.
 
 ## Complejidad
 

@@ -55,7 +55,7 @@ En ambos casos el parámetro de entrada `lado` del proceso `cuadrado` (ejercicio
 
 ### Variante B — recorrido a) de la figura 6.5
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso cuadrado(E lado:numero)
@@ -89,7 +89,7 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_2B`](../codigo/so
 
 ### Variante C — recorrido b) de la figura 6.5
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso cuadrado(E lado:numero)
@@ -122,23 +122,23 @@ fin
 
 Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_2C`](../codigo/soluciones/capitulo-06/Cap6_Preg_2C)
 
-## Nota sobre las variantes disponibles
+## Nota: las dos variantes casi no se diferencian
 
-El material histórico solo conserva las variantes "B" y "C" para este ejercicio (no existe una "variante A" separada); todo indica que el proceso `cuadrado` en sí — sin la lógica de encadenado — se cuenta como la solución del ejercicio 1, y B/C son las dos formas de encadenarlo pedidas por la figura 6.5. Ambas reutilizan el mismo proceso `cuadrado(E lado:numero)` sin modificarlo, tal como pide el enunciado.
+El proceso `cuadrado` es idéntico en las dos. El programa principal cambia en dos cosas: 4 vueltas contra 5, y el `Pos(PosAv+ancho,1)` que solo tiene la C. Esa línea sola decide si los cuadrados se apilan sobre el mismo origen o quedan en fila.
 
 ## Escenario de prueba
 
-No requiere flores ni papeles precargados, solo observar el recorrido. Conviene visualizar ambas variantes por separado: la B superpone cuadrados crecientes desde (1,1); la C los apoya en fila sobre la calle 1.
+Ciudad vacía, sin flores ni papeles. Corré las dos variantes por separado. La B dibuja cuatro cuadrados de lados 1, 2, 3 y 4, todos apoyados en (1,1). La C dibuja cinco, de lados 1 a 5, arrancando en las avenidas 1, 2, 4, 7 y 11 de la calle 1.
 
 ## Casos límite
 
-- Primer cuadrado (`ancho = 1`): en ambas variantes es un cuadrado de una sola cuadra de lado.
-- Variante C, último salto: tras el quinto `cuadrado(ancho)` el código igual ejecuta `Pos(PosAv+ancho,1)` y `ancho:=ancho+1`, aunque no haya un sexto cuadrado que dibujar; no tiene efecto visible, pero dejan al robot y a `ancho` en un estado que no vuelve a usarse.
+- El primer cuadrado de las dos variantes es de lado 1: una sola cuadra por lado.
+- En la variante C el `Pos(PosAv+ancho,1)` también corre después del quinto cuadrado. El robot da un último salto hasta (16,1) y ahí termina, sin dibujar nada más.
 
 ## Errores frecuentes
 
-- Reposicionar al robot en la variante B (rompería el patrón de "todos comparten origen") o no reposicionarlo en la variante C (los cuadrados quedarían superpuestos en vez de en hilera).
-- Calcular mal el desplazamiento entre cuadrados en la variante C: tiene que ser exactamente `ancho` (el lado del cuadrado recién dibujado), no un valor fijo, para que no queden huecos ni superposiciones.
+- Saltar una distancia fija entre cuadrados en la variante C. El salto tiene que ser `ancho`, el lado del cuadrado recién dibujado, o quedan huecos y superposiciones.
+- Reposicionar al robot en la variante B. Los cuadrados dejan de compartir la esquina (1,1) y se pierde el dibujo que pide la figura.
 
 ## Complejidad
 

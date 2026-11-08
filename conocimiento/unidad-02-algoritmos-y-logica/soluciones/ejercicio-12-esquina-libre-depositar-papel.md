@@ -53,7 +53,7 @@ Una esquina "libre" es una esquina sin flor y sin papel. El robot gira para orie
 
 ## Código relacionado
 
-```
+```rinfo
 programa antoja
 areas
   ciudad:AreaC(1,1,100,100)
@@ -93,19 +93,19 @@ Se verificó con el intérprete que, con distintos escenarios (ciudad vacía, es
 
 ## Escenario de prueba
 
-El escenario por defecto de este visor tiene esquinas ocupadas en (5,1) y (10,1) y una bolsa con 10 papeles: se puede observar que el robot las saltea y deposita en las esquinas libres de la calle 1 hasta agotar la bolsa. Para ver el recorrido completar varias calles, aumentar la bolsa (con 250 papeles alcanza para recorrer más de dos calles completas).
+El escenario de arranque trae un papel en (5,1), una flor en (10,1) y 10 papeles en la bolsa. El robot deja uno por esquina desde (1,1), saltea esas dos y se queda sin papeles en (12,1). Subí la bolsa a 200 papeles para verlo completar las dos primeras calles.
 
 ## Casos límite
 
-- Esquina con flor pero sin papel (o viceversa): no se considera libre, no recibe depósito.
-- Bolsa sin papeles: ninguna esquina recibe depósito de ahí en más, pero el robot sigue recorriendo el resto de la ciudad igual (el enunciado no pide detener el movimiento, solo el depósito).
-- Última calle (100): el `si(PosCa<100)` evita el salto final, así que el robot no intenta salirse del área después de terminarla.
+- Una esquina con flor pero sin papel no es libre, y al revés tampoco. Libre es sin flor y sin papel.
+- Cuando se vacía la bolsa el robot sigue caminando hasta (100,100). El enunciado pide terminar el recorrido ahí mismo, así que falta un corte por `HayPapelEnLaBolsa`.
+- En la calle 100 el `si(PosCa<100)` frena el salto. Sin eso el robot intentaría ir a la calle 101 y se saldría de la ciudad.
 
 ## Errores frecuentes
 
-- Escribir la condición de "esquina libre" sin negar ambos `Hay...EnLaEsquina`, quedando invertida (el bug real que tenía este archivo).
-- Usar `repetir 100` en vez de `repetir 99` para el eje que ya arrancó en la posición 1: al haber avanzado desde la esquina 1, alcanza con 99 movimientos más para llegar a la 100 — un `repetir 100` completo se pasa de largo.
-- Saltar a la siguiente calle sin envolver el recorrido en un loop externo que lo repita: el salto por sí solo no hace que el recorrido "para todas las calles" vuelva a ejecutarse.
+- Escribir la condición sin negar. Con `HayPapelEnLaEsquina & HayFlorEnLaEsquina` el robot deposita justo en las esquinas ocupadas, al revés de lo que pide el enunciado.
+- Usar `repetir 100` para recorrer una calle. El robot ya está parado en la avenida 1, así que con 99 `mover` llega a la 100; con 100 se va a la 101 y corta la ejecución.
+- Saltar a la calle siguiente y no repetir el recorrido. El `Pos(1,PosCa+1)` solo, sin el `repetir 100` de afuera, deja al robot parado al principio de la calle 2 y el programa termina ahí.
 
 ## Complejidad
 

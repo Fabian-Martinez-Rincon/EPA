@@ -53,7 +53,7 @@ Igual que en el ejercicio 2, cada rectángulo devuelve al robot a su esquina de 
 
 ### Variante A — recorrido a) de la figura 6.6
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero; E largo:numero)
@@ -95,7 +95,7 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_4A`](../codigo/so
 
 ### Variante B — recorrido b) de la figura 6.6
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero; E largo:numero)
@@ -137,17 +137,17 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_4B`](../codigo/so
 
 ## Escenario de prueba
 
-No requiere flores ni papeles precargados, solo observar el recorrido de rectángulos apilados que produce cada variante a partir de (1,1).
+Ciudad vacía, sin flores ni papeles. La variante A dibuja tres rectángulos de 1 calle de alto y 5, 3 y 1 avenidas de ancho. La B dibuja cuatro de 1 avenida de ancho y 15, 11, 7 y 3 calles de alto. Las dos arrancan en (1,1) y suben de a una avenida y dos calles.
 
 ## Casos límite
 
-- Última iteración de cada variante: el código sigue actualizando `anchx`/`largx` después del último rectángulo aunque no haya uno siguiente que lo use; no tiene efecto observable.
-- Si `numer` no coincidiera con el paso usado en `Pos(PosAv+1,PosCa+2)`, los rectángulos quedarían superpuestos o separados por huecos; en ambas variantes el desplazamiento de 2 calles coincide con el patrón de la figura.
+- El `Pos` también corre después del último rectángulo. El robot termina parado en (4,7) en la variante A y en (5,9) en la B, sin dibujar nada ahí.
+- La dimensión que achica `numer` termina valiendo -1 en las dos variantes: `anchx` en la A, `largx` en la B. Nadie la vuelve a usar, así que no se nota.
 
 ## Errores frecuentes
 
-- Aplicar el decremento (`numer`) a la dimensión que no corresponde (por ejemplo, decrecer `largx` en la variante A en vez de `anchx`), lo que produciría la forma equivocada.
-- Olvidar el `Pos` entre invocaciones y terminar dibujando todos los rectángulos superpuestos desde el mismo origen.
+- Restarle `numer` a la dimensión equivocada. En la variante A el largo está fijo en 1 y el que achica es `anchx`. Si le restás a `largx`, el segundo rectángulo arranca con largo -1 y el robot directamente no traza esos lados.
+- Olvidar el `Pos` entre invocaciones. Los tres o cuatro rectángulos se dibujan uno encima del otro desde (1,1).
 
 ## Complejidad
 

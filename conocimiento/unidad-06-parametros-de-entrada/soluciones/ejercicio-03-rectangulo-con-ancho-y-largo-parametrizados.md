@@ -41,7 +41,7 @@ Los nombres de los parámetros formales (`ancho`, `largo`) no necesitan coincidi
 
 ## Código relacionado
 
-```
+```rinfo
 programa  parametros
 procesos
   proceso rectangulo(E ancho:numero; E largo:numero)
@@ -78,17 +78,17 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_3`](../codigo/sol
 
 ## Escenario de prueba
 
-No requiere flores ni papeles precargados: alcanza con observar que, partiendo de (1,1), el robot traza un rectángulo de 4 de ancho por 10 de largo y regresa a su esquina de origen.
+Ciudad vacía, sin flores ni papeles. Con `anchx:=4` y `largx:=10`, el robot sube 10 cuadras desde (1,1), dobla y avanza 4 hasta (5,11), baja otras 10 hasta (5,1) y vuelve a (1,1).
 
 ## Casos límite
 
-- `ancho = largo`: el proceso dibuja un cuadrado, sin que haga falta ningún caso especial (un cuadrado es un rectángulo particular).
-- Ninguno de los dos parámetros se modifica dentro del proceso: ambos son de entrada (`E`) y solo se leen para controlar los `repetir` internos, respetando la restricción de la sección 6.5 del capítulo.
+- Si le pasás el mismo valor a los dos parámetros, el proceso dibuja un cuadrado. No hace falta ningún caso especial: un cuadrado es un rectángulo.
+- Con `anchx:=0` el rectángulo se aplasta a una línea. El robot sube 10, gira dos veces sin avanzar, baja las mismas 10 y termina en (1,1). El proceso no falla.
 
 ## Errores frecuentes
 
-- Repetir el mismo lado dos veces seguidas en vez de alternar `largo`/`ancho`, lo que trazaría dos segmentos paralelos en vez de un rectángulo cerrado.
-- Olvidar el segundo `derecha` de cada mitad del `repetir 2`, dejando al robot mal orientado para el lado siguiente.
+- Poner los dos `repetir largo` seguidos en vez de alternar `largo` y `ancho`. El robot traza dos lados paralelos y la figura nunca cierra.
+- Olvidar el segundo `derecha` de cada vuelta. El lado siguiente sale en la dirección equivocada y el rectángulo se deforma.
 
 ## Complejidad
 

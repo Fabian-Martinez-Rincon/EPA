@@ -41,7 +41,7 @@ En vez de moverse esquina por esquina, el código salta directamente de avenida 
 
 ## Código relacionado
 
-```
+```rinfo
 programa antoja
 areas
   ciudad:AreaC(1,1,100,100)
@@ -71,17 +71,18 @@ El archivo histórico usaba `HayFlorEnLaBolsa`/`depositarFlor` en vez de `HayPap
 
 ## Escenario de prueba
 
-Conviene iniciar la simulación con algunos papeles en la bolsa del robot para ver el depósito en las avenidas 3, 5, 7… hasta 99.
+Arrancá con papeles en la bolsa. El robot salta de dos en dos y los va dejando en las avenidas 3, 5, 7, y así hasta la 99.
 
 ## Casos límite
 
-- La esquina de partida (1,17) —avenida impar— nunca recibe depósito, porque el primer `Pos` del `repetir` ya la salta a la avenida 3.
-- El recorrido llega hasta la avenida 99 (última impar antes de 100) con las 49 repeticiones (1 + 2×49 = 99); el enunciado describe el final como "la esquina (100,17)", pero el código nunca visita literalmente la avenida 100 (par, fuera del patrón de avenidas impares) — vale la pena tenerlo presente al leer el enunciado junto al código, no se modificó el límite de la repetición porque no es un error de una palabra sino una cuestión de interpretación del punto de corte.
+- La esquina de partida (1,17) queda sin papel, aunque la avenida 1 sea impar. El primer `Pos` del `repetir` la saltea y manda el robot directo a la avenida 3.
+- El recorrido termina en la avenida 99. El enunciado habla de la esquina (100,17), pero la avenida 100 es par y el patrón de saltos nunca la pisa.
 
 ## Errores frecuentes
 
-- Confundir flor y papel al escribir la condición/la primitiva (el bug real que tenía este archivo antes de esta organización).
-- Calcular mal la cantidad de repeticiones necesarias para cubrir todas las avenidas impares entre 1 y 99.
+- Escribir `HayFlorEnLaBolsa` y `depositarFlor`. Acá se piden papeles, y las primitivas de flor no dan error: la calle 17 queda sin nada.
+- Contar mal las repeticiones. Entre la 3 y la 99 hay 49 avenidas impares, así que un `repetir 50` manda el robot a la avenida 101 y se sale de la ciudad.
+- Suponer que el `derecha` del principio hace algo. `Pos` reposiciona en coordenadas absolutas, mire el robot a donde mire.
 
 ## Complejidad
 

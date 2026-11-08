@@ -54,7 +54,7 @@ El archivo histórico tenía dos problemas puntuales, corregidos en esta organiz
 
 ## Código relacionado
 
-```
+```rinfo
 programa Captitulo7Pregunta6
 procesos
   proceso cuadrado(E Lado:numero;ES FLORES:numero;ES PAPELES:numero)
@@ -112,19 +112,20 @@ Código completo: [`../codigo/soluciones/capitulo-07/Cap7_Preg_6`](../codigo/sol
 
 ## Escenario de prueba
 
-Probado contra el intérprete de R-info de Academia-Fabo sembrando la ciudad con 3 flores en (1,1) y 2 papeles en (1,2) — ambas esquinas caen dentro del primer lado de cualquier cuadrado anclado en (1,1), así que el cuadrado de lado 99 ya cumple la condición: el programa termina en la primera vuelta del `mientras`, informando `(98, 3, 2)` (el lado ya decrementado en 1 en el momento de informar). Sin flores/papeles sembrados, el primer cuadrado tiene (0,0) y el recorrido sigue decreciendo el lado normalmente.
+El escenario siembra 3 flores en (1,1) y 2 papeles en (1,2). Las dos esquinas caen sobre el primer lado del cuadrado de lado 99, así que el primer cuadrado que el robot recorre ya cumple la condición: un solo `Informar`, con los valores 98, 3 y 2.
+
+Fijate en el 98. El `lado:=lado+menos` corre antes del `Informar`, así que el número que sale es el del cuadrado siguiente, no el del que el robot acaba de recorrer.
 
 ## Casos límite
 
-- El cuadrado buscado es el primero (lado 99): se informa una sola vez.
-- `lado` llega a 0 o negativo (si ningún cuadrado entre 99 y 1 cumple la condición, lo que contradice la garantía del enunciado): `repetir Lado` con `Lado<=0` no ejecuta ninguna vuelta, así que el robot se queda quieto y `flores`/`papeles` quedan en 0 indefinidamente — el `mientras` no terminaría nunca en ese escenario (no puede ocurrir si se respeta la garantía del enunciado).
-- Cuadrado con 3 flores pero no 2 papeles (o viceversa): con la corrección aplicada, el recorrido sigue buscando; con el bug original, se detenía ahí incorrectamente (ver "Corrección aplicada" arriba).
+- Si ningún cuadrado cumple, el programa no termina nunca. Cuando `lado` llega a 0 y sigue bajando, `repetir Lado` no ejecuta ninguna vuelta: el robot se queda quieto, `flores` y `papeles` vuelven a 0 y el `mientras` se repite para siempre.
+- Un cuadrado con 3 flores pero un solo papel no sirve. Las dos cuentas tienen que dar justo, y el robot pasa al cuadrado siguiente.
 
 ## Errores frecuentes
 
-- Usar `&` en lugar de `|` al negar una condición conjunta (bug real de este archivo, corregido arriba) — un error clásico de aplicar De Morgan al revés.
-- Dejar un valor de prueba (`lado:=14`) en el código en vez del valor que pide el enunciado (99) — el otro bug real de este archivo.
-- Olvidar reiniciar `FLORES`/`PAPELES` en el llamador antes de cada cuadrado, lo que acumularía de más entre cuadrados sucesivos.
+- Negar la condición con `&` en vez de `|`. Hay que seguir buscando mientras falle **cualquiera** de las dos cuentas. Con `&` el robot frena en el primer cuadrado que tenga 3 flores sin mirar los papeles: con 3 flores y 5 papeles informa 98, 3 y 5, y da la búsqueda por terminada.
+- Arrancar con un lado de prueba en vez de 99, que es el que fija el enunciado.
+- No reiniciar `flores` y `papeles` antes de cada cuadrado. Son parámetros `ES`: entran con el valor que traen, así que el cuadrado siguiente contaría además todo lo del anterior.
 
 ## Complejidad
 

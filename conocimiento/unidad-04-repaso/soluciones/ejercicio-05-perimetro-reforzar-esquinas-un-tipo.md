@@ -52,7 +52,7 @@ El enunciado pide reforzar (agregar un objeto más del mismo tipo) en las esquin
 
 ## Código relacionado
 
-```
+```rinfo
 programa prueba
 areas
   ciudad: AreaC(1,1,100,100)
@@ -112,18 +112,20 @@ El escenario de prueba de este visor (front matter) se amplió agregando el vér
 
 ## Escenario de prueba
 
-Este ejercicio necesita que la bolsa del robot arranque con al menos una flor y un papel, porque `depositarFlor`/`depositarPapel` fallan si la bolsa está vacía; probado con el intérprete de R-info, con la bolsa vacía el programa corta con el error `"depositarPapel" sin papeles en la bolsa`. Con una bolsa inicial de, por ejemplo, 10 flores y 10 papeles, y con una esquina del perímetro con sólo papel (1 papel en (1,30)), otra con sólo flor (1 flor en (60,100)) y una tercera con sólo flor exactamente en el vértice de partida (1 flor en (1,1)), el programa informa correctamente `(flores=2, papeles=1)` — el vértice (1,1) se refuerza una sola vez, no dos.
+Arrancá con flores y papeles en la bolsa. Si la bolsa está vacía, el programa corta en la primera esquina que tenga que reforzar, con el error `"depositarPapel" sin papeles en la bolsa`.
+
+Probá con 10 de cada uno y la ciudad así: 1 papel en (1,30), 1 flor en (60,100) y 1 flor en (1,1). El robot informa `2` flores y `1` papel. La esquina (1,1) es un vértice y se refuerza una sola vez.
 
 ## Casos límite
 
-- Esquina con flor y papel a la vez, o esquina vacía: no se refuerza en ninguno de los dos casos.
-- Los 4 vértices del perímetro — (1,1), (1,100), (100,100) y (100,1) — se procesan exactamente una vez cada uno, no dos (ver "Corrección aplicada durante esta organización").
-- Bolsa sin flores o sin papeles al llegar a una esquina que los necesita: el depósito falla (ver "Escenario de prueba"); el enunciado no contempla este caso, así que se asume que el robot arranca con provisión suficiente, igual que otros ejercicios de depósito de la unidad 2.
+- El robot pasa por las 396 esquinas del perímetro: cuatro lados de 99 esquinas cada uno.
+- Los cuatro vértices son (1,1), (1,100), (100,100) y (100,1). Cada uno se revisa una sola vez.
+- Una esquina con flor y papel a la vez, o vacía, no se refuerza.
 
 ## Errores frecuentes
 
-- Interpretar el enunciado como "vaciar de flor/papel las esquinas de un solo tipo" en vez de "agregar un refuerzo del mismo tipo" — la lectura literal del enunciado (y el código) es la segunda.
-- Agregar un chequeo/depósito extra después de `derecha` "para no perderse el vértice": como el chequeo ya ocurre antes de cada `mover`, ese chequeo extra vuelve a procesar la misma esquina que ya va a chequear el primer paso del lado siguiente, duplicando el conteo y el depósito en los 4 vértices (era exactamente el bug de la versión histórica de este archivo).
+- Agregar un chequeo y un depósito extra después de cada `derecha`, para no perderse el vértice. El chequeo va antes del `mover`, así que el vértice ya lo revisa el primer paso del lado siguiente. Con el extra lo reforzás dos veces: cargá los cuatro vértices con sólo papel y el programa informa `8` en lugar de `4`.
+- Leer el enunciado como "sacarle la flor o el papel a las esquinas de un solo tipo". Pide lo contrario: dejar uno más del mismo tipo.
 
 ## Complejidad
 
