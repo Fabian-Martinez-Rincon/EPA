@@ -2,22 +2,19 @@
 
 programa  parametros
 procesos
-  proceso izquierda
-  comenzar
-    repetir 2
-      derecha
-  fin
-  proceso JuntarFlor(E calle:numero;E NumFlores:numero)
+  proceso CalleFlor(E calle:numero;E NumFlores:numero)
   variables
     CantFlores:numero
   comenzar
+    CantFlores:=0
     Pos(PosAv,calle)
     derecha
-    mientras(PosAv<100)&(CantFlores<NumFlores)
-      mientras(HayFlorEnLaEsquina)
+    mientras(CantFlores<NumFlores)
+      si(HayFlorEnLaEsquina)
         tomarFlor
         CantFlores:=CantFlores+1
-      mover
+      sino
+        mover
   fin
 areas
   ciudad: AreaC(1,1,100,100)
@@ -29,7 +26,7 @@ robots
   comenzar
     NFlores:=4
     callejon:=19
-    JuntarFlor(callejon,NFlores)
+    CalleFlor(callejon,NFlores)
   fin
 variables
   robin: robot1

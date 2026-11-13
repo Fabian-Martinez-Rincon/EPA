@@ -61,13 +61,13 @@ Ver [`../ejercicios/ejercicio-08-diez-papeles-calle-2-al-menos.md`](../ejercicio
 
 ## Análisis
 
-Igual que en el ejercicio 5, como no se garantiza que existan 10 papeles, el corte del recorrido combina la condición de cantidad (`x<10`) con el límite de la calle (`PosAv<100`), para que el robot pueda terminar aunque no llegue a los 10 papeles.
+Como no se garantiza que existan 10 papeles, el recorrido tiene dos formas de terminar: juntar 10 (`x<10` deja de cumplirse) o llegar al final de la calle (`PosAv<100` deja de cumplirse). Las dos condiciones van juntas en el `mientras`, unidas con `&`. En cada esquina se juntan todos los papeles que haya, por eso el robot puede terminar con más de 10: el enunciado pide "al menos" 10.
 
 ## Estrategia
 
 1. Posicionar el robot en (1,2) y girar a la derecha.
-2. Mientras `PosAv<100`: si `x<10`, drenar todos los papeles de la esquina actual contándolos en `x`; avanzar (siempre).
-3. Procesar la esquina final (avenida 100) por separado, sin avanzar.
+2. Mientras `x<10` y `PosAv<100`: juntar todos los papeles de la esquina contándolos en `x`, y avanzar solo si todavía faltan papeles. Así el robot se queda parado en la esquina donde completó los 10.
+3. Si al llegar a la avenida 100 todavía faltan, revisar esa última esquina, que el `mientras` no llega a mirar.
 4. Informar la posición final.
 
 ## Código relacionado
@@ -85,12 +85,12 @@ robots
     Pos(1,2)
     x:=0
     derecha
-    mientras(PosAv<100)
+    mientras((x<10) & (PosAv<100))
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel
+        x:=x+1
       si(x<10)
-        mientras(HayPapelEnLaEsquina)
-          tomarPapel
-          x:=x+1
-      mover
+        mover
     si(x<10)
       mientras(HayPapelEnLaEsquina)
         tomarPapel
@@ -107,29 +107,21 @@ fin
 
 Código completo: [`../codigo/capitulo-3-pregunta-08.ri`](../codigo/capitulo-3-pregunta-08.ri)
 
-## Correcciones aplicadas durante esta organización
-
-Se aplicaron dos correcciones puntuales, verificadas ambas con el intérprete de R-info:
-
-1. **`mover` mal anidado (mismo bug que `ejercicio-05`):** en el archivo histórico, `mover` estaba dentro del `si(x<10)`, así que en cuanto `x` llegaba a 10 antes de terminar la calle, `mover` dejaba de ejecutarse y `PosAv` quedaba congelado, dejando el `mientras(PosAv<100)` exterior colgado para siempre. Probado: con 10 papeles cargados entre las avenidas 3 y 12 de la calle 2, el archivo original se cuelga (supera el límite de pasos del intérprete); con `mover` desanidado (ejecutándose siempre, al mismo nivel que `si(x<10)`), el programa termina normalmente.
-2. **Límite de la calle incompleto (`PosAv<99` en vez de `PosAv<100`):** con el límite original, el `mientras` sólo cubría las avenidas 1 a 98 dentro del bucle más la avenida 99 en el bloque final, dejando la avenida 100 sin revisar — la misma clase de problema que en `ejercicio-03`, pero acá se pudo corregir con un solo cambio porque el archivo ya tenía el bloque final (`si(x<10) mientras(HayPapelEnLaEsquina)...`) armado para procesar "la última esquina"; sólo hacía falta que el límite del `mientras` la dejara en la avenida correcta (100) para que ese bloque la cubriera. Se cambió `PosAv<99` por `PosAv<100`.
-
-Con ambas correcciones aplicadas, se probó con 10 papeles en avenidas 3-12 (termina en (100,2)), sin papeles (termina en (100,2), `x` se queda en 0), y con 10 papeles en avenidas 91-100 (incluyendo la esquina límite, también termina en (100,2)) — en los tres casos el programa recorre la calle 2 completa sin colgarse ni salirse de la ciudad.
-
 ## Escenario de prueba
 
-Poné 10 papeles en la calle 2, uno por esquina, en las avenidas 3 a 12. El robot junta los 10 antes de la avenida 13 y sigue caminando igual hasta el final: informa la posición `(100,2)`. Probá después sin ningún papel y vas a ver que termina en el mismo lugar.
+Poné 10 papeles en la calle 2, uno por esquina, en las avenidas 3 a 12. El robot junta el décimo en la avenida 12, se queda ahí e informa `(12,2)`. Probá después sin ningún papel: recorre la calle entera e informa `(100,2)`.
 
 ## Casos límite
 
-- Sin papeles en la calle: el robot la recorre entera y `x` se queda en 0.
-- Con los 10 papeles en la avenida 100 los junta igual, en el bloque que va después del `mientras`. Ese bloque está justamente para eso: el `mientras(PosAv<100)` frena antes de mirar esa esquina.
-- Apenas `x` llega a 10 el robot deja de juntar, pero no frena. El enunciado pide encontrar al menos 10 papeles, no detenerse en el décimo.
+- Sin papeles en la calle, o con menos de 10: el robot la recorre entera e informa `(100,2)`.
+- Si la décima parte cae justo en la avenida 100, la junta el bloque que va después del `mientras`. Ese bloque está para eso: el `mientras` frena con `PosAv` en 100 antes de mirar esa esquina.
+- Una esquina con varios papeles se vacía entera aunque se pase de 10. Por eso el enunciado dice "al menos".
 
 ## Errores frecuentes
 
-- Meter el `mover` adentro del `si(x<10)`. Cuando juntás el décimo papel el robot deja de avanzar, `PosAv` no cambia más y el `mientras(PosAv<100)` se cuelga.
-- Escribir `mientras(PosAv<99)` creyendo que cubrís la calle completa. Con ese límite el bucle llega hasta la avenida 98, el bloque final revisa la 99 y la avenida 100 queda sin revisar.
+- Poner el `mover` sin el `si(x<10)`. El robot completa los 10 y da un paso más antes de que el `mientras` corte, así que informa la esquina siguiente a la del décimo papel.
+- Controlar solo `PosAv<100`. El robot junta los 10 y sigue caminando hasta el final de la calle: siempre informa `(100,2)`.
+- Controlar solo `x<10`. Si no hay 10 papeles, el robot sale de la ciudad por la avenida 101.
 
 ## Complejidad
 

@@ -42,7 +42,7 @@ Se modulariza en dos procesos: uno que recorre una avenida completa contando flo
 
 1. `RecorrerAvenidaHastaVacia(ES totalFlores)`: mientras la esquina tenga flor o papel, si tiene flor la toma y suma 1 a `totalFlores`, y avanza. Se detiene apenas la esquina no tiene ni flor ni papel.
 2. `InformarAvenida(E floresAvenida)`: informa `1` si `floresAvenida <= 45`, si no informa `0`.
-3. Driver: repetir 99 veces (avenidas 1 a 99) reiniciar el contador, recorrer, informar, y saltar a la avenida siguiente con `Pos(PosAv+1,1)`; después repetir una vez más para la avenida 100 (sin el salto final).
+3. Driver: repetir 100 veces reiniciar el contador, recorrer, informar y, si todavía no es la avenida 100, saltar a la siguiente con `Pos(PosAv+1,1)`.
 
 ## Código relacionado
 
@@ -76,14 +76,12 @@ robots
   variables
     floresAvenida: numero
   comenzar
-    repetir 99
+    repetir 100
       floresAvenida := 0
       RecorrerAvenidaHastaVacia(floresAvenida)
       InformarAvenida(floresAvenida)
-      Pos(PosAv + 1, 1)
-
-    RecorrerAvenidaHastaVacia(floresAvenida)
-    InformarAvenida(floresAvenida)
+      si (PosAv < 100)
+        Pos(PosAv + 1, 1)
   fin
 
 variables
@@ -111,7 +109,8 @@ El escenario carga 2 flores en (1,1) y 1 papel en (2,5). Salen 100 `Informar`, t
 
 - Usar `<` en vez de `<=` y dejar afuera el caso de exactamente 45 flores.
 - Sumar los papeles a `totalFlores`. Se cuentan solo flores; los papeles están únicamente para decidir dónde termina la avenida.
-- Meter el `Pos(PosAv+1,1)` en un `repetir 100`. Al terminar la avenida 100 el salto apunta a la 101 y el programa corta con `Pos(101,1) está fuera del área`. Por eso el ciclo repite 99 veces y la última avenida se recorre aparte, sin salto.
+- Saltar sin preguntar. Al terminar la avenida 100, `Pos(PosAv+1,1)` apunta a la 101 y el programa corta con `Pos(101,1) está fuera del área`. Por eso el salto va dentro de `si (PosAv < 100)`.
+- Recorrer la avenida 100 aparte, después del ciclo, y olvidarse de poner el contador en 0. La avenida 100 arrastra las flores de la 99 y puede informar `0` sin tener ninguna flor.
 
 ## Complejidad
 

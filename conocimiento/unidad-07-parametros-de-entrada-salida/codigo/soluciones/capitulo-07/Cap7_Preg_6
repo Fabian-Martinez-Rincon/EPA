@@ -42,8 +42,8 @@ robots
       flores:=0
       papeles:=0
       cuadrado(lado,flores,papeles)
-      lado:=lado+menos
       Informar(lado,flores,papeles)
+      lado:=lado+menos
   fin
 variables
   R-Info: robot1

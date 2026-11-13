@@ -7,17 +7,9 @@ robots
   robot robot1
   comenzar
     repetir 4
-      repetir 18
-        mover
-      derecha
-    Pos(30,30)
-    repetir 4
-      repetir 18
-        mover
-        si HayFlorEnLaEsquina
-          tomarFlor
-        si HayPapelEnLaEsquina
-          tomarPapel
+      si HayPapelEnLaEsquina
+        tomarPapel
+      mover
       derecha
   fin
 variables

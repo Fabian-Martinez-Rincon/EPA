@@ -9,9 +9,13 @@ robots
     Pos(1,17)
     derecha
     repetir 49
-      Pos(PosAv+2,17)
       si HayPapelEnLaBolsa
         depositarPapel
+      mover
+      mover
+    si HayPapelEnLaBolsa
+      depositarPapel
+    mover
   fin
 variables
   R-Info: robot1

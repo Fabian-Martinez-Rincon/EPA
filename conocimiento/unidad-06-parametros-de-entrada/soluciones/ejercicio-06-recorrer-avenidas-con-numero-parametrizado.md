@@ -33,44 +33,38 @@ Ver [`../ejercicios/ejercicio-06-recorrer-avenidas-con-numero-parametrizado.md`]
 
 ## Análisis
 
-Recorrer "una avenida" significa moverse manteniendo la avenida fija y la calle variable. Como el robot arranca sin girar (orientación por defecto), `mover` ya incrementa `PosCa` — no hace falta ningún `derecha` para este eje. El proceso base (6.a) se limita a reposicionar con `Pos(avenida,PosCa)` (fija la avenida pedida, conserva la calle actual) y avanzar 99 veces, recorriendo así las 99 cuadras entre la calle 1 y la 100.
+Recorrer una avenida es caminar desde la calle 1 hasta la 100 sin cambiar de avenida. El robot arranca mirando al norte, que es justo el eje de las avenidas, así que no hace falta ningún giro: alcanza con ubicarlo en `(numAv,1)` y avanzar 99 veces.
 
-Las partes b, c y d reutilizan ese mismo proceso envolviéndolo en un `repetir` adicional que, en cada vuelta, recorre la avenida actual y salta a la siguiente con `Pos(PosAv±k,1)`. El contador del `repetir` debe ser exactamente la cantidad de avenidas a recorrer (no la cantidad de "saltos" entre avenidas, que es uno menos): recorrer *N* avenidas requiere *N* vueltas, aunque la última vuelta no necesite saltar a ninguna parte después. Por eso el salto final queda protegido con `si(PosAv<100)`, para no intentar un `Pos` fuera del área de 100×100 cuando la avenida recorrida es la 100:
-
-- **6.b:** arranca en la avenida 1 y repite 100 veces "recorrer la avenida actual, saltar a la próxima si queda alguna" (paso de a 1 avenida) — cubre las 100 avenidas de la ciudad.
-- **6.c:** arranca en la avenida 5 y repite 11 veces el mismo patrón (paso de a 1 avenida) — cubre las avenidas 5 a 15 (11 avenidas; como ninguna vuelta llega a la avenida 100, ninguna vuelta necesita el guard y de hecho no lo tiene, ver "Corrección aplicada").
-- **6.d:** arranca en la avenida 2 y repite 50 veces el mismo patrón, saltando de a 2 avenidas para quedarse en las pares — cubre las 50 avenidas pares de la 2 a la 100.
+El proceso `RecorrerAvenida` recibe el número de avenida como parámetro de entrada (`E`). Las partes b, c y d no vuelven a escribir ese recorrido: lo invocan una vez por avenida, cambiando solo el valor que le pasan. Lo único que cambia entre las tres es desde qué avenida arrancan, cuántas veces repiten y de a cuánto avanza el número.
 
 ## Estrategia
 
 **6.a:**
 
-1. Declarar `proceso JuntarFlor(E avenida:numero; E NumFlores:numero)`.
-2. Reposicionar con `Pos(avenida,PosCa)` (cambia solo la avenida, conserva la calle actual).
-3. Avanzar 99 veces (recorre la avenida completa, calle 1 a 100).
+1. Declarar `proceso RecorrerAvenida(E numAv:numero)`.
+2. Ubicar al robot en `(numAv,1)` con `Pos`.
+3. Avanzar 99 veces: de la calle 1 a la 100.
 
-**6.b/6.c/6.d:**
+**6.b, 6.c y 6.d:** guardar en una variable `av` la primera avenida y repetir "recorrerla y pasar a la siguiente":
 
-1. Reposicionar al inicio de la primera avenida a recorrer con `Pos(avenida,1)`.
-2. Repetir *N* veces, donde *N* es la cantidad de avenidas a recorrer (no la cantidad de saltos entre ellas): avanzar 99 veces (recorrer la avenida actual) y, si todavía no se llegó al borde de la ciudad (`PosAv<100`), saltar a la siguiente avenida con `Pos(PosAv+k,1)`. El guard evita un `Pos` fuera del área de 100×100 en la última vuelta cuando esa vuelta recorre justo la avenida 100.
+| Parte | Primera avenida | Vueltas | Siguiente |
+|---|---|---|---|
+| 6.b | 1 | 100 | `av:=av+1` |
+| 6.c | 5 | 11 | `av:=av+1` |
+| 6.d | 2 | 50 | `av:=av+2` |
+
+Las vueltas son la cantidad de avenidas a recorrer: de la 5 a la 15 hay 11, y entre la 2 y la 100 hay 50 pares.
 
 ## Código relacionado
 
-### 6.a) — proceso base
+### 6.a) — el proceso
 
 ```rinfo
-programa  parametros
+programa parametros
 procesos
-  proceso izquierda
+  proceso RecorrerAvenida(E numAv:numero)
   comenzar
-    repetir 2
-      derecha
-  fin
-  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
-  variables
-    CantFlores:numero
-  comenzar
-    Pos(avenida,PosCa)
+    Pos(numAv,1)
     repetir 99
       mover
   fin
@@ -79,12 +73,10 @@ areas
 robots
   robot robot1
   variables
-    avenidad:numero
-    NFlores:numero
+    av:numero
   comenzar
-    NFlores:=4
-    avenidad:=19
-    JuntarFlor(avenidad,NFlores)
+    av:=19
+    RecorrerAvenida(av)
   fin
 variables
   robin: robot1
@@ -99,37 +91,25 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_6A`](../codigo/so
 ### 6.b) — todas las avenidas
 
 ```rinfo
-programa  parametros
+programa parametros
 procesos
-  proceso izquierda
+  proceso RecorrerAvenida(E numAv:numero)
   comenzar
-    repetir 2
-      derecha
-  fin
-  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
-  variables
-    CantFlores:numero
-    num:numero
-  comenzar
-    num:=0
-    Pos(avenida,1)
-    repetir 100
-      repetir 99
-        mover
-      si(PosAv<100)
-        Pos(PosAv+1,1)
+    Pos(numAv,1)
+    repetir 99
+      mover
   fin
 areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1
   variables
-    avenidad:numero
-    NFlores:numero
+    av:numero
   comenzar
-    NFlores:=4
-    avenidad:=1
-    JuntarFlor(avenidad,NFlores)
+    av:=1
+    repetir 100
+      RecorrerAvenida(av)
+      av:=av+1
   fin
 variables
   robin: robot1
@@ -144,36 +124,25 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_6B`](../codigo/so
 ### 6.c) — avenidas 5 a 15
 
 ```rinfo
-programa  parametros
+programa parametros
 procesos
-  proceso izquierda
+  proceso RecorrerAvenida(E numAv:numero)
   comenzar
-    repetir 2
-      derecha
-  fin
-  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
-  variables
-    CantFlores:numero
-    num:numero
-  comenzar
-    num:=0
-    Pos(avenida,1)
-    repetir 11
-      repetir 99
-        mover
-      Pos(PosAv+1,1)
+    Pos(numAv,1)
+    repetir 99
+      mover
   fin
 areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1
   variables
-    avenidad:numero
-    NFlores:numero
+    av:numero
   comenzar
-    NFlores:=4
-    avenidad:=5
-    JuntarFlor(avenidad,NFlores)
+    av:=5
+    repetir 11
+      RecorrerAvenida(av)
+      av:=av+1
   fin
 variables
   robin: robot1
@@ -188,37 +157,25 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_6C`](../codigo/so
 ### 6.d) — avenidas pares
 
 ```rinfo
-programa  parametros
+programa parametros
 procesos
-  proceso izquierda
+  proceso RecorrerAvenida(E numAv:numero)
   comenzar
-    repetir 2
-      derecha
-  fin
-  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
-  variables
-    CantFlores:numero
-    num:numero
-  comenzar
-    num:=0
-    Pos(avenida,1)
-    repetir 50
-      repetir 99
-        mover
-      si(PosAv<100)
-        Pos(PosAv+2,1)
+    Pos(numAv,1)
+    repetir 99
+      mover
   fin
 areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1
   variables
-    avenidad:numero
-    NFlores:numero
+    av:numero
   comenzar
-    NFlores:=4
-    avenidad:=2
-    JuntarFlor(avenidad,NFlores)
+    av:=2
+    repetir 50
+      RecorrerAvenida(av)
+      av:=av+2
   fin
 variables
   robin: robot1
@@ -230,45 +187,24 @@ fin
 
 Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_6D`](../codigo/soluciones/capitulo-06/Cap6_Preg_6D)
 
-## Corrección aplicada: la última avenida pedida no se recorría en 6.b, 6.c y 6.d
-
-Las tres partes que encadenan avenidas (6.b, 6.c, 6.d) seguían el mismo patrón: `repetir N { recorrer avenida actual (99 movimientos); Pos(PosAv+k,1) }`. Ese `Pos` final de cada vuelta deja al robot **parado** en la siguiente avenida, pero sin recorrerla — esa avenida recién se recorre en la vuelta *siguiente* del `repetir`. El contador `N` original se había calculado como la cantidad de *saltos* entre avenidas en vez de la cantidad de avenidas a recorrer (que es uno más), así que la última avenida pedida en cada enunciado quedaba solo "alcanzada" (el robot llegaba a su esquina de partida) pero no "recorrida" (nunca se ejecutaba el `repetir 99 mover` para ella).
-
-**Fix aplicado** (mismo patrón en los tres archivos, `codigo/soluciones/capitulo-06/Cap6_Preg_6B`, `6C`, `6D`): se aumentó en 1 el contador del `repetir` exterior para que cuente avenidas en vez de saltos. Al probar el cambio contra el intérprete apareció un problema adicional no anticipado: en 6.b y 6.d la última vuelta del `repetir` ahora recorre justo la avenida 100 (el borde de la ciudad de 100×100), y el `Pos(PosAv+k,1)` incondicional al final de cada vuelta intentaba saltar a la avenida 101 (6.b) o 102 (6.d), fuera del área — el intérprete cortaba la ejecución con `Pos(101,1) está fuera del área` / `Pos(102,1) está fuera del área` y el programa nunca llegaba a `fin`. Por eso, además de subir el contador, ese `Pos` final se protegió con `si(PosAv<100)` para que no se ejecute cuando la vuelta que acaba de terminar ya recorrió la avenida 100:
-
-- **6.b** ("todas las avenidas de la ciudad", 100 avenidas): `repetir 99` → `repetir 100`, más `si(PosAv<100)` antes del `Pos(PosAv+1,1)`.
-- **6.c** ("avenidas 5, 6, 7 … 15", 11 avenidas): `repetir 10` → `repetir 11`. No hizo falta guard: la última vuelta recorre la avenida 15 y el salto siguiente sería a la avenida 16, que sigue dentro del área de 100×100, así que no rompe nada.
-- **6.d** ("avenidas pares de la ciudad", 50 avenidas de la 2 a la 100): `repetir 49` → `repetir 50`, más `si(PosAv<100)` antes del `Pos(PosAv+2,1)`.
-
-**Evidencia de las pruebas** (ciudad y bolsa vacías, vía el intérprete de R-info de Academia-Fabo en `http://localhost:3000/api/run-rinfo`, inspeccionando los eventos `mover` para confirmar cobertura completa — no solo que el robot "llega" a la avenida final sino que la recorre entera, `ca` de 1 a 100):
-
-- **6.b:** sin el guard, `repetir 100` solo tira `ERROR en línea 19: Pos(101,1) está fuera del área`. Con el guard: 0 errores, 10002 eventos, últimos eventos en `av:100, ca:94..100` seguidos de `fin`. Las 100 avenidas (1 a 100) aparecen con eventos `mover`, y las 100 tienen exactamente 99 movers con `ca` de 2 a 100 (recorrido completo de punta a punta) — verificado programáticamente agrupando los eventos `mover` por avenida.
-- **6.c:** sin cambios de guard (no lo necesita). Con `repetir 11`: 0 errores, 1103 eventos, últimos eventos en `av:15, ca:95..100` seguidos de `pos av:16 ca:1` y `fin`. Las 11 avenidas (5 a 15) aparecen con eventos `mover`, cada una con exactamente 99 movers de `ca` 2 a 100.
-- **6.d:** sin el guard, `repetir 50` tira `ERROR en línea 19: Pos(102,1) está fuera del área`. Con el guard: 0 errores, 5002 eventos, últimos eventos en `av:100, ca:94..100` seguidos de `fin`. Las 50 avenidas pares (2 a 100) aparecen con eventos `mover`, cada una con exactamente 99 movers de `ca` 2 a 100.
-
-En los tres casos se comparó además contra la versión sin corregir: con los contadores originales (99/10/49) el patrón se repetía sin errores de ejecución, pero la última avenida pedida (100/15/100 según el caso) nunca aparecía en la lista de avenidas con 99 movers completos — quedaba solo con el evento de reposicionamiento inicial. Después del fix, las tres variantes cubren exactamente las avenidas que pide cada enunciado, sin errores de ejecución.
-
-## Nota: `JuntarFlor` no junta flores
-
-El proceso se llama `JuntarFlor` y recibe `NumFlores`, pero solo camina: nunca consulta `HayFlorEnLaEsquina` ni llama a `tomarFlor`. `NumFlores`, `CantFlores` y `num` quedan sin usar. El ejercicio 6 solo pide recorrer avenidas, así que cumple igual. El que junta flores es el 7.
-
 ## Escenario de prueba
 
-Ciudad vacía, sin flores ni papeles: estos cuatro programas solo caminan. Fijate qué avenidas recorre cada uno. La 6.a hace solo la 19; la 6.b, las 100 de la ciudad; la 6.c, de la 5 a la 15; la 6.d, las 50 pares.
+Ciudad vacía: estos programas solo caminan. Fijate qué avenidas recorre cada uno. La 6.a hace solo la 19 y termina en (19,100); la 6.b recorre las 100 avenidas y termina en (100,100); la 6.c, de la 5 a la 15, y termina en (15,100); la 6.d, las 50 pares, y termina en (100,100). En las cuatro, cada avenida se camina entera, de la calle 1 a la 100.
 
 ## Casos límite
 
-- La 6.a se invoca con el robot en (1,1), así que `Pos(19,PosCa)` lo deja en (19,1) y los 99 `mover` lo dejan justo en la calle 100. Llamada desde una calle más alta, esos 99 pasos lo sacan de la ciudad: el `repetir 99` no mira dónde está parado.
-- En la 6.c el último `Pos(PosAv+1,1)` corre igual. El robot termina parado en (16,1) sin recorrer esa avenida.
+- La última vuelta de la 6.b y de la 6.d deja `av` en 101 y en 102, pero el proceso ya no se vuelve a invocar, así que el robot nunca intenta ir a una avenida fuera de la ciudad.
+- Como el proceso empieza con `Pos(numAv,1)`, no importa dónde quedó el robot en la vuelta anterior: siempre arranca la avenida desde la calle 1.
 
 ## Errores frecuentes
 
-- Girar con `derecha` antes de recorrer la avenida en la 6.a. El robot ya arranca mirando al norte, que es el eje de las avenidas. Con el giro terminaría recorriendo una calle.
-- Contar los saltos entre avenidas en vez de las avenidas. Para recorrer de la 5 a la 15 hacen falta 11 vueltas, no 10: con 10 la avenida 15 queda solo alcanzada, nunca recorrida.
+- Girar con `derecha` antes de recorrer la avenida. El robot ya mira al norte, que es el eje de las avenidas. Con el giro terminaría recorriendo una calle.
+- Contar los saltos entre avenidas en vez de las avenidas. De la 5 a la 15 hacen falta 11 vueltas, no 10: con 10 la avenida 15 queda sin recorrer.
+- Volver a escribir el `repetir 99 mover` en las partes b, c y d. Funciona, pero el enunciado pide usar el proceso de la parte a: el recorrido de una avenida se escribe una sola vez.
 
 ## Complejidad
 
-Cada parte recorre O(k) avenidas de 99 pasos cada una: 6.a) es O(1) (una sola avenida); 6.b), 6.c) y 6.d) son O(k) en la cantidad de avenidas encadenadas, con un costo total de `99k` pasos.
+Cada invocación del proceso hace 99 pasos. La 6.a hace uno solo; la 6.b, 6.c y 6.d hacen 99 pasos por cada avenida que recorren.
 
 ## Fuentes y archivos relacionados
 

@@ -1,17 +1,10 @@
 {Ejercitación, ejercicio 6.a): Escriba un proceso que le permita al robot recorrer una avenida cuyo número se ingresa como parámetro de entrada.}
 
-programa  parametros
+programa parametros
 procesos
-  proceso izquierda
+  proceso RecorrerAvenida(E numAv:numero)
   comenzar
-    repetir 2
-      derecha
-  fin
-  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
-  variables
-    CantFlores:numero
-  comenzar
-    Pos(avenida,PosCa)
+    Pos(numAv,1)
     repetir 99
       mover
   fin
@@ -20,12 +13,10 @@ areas
 robots
   robot robot1
   variables
-    avenidad:numero
-    NFlores:numero
+    av:numero
   comenzar
-    NFlores:=4
-    avenidad:=19
-    JuntarFlor(avenidad,NFlores)
+    av:=19
+    RecorrerAvenida(av)
   fin
 variables
   robin: robot1

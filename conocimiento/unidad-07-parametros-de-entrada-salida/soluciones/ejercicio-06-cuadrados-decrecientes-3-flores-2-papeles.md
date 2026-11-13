@@ -50,7 +50,7 @@ El archivo histórico tenía dos problemas puntuales, corregidos en esta organiz
 ## Estrategia
 
 1. Empezar con lado 99 en la esquina (1,1).
-2. Mientras no se haya encontrado un cuadrado con exactamente 3 flores y 2 papeles: reiniciar los acumuladores, recorrer el perímetro del cuadrado actual (sin modificar su contenido), decrementar el lado en 1 e informar el resultado del cuadrado recién recorrido.
+2. Mientras no se haya encontrado un cuadrado con exactamente 3 flores y 2 papeles: reiniciar los acumuladores, recorrer el perímetro del cuadrado actual (sin modificar su contenido), informar el lado y lo hallado en el cuadrado recién recorrido, y recién después decrementar el lado en 1.
 
 ## Código relacionado
 
@@ -97,8 +97,8 @@ robots
       flores:=0
       papeles:=0
       cuadrado(lado,flores,papeles)
-      lado:=lado+menos
       Informar(lado,flores,papeles)
+      lado:=lado+menos
   fin
 variables
   R-Info: robot1
@@ -112,9 +112,9 @@ Código completo: [`../codigo/soluciones/capitulo-07/Cap7_Preg_6`](../codigo/sol
 
 ## Escenario de prueba
 
-El escenario siembra 3 flores en (1,1) y 2 papeles en (1,2). Las dos esquinas caen sobre el primer lado del cuadrado de lado 99, así que el primer cuadrado que el robot recorre ya cumple la condición: un solo `Informar`, con los valores 98, 3 y 2.
+El escenario siembra 3 flores en (1,1) y 2 papeles en (1,2). Las dos esquinas caen sobre el primer lado del cuadrado de lado 99, así que el primer cuadrado que el robot recorre ya cumple la condición: un solo `Informar`, con los valores 99, 3 y 2.
 
-Fijate en el 98. El `lado:=lado+menos` corre antes del `Informar`, así que el número que sale es el del cuadrado siguiente, no el del que el robot acaba de recorrer.
+El `Informar` va antes del `lado:=lado+menos`, así que el número que sale es el lado del cuadrado que el robot acaba de recorrer.
 
 ## Casos límite
 
@@ -123,8 +123,9 @@ Fijate en el 98. El `lado:=lado+menos` corre antes del `Informar`, así que el n
 
 ## Errores frecuentes
 
-- Negar la condición con `&` en vez de `|`. Hay que seguir buscando mientras falle **cualquiera** de las dos cuentas. Con `&` el robot frena en el primer cuadrado que tenga 3 flores sin mirar los papeles: con 3 flores y 5 papeles informa 98, 3 y 5, y da la búsqueda por terminada.
+- Negar la condición con `&` en vez de `|`. Hay que seguir buscando mientras falle **cualquiera** de las dos cuentas. Con `&` el robot frena en el primer cuadrado que tenga 3 flores sin mirar los papeles: con 3 flores y 5 papeles informa 99, 3 y 5, y da la búsqueda por terminada.
 - Arrancar con un lado de prueba en vez de 99, que es el que fija el enunciado.
+- Decrementar el lado antes del `Informar`. El número que sale es el del cuadrado siguiente: para el de lado 99 informa 98.
 - No reiniciar `flores` y `papeles` antes de cada cuadrado. Son parámetros `ES`: entran con el valor que traen, así que el cuadrado siguiente contaría además todo lo del anterior.
 
 ## Complejidad

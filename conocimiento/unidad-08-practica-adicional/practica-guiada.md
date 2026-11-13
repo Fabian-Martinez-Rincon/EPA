@@ -78,6 +78,7 @@ robots
       Pos(PosAv + 1, 1)
 
     {Avenida 100}
+    floresAvenida := 0
     RecorrerAvenidaHastaVacia(floresAvenida)
     InformarAvenida(floresAvenida)
   fin

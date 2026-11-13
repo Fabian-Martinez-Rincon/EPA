@@ -20,20 +20,17 @@ relacionados:
 codigo_relacionado:
   - "../codigo/ejercicio-04.ri"
 escenario_ciudad:
-  - av: 30
-    ca: 30
-    flores: 1
+  - av: 1
+    ca: 1
     papeles: 1
-  - av: 30
-    ca: 48
-    flores: 2
-    papeles: 0
-  - av: 48
-    ca: 48
-    flores: 0
-    papeles: 2
-  - av: 48
-    ca: 30
+  - av: 1
+    ca: 2
+    flores: 1
+  - av: 2
+    ca: 2
+    papeles: 3
+  - av: 2
+    ca: 1
     flores: 1
     papeles: 1
 ---
@@ -46,12 +43,13 @@ Ver [`../ejercicios/ejercicio-04-perimetro-cuadrado-con-papel.md`](../ejercicios
 
 ## Análisis
 
-Recorrer un perímetro cuadrado en R-info es "avanzar N pasos, girar a la derecha", repetido 4 veces. El archivo histórico hace esto dos veces con lado 18 (no con lado 1, como el cuadrado literal (1,1)-(2,2) del ejercicio 3): primero un perímetro sin recoger nada, y después — tras reposicionarse en (30,30) — un segundo perímetro del mismo tamaño recogiendo flor y papel en cada esquina.
+Recorrer un perímetro en R-info es repetir 4 veces "avanzar un lado y girar a la derecha". Como el cuadrado va de (1,1) a (2,2), cada lado mide un solo paso. Las esquinas del recorrido son exactamente los cuatro vértices: (1,1), (1,2), (2,2) y (2,1).
 
 ## Estrategia
 
-1. Recorrer un cuadrado de lado 18 (`repetir 4 { repetir 18 mover; derecha }`) sin acciones adicionales, como demostración del patrón base.
-2. Reposicionarse en (30,30) y recorrer un segundo cuadrado igual, esta vez con `tomarFlor` y `tomarPapel` en cada esquina intermedia.
+1. En cada vértice, antes de salir, preguntar si hay papel y tomar uno si lo hay.
+2. Avanzar un paso y girar a la derecha.
+3. Repetir 4 veces. El robot vuelve a (1,1) mirando al norte.
 
 ## Código relacionado
 
@@ -63,17 +61,9 @@ robots
   robot robot1
   comenzar
     repetir 4
-      repetir 18
-        mover
-      derecha
-    Pos(30,30)
-    repetir 4
-      repetir 18
-        mover
-        si HayFlorEnLaEsquina
-          tomarFlor
-        si HayPapelEnLaEsquina
-          tomarPapel
+      si HayPapelEnLaEsquina
+        tomarPapel
+      mover
       derecha
   fin
 variables
@@ -86,23 +76,23 @@ fin
 
 Código completo: [`../codigo/ejercicio-04.ri`](../codigo/ejercicio-04.ri)
 
-## El cuadrado del código es más grande que el del enunciado
+## Escenario de prueba
 
-El enunciado pide el cuadrado de lado 1 que va de (1,1) a (2,2). El código traza dos cuadrados de lado 18: el primero arranca en (1,1) y no recoge nada, el segundo va de (30,30) a (48,48) levantando flor y papel en cada esquina, cuando el enunciado solo pide papel. La técnica es la misma. Si cambiás los dos `repetir 18` por `repetir 1`, tenés el cuadrado del enunciado.
+Con papel en (1,1), (2,2) y (2,1), y flores en (1,2) y (2,1), el robot toma un papel en (1,1), uno en (2,2) (de los 3 que hay) y uno en (2,1). Las flores no se tocan: el enunciado pide solo papel. Termina en (1,1) con 3 papeles en la bolsa.
 
 ## Casos límite
 
-- Esquina sin nada: por eso van los `si`. En R-Info, `tomarFlor` o `tomarPapel` en una esquina vacía corta el programa con un error.
-- Poné los objetos entre (30,30) y (48,48). El primer cuadrado no recoge nada, es solo el patrón base.
+- Esquina sin papel: por eso va el `si`. En R-Info, `tomarPapel` en una esquina sin papel corta el programa con un error.
+- Esquina con varios papeles: se toma uno solo, como pide el enunciado.
 
 ## Errores frecuentes
 
-- Olvidar el `Pos(30,30)`. Los dos cuadrados se superponen y el segundo recorre las mismas esquinas que el primero.
-- Levantar antes de mover. Si ponés `tomarFlor` arriba del `mover`, buscás en la esquina de la que ya estás saliendo y te salteás la última de cada lado.
+- Preguntar después del `mover`. Si ponés el `si` abajo del `mover`, la esquina de salida (1,1) se revisa recién al final, cuando el robot vuelve: funciona igual, pero si después agregás pasos al recorrido es fácil olvidarla.
+- Usar `mientras HayPapelEnLaEsquina` en vez de `si`: levanta todos los papeles de la esquina, no uno.
 
 ## Complejidad
 
-Dos recorridos de perímetro de longitud fija (4×18 pasos cada uno): O(1) respecto al tamaño de la ciudad, ya que el lado del cuadrado está fijo en el código.
+Cuatro pasos y cuatro preguntas: O(1), el recorrido no depende del tamaño de la ciudad.
 
 ## Fuentes y archivos relacionados
 

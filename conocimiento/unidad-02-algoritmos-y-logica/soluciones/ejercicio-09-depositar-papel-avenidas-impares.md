@@ -21,7 +21,7 @@ codigo_relacionado:
   - "../codigo/ejercicio-09.ri"
 escenario_bolsa:
   flores: 0
-  papeles: 5
+  papeles: 50
 ---
 
 # Solución: depositar papel en las avenidas impares de la calle 17
@@ -32,12 +32,13 @@ Ver [`../ejercicios/ejercicio-09-depositar-papel-avenidas-impares.md`](../ejerci
 
 ## Análisis
 
-En vez de moverse esquina por esquina, el código salta directamente de avenida impar en avenida impar con `Pos(PosAv+2,17)`, que reposiciona al robot sin necesidad de calcular `PosAv mod 2`. Al partir de la avenida 1 (impar) y sumar 2 en cada paso, todas las posiciones visitadas son impares por construcción.
+Las avenidas impares de la calle 17 son la 1, 3, 5, ..., 99: cincuenta en total. Si el robot arranca en la avenida 1 mirando al este, basta con depositar y avanzar dos esquinas, así siempre cae en una impar sin tener que calcular nada. Después de la avenida 99 queda un último paso hasta la 100, que es donde el enunciado dice que termina el recorrido.
 
 ## Estrategia
 
-1. Reposicionar el robot en (1,17).
-2. Repetir 49 veces: saltar a la siguiente avenida impar (`Pos(PosAv+2,17)`) y, si hay papel en la bolsa, depositarlo.
+1. Ubicar al robot en (1,17) y girarlo hacia el este.
+2. Repetir 49 veces: depositar un papel (si queda alguno en la bolsa) y avanzar dos esquinas. Eso cubre de la avenida 1 a la 97 y deja al robot en la 99.
+3. Depositar en la 99 y dar el último paso hasta (100,17).
 
 ## Código relacionado
 
@@ -51,9 +52,13 @@ robots
     Pos(1,17)
     derecha
     repetir 49
-      Pos(PosAv+2,17)
       si HayPapelEnLaBolsa
         depositarPapel
+      mover
+      mover
+    si HayPapelEnLaBolsa
+      depositarPapel
+    mover
   fin
 variables
   R-Info: robot1
@@ -65,28 +70,24 @@ fin
 
 Código completo: [`../codigo/ejercicio-09.ri`](../codigo/ejercicio-09.ri)
 
-## Corrección aplicada durante esta organización
-
-El archivo histórico usaba `HayFlorEnLaBolsa`/`depositarFlor` en vez de `HayPapelEnLaBolsa`/`depositarPapel`, igual que el ejercicio 2 — el enunciado y el comentario `{...}` del archivo hablan de papeles. Se corrigió el tipo de objeto sin tocar la lógica de movimiento (los saltos con `Pos` no dependen del giro `derecha` inicial, que en este archivo no afecta el resultado porque el reposicionamiento es siempre absoluto).
-
 ## Escenario de prueba
 
-Arrancá con papeles en la bolsa. El robot salta de dos en dos y los va dejando en las avenidas 3, 5, 7, y así hasta la 99.
+Con 50 papeles en la bolsa, el robot deja uno en cada avenida impar de la calle 17, de la 1 a la 99, y termina en (100,17) con la bolsa vacía. Con menos papeles, deposita mientras le queden y sigue caminando igual hasta la 100.
 
 ## Casos límite
 
-- La esquina de partida (1,17) queda sin papel, aunque la avenida 1 sea impar. El primer `Pos` del `repetir` la saltea y manda el robot directo a la avenida 3.
-- El recorrido termina en la avenida 99. El enunciado habla de la esquina (100,17), pero la avenida 100 es par y el patrón de saltos nunca la pisa.
+- La avenida 1 también es impar: el primer depósito se hace antes de moverse.
+- La avenida 99 queda fuera del `repetir` porque después de ella hay un solo paso, no dos. Si la metés adentro con un `repetir 50`, el segundo `mover` de la última vuelta saca al robot de la ciudad.
 
 ## Errores frecuentes
 
-- Escribir `HayFlorEnLaBolsa` y `depositarFlor`. Acá se piden papeles, y las primitivas de flor no dan error: la calle 17 queda sin nada.
-- Contar mal las repeticiones. Entre la 3 y la 99 hay 49 avenidas impares, así que un `repetir 50` manda el robot a la avenida 101 y se sale de la ciudad.
-- Suponer que el `derecha` del principio hace algo. `Pos` reposiciona en coordenadas absolutas, mire el robot a donde mire.
+- Escribir `HayFlorEnLaBolsa` y `depositarFlor`. Acá se piden papeles, y la calle 17 queda sin nada.
+- Olvidar el `derecha`. El robot arranca mirando al norte y sube por la avenida 1 en vez de recorrer la calle 17.
+- Saltar con `Pos(PosAv+2,17)`: así el robot nunca pasa por la avenida 100 y el recorrido termina en la 99, no donde pide el enunciado.
 
 ## Complejidad
 
-49 saltos fijos: O(1) respecto al tamaño de la ciudad (el rango de avenidas está fijo en el código).
+99 pasos fijos: O(1) respecto al tamaño de la ciudad (el rango de avenidas está fijo en el código).
 
 ## Fuentes y archivos relacionados
 

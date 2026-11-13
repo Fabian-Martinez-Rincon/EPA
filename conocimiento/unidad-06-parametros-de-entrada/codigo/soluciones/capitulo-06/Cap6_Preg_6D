@@ -1,36 +1,24 @@
 {Ejercitación, ejercicio 6.d): Utilice el proceso de 6.a) para recorrer las avenidas pares de la ciudad.}
 
-programa  parametros
+programa parametros
 procesos
-  proceso izquierda
+  proceso RecorrerAvenida(E numAv:numero)
   comenzar
-    repetir 2
-      derecha
-  fin
-  proceso JuntarFlor(E avenida:numero;E NumFlores:numero)
-  variables
-    CantFlores:numero
-    num:numero
-  comenzar
-    num:=0
-    Pos(avenida,1)
-    repetir 50
-      repetir 99
-        mover
-      si(PosAv<100)
-        Pos(PosAv+2,1)
+    Pos(numAv,1)
+    repetir 99
+      mover
   fin
 areas
   ciudad: AreaC(1,1,100,100)
 robots
   robot robot1
   variables
-    avenidad:numero
-    NFlores:numero
+    av:numero
   comenzar
-    NFlores:=4
-    avenidad:=2
-    JuntarFlor(avenidad,NFlores)
+    av:=2
+    repetir 50
+      RecorrerAvenida(av)
+      av:=av+2
   fin
 variables
   robin: robot1

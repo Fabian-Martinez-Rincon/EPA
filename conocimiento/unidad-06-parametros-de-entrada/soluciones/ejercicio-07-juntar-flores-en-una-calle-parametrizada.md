@@ -37,37 +37,36 @@ Ver [`../ejercicios/ejercicio-07-juntar-flores-en-una-calle-parametrizada.md`](.
 
 ## Análisis
 
-Recorrer "una calle" significa moverse manteniendo la calle fija y la avenida variable; como el robot arranca sin girar, hace falta un único `derecha` para que `mover` pase a incrementar `PosAv` en vez de `PosCa`. El proceso `JuntarFlor(E calle:numero; E NumFlores:numero)` reposiciona con `Pos(PosAv,calle)` (conserva la avenida actual, fija la calle pedida), gira, y recorre la calle avenida por avenida: en cada esquina levanta **todas** las flores que haya ahí (`mientras HayFlorEnLaEsquina`) antes de avanzar, y se detiene en cuanto junta la cantidad pedida (`CantFlores<NumFlores`) o llega al borde de la ciudad (`PosAv<100`, una condición de seguridad que en la práctica no debería activarse porque el enunciado garantiza que la cantidad pedida existe en el camino).
+Recorrer una calle es moverse con la calle fija y la avenida variable. El robot arranca mirando al norte, así que hace falta un `derecha` para que `mover` lo lleve hacia el este, por la calle.
 
-Los dos parámetros de entrada (`calle`, `NumFlores`) se usan exactamente como el capítulo indica que deben usarse: solo se leen, nunca se les asigna un valor dentro del proceso (la cuenta de flores recogidas se acumula en `CantFlores`, una variable local propia del proceso).
+El proceso `CalleFlor(E calle:numero; E NumFlores:numero)` ubica al robot en la calle pedida con `Pos(PosAv,calle)`, gira y cuenta las flores que junta en una variable local, `CantFlores`, que arranca en 0. En cada vuelta toma **una** flor si hay, o avanza si la esquina está vacía. Así una esquina con muchas flores se va vaciando de a una, y el ciclo corta justo cuando la cuenta llega a `NumFlores`, sin levantar ni una de más. Como el enunciado garantiza que esas flores existen, no hace falta preguntar por el borde de la ciudad.
+
+Los dos parámetros de entrada solo se leen: la cuenta se lleva en `CantFlores`, no en `NumFlores`.
 
 ## Estrategia
 
-1. Declarar `proceso JuntarFlor(E calle:numero; E NumFlores:numero)` con una variable local `CantFlores` inicializada implícitamente en 0.
-2. Reposicionar con `Pos(PosAv,calle)` y girar a la derecha para orientarse a lo largo de la calle.
-3. Mientras no se llegue al borde de la ciudad y falten flores por juntar: levantar todas las flores de la esquina actual y avanzar.
+1. Declarar `proceso CalleFlor(E calle:numero; E NumFlores:numero)` con la variable local `CantFlores`, y ponerla en 0.
+2. Ubicar al robot con `Pos(PosAv,calle)` y girar a la derecha.
+3. Mientras `CantFlores<NumFlores`: si hay flor, tomarla y sumar 1; si no, avanzar.
 
 ## Código relacionado
 
 ```rinfo
 programa  parametros
 procesos
-  proceso izquierda
-  comenzar
-    repetir 2
-      derecha
-  fin
-  proceso JuntarFlor(E calle:numero;E NumFlores:numero)
+  proceso CalleFlor(E calle:numero;E NumFlores:numero)
   variables
     CantFlores:numero
   comenzar
+    CantFlores:=0
     Pos(PosAv,calle)
     derecha
-    mientras(PosAv<100)&(CantFlores<NumFlores)
-      mientras(HayFlorEnLaEsquina)
+    mientras(CantFlores<NumFlores)
+      si(HayFlorEnLaEsquina)
         tomarFlor
         CantFlores:=CantFlores+1
-      mover
+      sino
+        mover
   fin
 areas
   ciudad: AreaC(1,1,100,100)
@@ -79,7 +78,7 @@ robots
   comenzar
     NFlores:=4
     callejon:=19
-    JuntarFlor(callejon,NFlores)
+    CalleFlor(callejon,NFlores)
   fin
 variables
   robin: robot1
@@ -93,22 +92,22 @@ Código completo: [`../codigo/soluciones/capitulo-06/Cap6_Preg_7`](../codigo/sol
 
 ## Escenario de prueba
 
-Sembrá flores en la calle 19, sobre la avenida 1 y las que siguen: ahí es donde camina el robot. El programa arranca en (1,1), salta a (1,19) y avanza hacia el este. Con 4 flores repartidas en esas esquinas el proceso completa la cuenta y se frena.
+Con una flor en (3,19), dos en (6,19), una en (10,19) y tres en (15,19), el robot junta las 4 que pide el programa y se queda en (10,19), donde tomó la cuarta. Las tres de la avenida 15 quedan donde estaban.
 
 ## Casos límite
 
-- Una esquina puede tener varias flores. El `mientras(HayFlorEnLaEsquina)` las levanta todas antes de avanzar, así que la cuenta puede saltar de 1 a 4 en una sola esquina.
-- El `mover` de la última vuelta se ejecuta igual después de levantar la cuarta flor. El robot queda una avenida más adelante de donde la juntó.
-- En la avenida 100 ya no levanta nada. La condición `PosAv<100` corta el `mientras` antes de revisar esa esquina.
+- Una esquina con más flores de las que faltan: el robot toma solo las que necesita y deja el resto. Con 7 flores en (4,19), junta 4 y deja 3.
+- El robot termina parado en la esquina donde tomó la última flor, no una más adelante: cuando la cuenta se completa, el ciclo corta antes del próximo `mover`.
 
 ## Errores frecuentes
 
-- Usar `si(HayFlorEnLaEsquina)` en vez de `mientras`. El robot levanta una sola flor por esquina y puede terminar la calle sin completar la cuenta.
-- Olvidar el `derecha` inicial. El robot sube por la avenida 1 en vez de recorrer la calle 19 hacia la derecha.
+- No poner `CantFlores:=0`. Inicializar el contador es parte del algoritmo: no dependas del valor con el que el ambiente crea la variable. Si la cuenta no arranca en 0, el robot junta de menos o de más.
+- Vaciar la esquina con `mientras(HayFlorEnLaEsquina)` adentro del ciclo. Si la esquina tiene más flores de las que faltan, el robot las levanta todas y se pasa de lo pedido.
+- Olvidar el `derecha` inicial. El robot sube por la avenida 1 en vez de recorrer la calle 19.
 
 ## Complejidad
 
-En el peor caso recorre hasta 99 esquinas de la calle indicada (todo el ancho de la ciudad): O(n) respecto del tamaño de la ciudad, acotado por la garantía del enunciado de que las flores pedidas existen antes de llegar al final.
+En el peor caso recorre la calle entera: O(n) respecto del ancho de la ciudad, más una vuelta por cada flor que toma.
 
 ## Fuentes y archivos relacionados
 
